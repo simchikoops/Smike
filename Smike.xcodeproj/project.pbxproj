@@ -52,6 +52,7 @@
 		55010ABB27518DEE0049E9AE /* SmikeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmikeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55010ABF27518DEE0049E9AE /* SmikeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmikeUITests.swift; sourceTree = "<group>"; };
 		55010AC127518DEE0049E9AE /* SmikeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmikeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		55010ACE27518FA20049E9AE /* Project.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Project.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +83,7 @@
 		55010A8F27518DEC0049E9AE = {
 			isa = PBXGroup;
 			children = (
+				55010ACE27518FA20049E9AE /* Project.md */,
 				55010A9A27518DEC0049E9AE /* Smike */,
 				55010AB427518DEE0049E9AE /* SmikeTests */,
 				55010ABE27518DEE0049E9AE /* SmikeUITests */,
