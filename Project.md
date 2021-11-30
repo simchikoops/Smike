@@ -1,7 +1,8 @@
 # To-do
-
-* Git
-* https://www.raywenderlich.com/1748-sprite-kit-tutorial-drag-and-drop-sprites
+  
+* DashNode, PrintNode under scene
+  Scene.rootnode become printnode
+  Vert/horiz switching
 
 # Steps
 
@@ -31,10 +32,13 @@
   * Surface
   * Proximity types (mountain, tree, gate, bridge, etc.)
   * Tilt
+  * Spawn sequence
+  * Foreground sprite references (don't need heal behind)
 * portrait/landscape
 * Coin spawn points w/depth
 * Mortal highlight color
 * Distractor animations
+* Music, background sounds
 
 # Zones
 
@@ -52,12 +56,36 @@ More:
 * Tor-e-a strike with double tap. X per mission (save!)
 * Tap for bonus coins (quick appear/disappear)
 
+# Scoreboard
+
+Two orientations.
+
+* Level name
+* Zen count
+* Coin count
+* Level progress?
+* Controls: Pause, exit
+
 # Coin system
 
-* Earn completing levels
-* Also earn by tapping fast 
+* Earn by completing levels
+* Also earn by tapping fast on coins
 * Spend on special heroes & torea strikes
 * Buy coins with $
+* Kanei Tsuho appearance (square hole)
+
+# Zen system
+
+* Priests earn zen
+* Each hero has a zen cost
+* Also zen pop up on screen fleetingly
+* Symbol: Enso? Yin-yang? Lotus flower?
+
+# Updated Gameplay
+
+Mission sequences with related scenery & demons. No boss fights, but interspersed with challenging stages. Option to buy between scenes.
+
+Challenging stage is all coin fountains, can't lose.
 
 # Gameplay
 
@@ -67,7 +95,7 @@ Planes of various depths defined on top of print. Plane has a surface type and p
 
 Demons arrive and attack the mortals, sucking them into hell if they can. If any of the mortals die you lose. You place heroes in planes to protect them from demons and to fight back against them. Demons attack both mortals and heroes.
 
-Zen points are required to place heroes. Placed clergy increase zen points. Otherwise they increase slowly on their own.
+Zen points are required to place heroes. Placed clergy increase zen points.
 
 Defeat all the demons the spawn in a level to win the level.
 
@@ -79,35 +107,46 @@ You earn new heroes with new & better powers. You can use any of them. Arrange y
 
 # Boss fights
 
-One giant demon that moves among zones.
+One giant demon that moves among zones. Special behaviour class, but otherwise a normal level scene.
 
 # Missions
 
+Number of levels per mission?
+
+## Road
 ## Mountains
 ## Water
 ## Snow
 ## Urban
+
+Purchasable:
 ## Bridges
+## Castles
+## Temples
 
 # Heros
 
-## Warriors
+Distinctive shapes needed for smaller sizes.
+
+## Warriors (projecting weapons)
 ### Samurai
+https://ukiyo-e.org/image/waseda/006-1522 (More from this artist)
 ### Ronin
 ### Ninja
 ### Lord
 
 Direct attacks, delaying attacks, area attacks.
 
-## Protectors
+## Protectors/Frighteners
 ### Fat guys
 ### Martial artist
+### Actors?
 
-## Healers
+## Healers (skinny)
 ### Bijin
 ### Geisha
 
-## Clerics
+## Clerics (roundish)
 ### Shinto Priest
 ### Buddhist Priest
 ### Buddhist Nuns
@@ -131,7 +170,7 @@ Brightly colored, color changes. Larger things have more HP. Flash when hit, dif
 
 # Story
 
-"IN OLD JAPAN the gates of hell have opened. Unseen demons drag mortals to their doom. Only you and your heroes can save them."
+"IN OLD JAPAN the gates of hell have opened. Unseen demons drag mortals to their doom. Only your heroes can save them."
 
 # Boss images
 - https://ukiyo-e.org/image/kruml/warriors47#&gid=1&pid=1
@@ -152,7 +191,7 @@ Brightly colored, color changes. Larger things have more HP. Flash when hit, dif
 - 02 p 32 Ninja
 - 02 p 104 Progression
 
-# Good backgrounds
+# Good prints
 - https://ukiyo-e.org/image/chazen/1980_1067 Vert, water
 - https://ukiyo-e.org/image/mfa/sc208280 Horiz, mountain, bridge
 - https://ukiyo-e.org/image/wbp/1017108091 Horiz, windy, action, water
@@ -165,6 +204,24 @@ Brightly colored, color changes. Larger things have more HP. Flash when hit, dif
 - https://ukiyo-e.org/image/jaodb/Hiroshige_1_Ando-53_Stations_of_the_Tokaido-Snow_at_Yamanaka_Village_Near_Fujikawa-00027073-011228-F06 vert, winter
 - https://ukiyo-e.org/image/mfa/sc150121 horiz, clear, winter
 - https://ukiyo-e.org/image/honolulu/5841 horiz, combo
+
+  https://ukiyo-e.org/image/mfa/sc172928
+  
+  https://ukiyo-e.org/image/mfa/sc208863
+  https://ukiyo-e.org/image/met/DP141008
+  https://ukiyo-e.org/image/mfa/sc146015
+  https://ukiyo-e.org/image/famsf/5076163106620055
+  https://ukiyo-e.org/image/harvard/HUAM-CARP04028
+  https://ukiyo-e.org/image/mia/9160
+  https://ukiyo-e.org/image/met/DP141258 vert
+  https://ukiyo-e.org/image/mfa/sc143124
+  https://ukiyo-e.org/image/chazen/1980_2414
+  https://ukiyo-e.org/image/ohmi/Hokusai_Katsushika-36_Fuji-Yuyudo-Inume_Touge-01-07-07-2007-8799-x2000
+  https://ukiyo-e.org/image/mfa/sc219453
+  https://ukiyo-e.org/image/mfa/sc224667
+  https://ukiyo-e.org/image/mfa/sc130503
+  https://ukiyo-e.org/image/met/DP141077
+
 
 # Scaling
 - Long side: 1536 px
