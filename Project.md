@@ -1,15 +1,17 @@
 # To-do
-  
-* DashNode, PrintNode under scene
-  Scene.rootnode become printnode
-  Vert/horiz switching
+
+* Read about physics, collisions, masking
+* Undo colorization
+* Hero image: samurai
 
 # Steps
 
-* Top-level configuration
-* Level loading
-* Layouts: portrait and landscape
-  Hero wells change orientation too
+* Hero movement along track (track construction)
+* Control by drag
+* Control by buttons
+* Demon tracks & spawning
+* Demon attacks
+* Hero attacks
 
 # Fundamentals
 
