@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		55010A9C27518DEC0049E9AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55010A9B27518DEC0049E9AE /* AppDelegate.swift */; };
-		55010AA027518DEC0049E9AE /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55010A9F27518DEC0049E9AE /* Actions.sks */; };
 		55010AA427518DEC0049E9AE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55010AA327518DEC0049E9AE /* GameViewController.swift */; };
 		55010AA727518DEC0049E9AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55010AA527518DEC0049E9AE /* Main.storyboard */; };
 		55010AA927518DEE0049E9AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55010AA827518DEE0049E9AE /* Assets.xcassets */; };
@@ -20,6 +19,8 @@
 		55337A552756A32400407618 /* AttributionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55337A542756A32400407618 /* AttributionComponent.swift */; };
 		55337A572756A57300407618 /* LevelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55337A562756A57300407618 /* LevelScene.swift */; };
 		55337A5A2756AE1D00407618 /* PortraitDash.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55337A592756AE1D00407618 /* PortraitDash.sks */; };
+		55337A5C275804D600407618 /* M1L2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55337A5B275804D600407618 /* M1L2.sks */; };
+		55337A5E27581EF800407618 /* LandscapeDash.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55337A5D27581EF800407618 /* LandscapeDash.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +43,6 @@
 /* Begin PBXFileReference section */
 		55010A9827518DEC0049E9AE /* Smike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55010A9B27518DEC0049E9AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		55010A9F27518DEC0049E9AE /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		55010AA327518DEC0049E9AE /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		55010AA627518DEC0049E9AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		55010AA827518DEE0049E9AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,6 +57,8 @@
 		55337A542756A32400407618 /* AttributionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributionComponent.swift; sourceTree = "<group>"; };
 		55337A562756A57300407618 /* LevelScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelScene.swift; sourceTree = "<group>"; };
 		55337A592756AE1D00407618 /* PortraitDash.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PortraitDash.sks; sourceTree = "<group>"; };
+		55337A5B275804D600407618 /* M1L2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = M1L2.sks; sourceTree = "<group>"; };
+		55337A5D27581EF800407618 /* LandscapeDash.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LandscapeDash.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +114,6 @@
 				55337A532756A1B500407618 /* Components */,
 				55337A4E2755AF4B00407618 /* Levels */,
 				55010A9B27518DEC0049E9AE /* AppDelegate.swift */,
-				55010A9F27518DEC0049E9AE /* Actions.sks */,
 				55337A562756A57300407618 /* LevelScene.swift */,
 				55010AA327518DEC0049E9AE /* GameViewController.swift */,
 				55010AA527518DEC0049E9AE /* Main.storyboard */,
@@ -143,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				55337A512755B00200407618 /* M1L1.sks */,
+				55337A5B275804D600407618 /* M1L2.sks */,
 			);
 			path = Levels;
 			sourceTree = "<group>";
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				55337A592756AE1D00407618 /* PortraitDash.sks */,
+				55337A5D27581EF800407618 /* LandscapeDash.sks */,
 			);
 			path = "Reference Nodes";
 			sourceTree = "<group>";
@@ -270,9 +273,10 @@
 				55337A522755B00200407618 /* M1L1.sks in Resources */,
 				55010AA727518DEC0049E9AE /* Main.storyboard in Resources */,
 				55010AA927518DEE0049E9AE /* Assets.xcassets in Resources */,
+				55337A5E27581EF800407618 /* LandscapeDash.sks in Resources */,
+				55337A5C275804D600407618 /* M1L2.sks in Resources */,
 				55010AAC27518DEE0049E9AE /* LaunchScreen.storyboard in Resources */,
 				55337A5A2756AE1D00407618 /* PortraitDash.sks in Resources */,
-				55010AA027518DEC0049E9AE /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

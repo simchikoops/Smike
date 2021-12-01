@@ -1,7 +1,7 @@
 # To-do
 
-* Read about physics, collisions, masking
-* Undo colorization
+* Level c as horiz
+  Add mortals
 * Hero image: samurai
 
 # Steps
@@ -42,16 +42,22 @@
 * Distractor animations
 * Music, background sounds
 
-# Zones
+# Tracks
 
 * Defined in editor
-* Node containing action within; scaled as a group
+* Continuous scaling
+
+# Coin fountains
+
+Coins fall from the sky, using gravity, can bounce. Heroes must catch them.
+
+Some coins are special (ingots) and worth more than cash.
+
+# Inverse Kinematics
+
+https://www.raywenderlich.com/1158-spritekit-and-inverse-kinematics-with-swift
 
 # Player Interaction
-
-Primary: dragging heroes to planes. Or, select tap and place tap. Heroes are proxies that can't be directly controlled (mostly because of phone space).
-
-"Place heroes to save mortals" boxed by highlight color
 
 More:
 * Arranging palette of heroes for quick access
@@ -223,6 +229,15 @@ Brightly colored, color changes. Larger things have more HP. Flash when hit, dif
   https://ukiyo-e.org/image/mfa/sc224667
   https://ukiyo-e.org/image/mfa/sc130503
   https://ukiyo-e.org/image/met/DP141077
+  
+  https://ukiyo-e.org/image/honolulu/7367
+  https://ukiyo-e.org/image/mfa/sc213041#&gid=1&pid=1
+  https://ukiyo-e.org/image/mfa/sc128188#&gid=1&pid=1
+  https://ukiyo-e.org/image/mfa/sc208929
+  https://ukiyo-e.org/image/mfa/sc208985
+  https://ukiyo-e.org/image/mfa/sc207822
+  https://ukiyo-e.org/image/japancoll/p4500-hiroshige-night-view-of-saruwaka-machi-7413 
+  https://ukiyo-e.org/image/mfa/sc208894
 
 
 # Scaling
