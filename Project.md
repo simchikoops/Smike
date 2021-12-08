@@ -1,8 +1,9 @@
 # To-do
 
-* Level c as horiz
-  Add mortals
-* Hero image: samurai
+* Hero placement: 0.0 to 1.0 along track
+  https://stackoverflow.com/questions/1906511/how-to-find-the-distance-between-two-cg-points
+  
+* Organize layers
 
 # Steps
 
@@ -12,6 +13,81 @@
 * Demon tracks & spawning
 * Demon attacks
 * Hero attacks
+
+# Consider
+
+* Demon track networks (construction)
+* Coordinating demon and hero network
+  Attack directions?
+* Demon generators, directions
+  Coordination across generators: all at once
+* High level goals? Limiting scope
+* Level up hero types with coins? Choose your favorite
+  Stronger attacks, more hp, better defense, faster
+* IK/Reach?
+* Boss fights? or challenging stages
+
+# Hero types
+
+* Bijin (land): fast comb hits
+* Samurai (land): timed strikes (nearness counts)
+* Ninja (rooftops, in buildings): also timed strikes
+* Birds (air): thrown seeds (up)
+* Boatmen (water): Casting?
+* Tigers (forest): Pounces (hit multiple)
+* Farmers (land): Strike demons burrowing up with implements
+* Horses (roads/bridges): Trample (need running start)
+* Elephants: Horse-like, for big landscapes
+* Flying elephants?
+
+# Hero aspects
+
+* Speed
+* Size (vulnerability)
+* Hit points
+* Attack type (single)
+  Attack strength: some demons can't be hit by some attack types
+* (Track length)
+* Minimum attack interval
+
+# Attack types
+
+* Aerial: shoot
+* Samurai: fast tap for sword strike
+* Bijin: Comb strike?
+* Fisherman/Spearmen/archers: Hold to aim
+  Facing in one direction
+* vs ground: whack-a-mole (before they get strong or invulnerable)
+* Secondary attacks with spin gesture? Special, limited attack
+  Place a grenade and run, short lifetime. Can hurt other heroes.
+  Special attack to slow down, but not damage, demons.
+
+All: catch coins, avoid waves by hiding in gaps
+
+Supported strikes: stronger when at edge with another at adjacent edge. Some demons can only
+be hit by combos.
+
+Multi-gesture on area or on attack button? 
+Pinch, Rotation, swipe, pan
+
+# Strategy
+
+* Quick toggles among heroes, constantly scanning
+* Good timing of toriya
+* Remembering attack patterns, which have little/no rng
+* Supported strikes
+* Defense mode? Pinch to defend, zoom to resume. Can't move/attack when defending
+
+# Power strikes (toriya)
+
+* Stops all demons (except bosses?)
+* Upgrade: also revives heroes
+
+# Colors
+
+* Red: Demons
+* Blue: Mortals
+* Yello: Selected hero
 
 # Fundamentals
 
@@ -23,6 +99,16 @@
 
 * Bonus missions
 * Coins for special heroes
+
+# Level design
+
+Principle: Every level should have something new apart from the print. Something taught or revealed.
+
+Some levels allow NO mortals killed.
+
+Hero tracks visible, monster not. Some monster generators visible. Heroes start at 0.5 on the track.
+
+Hero tracks have interesting interactions. Near approaches allow supported attacks. Painful gaps. Differences in length and curviness, but in general, no more than half-circle inscribed.
 
 # Level Attributes
 
@@ -238,6 +324,19 @@ Brightly colored, color changes. Larger things have more HP. Flash when hit, dif
   https://ukiyo-e.org/image/mfa/sc207822
   https://ukiyo-e.org/image/japancoll/p4500-hiroshige-night-view-of-saruwaka-machi-7413 
   https://ukiyo-e.org/image/mfa/sc208894
+
+# Heroes images
+
+## Samurai "Faithful Samurai"
+  https://ukiyo-e.org/image/bm/AN00588016_001_l
+  https://ukiyo-e.org/image/mfa/sc234237
+  https://ukiyo-e.org/image/japancoll/p185-yoshitora-okuda-tadaemon-fujiwara-no-yukitaka-8628
+  https://ukiyo-e.org/image/met/DP132861
+  https://ukiyo-e.org/image/mfa/sc234267
+  https://ukiyo-e.org/image/bm/AN00460808_001_l
+  https://ukiyo-e.org/image/japancoll/p325-yoshiiku-kusunoki-shichorozaemon-masatomo-11085
+
+
 
 
 # Scaling

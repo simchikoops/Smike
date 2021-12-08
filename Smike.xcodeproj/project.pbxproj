@@ -21,6 +21,10 @@
 		55337A5A2756AE1D00407618 /* PortraitDash.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55337A592756AE1D00407618 /* PortraitDash.sks */; };
 		55337A5C275804D600407618 /* M1L2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55337A5B275804D600407618 /* M1L2.sks */; };
 		55337A5E27581EF800407618 /* LandscapeDash.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55337A5D27581EF800407618 /* LandscapeDash.sks */; };
+		55C816E42761111F00A810EE /* HeroComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E32761111F00A810EE /* HeroComponent.swift */; };
+		55C816E62761141200A810EE /* EntityProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E52761141200A810EE /* EntityProperties.swift */; };
+		55C816E82761161400A810EE /* RenderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E72761161400A810EE /* RenderComponent.swift */; };
+		55C816EA2761302200A810EE /* DepthComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E92761302200A810EE /* DepthComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,10 @@
 		55337A592756AE1D00407618 /* PortraitDash.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PortraitDash.sks; sourceTree = "<group>"; };
 		55337A5B275804D600407618 /* M1L2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = M1L2.sks; sourceTree = "<group>"; };
 		55337A5D27581EF800407618 /* LandscapeDash.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LandscapeDash.sks; sourceTree = "<group>"; };
+		55C816E32761111F00A810EE /* HeroComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroComponent.swift; sourceTree = "<group>"; };
+		55C816E52761141200A810EE /* EntityProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityProperties.swift; sourceTree = "<group>"; };
+		55C816E72761161400A810EE /* RenderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderComponent.swift; sourceTree = "<group>"; };
+		55C816E92761302200A810EE /* DepthComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +118,7 @@
 		55010A9A27518DEC0049E9AE /* Smike */ = {
 			isa = PBXGroup;
 			children = (
+				55C816E52761141200A810EE /* EntityProperties.swift */,
 				55337A582756AD4E00407618 /* Reference Nodes */,
 				55337A532756A1B500407618 /* Components */,
 				55337A4E2755AF4B00407618 /* Levels */,
@@ -153,6 +162,9 @@
 			isa = PBXGroup;
 			children = (
 				55337A542756A32400407618 /* AttributionComponent.swift */,
+				55C816E92761302200A810EE /* DepthComponent.swift */,
+				55C816E32761111F00A810EE /* HeroComponent.swift */,
+				55C816E72761161400A810EE /* RenderComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -303,8 +315,12 @@
 			files = (
 				55337A552756A32400407618 /* AttributionComponent.swift in Sources */,
 				55010AA427518DEC0049E9AE /* GameViewController.swift in Sources */,
+				55C816E62761141200A810EE /* EntityProperties.swift in Sources */,
+				55C816E42761111F00A810EE /* HeroComponent.swift in Sources */,
+				55C816E82761161400A810EE /* RenderComponent.swift in Sources */,
 				55010A9C27518DEC0049E9AE /* AppDelegate.swift in Sources */,
 				55337A572756A57300407618 /* LevelScene.swift in Sources */,
+				55C816EA2761302200A810EE /* DepthComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

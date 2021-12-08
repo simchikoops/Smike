@@ -14,7 +14,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let scene = GKScene(fileNamed: "M1L2") {
+        if let scene = GKScene(fileNamed: "M1L1") {
             
             if let sceneNode = scene.rootNode as! LevelScene? {
                 
