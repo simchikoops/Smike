@@ -4,7 +4,7 @@ import GameplayKit
 class HeroComponent: GKComponent {
     @GKInspectable var type: String = ""
     
-    var track: [ (position: CGPoint, depth: CGFloat) ] = []
+    var track: Track?
 
     override func didAddToEntity() {
         var trackNodes = entity!.node.children.filter { node in
@@ -18,12 +18,13 @@ class HeroComponent: GKComponent {
         trackNodes.sort { $0.name! < $1.name! }
         
         if let printNode = entity!.printNode {
-            track = trackNodes.map {
+            let trackDots = trackNodes.map {
                 (position: entity!.node.convert($0.position, to: printNode), depth: $0.entity!.depth)
             }
+            track = Track(dots: trackDots)
         }
         
-        print(track)
+        print(track!)
     }
     
     override class var supportsSecureCoding: Bool {

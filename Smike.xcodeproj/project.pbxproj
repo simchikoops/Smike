@@ -21,6 +21,9 @@
 		55337A5A2756AE1D00407618 /* PortraitDash.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55337A592756AE1D00407618 /* PortraitDash.sks */; };
 		55337A5C275804D600407618 /* M1L2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55337A5B275804D600407618 /* M1L2.sks */; };
 		55337A5E27581EF800407618 /* LandscapeDash.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55337A5D27581EF800407618 /* LandscapeDash.sks */; };
+		55AB01D927627B19002FCC4A /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB01D827627B19002FCC4A /* Track.swift */; };
+		55AB01DB27627E1D002FCC4A /* TrackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB01DA27627E1D002FCC4A /* TrackTests.swift */; };
+		55AB01DE2762864C002FCC4A /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 55AB01DD2762864C002FCC4A /* Algorithms */; };
 		55C816E42761111F00A810EE /* HeroComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E32761111F00A810EE /* HeroComponent.swift */; };
 		55C816E62761141200A810EE /* EntityProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E52761141200A810EE /* EntityProperties.swift */; };
 		55C816E82761161400A810EE /* RenderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E72761161400A810EE /* RenderComponent.swift */; };
@@ -63,6 +66,8 @@
 		55337A592756AE1D00407618 /* PortraitDash.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PortraitDash.sks; sourceTree = "<group>"; };
 		55337A5B275804D600407618 /* M1L2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = M1L2.sks; sourceTree = "<group>"; };
 		55337A5D27581EF800407618 /* LandscapeDash.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LandscapeDash.sks; sourceTree = "<group>"; };
+		55AB01D827627B19002FCC4A /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		55AB01DA27627E1D002FCC4A /* TrackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTests.swift; sourceTree = "<group>"; };
 		55C816E32761111F00A810EE /* HeroComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroComponent.swift; sourceTree = "<group>"; };
 		55C816E52761141200A810EE /* EntityProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityProperties.swift; sourceTree = "<group>"; };
 		55C816E72761161400A810EE /* RenderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderComponent.swift; sourceTree = "<group>"; };
@@ -74,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55AB01DE2762864C002FCC4A /* Algorithms in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				55010AB527518DEE0049E9AE /* SmikeTests.swift */,
+				55AB01DA27627E1D002FCC4A /* TrackTests.swift */,
 			);
 			path = SmikeTests;
 			sourceTree = "<group>";
@@ -164,6 +171,7 @@
 				55337A542756A32400407618 /* AttributionComponent.swift */,
 				55C816E92761302200A810EE /* DepthComponent.swift */,
 				55C816E32761111F00A810EE /* HeroComponent.swift */,
+				55AB01D827627B19002FCC4A /* Track.swift */,
 				55C816E72761161400A810EE /* RenderComponent.swift */,
 			);
 			path = Components;
@@ -194,6 +202,9 @@
 			dependencies = (
 			);
 			name = Smike;
+			packageProductDependencies = (
+				55AB01DD2762864C002FCC4A /* Algorithms */,
+			);
 			productName = Smike;
 			productReference = 55010A9827518DEC0049E9AE /* Smike.app */;
 			productType = "com.apple.product-type.application";
@@ -266,6 +277,9 @@
 				Base,
 			);
 			mainGroup = 55010A8F27518DEC0049E9AE;
+			packageReferences = (
+				55AB01DC2762864C002FCC4A /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+			);
 			productRefGroup = 55010A9927518DEC0049E9AE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -318,6 +332,7 @@
 				55C816E62761141200A810EE /* EntityProperties.swift in Sources */,
 				55C816E42761111F00A810EE /* HeroComponent.swift in Sources */,
 				55C816E82761161400A810EE /* RenderComponent.swift in Sources */,
+				55AB01D927627B19002FCC4A /* Track.swift in Sources */,
 				55010A9C27518DEC0049E9AE /* AppDelegate.swift in Sources */,
 				55337A572756A57300407618 /* LevelScene.swift in Sources */,
 				55C816EA2761302200A810EE /* DepthComponent.swift in Sources */,
@@ -329,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55010AB627518DEE0049E9AE /* SmikeTests.swift in Sources */,
+				55AB01DB27627E1D002FCC4A /* TrackTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,6 +694,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		55AB01DC2762864C002FCC4A /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		55AB01DD2762864C002FCC4A /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55AB01DC2762864C002FCC4A /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 55010A9027518DEC0049E9AE /* Project object */;
 }
