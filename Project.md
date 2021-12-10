@@ -1,8 +1,8 @@
 # To-do
 
+* Draw track
+* Create hero rendercomponent
 * Hero placement: 0.0 to 1.0 along track
-  Test: positionAlongTrack(track:, along:)
-  https://stackoverflow.com/questions/1906511/how-to-find-the-distance-between-two-cg-points
   
 * Organize layers
 
