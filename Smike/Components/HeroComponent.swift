@@ -3,6 +3,12 @@ import GameplayKit
 
 enum HeroType: String {
   case samurai
+  
+  var imageName: String {
+    switch self {
+    case .samurai: return "Samurai"
+    }
+  }
 }
 
 class HeroComponent: GKComponent {
@@ -10,8 +16,10 @@ class HeroComponent: GKComponent {
   
   var heroType: HeroType?
   var track: Track?
+  var alongTrack: CGFloat = 0.5
 
   override func didAddToEntity() {
+    guard let printNode = entity?.printNode else { return }
     self.track = createTrack()
     
     let trackNode = SKShapeNode(path: track!.asCGPath())
@@ -20,12 +28,14 @@ class HeroComponent: GKComponent {
     trackNode.lineWidth = 5
     trackNode.glowWidth = 5
     trackNode.lineCap = .round
-    entity!.printNode?.addChild(trackNode)
+    printNode.addChild(trackNode)
     
     self.heroType = HeroType(rawValue: type)
     
-    // let renderComponent = RenderComponent(imageNamed: "\(monsterType)_0", scale: 0.65)
-    // monsterEntity.addComponent(renderComponent)
+    let (position, depth) = track!.positionAndDepthAlong(alongTrack)
+    let renderComponent = RenderComponent(imageNamed: heroType!.imageName, position: position, depth: depth)
+    entity?.addComponent(renderComponent)
+    printNode.addChild(entity!.node)
   }
   
   override class var supportsSecureCoding: Bool {
@@ -34,8 +44,9 @@ class HeroComponent: GKComponent {
   
   private func createTrack() -> Track? {
     guard let printNode = entity!.printNode else { return nil }
+    print(printNode)
     
-    var trackNodes = entity!.node.children.filter { node in
+    var trackNodes = entity!.baseNode.children.filter { node in
       if let name = node.name {
         return name.starts(with: "PT")
       } else {
@@ -48,6 +59,7 @@ class HeroComponent: GKComponent {
     let trackDots = trackNodes.map {
       (position: entity!.node.convert($0.position, to: printNode), depth: $0.entity!.depth)
     }
+    print(trackDots)
     
     trackNodes.forEach { $0.removeFromParent() }
     return Track(dots: trackDots)

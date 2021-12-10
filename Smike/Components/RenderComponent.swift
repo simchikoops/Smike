@@ -10,11 +10,12 @@ class RenderComponent: GKComponent {
     spriteNode = node
   }
   
-  init(imageNamed: String, scale: CGFloat) {
+  init(imageNamed: String, position: CGPoint, depth: CGFloat) {
     super.init()
     
     spriteNode = SKSpriteNode(imageNamed: imageNamed)
-    spriteNode?.setScale(scale)
+    spriteNode?.depth = depth
+    spriteNode?.position = position
   }
   
   override func didAddToEntity() {
