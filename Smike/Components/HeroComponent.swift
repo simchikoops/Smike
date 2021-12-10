@@ -21,10 +21,8 @@ class HeroComponent: GKComponent {
             let trackDots = trackNodes.map {
                 (position: entity!.node.convert($0.position, to: printNode), depth: $0.entity!.depth)
             }
-            track = Track(dots: trackDots)
+            self.track = Track(dots: trackDots)
         }
-        
-        print(track!)
     }
     
     override class var supportsSecureCoding: Bool {
