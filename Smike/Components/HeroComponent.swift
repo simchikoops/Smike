@@ -28,6 +28,7 @@ class HeroComponent: GKComponent {
     trackNode.lineWidth = 5
     trackNode.glowWidth = 5
     trackNode.lineCap = .round
+    trackNode.zPosition = Layer.tracks.rawValue
     printNode.addChild(trackNode)
     
     self.heroType = HeroType(rawValue: type)
@@ -44,7 +45,6 @@ class HeroComponent: GKComponent {
   
   private func createTrack() -> Track? {
     guard let printNode = entity!.printNode else { return nil }
-    print(printNode)
     
     var trackNodes = entity!.baseNode.children.filter { node in
       if let name = node.name {
@@ -59,7 +59,6 @@ class HeroComponent: GKComponent {
     let trackDots = trackNodes.map {
       (position: entity!.node.convert($0.position, to: printNode), depth: $0.entity!.depth)
     }
-    print(trackDots)
     
     trackNodes.forEach { $0.removeFromParent() }
     return Track(dots: trackDots)

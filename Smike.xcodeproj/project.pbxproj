@@ -16,6 +16,7 @@
 		55010AC027518DEE0049E9AE /* SmikeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55010ABF27518DEE0049E9AE /* SmikeUITests.swift */; };
 		55010AC227518DEE0049E9AE /* SmikeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55010AC127518DEE0049E9AE /* SmikeUITestsLaunchTests.swift */; };
 		5513637F2763D10F006BC9B1 /* NodeDepth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5513637E2763D10F006BC9B1 /* NodeDepth.swift */; };
+		5513638127642327006BC9B1 /* Layers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5513638027642327006BC9B1 /* Layers.swift */; };
 		55337A522755B00200407618 /* M1L1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55337A512755B00200407618 /* M1L1.sks */; };
 		55337A552756A32400407618 /* AttributionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55337A542756A32400407618 /* AttributionComponent.swift */; };
 		55337A572756A57300407618 /* LevelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55337A562756A57300407618 /* LevelScene.swift */; };
@@ -62,6 +63,7 @@
 		55010AC127518DEE0049E9AE /* SmikeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmikeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		55010ACE27518FA20049E9AE /* Project.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Project.md; sourceTree = "<group>"; };
 		5513637E2763D10F006BC9B1 /* NodeDepth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDepth.swift; sourceTree = "<group>"; };
+		5513638027642327006BC9B1 /* Layers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layers.swift; sourceTree = "<group>"; };
 		55337A512755B00200407618 /* M1L1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = M1L1.sks; sourceTree = "<group>"; };
 		55337A542756A32400407618 /* AttributionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributionComponent.swift; sourceTree = "<group>"; };
 		55337A562756A57300407618 /* LevelScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelScene.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				55010AA527518DEC0049E9AE /* Main.storyboard */,
 				55010AA827518DEE0049E9AE /* Assets.xcassets */,
 				55010AAA27518DEE0049E9AE /* LaunchScreen.storyboard */,
+				5513638027642327006BC9B1 /* Layers.swift */,
 			);
 			path = Smike;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				55C816E82761161400A810EE /* RenderComponent.swift in Sources */,
 				5513637F2763D10F006BC9B1 /* NodeDepth.swift in Sources */,
 				55AB01D927627B19002FCC4A /* Track.swift in Sources */,
+				5513638127642327006BC9B1 /* Layers.swift in Sources */,
 				55010A9C27518DEC0049E9AE /* AppDelegate.swift in Sources */,
 				55337A572756A57300407618 /* LevelScene.swift in Sources */,
 				55C816EA2761302200A810EE /* DepthComponent.swift in Sources */,

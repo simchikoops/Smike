@@ -1,16 +1,12 @@
 # To-do
-
-* Draw track
-* Create hero rendercomponent
-* Hero placement: 0.0 to 1.0 along track
   
-* Organize layers
+* Tracks have a zPosition, separate from depth
 
 # Steps
 
 * Hero movement along track (track construction)
-* Control by drag
 * Control by buttons
+* Control by drag
 * Demon tracks & spawning
 * Demon attacks
 * Hero attacks
@@ -262,6 +258,9 @@ Brightly colored, color changes. Larger things have more HP. Flash when hit, dif
 ### Peasants
 ### Boats
 ### Buildings
+
+# Optimization
+https://www.hackingwithswift.com/articles/184/tips-to-optimize-your-spritekit-game
 
 # Story
 
