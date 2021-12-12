@@ -11,13 +11,21 @@ enum HeroType: String {
   }
 }
 
+enum MoveDirection {
+  case toLeft
+  case toRight
+  case immobile
+}
+
 class HeroComponent: GKComponent {
   @GKInspectable var type: String = ""
   @GKInspectable var index: Int = 0
   
   var heroType: HeroType?
+  
   var track: Track?
   var alongTrack: CGFloat = 0.5
+  var moving: MoveDirection = .immobile
 
   override func didAddToEntity() {
     guard let printNode = entity?.printNode else { return }
@@ -67,5 +75,26 @@ class HeroComponent: GKComponent {
     
     trackNodes.forEach { $0.removeFromParent() }
     return Track(dots: trackDots)
+  }
+  
+  override func update(deltaTime seconds: TimeInterval) {
+    guard let node = entity?.node as? SKSpriteNode, let track = self.track else { return }
+    
+    let speed = 0.001 // TODO: lookup
+    
+    switch moving {
+    case .toLeft:
+      node.xScale = -1 // look direction
+      alongTrack = (alongTrack - speed).clamped(to: 0...1)
+    case .toRight:
+      node.xScale = 1
+      alongTrack = (alongTrack + speed).clamped(to: 0...1)
+    case .immobile: return // nothing to do
+    }
+    
+    let (position, depth, layer) = track.dotAlong(alongTrack)
+    node.position = position
+    node.depth = depth
+    node.zPosition = layer
   }
 }
