@@ -1,10 +1,12 @@
 import SpriteKit
 import Algorithms
 
+typealias TrackDot = (position: CGPoint, depth: CGFloat)
+
 struct Track {
-  let dots: [ (position: CGPoint, depth: CGFloat) ]
+  let dots: [ TrackDot ]
   
-  init(dots: [ (position: CGPoint, depth: CGFloat) ] ) {
+  init(dots: [ TrackDot ] ) {
     assert(dots.count >= 2, "Not enough dots in track")
     self.dots = dots
   }
@@ -27,7 +29,7 @@ struct Track {
     return path
   }
     
-  func positionAndDepthAlong(_ along: CGFloat) -> (position: CGPoint, depth: CGFloat) {
+  func positionAndDepthAlong(_ along: CGFloat) -> TrackDot {
     assert(along >= 0 && along <= 1, "Along out of range.")
     
     let distanceAlong = along * distance
