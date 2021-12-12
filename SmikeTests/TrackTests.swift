@@ -19,40 +19,40 @@ class TrackTests: XCTestCase {
     }
 
     func testDistance() throws {
-        let track1 = Track(dots: [(position: CGPoint(x: 0, y: 0), depth: 0),
-                                 (position: CGPoint(x: 10, y: 0), depth: 0)])
-        XCTAssertEqual(track1.distance, 10)
+      let track1 = Track(dots: [(position: CGPoint(x: 0, y: 0), depth: 0, layer: 0),
+                               (position: CGPoint(x: 10, y: 0), depth: 0, layer: 0)])
+      XCTAssertEqual(track1.distance, 10)
         
-        let track2 = Track(dots: [(position: CGPoint(x: 0, y: 0), depth: 0),
-                                 (position: CGPoint(x: 0, y: 10), depth: 0)])
-        XCTAssertEqual(track2.distance, 10)
+      let track2 = Track(dots: [(position: CGPoint(x: 0, y: 0), depth: 0, layer: 0),
+                               (position: CGPoint(x: 0, y: 10), depth: 0, layer: 0)])
+      XCTAssertEqual(track2.distance, 10)
 
-        let track3 = Track(dots: [(position: CGPoint(x: 0, y: 0), depth: 0),
-                                  (position: CGPoint(x: 10, y: 10), depth: 0)])
-        XCTAssertEqual(track3.distance, sqrt(200), accuracy: 0.0001)
+      let track3 = Track(dots: [(position: CGPoint(x: 0, y: 0), depth: 0, layer: 0),
+                                (position: CGPoint(x: 10, y: 10), depth: 0, layer: 0)])
+      XCTAssertEqual(track3.distance, sqrt(200), accuracy: 0.0001)
         
-        let track4 = Track(dots: [(position: CGPoint(x: 0, y: 0), depth: 0),
-                                  (position: CGPoint(x: 10, y: 0), depth: 0),
-                                  (position: CGPoint(x: 10, y: 10), depth: 0)])
-        XCTAssertEqual(track4.distance, 20)
+      let track4 = Track(dots: [(position: CGPoint(x: 0, y: 0), depth: 0, layer: 0),
+                                (position: CGPoint(x: 10, y: 0), depth: 0, layer: 0),
+                                (position: CGPoint(x: 10, y: 10), depth: 0, layer: 0)])
+      XCTAssertEqual(track4.distance, 20)
     }
     
     func testPositionAndPointAlong() throws {
-        let track1 = Track(dots: [(position: CGPoint(x: 0, y: 0), depth: 0),
-                                  (position: CGPoint(x: 10, y: 0), depth: 1.0)])
+      let track1 = Track(dots: [(position: CGPoint(x: 0, y: 0), depth: 0, layer: 0),
+                                (position: CGPoint(x: 10, y: 0), depth: 1.0, layer: 0)])
         
-        XCTAssertTrue(track1.positionAndDepthAlong(0.0) == (position: CGPoint(x: 0, y: 0), depth: 0.0))
-        XCTAssertTrue(track1.positionAndDepthAlong(0.5) == (position: CGPoint(x: 5, y: 0), depth: 0.5))
-        XCTAssertTrue(track1.positionAndDepthAlong(1.0) == (position: CGPoint(x: 10, y: 0), depth: 1.0))
+      XCTAssertTrue(track1.positionAndDepthAlong(0.0) == (position: CGPoint(x: 0, y: 0), depth: 0.0, layer: 0))
+      XCTAssertTrue(track1.positionAndDepthAlong(0.5) == (position: CGPoint(x: 5, y: 0), depth: 0.5, layer: 0))
+      XCTAssertTrue(track1.positionAndDepthAlong(1.0) == (position: CGPoint(x: 10, y: 0), depth: 1.0, layer: 0))
 
-        let track2 = Track(dots: [(position: CGPoint(x: 1, y: 1), depth: 0.25),
-                                  (position: CGPoint(x: 1, y: 3), depth: 0.6),
-                                  (position: CGPoint(x: 3, y: 5), depth: 0.8)])
+      let track2 = Track(dots: [(position: CGPoint(x: 1, y: 1), depth: 0.25, layer: 0),
+                                (position: CGPoint(x: 1, y: 3), depth: 0.6, layer: 0),
+                                (position: CGPoint(x: 3, y: 5), depth: 0.8, layer: 0)])
 
-        let posAndDepth = track2.positionAndDepthAlong(0.707)
-        XCTAssertEqual(posAndDepth.position.x, 2, accuracy: 0.001)
-        XCTAssertEqual(posAndDepth.position.y, 4, accuracy: 0.001)
-        XCTAssertEqual(posAndDepth.depth, 0.7, accuracy: 0.0001)
+      let posAndDepth = track2.positionAndDepthAlong(0.707)
+      XCTAssertEqual(posAndDepth.position.x, 2, accuracy: 0.001)
+      XCTAssertEqual(posAndDepth.position.y, 4, accuracy: 0.001)
+      XCTAssertEqual(posAndDepth.depth, 0.7, accuracy: 0.0001)
     }
 }
 

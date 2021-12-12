@@ -33,7 +33,7 @@ class HeroComponent: GKComponent {
     
     self.heroType = HeroType(rawValue: type)
     
-    let (position, depth) = track!.positionAndDepthAlong(alongTrack)
+    let (position, depth, layer) = track!.positionAndDepthAlong(alongTrack)
     let renderComponent = RenderComponent(imageNamed: heroType!.imageName, position: position, depth: depth)
     entity?.addComponent(renderComponent)
     printNode.addChild(entity!.node)
@@ -57,7 +57,7 @@ class HeroComponent: GKComponent {
     trackNodes.sort { $0.name! < $1.name! }
 
     let trackDots = trackNodes.map {
-      (position: entity!.node.convert($0.position, to: printNode), depth: $0.entity!.depth)
+      (position: entity!.node.convert($0.position, to: printNode), depth: $0.entity!.depth, layer: $0.entity!.layer)
     }
     
     trackNodes.forEach { $0.removeFromParent() }

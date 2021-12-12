@@ -1,7 +1,7 @@
 import SpriteKit
 import Algorithms
 
-typealias TrackDot = (position: CGPoint, depth: CGFloat)
+typealias TrackDot = (position: CGPoint, depth: CGFloat, layer: CGFloat)
 
 struct Track {
   let dots: [ TrackDot ]
@@ -41,17 +41,18 @@ struct Track {
                                          Float(to.position.y - from.position.y)))
         
       if distanceCovered + segmentLength >= distanceAlong {
-         let segmentRemaining = distanceAlong - distanceCovered
-         let ratio = segmentRemaining / segmentLength
+        let segmentRemaining = distanceAlong - distanceCovered
+        let ratio = segmentRemaining / segmentLength
          
-         let position = CGPoint(x: (1 - ratio) * from.position.x + (ratio * to.position.x),
+        let position = CGPoint(x: (1 - ratio) * from.position.x + (ratio * to.position.x),
                                 y: (1 - ratio) * from.position.y + (ratio * to.position.y))
-         let depth = from.depth + (to.depth - from.depth) * ratio
+        let depth = from.depth + (to.depth - from.depth) * ratio
+        let layer = from.layer
          
-         return (position, depth)
-       } else {
-         distanceCovered += segmentLength
-       }
+        return (position, depth, layer)
+      } else {
+        distanceCovered += segmentLength
+      }
     }
 
     return dots.last! // underflow

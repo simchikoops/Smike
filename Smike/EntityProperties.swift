@@ -24,6 +24,10 @@ extension GKEntity {
     return component(ofType: DepthComponent.self)?.depth ?? 0.0
   }
   
+  var layer: CGFloat {
+    return component(ofType: DepthComponent.self)?.layer ?? Layer.normal.rawValue
+  }
+  
   var printNode: SKNode? {
     return node["/Print"].first
   }
