@@ -10,12 +10,13 @@ class RenderComponent: GKComponent {
     spriteNode = node
   }
   
-  init(imageNamed: String, position: CGPoint, depth: CGFloat) {
+  init(imageNamed: String, position: CGPoint, depth: CGFloat, layer: CGFloat) {
     super.init()
     
     spriteNode = SKSpriteNode(imageNamed: imageNamed)
     spriteNode?.depth = depth
     spriteNode?.position = position
+    spriteNode?.zPosition = layer
   }
   
   override func didAddToEntity() {

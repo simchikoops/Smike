@@ -33,8 +33,8 @@ class HeroComponent: GKComponent {
     
     self.heroType = HeroType(rawValue: type)
     
-    let (position, depth, layer) = track!.positionAndDepthAlong(alongTrack)
-    let renderComponent = RenderComponent(imageNamed: heroType!.imageName, position: position, depth: depth)
+    let (position, depth, layer) = track!.dotAlong(alongTrack)
+    let renderComponent = RenderComponent(imageNamed: heroType!.imageName, position: position, depth: depth, layer: layer)
     entity?.addComponent(renderComponent)
     printNode.addChild(entity!.node)
   }

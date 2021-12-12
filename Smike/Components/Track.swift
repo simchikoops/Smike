@@ -29,7 +29,7 @@ struct Track {
     return path
   }
     
-  func positionAndDepthAlong(_ along: CGFloat) -> TrackDot {
+  func dotAlong(_ along: CGFloat) -> TrackDot {
     assert(along >= 0 && along <= 1, "Along out of range.")
     
     let distanceAlong = along * distance
