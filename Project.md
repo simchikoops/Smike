@@ -1,10 +1,15 @@
 # To-do
 
+* Show focustrack
+* Buttons, hero areas left-right movement
+  Generate hero rects (at dash level)
+  Identical?
+* Gesture recognizer: tap for attack
+* Speed from (initialized) slot 
+* Tap for next-previous track
  
 # Steps
 
-* Control by buttons
-* Control by drag
 * Demon tracks & spawning
 * Demon attacks
 * Hero attacks
@@ -263,6 +268,10 @@ https://www.hackingwithswift.com/articles/184/tips-to-optimize-your-spritekit-ga
 # Story
 
 "IN OLD JAPAN the gates of hell have opened. Unseen demons drag mortals to their doom. Only your heroes can save them."
+
+Pre-level:
+
+"PROTECT THE MORTALS" (or mortal)
 
 # Boss images
 - https://ukiyo-e.org/image/kruml/warriors47#&gid=1&pid=1

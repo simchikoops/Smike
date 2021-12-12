@@ -19,7 +19,15 @@ class LevelScene: SKScene {
     heroes.sort {
       $0.component(ofType: HeroComponent.self)!.index < $1.component(ofType: HeroComponent.self)!.index
     }
-    focusHero = heroes.first
+    selectHero(heroes.first!)
+  }
+  
+  func selectHero(_ hero: GKEntity) {
+    focusHero?.component(ofType: HeroComponent.self)?.moving = .immobile
+    focusHero?.component(ofType: HeroComponent.self)?.loseFocus()
+    
+    self.focusHero = hero
+    focusHero?.component(ofType: HeroComponent.self)?.gainFocus()
   }
     
   func touchDown(atPoint pos : CGPoint) {

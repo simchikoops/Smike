@@ -21,9 +21,14 @@ class HeroComponent: GKComponent {
   @GKInspectable var type: String = ""
   @GKInspectable var index: Int = 0
   
+  let unselectedColor: UIColor = .gray
+  let selectedColor: UIColor = .yellow
+  
   var heroType: HeroType?
   
   var track: Track?
+  var trackNode: SKShapeNode?
+  
   var alongTrack: CGFloat = 0.5
   var moving: MoveDirection = .immobile
 
@@ -31,14 +36,14 @@ class HeroComponent: GKComponent {
     guard let printNode = entity?.printNode else { return }
     self.track = createTrack()
     
-    let trackNode = SKShapeNode(path: track!.asCGPath())
-    trackNode.strokeColor = .gray
-    trackNode.alpha = 0.85
-    trackNode.lineWidth = 5
-    trackNode.glowWidth = 5
-    trackNode.lineCap = .round
-    trackNode.zPosition = Layer.tracks.rawValue
-    printNode.addChild(trackNode)
+    trackNode = SKShapeNode(path: track!.asCGPath())
+    trackNode?.strokeColor = unselectedColor
+    trackNode?.alpha = 0.85
+    trackNode?.lineWidth = 5
+    trackNode?.glowWidth = 5
+    trackNode?.lineCap = .round
+    trackNode?.zPosition = Layer.tracks.rawValue
+    printNode.addChild(trackNode!)
     
     self.heroType = HeroType(rawValue: type)
     
@@ -96,5 +101,13 @@ class HeroComponent: GKComponent {
     node.position = position
     node.depth = depth
     node.zPosition = layer
+  }
+  
+  func gainFocus() {
+    trackNode?.strokeColor = selectedColor
+  }
+  
+  func loseFocus() {
+    trackNode?.strokeColor = unselectedColor
   }
 }
