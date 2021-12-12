@@ -12,6 +12,10 @@ extension GKEntity {
     }
   }
   
+  var scene: SKScene? {
+    return node.scene
+  }
+  
   var baseNode: SKNode {
     if let node = component(ofType: GKSKNodeComponent.self)?.node {
       return node

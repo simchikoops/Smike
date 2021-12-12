@@ -13,6 +13,7 @@ enum HeroType: String {
 
 class HeroComponent: GKComponent {
   @GKInspectable var type: String = ""
+  @GKInspectable var index: Int = 0
   
   var heroType: HeroType?
   var track: Track?
@@ -37,6 +38,10 @@ class HeroComponent: GKComponent {
     let renderComponent = RenderComponent(imageNamed: heroType!.imageName, position: position, depth: depth, layer: layer)
     entity?.addComponent(renderComponent)
     printNode.addChild(entity!.node)
+    
+    if let scene = entity?.scene as? LevelScene {
+      scene.heroes.append(entity!)
+    }
   }
   
   override class var supportsSecureCoding: Bool {

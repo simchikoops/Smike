@@ -1,10 +1,8 @@
 # To-do
-  
-* Tracks have a zPosition, separate from depth
 
+ 
 # Steps
 
-* Hero movement along track (track construction)
 * Control by buttons
 * Control by drag
 * Demon tracks & spawning
