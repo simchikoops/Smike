@@ -1,11 +1,9 @@
 # To-do
 
-* Buttons, hero areas left-right movement
-  Generate hero rects (at dash level) calculateAccumulatedFrame
-  Identical?
+* Generate hero rects (at dash z) calculateAccumulatedFrame, user for focus
 * Gesture recognizer: tap for attack
 * Speed from (initialized) slot 
-* Tap for next-previous track
+* Attack button, next/prev buttons
  
 # Steps
 

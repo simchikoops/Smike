@@ -18,7 +18,7 @@ class LevelScene: SKScene {
   // Load finished callback.
   override func didMove(to: SKView) {
     heroes.sort {
-      $0.component(ofType: HeroComponent.self)!.number < $1.component(ofType: HeroComponent.self)!.number
+      $0.heroComponent!.index < $1.heroComponent!.index
     }
     selectHero(heroes.first!)
   }
@@ -41,9 +41,6 @@ class LevelScene: SKScene {
   }
   
   func touchMoved(toPoint pos : CGPoint) {
-    print("move")
-    print(atPoint(pos))
-    
     if let xRef = heroControlXRef {
       focusHero?.heroComponent?.moving = pos.x < xRef ? .toLeft : .toRight
     }
@@ -52,7 +49,6 @@ class LevelScene: SKScene {
   func touchUp(atPoint pos : CGPoint) {
     heroControlXRef = nil
     focusHero?.heroComponent?.moving = .stopped
-    print("up")
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

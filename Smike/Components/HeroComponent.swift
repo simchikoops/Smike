@@ -19,7 +19,7 @@ enum HeroMotion {
 
 class HeroComponent: GKComponent {
   @GKInspectable var type: String = ""
-  @GKInspectable var number: Int = 0
+  @GKInspectable var index: Int = 0
   
   let unselectedColor: UIColor = .gray
   let selectedColor: UIColor = .yellow
