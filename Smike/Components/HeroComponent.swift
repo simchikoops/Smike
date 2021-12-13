@@ -11,15 +11,15 @@ enum HeroType: String {
   }
 }
 
-enum MoveDirection {
+enum HeroMotion {
   case toLeft
   case toRight
-  case immobile
+  case stopped
 }
 
 class HeroComponent: GKComponent {
   @GKInspectable var type: String = ""
-  @GKInspectable var index: Int = 0
+  @GKInspectable var number: Int = 0
   
   let unselectedColor: UIColor = .gray
   let selectedColor: UIColor = .yellow
@@ -30,7 +30,7 @@ class HeroComponent: GKComponent {
   var trackNode: SKShapeNode?
   
   var alongTrack: CGFloat = 0.5
-  var moving: MoveDirection = .immobile
+  var moving: HeroMotion = .stopped
 
   override func didAddToEntity() {
     guard let printNode = entity?.printNode else { return }
@@ -49,6 +49,8 @@ class HeroComponent: GKComponent {
     
     let (position, depth, layer) = track!.dotAlong(alongTrack)
     let renderComponent = RenderComponent(imageNamed: heroType!.imageName, position: position, depth: depth, layer: layer)
+    renderComponent.spriteNode?.anchorPoint = CGPoint(x: 0.5, y: 0.2) // towards the feet
+    
     entity?.addComponent(renderComponent)
     printNode.addChild(entity!.node)
     
@@ -66,7 +68,7 @@ class HeroComponent: GKComponent {
     
     var trackNodes = entity!.baseNode.children.filter { node in
       if let name = node.name {
-        return name.starts(with: "PT")
+        return name.starts(with: "pt")
       } else {
         return false
       }
@@ -94,7 +96,7 @@ class HeroComponent: GKComponent {
     case .toRight:
       node.xScale = 1
       alongTrack = (alongTrack + speed).clamped(to: 0...1)
-    case .immobile: return // nothing to do
+    case .stopped: return // nothing to do
     }
     
     let (position, depth, layer) = track.dotAlong(alongTrack)

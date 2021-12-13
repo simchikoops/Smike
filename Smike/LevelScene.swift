@@ -7,6 +7,7 @@ class LevelScene: SKScene {
   var heroes: [GKEntity] = []
   
   var focusHero: GKEntity?
+  var heroControlXRef: CGFloat?
   
   private var lastUpdateTime : TimeInterval = 0
     
@@ -17,26 +18,41 @@ class LevelScene: SKScene {
   // Load finished callback.
   override func didMove(to: SKView) {
     heroes.sort {
-      $0.component(ofType: HeroComponent.self)!.index < $1.component(ofType: HeroComponent.self)!.index
+      $0.component(ofType: HeroComponent.self)!.number < $1.component(ofType: HeroComponent.self)!.number
     }
     selectHero(heroes.first!)
   }
   
   func selectHero(_ hero: GKEntity) {
-    focusHero?.component(ofType: HeroComponent.self)?.moving = .immobile
-    focusHero?.component(ofType: HeroComponent.self)?.loseFocus()
+    focusHero?.heroComponent?.moving = .stopped
+    focusHero?.heroComponent?.loseFocus()
     
     self.focusHero = hero
-    focusHero?.component(ofType: HeroComponent.self)?.gainFocus()
+    focusHero?.heroComponent?.gainFocus()
   }
-    
+  
   func touchDown(atPoint pos : CGPoint) {
+    let touchedNodes = nodes(at: pos)
+    if let _ = touchedNodes.first(where: { $0.name?.hasPrefix("hero_control") ?? false } ) {
+      // TODO: change focus
+
+      heroControlXRef = pos.x
+    }
   }
   
   func touchMoved(toPoint pos : CGPoint) {
-   }
+    print("move")
+    print(atPoint(pos))
+    
+    if let xRef = heroControlXRef {
+      focusHero?.heroComponent?.moving = pos.x < xRef ? .toLeft : .toRight
+    }
+  }
   
   func touchUp(atPoint pos : CGPoint) {
+    heroControlXRef = nil
+    focusHero?.heroComponent?.moving = .stopped
+    print("up")
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

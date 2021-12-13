@@ -1,8 +1,7 @@
 # To-do
 
-* Show focustrack
 * Buttons, hero areas left-right movement
-  Generate hero rects (at dash level)
+  Generate hero rects (at dash level) calculateAccumulatedFrame
   Identical?
 * Gesture recognizer: tap for attack
 * Speed from (initialized) slot 

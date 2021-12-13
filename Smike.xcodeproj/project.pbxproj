@@ -24,6 +24,7 @@
 		55337A5C275804D600407618 /* M1L2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55337A5B275804D600407618 /* M1L2.sks */; };
 		55337A5E27581EF800407618 /* LandscapeDash.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55337A5D27581EF800407618 /* LandscapeDash.sks */; };
 		5593962F27668CA600EFA9F3 /* CoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593962E27668CA600EFA9F3 /* CoreExtensions.swift */; };
+		559396312766C19400EFA9F3 /* HeroControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559396302766C19400EFA9F3 /* HeroControl.swift */; };
 		55AB01D927627B19002FCC4A /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB01D827627B19002FCC4A /* Track.swift */; };
 		55AB01DB27627E1D002FCC4A /* TrackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB01DA27627E1D002FCC4A /* TrackTests.swift */; };
 		55AB01DE2762864C002FCC4A /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 55AB01DD2762864C002FCC4A /* Algorithms */; };
@@ -72,6 +73,7 @@
 		55337A5B275804D600407618 /* M1L2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = M1L2.sks; sourceTree = "<group>"; };
 		55337A5D27581EF800407618 /* LandscapeDash.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LandscapeDash.sks; sourceTree = "<group>"; };
 		5593962E27668CA600EFA9F3 /* CoreExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreExtensions.swift; sourceTree = "<group>"; };
+		559396302766C19400EFA9F3 /* HeroControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroControl.swift; sourceTree = "<group>"; };
 		55AB01D827627B19002FCC4A /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		55AB01DA27627E1D002FCC4A /* TrackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTests.swift; sourceTree = "<group>"; };
 		55C816E32761111F00A810EE /* HeroComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroComponent.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				55337A532756A1B500407618 /* Components */,
 				55337A4E2755AF4B00407618 /* Levels */,
 				55010A9B27518DEC0049E9AE /* AppDelegate.swift */,
+				559396302766C19400EFA9F3 /* HeroControl.swift */,
 				55337A562756A57300407618 /* LevelScene.swift */,
 				55010AA327518DEC0049E9AE /* GameViewController.swift */,
 				5593962E27668CA600EFA9F3 /* CoreExtensions.swift */,
@@ -337,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55337A552756A32400407618 /* AttributionComponent.swift in Sources */,
+				559396312766C19400EFA9F3 /* HeroControl.swift in Sources */,
 				55010AA427518DEC0049E9AE /* GameViewController.swift in Sources */,
 				55C816E62761141200A810EE /* EntityProperties.swift in Sources */,
 				55C816E42761111F00A810EE /* HeroComponent.swift in Sources */,
