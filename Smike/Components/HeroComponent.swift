@@ -34,18 +34,13 @@ class HeroComponent: GKComponent {
 
   override func didAddToEntity() {
     guard let printNode = entity?.printNode else { return }
-    self.track = createTrack()
-    
-    trackNode = SKShapeNode(path: track!.asCGPath())
-    trackNode?.strokeColor = unselectedColor
-    trackNode?.alpha = 0.85
-    trackNode?.lineWidth = 5
-    trackNode?.glowWidth = 5
-    trackNode?.lineCap = .round
-    trackNode?.zPosition = Layer.tracks.rawValue
-    printNode.addChild(trackNode!)
     
     self.heroType = HeroType(rawValue: type)
+    createControl()
+    
+    self.track = createTrack()
+    self.trackNode = createTrackNode()
+    printNode.addChild(trackNode!)
     
     let (position, depth, layer) = track!.dotAlong(alongTrack)
     let renderComponent = RenderComponent(imageNamed: heroType!.imageName, position: position, depth: depth, layer: layer)
@@ -61,6 +56,17 @@ class HeroComponent: GKComponent {
   
   override class var supportsSecureCoding: Bool {
     true
+  }
+  
+  private func createControl() {
+    let rect = entity!.node.calculateAccumulatedFrame().insetBy(dx: -40, dy: -40)
+    let controlNode = SKShapeNode(rect: rect)
+    
+    controlNode.name = "hero_control_\(index)"
+    controlNode.strokeColor = .clear
+    controlNode.zPosition = Layer.dash.rawValue
+    
+    entity!.node.parent?.addChild(controlNode)
   }
   
   private func createTrack() -> Track? {
@@ -82,6 +88,19 @@ class HeroComponent: GKComponent {
     
     trackNodes.forEach { $0.removeFromParent() }
     return Track(dots: trackDots)
+  }
+  
+  private func createTrackNode() -> SKShapeNode {
+    let node = SKShapeNode(path: track!.asCGPath())
+    
+    node.strokeColor = unselectedColor
+    node.alpha = 0.85
+    node.lineWidth = 5
+    node.glowWidth = 5
+    node.lineCap = .round
+    node.zPosition = Layer.tracks.rawValue
+
+    return node;
   }
   
   override func update(deltaTime seconds: TimeInterval) {

@@ -33,8 +33,10 @@ class LevelScene: SKScene {
   
   func touchDown(atPoint pos : CGPoint) {
     let touchedNodes = nodes(at: pos)
-    if let _ = touchedNodes.first(where: { $0.name?.hasPrefix("hero_control") ?? false } ) {
-      // TODO: change focus
+    if let controlNode = touchedNodes.first(where: { $0.name?.hasPrefix("hero_control") ?? false } ) {
+      if let indexStr = controlNode.name!.components(separatedBy: "_").last, let index = Int(indexStr) {
+        selectHero(heroes[index])
+      }
 
       heroControlXRef = pos.x
     }

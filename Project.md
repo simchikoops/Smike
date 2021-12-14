@@ -1,8 +1,7 @@
 # To-do
 
-* Generate hero rects (at dash z) calculateAccumulatedFrame, user for focus
 * Gesture recognizer: tap for attack
-* Speed from (initialized) slot 
+* Speed from (initialized) slot (singleton?)
 * Attack button, next/prev buttons
  
 # Steps
@@ -91,6 +90,24 @@ Pinch, Rotation, swipe, pan
 * Ukiyo-e come to life
 * Respect for art & culture
 * Many sources of variety: prints, heroes, demons
+
+# Models
+
+## Space Invaders
+
+Fun:
+* Starts easy, gets hard
+* Places to hide
+* Offense/defense
+* Multiple strategies
+* Inherent drama
+
+## Shinobi
+
+Fun:
+* Mix of stage types
+* Slow gains in experience
+* High challenge
 
 # Revenue
 
