@@ -25,10 +25,10 @@ class LevelScene: SKScene {
   
   func selectHero(_ hero: GKEntity) {
     focusHero?.heroComponent?.moving = .stopped
-    focusHero?.heroComponent?.loseFocus()
+    focusHero?.heroComponent?.hasFocus = false
     
     self.focusHero = hero
-    focusHero?.heroComponent?.gainFocus()
+    focusHero?.heroComponent?.hasFocus = true
   }
   
   func touchDown(atPoint pos : CGPoint) {

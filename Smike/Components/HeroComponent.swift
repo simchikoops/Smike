@@ -31,6 +31,12 @@ class HeroComponent: GKComponent {
   
   var alongTrack: CGFloat = 0.5
   var moving: HeroMotion = .stopped
+  
+  var hasFocus: Bool = false {
+    didSet {
+      trackNode?.strokeColor = hasFocus ? selectedColor : unselectedColor
+    }
+  }
 
   override func didAddToEntity() {
     guard let printNode = entity?.printNode else { return }
@@ -57,7 +63,7 @@ class HeroComponent: GKComponent {
   override class var supportsSecureCoding: Bool {
     true
   }
-  
+
   private func createControl() {
     let rect = entity!.node.calculateAccumulatedFrame().insetBy(dx: -40, dy: -40)
     let controlNode = SKShapeNode(rect: rect)
@@ -122,13 +128,5 @@ class HeroComponent: GKComponent {
     node.position = position
     node.depth = depth
     node.zPosition = layer
-  }
-  
-  func gainFocus() {
-    trackNode?.strokeColor = selectedColor
-  }
-  
-  func loseFocus() {
-    trackNode?.strokeColor = unselectedColor
   }
 }
