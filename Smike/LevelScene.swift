@@ -60,8 +60,8 @@ class LevelScene: SKScene {
       
     let viewPoint = tap.location(in: tap.view)
     let scenePoint = convertPoint(fromView: viewPoint)
-      
     let tapNodes = nodes(at: scenePoint)
+    
     if let controlNode = heroControlNode(tapNodes) {
       if let index = heroControlIndex(controlNode) {
         selectHero(heroes[index])
@@ -69,6 +69,14 @@ class LevelScene: SKScene {
       focusHero?.heroComponent?.attack()
     } else if tapNodes.first(where: { $0.name == "attack" }) != nil {
       focusHero?.heroComponent?.attack()
+    } else if tapNodes.first(where: { $0.name == "next_hero" }) != nil {
+      selectNextHero()
+    }
+  }
+  
+  func selectNextHero() {
+    if let focusHeroIndex = heroes.firstIndex(of: focusHero!) {
+      selectHero(heroes[focusHeroIndex + 1 < heroes.count ? focusHeroIndex + 1 : 0 ])
     }
   }
   
