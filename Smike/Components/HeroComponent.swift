@@ -116,7 +116,7 @@ class HeroComponent: GKComponent {
   override func update(deltaTime seconds: TimeInterval) {
     guard let node = entity?.node as? SKSpriteNode, let track = self.track else { return }
     
-    let speed = 0.001 // TODO: lookup
+    let speed = Slot.live.heroStats[heroType!]!["speed"]! * seconds
     
     switch moving {
     case .toLeft:

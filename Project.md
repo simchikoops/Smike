@@ -1,6 +1,5 @@
 # To-do
 
-* Attack button, next/prev buttons
 * Speed from (initialized) slot (singleton?)
  
 # Steps
