@@ -9,18 +9,30 @@ class LevelScene: SKScene {
   var focusHero: GKEntity?
   var heroControlXRef: CGFloat?
   
-  private var lastUpdateTime : TimeInterval = 0
+  private var lastUpdateTime: TimeInterval = 0
+  private var tapRecognizer: UITapGestureRecognizer? = nil
     
   override func sceneDidLoad() {
     self.lastUpdateTime = 0
   }
   
   // Load finished callback.
-  override func didMove(to: SKView) {
+  override func didMove(to view: SKView) {
+    super.didMove(to: view)
+    
     heroes.sort {
       $0.heroComponent!.index < $1.heroComponent!.index
     }
     selectHero(heroes.first!)
+    
+    tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped(_:)))
+    view.addGestureRecognizer(tapRecognizer!)
+  }
+  
+  override func willMove(from view: SKView) {
+    if let t = tapRecognizer {
+      view.removeGestureRecognizer(t)
+    }
   }
   
   func selectHero(_ hero: GKEntity) {
@@ -31,13 +43,42 @@ class LevelScene: SKScene {
     focusHero?.heroComponent?.hasFocus = true
   }
   
-  func touchDown(atPoint pos : CGPoint) {
-    let touchedNodes = nodes(at: pos)
-    if let controlNode = touchedNodes.first(where: { $0.name?.hasPrefix("hero_control") ?? false } ) {
-      if let indexStr = controlNode.name!.components(separatedBy: "_").last, let index = Int(indexStr) {
+  private func heroControlNode(_ nodes: [SKNode]) -> SKNode? {
+    return nodes.first(where: { $0.name?.hasPrefix("hero_control") ?? false })
+  }
+  
+  private func heroControlIndex(_ node: SKNode) -> Int? {
+    if let indexStr = node.name!.components(separatedBy: "_").last {
+      return Int(indexStr)
+    } else {
+      return nil
+    }
+  }
+  
+  @objc func tapped(_ tap: UITapGestureRecognizer) {
+    if tap.state != .ended { return }
+      
+    let viewPoint = tap.location(in: tap.view)
+    let scenePoint = convertPoint(fromView: viewPoint)
+      
+    let tapNodes = nodes(at: scenePoint)
+    if let controlNode = heroControlNode(tapNodes) {
+      if let index = heroControlIndex(controlNode) {
         selectHero(heroes[index])
       }
-
+      focusHero?.heroComponent?.attack()
+    } else if tapNodes.first(where: { $0.name == "attack" }) != nil {
+      focusHero?.heroComponent?.attack()
+    }
+  }
+  
+  func touchDown(atPoint pos : CGPoint) {
+    let touchedNodes = nodes(at: pos)
+    
+    if let controlNode = heroControlNode(touchedNodes) {
+      if let index = heroControlIndex(controlNode) {
+        selectHero(heroes[index])
+      }
       heroControlXRef = pos.x
     }
   }

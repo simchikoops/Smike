@@ -1,8 +1,7 @@
 # To-do
 
-* Gesture recognizer: tap for attack
-* Speed from (initialized) slot (singleton?)
 * Attack button, next/prev buttons
+* Speed from (initialized) slot (singleton?)
  
 # Steps
 

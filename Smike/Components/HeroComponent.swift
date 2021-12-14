@@ -63,6 +63,10 @@ class HeroComponent: GKComponent {
   override class var supportsSecureCoding: Bool {
     true
   }
+  
+  func attack() {
+    print("Attack!")
+  }
 
   private func createControl() {
     let rect = entity!.node.calculateAccumulatedFrame().insetBy(dx: -40, dy: -40)
