@@ -26,6 +26,8 @@
 		5537A33D27694585001901C8 /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5537A33C27694585001901C8 /* Slot.swift */; };
 		5593962F27668CA600EFA9F3 /* CoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593962E27668CA600EFA9F3 /* CoreExtensions.swift */; };
 		55AA1FEF276A5F1B0076881E /* DemonDotComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA1FEE276A5F1B0076881E /* DemonDotComponent.swift */; };
+		55AA1FF1276A69ED0076881E /* GeneratorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA1FF0276A69ED0076881E /* GeneratorComponent.swift */; };
+		55AA1FF3276A78D90076881E /* DemonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA1FF2276A78D90076881E /* DemonComponent.swift */; };
 		55AB01D927627B19002FCC4A /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB01D827627B19002FCC4A /* Track.swift */; };
 		55AB01DB27627E1D002FCC4A /* TrackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB01DA27627E1D002FCC4A /* TrackTests.swift */; };
 		55AB01DE2762864C002FCC4A /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 55AB01DD2762864C002FCC4A /* Algorithms */; };
@@ -76,6 +78,8 @@
 		5537A33C27694585001901C8 /* Slot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
 		5593962E27668CA600EFA9F3 /* CoreExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreExtensions.swift; sourceTree = "<group>"; };
 		55AA1FEE276A5F1B0076881E /* DemonDotComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemonDotComponent.swift; sourceTree = "<group>"; };
+		55AA1FF0276A69ED0076881E /* GeneratorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorComponent.swift; sourceTree = "<group>"; };
+		55AA1FF2276A78D90076881E /* DemonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemonComponent.swift; sourceTree = "<group>"; };
 		55AB01D827627B19002FCC4A /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		55AB01DA27627E1D002FCC4A /* TrackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTests.swift; sourceTree = "<group>"; };
 		55C816E32761111F00A810EE /* HeroComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroComponent.swift; sourceTree = "<group>"; };
@@ -185,7 +189,9 @@
 				55337A542756A32400407618 /* AttributionComponent.swift */,
 				55C816E92761302200A810EE /* DepthComponent.swift */,
 				55C816E32761111F00A810EE /* HeroComponent.swift */,
+				55AA1FF2276A78D90076881E /* DemonComponent.swift */,
 				55AA1FEE276A5F1B0076881E /* DemonDotComponent.swift */,
+				55AA1FF0276A69ED0076881E /* GeneratorComponent.swift */,
 				55AB01D827627B19002FCC4A /* Track.swift */,
 				55C816E72761161400A810EE /* RenderComponent.swift */,
 			);
@@ -346,6 +352,8 @@
 				55010AA427518DEC0049E9AE /* GameViewController.swift in Sources */,
 				55C816E62761141200A810EE /* EntityProperties.swift in Sources */,
 				55AA1FEF276A5F1B0076881E /* DemonDotComponent.swift in Sources */,
+				55AA1FF1276A69ED0076881E /* GeneratorComponent.swift in Sources */,
+				55AA1FF3276A78D90076881E /* DemonComponent.swift in Sources */,
 				55C816E42761111F00A810EE /* HeroComponent.swift in Sources */,
 				5593962F27668CA600EFA9F3 /* CoreExtensions.swift in Sources */,
 				55C816E82761161400A810EE /* RenderComponent.swift in Sources */,
