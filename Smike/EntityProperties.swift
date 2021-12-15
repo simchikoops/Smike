@@ -33,7 +33,7 @@ extension GKEntity {
   }
   
   var printNode: SKNode? {
-    return node["/print"].first
+    return scene?["print"].first
   }
   
   var heroComponent: HeroComponent? {

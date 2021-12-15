@@ -1,10 +1,10 @@
 # To-do
 
-* Speed from (initialized) slot (singleton?)
+* Demon tracks & spawning
+  Find gate
  
 # Steps
 
-* Demon tracks & spawning
 * Demon attacks
 * Hero attacks
 
