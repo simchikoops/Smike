@@ -12,8 +12,8 @@ extension GKEntity {
     }
   }
   
-  var scene: SKScene? {
-    return node.scene
+  var scene: LevelScene {
+    return node.scene as! LevelScene
   }
   
   var baseNode: SKNode {
@@ -33,7 +33,7 @@ extension GKEntity {
   }
   
   var printNode: SKNode? {
-    return scene?["print"].first
+    return scene["print"].first
   }
   
   var heroComponent: HeroComponent? {

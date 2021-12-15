@@ -1,7 +1,8 @@
 # To-do
 
-* Demon tracks & spawning
-  Find gate
+* Spawn demons on update
+* Give a dot path
+* Pause button
  
 # Steps
 

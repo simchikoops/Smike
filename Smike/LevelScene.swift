@@ -6,6 +6,7 @@ class LevelScene: SKScene {
   var entities = [GKEntity]()
   var heroes: [GKEntity] = []
   
+  var ticks: CGFloat = 0.0
   var focusHero: GKEntity?
   var heroControlXRef: CGFloat?
   
@@ -123,17 +124,18 @@ class LevelScene: SKScene {
       
     // Initialize _lastUpdateTime if it has not already been
     if (self.lastUpdateTime == 0) {
-        self.lastUpdateTime = currentTime
+      self.lastUpdateTime = currentTime
     }
       
     // Calculate time since last update
     let dt = currentTime - self.lastUpdateTime
       
-      // Update entities
-      for entity in self.entities {
-        entity.update(deltaTime: dt)
-      }
+    // Update entities
+    for entity in self.entities {
+      entity.update(deltaTime: dt)
+    }
       
+    self.ticks += dt
     self.lastUpdateTime = currentTime
   }
 }
