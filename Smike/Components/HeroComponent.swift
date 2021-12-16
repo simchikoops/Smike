@@ -55,7 +55,7 @@ class HeroComponent: GKComponent {
     entity?.addComponent(renderComponent)
     printNode.addChild(entity!.node)
     
-    if let scene = entity?.scene as? LevelScene {
+    if let scene = entity?.scene {
       scene.heroes.append(entity!)
     }
   }

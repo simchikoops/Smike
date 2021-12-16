@@ -1,7 +1,9 @@
 # To-do
 
 * Spawn demons on update
-* Give a dot path
+  - Give a dot path
+  - entity, image, rendercomponent
+  - follow path (by segment)
 * Pause button
  
 # Steps

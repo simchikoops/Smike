@@ -5,6 +5,7 @@ class LevelScene: SKScene {
     
   var entities = [GKEntity]()
   var heroes: [GKEntity] = []
+  var generators: [GKEntity] = []
   
   var ticks: CGFloat = 0.0
   var focusHero: GKEntity?
@@ -20,6 +21,10 @@ class LevelScene: SKScene {
   // Load finished callback.
   override func didMove(to view: SKView) {
     super.didMove(to: view)
+    
+    for generator in generators {
+      generator.component(ofType: GeneratorComponent.self)!.calculatePaths()
+    }
     
     heroes.sort {
       $0.heroComponent!.index < $1.heroComponent!.index

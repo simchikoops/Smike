@@ -11,9 +11,9 @@ class DemonDotComponent: GKComponent {
   @GKInspectable var posTerm: Bool = false // positive paths terminate here
   @GKInspectable var negTerm: Bool = false
   
-  var positiveEdges: [GKEntity] = []
-  var negativeEdges: [GKEntity] = []
-
+  var positiveEdges: [DemonDotComponent] = []
+  var negativeEdges: [DemonDotComponent] = []
+  
   override func didAddToEntity() {
     if pos0 > 0 { positiveEdges.append(lookupEdge(pos0)) }
     if pos1 > 0 { positiveEdges.append(lookupEdge(pos1)) }
@@ -25,8 +25,8 @@ class DemonDotComponent: GKComponent {
     true
   }
   
-  private func lookupEdge(_ number: Int) -> GKEntity {
+  private func lookupEdge(_ number: Int) -> DemonDotComponent {
     let n = entity!.printNode!["dd_\(number)"].first!
-    return n.entity!
+    return n.entity!.component(ofType: DemonDotComponent.self)!
   }
 }
