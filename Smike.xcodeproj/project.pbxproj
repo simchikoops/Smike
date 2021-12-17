@@ -35,6 +35,7 @@
 		55C816E62761141200A810EE /* EntityProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E52761141200A810EE /* EntityProperties.swift */; };
 		55C816E82761161400A810EE /* RenderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E72761161400A810EE /* RenderComponent.swift */; };
 		55C816EA2761302200A810EE /* DepthComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E92761302200A810EE /* DepthComponent.swift */; };
+		55CC0A7F276C092100667A8E /* DemonEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CC0A7E276C092100667A8E /* DemonEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		55C816E52761141200A810EE /* EntityProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityProperties.swift; sourceTree = "<group>"; };
 		55C816E72761161400A810EE /* RenderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderComponent.swift; sourceTree = "<group>"; };
 		55C816E92761302200A810EE /* DepthComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthComponent.swift; sourceTree = "<group>"; };
+		55CC0A7E276C092100667A8E /* DemonEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemonEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 				55C816E52761141200A810EE /* EntityProperties.swift */,
 				5593962E27668CA600EFA9F3 /* CoreExtensions.swift */,
 				5513637E2763D10F006BC9B1 /* NodeDepth.swift */,
+				55CC0A7E276C092100667A8E /* DemonEntity.swift */,
 				55337A582756AD4E00407618 /* Reference Nodes */,
 				55337A532756A1B500407618 /* Components */,
 				55337A4E2755AF4B00407618 /* Levels */,
@@ -356,6 +359,7 @@
 				55AA1FF3276A78D90076881E /* DemonComponent.swift in Sources */,
 				55C816E42761111F00A810EE /* HeroComponent.swift in Sources */,
 				5593962F27668CA600EFA9F3 /* CoreExtensions.swift in Sources */,
+				55CC0A7F276C092100667A8E /* DemonEntity.swift in Sources */,
 				55C816E82761161400A810EE /* RenderComponent.swift in Sources */,
 				5513637F2763D10F006BC9B1 /* NodeDepth.swift in Sources */,
 				55AB01D927627B19002FCC4A /* Track.swift in Sources */,

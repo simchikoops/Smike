@@ -5,10 +5,14 @@ class GeneratorComponent: GKComponent {
   @GKInspectable var sequenceJSON: String = ""
   @GKInspectable var positivePath: Bool = true
   
-  var sequence: [(ticks: CGFloat, type: DemonType)] = []
+  var sequence: [(ticks: CGFloat, type: DemonType, highPath: Bool)] = []
   
   var lowPath: [DemonDotComponent] = []
   var highPath: [DemonDotComponent] = []
+  
+  var exhausted: Bool {
+    get { sequence.isEmpty }
+  }
   
   override func didAddToEntity() {
     let sequenceData = sequenceJSON.data(using: .utf8)!
@@ -16,10 +20,16 @@ class GeneratorComponent: GKComponent {
     
     for unitObj in sequenceObj {
       let unit = unitObj as! [Any]
+      
       let ticks = unit[0] as! CGFloat
       let type = unit[1] as! Int
       
-      sequence.append((ticks: ticks, type: DemonType(rawValue: type)!))
+      var highPath = false
+      if unit.count > 2 {
+        highPath = unit[2] as! Bool
+      }
+        
+      sequence.append((ticks: ticks, type: DemonType(rawValue: type)!, highPath: highPath))
     }
     
     if let scene = entity?.scene {
@@ -42,7 +52,7 @@ class GeneratorComponent: GKComponent {
     guard entity!.scene.ticks >= unit.ticks else { return }
     
     sequence.removeFirst()
-    spawn(unit.type)
+    spawn(type: unit.type, useHighPath: unit.highPath)
   }
   
   private func buildPath(low: Bool) -> [DemonDotComponent] {
@@ -62,7 +72,11 @@ class GeneratorComponent: GKComponent {
     return path
   }
   
-  private func spawn(_ type: DemonType) {
-    print(type)
+  private func spawn(type: DemonType, useHighPath: Bool) {
+    let path = useHighPath ? highPath : lowPath
+    let demon = DemonEntity(type: type, path: path, originNode: entity!.node)
+    
+    entity!.scene.entities.append(demon)
+    entity!.scene.demons.append(demon)
   }
 }

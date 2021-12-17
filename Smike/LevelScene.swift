@@ -4,7 +4,9 @@ import GameplayKit
 class LevelScene: SKScene {
     
   var entities = [GKEntity]()
+  
   var heroes: [GKEntity] = []
+  var demons: [GKEntity] = []
   var generators: [GKEntity] = []
   
   var ticks: CGFloat = 0.0
