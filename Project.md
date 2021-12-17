@@ -46,6 +46,8 @@
 * (Track length)
 * Minimum attack interval
 
+* Skin (purchasable/customizable)
+
 # Attack types
 
 * Aerial: shoot
@@ -61,10 +63,12 @@
 All: catch coins, avoid waves by hiding in gaps
 
 Supported strikes: stronger when at edge with another at adjacent edge. Some demons can only
-be hit by combos.
+be hit by combos. Like heroes only (samurai-samurai).
 
 Multi-gesture on area or on attack button? 
 Pinch, Rotation, swipe, pan
+
+Galaga-style temporary double-ups?
 
 # Strategy
 
@@ -306,6 +310,8 @@ Pre-level:
 - 02 p 32 Ninja
 - 02 p 104 Progression
 
+- 01 6: turtle; 7, 43, 53: demon; lady ghost: 14; birds: 21; bugs: 27; sealife: 25; masks: 46
+
 # Good prints
 - https://ukiyo-e.org/image/chazen/1980_1067 Vert, water
 - https://ukiyo-e.org/image/mfa/sc208280 Horiz, mountain, bridge
@@ -356,9 +362,6 @@ Pre-level:
   https://ukiyo-e.org/image/mfa/sc234267
   https://ukiyo-e.org/image/bm/AN00460808_001_l
   https://ukiyo-e.org/image/japancoll/p325-yoshiiku-kusunoki-shichorozaemon-masatomo-11085
-
-
-
 
 # Scaling
 - Long side: 1536 px

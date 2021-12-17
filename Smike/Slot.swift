@@ -6,7 +6,7 @@ class Slot {
   var heroStats: [HeroType: [String: CGFloat]] = [:]
   
   init() {
-    let samuraiStats = ["speed": CGFloat(0.08)]
+    let samuraiStats = ["speed": CGFloat(15.0)]
     heroStats[.samurai] = samuraiStats
   }
 }

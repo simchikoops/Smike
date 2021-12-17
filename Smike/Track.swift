@@ -5,19 +5,20 @@ typealias TrackDot = (position: CGPoint, depth: CGFloat, layer: CGFloat)
 
 struct Track {
   let dots: [ TrackDot ]
+  let distance: CGFloat
   
-  init(dots: [ TrackDot ] ) {
-    assert(dots.count >= 2, "Not enough dots in track")
-    self.dots = dots
+  init(orderedDots: [ TrackDot ] ) {
+    assert(orderedDots.count >= 2, "Not enough dots in track")
+    
+    dots = orderedDots
+    distance = Track.calculateDistance(dots: dots)
   }
   
-  var distance: CGFloat {
-    get {
-      return dots.adjacentPairs().map { pair in
-        CGFloat(hypotf(Float(pair.1.position.x - pair.0.position.x),
-                       Float(pair.1.position.y - pair.0.position.y)))
-      }.reduce(0, +)
-    }
+  static func calculateDistance(dots: [TrackDot]) -> CGFloat {
+    dots.adjacentPairs().map { pair in
+      CGFloat(hypotf(Float(pair.1.position.x - pair.0.position.x),
+                     Float(pair.1.position.y - pair.0.position.y)))
+    }.reduce(0, +)
   }
   
   func asCGPath() -> CGPath {
@@ -29,10 +30,9 @@ struct Track {
     return path
   }
     
-  func dotAlong(_ along: CGFloat) -> TrackDot {
-    assert(along >= 0 && along <= 1, "Along out of range.")
+  func dotAlong(_ distanceAlong: CGFloat) -> TrackDot {
+    assert(distanceAlong >= 0 && distanceAlong <= distance, "Along out of range.")
     
-    let distanceAlong = along * distance
     var distanceCovered = 0.0
     
     // find segment and segmentAlong

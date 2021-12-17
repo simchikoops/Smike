@@ -29,7 +29,7 @@ class HeroComponent: GKComponent {
   var track: Track?
   var trackNode: SKShapeNode?
   
-  var alongTrack: CGFloat = 0.5
+  var alongTrack: CGFloat = 0.0
   var moving: HeroMotion = .stopped
   
   var hasFocus: Bool = false {
@@ -45,6 +45,8 @@ class HeroComponent: GKComponent {
     createControl()
     
     self.track = createTrack()
+    alongTrack = track!.distance / 2
+    
     self.trackNode = createTrackNode()
     printNode.addChild(trackNode!)
     
@@ -97,7 +99,7 @@ class HeroComponent: GKComponent {
     }
     
     trackNodes.forEach { $0.removeFromParent() }
-    return Track(dots: trackDots)
+    return Track(orderedDots: trackDots)
   }
   
   private func createTrackNode() -> SKShapeNode {
@@ -121,10 +123,10 @@ class HeroComponent: GKComponent {
     switch moving {
     case .toLeft:
       node.xScale = -1 // look direction
-      alongTrack = (alongTrack - speed).clamped(to: 0...1)
+      alongTrack = (alongTrack - speed).clamped(to: 0...track.distance)
     case .toRight:
       node.xScale = 1
-      alongTrack = (alongTrack + speed).clamped(to: 0...1)
+      alongTrack = (alongTrack + speed).clamped(to: 0...track.distance)
     case .stopped: return // nothing to do
     }
     
