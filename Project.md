@@ -1,8 +1,6 @@
 # To-do
 
-* Spawn demons on update
-  - rendercomponent
-  - follow path on update (by segment)
+* Demons follow path on update (by segment)
 * Pause button
  
 # Steps

@@ -6,7 +6,7 @@ enum HeroType: String {
   
   var imageName: String {
     switch self {
-    case .samurai: return "Samurai"
+    case .samurai: return "samurai"
     }
   }
 }
