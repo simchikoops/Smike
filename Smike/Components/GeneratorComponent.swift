@@ -5,10 +5,10 @@ class GeneratorComponent: GKComponent {
   @GKInspectable var sequenceJSON: String = ""
   @GKInspectable var positivePath: Bool = true
   
-  var sequence: [(ticks: CGFloat, type: DemonType, highPath: Bool)] = []
+  var sequence: [(ticks: CGFloat, type: DemonType, useHighTrack: Bool)] = []
   
-  var lowPath: [DemonDotComponent] = []
-  var highPath: [DemonDotComponent] = []
+  var lowTrack: Track?
+  var highTrack: Track?
   
   var exhausted: Bool {
     get { sequence.isEmpty }
@@ -24,12 +24,12 @@ class GeneratorComponent: GKComponent {
       let ticks = unit[0] as! CGFloat
       let type = unit[1] as! Int
       
-      var highPath = false
+      var useHighTrack = false
       if unit.count > 2 {
-        highPath = unit[2] as! Bool
+        useHighTrack = unit[2] as! Bool
       }
         
-      sequence.append((ticks: ticks, type: DemonType(rawValue: type)!, highPath: highPath))
+      sequence.append((ticks: ticks, type: DemonType(rawValue: type)!, useHighTrack: useHighTrack))
     }
     
     if let scene = entity?.scene {
@@ -43,8 +43,8 @@ class GeneratorComponent: GKComponent {
   
   // Needs all dot components loaded first.
   func calculatePaths() {
-    self.lowPath = buildPath(low: true)
-    self.highPath = buildPath(low: false)
+    self.lowTrack = pathToTrack(path: buildPath(low: true))
+    self.highTrack = pathToTrack(path: buildPath(low: false))
   }
   
   override func update(deltaTime seconds: TimeInterval) {
@@ -52,12 +52,12 @@ class GeneratorComponent: GKComponent {
     guard entity!.scene.ticks >= unit.ticks else { return }
     
     sequence.removeFirst()
-    spawn(type: unit.type, useHighPath: unit.highPath)
+    spawn(type: unit.type, useHighTrack: unit.useHighTrack)
   }
   
-  private func buildPath(low: Bool) -> [DemonDotComponent] {
-    var path: [DemonDotComponent] = []
-    var dot = entity!.component(ofType: DemonDotComponent.self)!
+  private func buildPath(low: Bool) -> [NetDotComponent] {
+    var path: [NetDotComponent] = []
+    var dot = entity!.component(ofType: NetDotComponent.self)!
     
     while true {
       path.append(dot)
@@ -72,9 +72,16 @@ class GeneratorComponent: GKComponent {
     return path
   }
   
-  private func spawn(type: DemonType, useHighPath: Bool) {
-    let path = useHighPath ? highPath : lowPath
-    let demon = DemonEntity(type: type, path: path, originNode: entity!.node)
+  private func pathToTrack(path: [NetDotComponent]) -> Track {
+    let orderedDots = path.map {
+      (position: $0.entity!.node.position, depth: $0.entity!.depth, layer: $0.entity!.layer)
+    }
+    return Track(orderedDots: orderedDots)
+  }
+  
+  private func spawn(type: DemonType, useHighTrack: Bool) {
+    let track = useHighTrack ? highTrack! : lowTrack!
+    let demon = DemonEntity(type: type, track: track, originNode: entity!.node)
     
     entity!.scene.entities.append(demon)
     entity!.scene.demons.append(demon)
