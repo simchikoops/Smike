@@ -79,6 +79,13 @@ class LevelScene: SKScene {
       focusHero?.heroComponent?.attack()
     } else if tapNodes.first(where: { $0.name == "next_hero" }) != nil {
       selectNextHero()
+    } else if tapNodes.first(where: { $0.name == "play_pause" }) != nil {
+      self.isPaused = !self.isPaused
+      self.lastUpdateTime = 0
+      
+      if let button = self["//play_pause"].first as? SKSpriteNode {
+        button.texture = SKTexture(imageNamed: (self.isPaused ? "play" : "pause"))
+      }
     }
   }
   

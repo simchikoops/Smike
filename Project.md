@@ -1,7 +1,9 @@
 # To-do
 
-* Demons follow path on update (by segment)
 * Pause button
+
+Next: Hero bird
+Then: Projectiles
  
 # Steps
 
