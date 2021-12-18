@@ -15,6 +15,8 @@ class NetDotComponent: GKComponent {
   var negativeEdges: [NetDotComponent] = []
   
   override func didAddToEntity() {
+    entity!.node.isHidden = true
+    
     if pos0 > 0 { positiveEdges.append(lookupEdge(pos0)) }
     if pos1 > 0 { positiveEdges.append(lookupEdge(pos1)) }
     if neg0 > 0 { negativeEdges.append(lookupEdge(neg0)) }
