@@ -3,10 +3,19 @@ import GameplayKit
 
 enum HeroType: String {
   case samurai
+  case woodpecker
   
   var imageName: String {
     switch self {
     case .samurai: return "samurai"
+    case .woodpecker: return "woodpecker"
+    }
+  }
+  
+  var anchorPoint: CGPoint {
+    switch self {
+    case .samurai: return CGPoint(x: 0.5, y: 0.2)
+    case .woodpecker: return CGPoint(x: 0.5, y: 0.6)
     }
   }
 }
@@ -52,7 +61,7 @@ class HeroComponent: GKComponent {
     
     let (position, depth, layer) = track!.dotAlong(alongTrack)
     let renderComponent = RenderComponent(imageNamed: heroType!.imageName, position: position, depth: depth, layer: layer)
-    renderComponent.spriteNode?.anchorPoint = CGPoint(x: 0.5, y: 0.2) // towards the feet
+    renderComponent.spriteNode?.anchorPoint = heroType!.anchorPoint // towards the feet
     
     entity?.addComponent(renderComponent)
     printNode.addChild(entity!.node)

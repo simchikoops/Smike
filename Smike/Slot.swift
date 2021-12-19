@@ -8,5 +8,8 @@ class Slot {
   init() {
     let samuraiStats = ["speed": CGFloat(15.0)]
     heroStats[.samurai] = samuraiStats
+    
+    let woodpeckerStats = ["speed": CGFloat(25.0)]
+    heroStats[.woodpecker] = woodpeckerStats
   }
 }

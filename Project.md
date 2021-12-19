@@ -1,9 +1,7 @@
 # To-do
 
-* Pause button
-
-Next: Hero bird
-Then: Projectiles
+* Hero attack: node with motion
+  Collisions w/ physics
  
 # Steps
 
