@@ -2,6 +2,7 @@
 
 * Hero attack: node with motion
   Collisions w/ physics
+  Shoot at angle?
  
 # Steps
 
