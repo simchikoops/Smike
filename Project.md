@@ -7,20 +7,12 @@
 # Steps
 
 * Demon attacks
+  vs. Heroes: hero looses alpha and is knocked out for a while. Harder hits, knocked out longer. While knocked out, can't move/attack or support others.
 * Hero attacks
 
 # Consider
 
-* Demon track networks (construction)
-* Coordinating demon and hero network
-  Attack directions?
-* Demon generators, directions
-  Coordination across generators: all at once
-* High level goals? Limiting scope
-* Level up hero types with coins? Choose your favorite
-  Stronger attacks, more hp, better defense, faster
-* IK/Reach?
-* Boss fights? or challenging stages
+* Attack directions?
 
 # Hero types
 
