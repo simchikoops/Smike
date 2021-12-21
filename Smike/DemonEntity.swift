@@ -12,6 +12,21 @@ class DemonEntity: GKEntity {
     let renderComponent = RenderComponent(imageNamed: type.imageName, position: dot.position, depth: dot.depth, layer: dot.layer)
     
     addComponent(renderComponent)
+    
+    if let node = self.node as? SKSpriteNode {
+      let physicsBody = SKPhysicsBody(rectangleOf: node.size)
+      print("demon size", node.size)
+
+      physicsBody.affectedByGravity = false
+      physicsBody.allowsRotation = false
+      physicsBody.isDynamic = true // just about the contacts
+
+      physicsBody.categoryBitMask = 15 //PhysicsInfo.demon.categoryBitMask
+      physicsBody.contactTestBitMask = 15 //PhysicsInfo.demon.contactTestBitMask
+      physicsBody.collisionBitMask = 15 //PhysicsInfo.demon.contactTestBitMask
+      node.physicsBody = physicsBody
+    }
+    
     originNode.parent!.addChild(node)
   }
   

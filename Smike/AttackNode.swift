@@ -42,10 +42,23 @@ class AttackNode: SKSpriteNode {
       vector = CGVector(dx: -300, dy: 350)
       xScaleMultiplier = -1
     }
+    
+    let physicsBody = SKPhysicsBody(circleOfRadius: self.size.height)
+    print("attack Size", self.size)
+
+    physicsBody.affectedByGravity = false
+    physicsBody.allowsRotation = false
+    physicsBody.isDynamic = true // just about the contacts
+
+    physicsBody.categoryBitMask = 15//PhysicsInfo.heroAttack.categoryBitMask
+    physicsBody.contactTestBitMask = 15//PhysicsInfo.heroAttack.contactTestBitMask
+    physicsBody.collisionBitMask = 15//PhysicsInfo.heroAttack.contactTestBitMask
+
+    self.physicsBody = physicsBody
 
     self.xScale *= xScaleMultiplier
     
-    let motion = SKAction.move(by: vector, duration: 0.25)
+    let motion = SKAction.move(by: vector, duration: 4.25)
     run(motion, completion: { self.removeFromParent() })
   }
 }

@@ -11,28 +11,29 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  override func viewDidLoad() {
+    super.viewDidLoad()
         
-        if let scene = GKScene(fileNamed: "M1L1") {
+    if let scene = GKScene(fileNamed: "M1L1") {
             
-            if let sceneNode = scene.rootNode as! LevelScene? {
+      if let sceneNode = scene.rootNode as! LevelScene? {
                 
-                sceneNode.entities = scene.entities
-                sceneNode.scaleMode = .aspectFit
+        sceneNode.entities = scene.entities
+        sceneNode.scaleMode = .aspectFit
                 
-                // Present the scene
-                if let view = self.view as! SKView? {
-                    view.presentScene(sceneNode)
+        // Present the scene
+        if let view = self.view as! SKView? {
+          view.presentScene(sceneNode)
                     
-                    view.ignoresSiblingOrder = true // major performance, apparently
+          view.ignoresSiblingOrder = true // major performance, apparently
                     
-                    view.showsFPS = true
-                    view.showsNodeCount = true
-                }
-            }
+          view.showsFPS = true
+          view.showsNodeCount = true
+          view.showsPhysics = true
         }
+      }
     }
+  }
 
     override var shouldAutorotate: Bool {
         return true

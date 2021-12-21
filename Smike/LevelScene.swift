@@ -35,6 +35,8 @@ class LevelScene: SKScene {
     
     tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped(_:)))
     view.addGestureRecognizer(tapRecognizer!)
+    
+    physicsWorld.contactDelegate = self
   }
   
   override func willMove(from view: SKView) {

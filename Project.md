@@ -1,18 +1,14 @@
 # To-do
 
-* Hero attack: node with motion
-  Collisions w/ physics
-  Shoot at angle?
+* Collision detection
+  remove attack, call hit
  
 # Steps
 
 * Demon attacks
   vs. Heroes: hero looses alpha and is knocked out for a while. Harder hits, knocked out longer. While knocked out, can't move/attack or support others.
-* Hero attacks
 
 # Consider
-
-* Attack directions?
 
 # Hero types
 
