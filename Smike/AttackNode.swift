@@ -44,15 +44,13 @@ class AttackNode: SKSpriteNode {
     }
     
     let physicsBody = SKPhysicsBody(circleOfRadius: self.size.height)
-    print("attack Size", self.size)
 
     physicsBody.affectedByGravity = false
     physicsBody.allowsRotation = false
-    physicsBody.isDynamic = true // just about the contacts
+    physicsBody.isDynamic = true // has to be true or contact doesn't register
 
-    physicsBody.categoryBitMask = 15//PhysicsInfo.heroAttack.categoryBitMask
-    physicsBody.contactTestBitMask = 15//PhysicsInfo.heroAttack.contactTestBitMask
-    physicsBody.collisionBitMask = 15//PhysicsInfo.heroAttack.contactTestBitMask
+    physicsBody.categoryBitMask = PhysicsInfo.heroAttack.categoryBitMask
+    physicsBody.contactTestBitMask = PhysicsInfo.heroAttack.contactTestBitMask
 
     self.physicsBody = physicsBody
 

@@ -9,8 +9,8 @@ struct PhysicsInfo: OptionSet, Hashable {
   static let demonAttack = PhysicsInfo(rawValue: 1 << 3) // 8
     
   static var contactTests: [PhysicsInfo: [PhysicsInfo]] = [
-    .heroAttack: [.demon, .hero],
-    .demonAttack: [.hero, .demon]
+    .heroAttack: [.demon],
+    .demonAttack: [.hero]
   ]
   
   var categoryBitMask: UInt32 {
