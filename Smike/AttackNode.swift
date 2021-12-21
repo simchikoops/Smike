@@ -4,6 +4,8 @@ class AttackNode: SKSpriteNode {
   let heroType: HeroType
   let heroFacing: FacingDirection
   
+  var spent: Bool = false
+  
   init (heroType: HeroType, originNode: SKSpriteNode) {
     self.heroType = heroType
     self.heroFacing = originNode.facing

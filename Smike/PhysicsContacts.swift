@@ -2,10 +2,18 @@ import SpriteKit
 
 extension LevelScene: SKPhysicsContactDelegate {
   func didBegin(_ contact: SKPhysicsContact) {
-    print("CONTACT!!!")
     let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
     
-    print(contact, collision)
+    switch collision {
+    case PhysicsInfo.heroAttack.categoryBitMask | PhysicsInfo.demon.categoryBitMask:
+      let demonNode = contact.bodyA.categoryBitMask == PhysicsInfo.demon.categoryBitMask ? contact.bodyA.node : contact.bodyB.node
+      let heroAttackNode = contact.bodyA.categoryBitMask == PhysicsInfo.heroAttack.categoryBitMask ? contact.bodyA.node : contact.bodyB.node
+      print(heroAttackNode)
+
+      // heroAttackNode?.spent = true
+    default:
+      break
+    }
     
 //    switch collision {
 //      // MARK: -  Projectile | Monster
