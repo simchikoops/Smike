@@ -8,6 +8,7 @@ class LevelScene: SKScene {
   var heroes: [GKEntity] = []
   var demons: [GKEntity] = []
   var generators: [GKEntity] = []
+  var mortals: [GKEntity] = []
   
   var ticks: CGFloat = 0.0
   var focusHero: GKEntity?

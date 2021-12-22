@@ -82,6 +82,7 @@ class DemonComponent: GKComponent {
   
   func dispell() {
     entity!.scene.demons.remove(object: entity!)
+    // TODO: check scene completion
     entity!.remove()
   }
 }
