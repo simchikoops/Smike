@@ -5,11 +5,8 @@ class DemonEntity: GKEntity {
   init(type: DemonType, track: Track, originNode: SKNode) {
     super.init()
     
-    let demonComponent = DemonComponent(type: type, track: track)
-    addComponent(demonComponent)
-    
     let dot = track.dotAlong(0)
-    let renderComponent = RenderComponent(imageNamed: type.imageName, position: dot.position, depth: dot.depth, layer: dot.layer)
+    let renderComponent = NodeComponent(imageNamed: type.imageName, position: dot.position, depth: dot.depth, layer: dot.layer)
     
     addComponent(renderComponent)
     
@@ -25,6 +22,9 @@ class DemonEntity: GKEntity {
 
       node.physicsBody = physicsBody
     }
+    
+    let demonComponent = DemonComponent(type: type, track: track)
+    addComponent(demonComponent)
     
     originNode.parent!.addChild(node)
   }

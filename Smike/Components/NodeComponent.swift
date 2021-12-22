@@ -1,7 +1,7 @@
 import SpriteKit
 import GameplayKit
 
-class RenderComponent: GKComponent {
+class NodeComponent: GKComponent {
   
   var spriteNode: SKSpriteNode?
   

@@ -84,6 +84,12 @@ Galaga-style temporary double-ups?
 * Respect for art & culture
 * Many sources of variety: prints, heroes, demons
 
+# Implementation Nodes
+
+## Components vs Entities
+Generic entities (not subclassed.) Scene-editor created entities have precreated node components.
+Generated entities creat their own node components.
+
 # Models
 
 ## Space Invaders

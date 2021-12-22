@@ -3,7 +3,7 @@ import GameplayKit
 
 extension GKEntity {
   var node: SKNode {
-    if let node = component(ofType: RenderComponent.self)?.spriteNode {
+    if let node = component(ofType: NodeComponent.self)?.spriteNode {
       return node
     } else if let node = component(ofType: GKSKNodeComponent.self)?.node {
       return node
@@ -15,15 +15,7 @@ extension GKEntity {
   var scene: LevelScene {
     return node.scene as! LevelScene
   }
-  
-  var baseNode: SKNode {
-    if let node = component(ofType: GKSKNodeComponent.self)?.node {
-      return node
-    } else {
-      return SKNode()
-    }
-  }
-  
+    
   var depth: CGFloat {
     return component(ofType: DepthComponent.self)?.depth ?? 0.0
   }
