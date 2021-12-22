@@ -6,9 +6,9 @@ class DemonEntity: GKEntity {
     super.init()
     
     let dot = track.dotAlong(0)
-    let renderComponent = NodeComponent(imageNamed: type.imageName, position: dot.position, depth: dot.depth, layer: dot.layer)
+    let nodeComponent = NodeComponent(imageNamed: type.imageName, position: dot.position, depth: dot.depth, layer: dot.layer)
     
-    addComponent(renderComponent)
+    addComponent(nodeComponent)
     
     if let node = self.node as? SKSpriteNode {
       let physicsBody = SKPhysicsBody(rectangleOf: node.size)

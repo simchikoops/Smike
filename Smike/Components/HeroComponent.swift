@@ -60,10 +60,10 @@ class HeroComponent: GKComponent {
     printNode.addChild(trackNode!)
     
     let (position, depth, layer) = track!.dotAlong(alongTrack)
-    let renderComponent = NodeComponent(imageNamed: heroType!.imageName, position: position, depth: depth, layer: layer)
-    renderComponent.spriteNode?.anchorPoint = heroType!.anchorPoint // towards the feet
+    let nodeComponent = NodeComponent(imageNamed: heroType!.imageName, position: position, depth: depth, layer: layer)
+    nodeComponent.spriteNode?.anchorPoint = heroType!.anchorPoint // towards the feet
     
-    entity?.addComponent(renderComponent)
+    entity?.addComponent(nodeComponent)
     printNode.addChild(entity!.node)
     
     if let scene = entity?.scene {
