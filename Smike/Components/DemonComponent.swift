@@ -18,7 +18,7 @@ enum DemonType: Int {
   
   var hp: Int {
     switch self {
-    case .bat: return 10
+    case .bat: return 20
     }
   }
 }
@@ -78,5 +78,10 @@ class DemonComponent: GKComponent {
     node.position = position
     node.depth = depth
     node.zPosition = layer
+  }
+  
+  func dispell() {
+    entity!.scene.demons.remove(object: entity!)
+    entity!.remove()
   }
 }
