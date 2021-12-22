@@ -12,8 +12,16 @@ extension GKEntity {
     }
   }
   
+  var spriteNode: SKSpriteNode {
+    return node as! SKSpriteNode
+  }
+  
   var scene: LevelScene {
     return node.scene as! LevelScene
+  }
+  
+  var printNode: SKNode? {
+    return scene["print"].first
   }
     
   var depth: CGFloat {
@@ -22,10 +30,6 @@ extension GKEntity {
   
   var layer: CGFloat {
     return component(ofType: DepthComponent.self)?.layer ?? Layer.normal.rawValue
-  }
-  
-  var printNode: SKNode? {
-    return scene["print"].first
   }
   
   var heroComponent: HeroComponent? {

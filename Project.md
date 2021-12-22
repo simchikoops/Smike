@@ -1,11 +1,11 @@
 # To-do
 
-* Demon entity/component -> demon entity
 * Attack Node -> attack entity (to get update, and remove when spent)
 * Demon.hit(force)
  
 # Steps
 
+* Mortal component
 * Demon attacks
   vs. Heroes: hero looses alpha and is knocked out for a while. Harder hits, knocked out longer. While knocked out, can't move/attack or support others.
 * Scene completion (win/loss conditions)

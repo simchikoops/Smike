@@ -76,8 +76,14 @@ class HeroComponent: GKComponent {
   }
   
   func attack() {
-    let attack = AttackNode(heroType: heroType!, originNode: entity!.node as! SKSpriteNode)
-    attack.start()
+    let attack = GKEntity()
+    entity!.scene.entities.append(attack)
+    
+    let attackComponent = HeroAttackComponent(originHero: entity!)
+    attack.addComponent(attackComponent)
+    
+    entity!.node.parent!.addChild(attack.node)
+    attackComponent.launch()
   }
 
   private func createControl() {

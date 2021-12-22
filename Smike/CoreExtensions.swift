@@ -6,14 +6,3 @@ extension Comparable {
     return min(max(self, limits.lowerBound), limits.upperBound)
   }
 }
-
-enum FacingDirection {
-  case left
-  case right
-}
-
-extension SKNode {
-  var facing: FacingDirection {
-    return xScale >= 0 ? .right : .left // by convention
-  }
-}
