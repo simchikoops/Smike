@@ -15,6 +15,12 @@ enum DemonType: Int {
     case .bat: return 75.0
     }
   }
+  
+  var hp: Int {
+    switch self {
+    case .bat: return 10
+    }
+  }
 }
 
 class DemonComponent: GKComponent {
@@ -56,6 +62,10 @@ class DemonComponent: GKComponent {
 
       node.physicsBody = physicsBody
     }
+    
+    let healthComponent = HealthComponent()
+    healthComponent.hp = type.hp
+    entity!.addComponent(healthComponent)
   }
     
   override func update(deltaTime seconds: TimeInterval) {

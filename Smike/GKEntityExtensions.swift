@@ -36,6 +36,10 @@ extension GKEntity {
     return component(ofType: HeroComponent.self)
   }
   
+  var healthComponent: HealthComponent? {
+    return component(ofType: HealthComponent.self)
+  }
+  
   func remove() {
     scene.entities.remove(object: self)
     node.removeFromParent()

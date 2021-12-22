@@ -3,6 +3,7 @@ import GameplayKit
 
 class HeroAttackComponent: GKComponent {
   let originHero: GKEntity
+  var spent: Bool = false
   
   var imageName: String {
     get {
@@ -10,6 +11,13 @@ class HeroAttackComponent: GKComponent {
       case .woodpecker: return "beak"
       case .samurai: return "beak" // TODO: fix
       }
+    }
+  }
+  
+  var power: Int {
+    switch originHero.heroComponent!.heroType! {
+    case .woodpecker: return 10
+    case .samurai: return 20
     }
   }
 
@@ -61,5 +69,9 @@ class HeroAttackComponent: GKComponent {
     
     let motion = SKAction.move(by: vector, duration: 4.25)
     node.run(motion, completion: { self.entity!.remove() })
+  }
+  
+  override func update(deltaTime seconds: TimeInterval) {
+    if spent { entity!.remove() }
   }
 }
