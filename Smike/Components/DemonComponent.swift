@@ -38,10 +38,26 @@ class DemonComponent: GKComponent {
     true
   }
   
-  var demonEntity: DemonEntity {
-    entity! as! DemonEntity
+  override func didAddToEntity() {
+    let dot = track.dotAlong(0)
+    let nodeComponent = NodeComponent(imageNamed: type.imageName, position: dot.position, depth: dot.depth, layer: dot.layer)
+    
+    entity!.addComponent(nodeComponent)
+    
+    if let node = entity!.node as? SKSpriteNode {
+      let physicsBody = SKPhysicsBody(rectangleOf: node.size)
+
+      physicsBody.affectedByGravity = false
+      physicsBody.allowsRotation = false
+      physicsBody.isDynamic = false // alow overlaps
+
+      physicsBody.categoryBitMask = PhysicsInfo.demon.categoryBitMask
+      physicsBody.contactTestBitMask = PhysicsInfo.demon.contactTestBitMask
+
+      node.physicsBody = physicsBody
+    }
   }
-  
+    
   override func update(deltaTime seconds: TimeInterval) {
     guard let node = entity?.node as? SKSpriteNode else { return }
     

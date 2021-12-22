@@ -81,7 +81,12 @@ class GeneratorComponent: GKComponent {
   
   private func spawn(type: DemonType, useHighTrack: Bool) {
     let track = useHighTrack ? highTrack! : lowTrack!
-    let demon = DemonEntity(type: type, track: track, originNode: entity!.node)
+    let demon = GKEntity()
+    
+    let demonComponent = DemonComponent(type: type, track: track)
+    demon.addComponent(demonComponent)
+    
+    entity!.node.parent!.addChild(demon.node)
     
     entity!.scene.entities.append(demon)
     entity!.scene.demons.append(demon)
