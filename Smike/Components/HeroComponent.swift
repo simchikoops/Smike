@@ -94,7 +94,7 @@ class HeroComponent: GKComponent {
   private func createTrack() -> Track? {
     guard let printNode = entity!.printNode else { return nil }
     
-    var trackNodes = entity!.baseNode.children.filter { node in
+    var trackNodes = entity!.node.children.filter { node in
       if let name = node.name {
         return name.starts(with: "pt")
       } else {
