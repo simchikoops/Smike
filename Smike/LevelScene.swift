@@ -19,6 +19,7 @@ class LevelScene: SKScene {
     
   override func sceneDidLoad() {
     self.lastUpdateTime = 0
+    physicsWorld.contactDelegate = self
   }
   
   // Load finished callback.
@@ -33,11 +34,6 @@ class LevelScene: SKScene {
       $0.heroComponent!.index < $1.heroComponent!.index
     }
     selectHero(heroes.first!)
-    
-    tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped(_:)))
-    view.addGestureRecognizer(tapRecognizer!)
-    
-    physicsWorld.contactDelegate = self
   }
   
   override func willMove(from view: SKView) {
