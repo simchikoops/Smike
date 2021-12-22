@@ -60,6 +60,6 @@ class HeroAttackComponent: GKComponent {
     node.xScale *= xScaleMultiplier
     
     let motion = SKAction.move(by: vector, duration: 4.25)
-    node.run(motion, completion: { node.removeFromParent() })
+    node.run(motion, completion: { self.entity!.remove() })
   }
 }

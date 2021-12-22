@@ -32,7 +32,7 @@
 		55AB01DB27627E1D002FCC4A /* TrackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB01DA27627E1D002FCC4A /* TrackTests.swift */; };
 		55AB01DE2762864C002FCC4A /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 55AB01DD2762864C002FCC4A /* Algorithms */; };
 		55C816E42761111F00A810EE /* HeroComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E32761111F00A810EE /* HeroComponent.swift */; };
-		55C816E62761141200A810EE /* EntityProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E52761141200A810EE /* EntityProperties.swift */; };
+		55C816E62761141200A810EE /* GKEntityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E52761141200A810EE /* GKEntityExtensions.swift */; };
 		55C816E82761161400A810EE /* NodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E72761161400A810EE /* NodeComponent.swift */; };
 		55C816EA2761302200A810EE /* DepthComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E92761302200A810EE /* DepthComponent.swift */; };
 		55DAB53A2771562500105FC4 /* PhysicsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DAB5392771562500105FC4 /* PhysicsInfo.swift */; };
@@ -86,7 +86,7 @@
 		55AB01D827627B19002FCC4A /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		55AB01DA27627E1D002FCC4A /* TrackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTests.swift; sourceTree = "<group>"; };
 		55C816E32761111F00A810EE /* HeroComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroComponent.swift; sourceTree = "<group>"; };
-		55C816E52761141200A810EE /* EntityProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityProperties.swift; sourceTree = "<group>"; };
+		55C816E52761141200A810EE /* GKEntityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKEntityExtensions.swift; sourceTree = "<group>"; };
 		55C816E72761161400A810EE /* NodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeComponent.swift; sourceTree = "<group>"; };
 		55C816E92761302200A810EE /* DepthComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthComponent.swift; sourceTree = "<group>"; };
 		55DAB5392771562500105FC4 /* PhysicsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsInfo.swift; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 				55010A9B27518DEC0049E9AE /* AppDelegate.swift */,
 				55010AA327518DEC0049E9AE /* GameViewController.swift */,
 				55337A562756A57300407618 /* LevelScene.swift */,
-				55C816E52761141200A810EE /* EntityProperties.swift */,
+				55C816E52761141200A810EE /* GKEntityExtensions.swift */,
 				5593962E27668CA600EFA9F3 /* CoreExtensions.swift */,
 				5513637E2763D10F006BC9B1 /* SpriteNodeExtensions.swift */,
 				55337A582756AD4E00407618 /* Reference Nodes */,
@@ -361,7 +361,7 @@
 				55DFB29A2773A88800F3747B /* HeroAttackComponent.swift in Sources */,
 				55010AA427518DEC0049E9AE /* GameViewController.swift in Sources */,
 				55DAB53C277159C600105FC4 /* PhysicsContacts.swift in Sources */,
-				55C816E62761141200A810EE /* EntityProperties.swift in Sources */,
+				55C816E62761141200A810EE /* GKEntityExtensions.swift in Sources */,
 				55AA1FEF276A5F1B0076881E /* NetDotComponent.swift in Sources */,
 				55AA1FF1276A69ED0076881E /* GeneratorComponent.swift in Sources */,
 				55AA1FF3276A78D90076881E /* DemonComponent.swift in Sources */,
