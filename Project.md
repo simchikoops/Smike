@@ -1,6 +1,4 @@
 # To-do
-* Select tap should not be attack
-  Select on tap only?
 * Attack speed limits
 * Demon behavior
 * Demon attacks

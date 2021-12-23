@@ -18,6 +18,13 @@ enum HeroType: String {
     case .woodpecker: return CGPoint(x: 0.5, y: 0.6)
     }
   }
+  
+  var minimumAttackInterval: CGFloat {
+    switch self {
+    case .samurai: return CGFloat(1.0)
+    case .woodpecker: return CGFloat(0.7)
+   }
+  }
 }
 
 enum HeroMotion {
@@ -40,6 +47,7 @@ class HeroComponent: GKComponent {
   
   var alongTrack: CGFloat = 0.0
   var moving: HeroMotion = .stopped
+  var lastAttackTicks: CGFloat = 0.0
   
   var hasFocus: Bool = false {
     didSet {
@@ -76,6 +84,8 @@ class HeroComponent: GKComponent {
   }
   
   func attack() {
+    guard entity!.scene.ticks - lastAttackTicks > heroType!.minimumAttackInterval else { return }
+    
     let attack = GKEntity()
     entity!.scene.entities.append(attack)
     
@@ -84,6 +94,8 @@ class HeroComponent: GKComponent {
     
     entity!.node.parent!.addChild(attack.node)
     attackComponent.launch()
+    
+    lastAttackTicks = entity!.scene.ticks
   }
 
   private func createControl() {
