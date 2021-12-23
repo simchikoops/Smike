@@ -36,10 +36,7 @@ struct Track {
   }
   
   static func calculateDistance(dots: [TrackDot]) -> CGFloat {
-    dots.adjacentPairs().map { pair in
-      CGFloat(hypotf(Float(pair.1.position.x - pair.0.position.x),
-                     Float(pair.1.position.y - pair.0.position.y)))
-    }.reduce(0, +)
+    dots.adjacentPairs().map { $0.0.position.distance(to: $0.1.position) }.reduce(0, +)
   }
   
   func asCGPath() -> CGPath {

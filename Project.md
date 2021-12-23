@@ -1,7 +1,5 @@
 # To-do
 
-* simplify demon components
-  generator with one track
 * Demon behavior
 * Demon attacks
   vs. mortals

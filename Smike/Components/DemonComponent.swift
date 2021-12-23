@@ -77,6 +77,14 @@ class DemonComponent: GKComponent {
     progress(deltaTime: seconds)
   }
   
+  func nearestEntityAndDistance(list: [GKEntity]) -> (entity: GKEntity, distance: CGFloat)? {
+    let ownPosition = entity!.node.position
+    
+    return list.map { (entity: $0, distance: ownPosition.distance(to: $0.node.position)) }
+      .sorted { $0.distance < $1.distance }
+      .first
+  }
+  
   func progress(deltaTime seconds: TimeInterval) {
     guard let node = entity?.node as? SKSpriteNode else { return }
     

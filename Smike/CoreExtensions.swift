@@ -14,3 +14,9 @@ extension Array where Element: Equatable {
     remove(at: index)
   }
 }
+
+extension CGPoint {
+  func distance(to other: CGPoint) -> CGFloat {
+    return hypot(other.x - self.x, other.y - self.y)
+  }
+}
