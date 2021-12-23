@@ -1,7 +1,7 @@
 # To-do
 
-* devil demon
-  new, unconnected net
+* simplify demon components
+  generator with one track
 * Demon behavior
 * Demon attacks
   vs. mortals
@@ -21,6 +21,7 @@
 # Backfill
 
 * animations
+  spawning
 * sounds
 
 # Consider

@@ -3,22 +3,26 @@ import GameplayKit
 
 enum DemonType: Int {
   case bat = 1
+  case devil = 2
   
   var imageName: String {
     switch self {
     case .bat: return "bat"
+    case .devil: return "devil"
     }
   }
 
   var speed: CGFloat {
     switch self {
     case .bat: return 75.0
+    case .devil: return 10.0
     }
   }
   
   var hp: Int {
     switch self {
     case .bat: return 20
+    case .devil: return 100
     }
   }
 }
