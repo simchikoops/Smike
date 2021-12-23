@@ -14,6 +14,27 @@ struct Track {
     distance = Track.calculateDistance(dots: dots)
   }
   
+  static func fromNodes(headNode: SKSpriteNode) -> Track? {
+    guard let printNode = headNode.entity!.printNode else { return nil }
+    
+    var trackNodes = headNode.children.filter { node in
+      node.entity!.component(ofType: TrackDotComponent.self) != nil
+    }
+    
+    trackNodes.sort {
+      $0.entity!.component(ofType: TrackDotComponent.self)!.seq < $1.entity!.component(ofType: TrackDotComponent.self)!.seq
+    }
+
+    let trackDots = trackNodes.map {
+      (position: headNode.convert($0.position, to: printNode),
+       depth: $0.entity!.component(ofType: TrackDotComponent.self)!.depth,
+       layer: $0.zPosition)
+    }
+    
+    trackNodes.forEach { $0.removeFromParent() }
+    return Track(orderedDots: trackDots)
+  }
+  
   static func calculateDistance(dots: [TrackDot]) -> CGFloat {
     dots.adjacentPairs().map { pair in
       CGFloat(hypotf(Float(pair.1.position.x - pair.0.position.x),

@@ -61,19 +61,13 @@ class HeroComponent: GKComponent {
     self.heroType = HeroType(rawValue: type)
     createControl()
     
-    self.track = createTrack()
+    self.track = Track.fromNodes(headNode: entity!.spriteNode)
     alongTrack = track!.distance / 2
+    moveToDot(track!.dotAlong(alongTrack))
     
     self.trackNode = createTrackNode()
     printNode.addChild(trackNode!)
-    
-    let (position, depth, layer) = track!.dotAlong(alongTrack)
-    let nodeComponent = NodeComponent(imageNamed: heroType!.imageName, position: position, depth: depth, layer: layer)
-    nodeComponent.spriteNode?.anchorPoint = heroType!.anchorPoint // towards the feet
-    
-    entity?.addComponent(nodeComponent)
-    printNode.addChild(entity!.node)
-    
+     
     if let scene = entity?.scene {
       scene.heroes.append(entity!)
     }
@@ -109,27 +103,6 @@ class HeroComponent: GKComponent {
     entity!.node.parent?.addChild(controlNode)
   }
   
-  private func createTrack() -> Track? {
-    guard let printNode = entity!.printNode else { return nil }
-    
-    var trackNodes = entity!.node.children.filter { node in
-      if let name = node.name {
-        return name.starts(with: "pt")
-      } else {
-        return false
-      }
-    }
-    
-    trackNodes.sort { $0.name! < $1.name! }
-
-    let trackDots = trackNodes.map {
-      (position: entity!.node.convert($0.position, to: printNode), depth: $0.entity!.depth, layer: $0.entity!.layer)
-    }
-    
-    trackNodes.forEach { $0.removeFromParent() }
-    return Track(orderedDots: trackDots)
-  }
-  
   private func createTrackNode() -> SKShapeNode {
     let node = SKShapeNode(path: track!.asCGPath())
     
@@ -158,9 +131,14 @@ class HeroComponent: GKComponent {
     case .stopped: return // nothing to do
     }
     
-    let (position, depth, layer) = track.dotAlong(alongTrack)
-    node.position = position
-    node.depth = depth
-    node.zPosition = layer
+    moveToDot(track.dotAlong(alongTrack))
+  }
+  
+  func moveToDot(_ dot: TrackDot) {
+    let (position, depth, layer) = dot
+    
+    entity!.spriteNode.position = position
+    entity!.spriteNode.depth = depth
+    entity!.spriteNode.zPosition = layer
   }
 }
