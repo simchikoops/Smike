@@ -26,6 +26,9 @@ class LevelScene: SKScene {
   override func didMove(to view: SKView) {
     super.didMove(to: view)
     
+    tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped(_:)))
+    view.addGestureRecognizer(tapRecognizer!)
+    
     for generator in generators {
       generator.component(ofType: GeneratorComponent.self)!.calculatePaths()
     }
@@ -71,9 +74,12 @@ class LevelScene: SKScene {
     
     if let controlNode = heroControlNode(tapNodes) {
       if let index = heroControlIndex(controlNode) {
-        selectHero(heroes[index])
+        if heroControlIndex(controlNode) == focusHeroIndex {
+          focusHero?.heroComponent?.attack()
+        } else {
+          selectHero(heroes[index])
+        }
       }
-      focusHero?.heroComponent?.attack()
     } else if tapNodes.first(where: { $0.name == "attack" }) != nil {
       focusHero?.heroComponent?.attack()
     } else if tapNodes.first(where: { $0.name == "next_hero" }) != nil {
@@ -88,9 +94,13 @@ class LevelScene: SKScene {
     }
   }
   
+  var focusHeroIndex: Int? {
+    return heroes.firstIndex(of: focusHero!)
+  }
+  
   func selectNextHero() {
-    if let focusHeroIndex = heroes.firstIndex(of: focusHero!) {
-      selectHero(heroes[focusHeroIndex + 1 < heroes.count ? focusHeroIndex + 1 : 0 ])
+    if let index = focusHeroIndex {
+      selectHero(heroes[index + 1 < heroes.count ? index + 1 : 0 ])
     }
   }
   
@@ -98,10 +108,9 @@ class LevelScene: SKScene {
     let touchedNodes = nodes(at: pos)
     
     if let controlNode = heroControlNode(touchedNodes) {
-      if let index = heroControlIndex(controlNode) {
-        selectHero(heroes[index])
+      if heroControlIndex(controlNode) == focusHeroIndex {
+        heroControlXRef = pos.x
       }
-      heroControlXRef = pos.x
     }
   }
   

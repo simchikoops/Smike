@@ -1,13 +1,27 @@
 # To-do
-Mortal component + health
- 
-# Steps
-
-* 
+* Select tap should not be attack
+  Select on tap only?
+* Attack speed limits
+* Demon behavior
 * Demon attacks
   vs. mortals
   vs. Heroes: hero looses alpha and is knocked out for a while. Harder hits, knocked out longer. While knocked out, can't move/attack or support others.
+
+
+# Steps
+
 * Scene completion (win/loss conditions)
+* Supported attacks
+* Mass attack
+* Advancement
+  Map of Japan? Each island. Staman.terrainbackground
+* Coins
+* Purchases
+
+# Backfill
+
+* animations
+* sounds
 
 # Consider
 
