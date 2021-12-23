@@ -29,10 +29,6 @@ class LevelScene: SKScene {
     tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped(_:)))
     view.addGestureRecognizer(tapRecognizer!)
     
-    for generator in generators {
-      generator.component(ofType: GeneratorComponent.self)!.calculatePaths()
-    }
-    
     heroes.sort {
       $0.heroComponent!.index < $1.heroComponent!.index
     }

@@ -14,7 +14,7 @@ struct Track {
     distance = Track.calculateDistance(dots: dots)
   }
   
-  static func fromNodes(headNode: SKSpriteNode) -> Track? {
+  static func fromNodes(headNode: SKNode) -> Track? {
     guard let printNode = headNode.entity!.printNode else { return nil }
     
     var trackNodes = headNode.children.filter { node in
