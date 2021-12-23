@@ -69,6 +69,11 @@ class DemonComponent: GKComponent {
   }
     
   override func update(deltaTime seconds: TimeInterval) {
+    
+    progress(deltaTime: seconds)
+  }
+  
+  func progress(deltaTime seconds: TimeInterval) {
     guard let node = entity?.node as? SKSpriteNode else { return }
     
     let speed = type.speed

@@ -1,5 +1,7 @@
 # To-do
-* Attack speed limits
+
+* devil demon
+  new, unconnected net
 * Demon behavior
 * Demon attacks
   vs. mortals
