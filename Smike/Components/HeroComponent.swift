@@ -1,25 +1,6 @@
 import SpriteKit
 import GameplayKit
 
-enum HeroType: String {
-  case samurai
-  case woodpecker
-  
-  var imageName: String {
-    switch self {
-    case .samurai: return "samurai"
-    case .woodpecker: return "woodpecker"
-    }
-  }
-    
-  var minimumAttackInterval: CGFloat {
-    switch self {
-    case .samurai: return CGFloat(1.0)
-    case .woodpecker: return CGFloat(0.7)
-   }
-  }
-}
-
 enum HeroMotion {
   case toLeft
   case toRight
