@@ -62,7 +62,6 @@ class HeroComponent: GKComponent {
     createControl()
     
     self.track = Track.fromNodes(headNode: entity!.spriteNode)
-    print(track!.distance)
     alongTrack = track!.distance / 2
     moveToDot(track!.dotAlong(alongTrack))
     
