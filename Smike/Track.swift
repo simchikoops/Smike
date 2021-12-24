@@ -75,4 +75,8 @@ struct Track {
 
     return dots.last! // underflow
   }
+  
+  func dotFractionAlong(_ fractionAlong: CGFloat) -> TrackDot {
+    return dotAlong(fractionAlong * distance)
+  }
 }

@@ -11,14 +11,7 @@ enum HeroType: String {
     case .woodpecker: return "woodpecker"
     }
   }
-  
-  var anchorPoint: CGPoint {
-    switch self {
-    case .samurai: return CGPoint(x: 0.5, y: 0.2)
-    case .woodpecker: return CGPoint(x: 0.5, y: 0.6)
-    }
-  }
-  
+    
   var minimumAttackInterval: CGFloat {
     switch self {
     case .samurai: return CGFloat(1.0)
