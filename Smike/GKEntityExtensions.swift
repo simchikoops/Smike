@@ -8,6 +8,7 @@ extension GKEntity {
     } else if let node = component(ofType: GKSKNodeComponent.self)?.node {
       return node
     } else {
+      assert(false, "Entity has no node.")
       return SKNode()
     }
   }

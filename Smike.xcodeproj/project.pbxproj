@@ -39,7 +39,7 @@
 		55C816EA2761302200A810EE /* DepthComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E92761302200A810EE /* DepthComponent.swift */; };
 		55DAB53A2771562500105FC4 /* PhysicsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DAB5392771562500105FC4 /* PhysicsInfo.swift */; };
 		55DAB53C277159C600105FC4 /* PhysicsContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DAB53B277159C600105FC4 /* PhysicsContacts.swift */; };
-		55DFB29A2773A88800F3747B /* HeroAttackComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DFB2992773A88800F3747B /* HeroAttackComponent.swift */; };
+		55DFB29A2773A88800F3747B /* MissileAttackComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DFB2992773A88800F3747B /* MissileAttackComponent.swift */; };
 		55DFB29C2773D61000F3747B /* HealthComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DFB29B2773D61000F3747B /* HealthComponent.swift */; };
 		55DFB29E2773E20F00F3747B /* MortalComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DFB29D2773E20F00F3747B /* MortalComponent.swift */; };
 /* End PBXBuildFile section */
@@ -97,7 +97,7 @@
 		55C816E92761302200A810EE /* DepthComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthComponent.swift; sourceTree = "<group>"; };
 		55DAB5392771562500105FC4 /* PhysicsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsInfo.swift; sourceTree = "<group>"; };
 		55DAB53B277159C600105FC4 /* PhysicsContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsContacts.swift; sourceTree = "<group>"; };
-		55DFB2992773A88800F3747B /* HeroAttackComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroAttackComponent.swift; sourceTree = "<group>"; };
+		55DFB2992773A88800F3747B /* MissileAttackComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissileAttackComponent.swift; sourceTree = "<group>"; };
 		55DFB29B2773D61000F3747B /* HealthComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthComponent.swift; sourceTree = "<group>"; };
 		55DFB29D2773E20F00F3747B /* MortalComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortalComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -210,7 +210,7 @@
 				55DFB29B2773D61000F3747B /* HealthComponent.swift */,
 				55C816E32761111F00A810EE /* HeroComponent.swift */,
 				55AA1FF2276A78D90076881E /* DemonComponent.swift */,
-				55DFB2992773A88800F3747B /* HeroAttackComponent.swift */,
+				55DFB2992773A88800F3747B /* MissileAttackComponent.swift */,
 				55AA1FF0276A69ED0076881E /* GeneratorComponent.swift */,
 				55C816E72761161400A810EE /* NodeComponent.swift */,
 				55DFB29D2773E20F00F3747B /* MortalComponent.swift */,
@@ -374,7 +374,7 @@
 				55BA7CC827754D340078D20F /* HeroData.swift in Sources */,
 				55BA7CC4277504300078D20F /* TrackDotComponent.swift in Sources */,
 				55337A552756A32400407618 /* AttributionComponent.swift in Sources */,
-				55DFB29A2773A88800F3747B /* HeroAttackComponent.swift in Sources */,
+				55DFB29A2773A88800F3747B /* MissileAttackComponent.swift in Sources */,
 				55010AA427518DEC0049E9AE /* GameViewController.swift in Sources */,
 				55DAB53C277159C600105FC4 /* PhysicsContacts.swift in Sources */,
 				55C816E62761141200A810EE /* GKEntityExtensions.swift in Sources */,

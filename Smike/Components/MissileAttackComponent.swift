@@ -1,28 +1,18 @@
 import SpriteKit
 import GameplayKit
 
-class HeroAttackComponent: GKComponent {
-  let originHero: GKEntity
+class MissileAttackComponent: GKComponent {
+  let originSprite: SKSpriteNode
+  let power: Int
+  let imageName: String
+  
   var spent: Bool = false
   
-  var imageName: String {
-    get {
-      switch originHero.heroComponent!.heroType! {
-      case .woodpecker: return "beak"
-      case .samurai: return "beak" // TODO: fix
-      }
-    }
-  }
-  
-  var power: Int {
-    switch originHero.heroComponent!.heroType! {
-    case .woodpecker: return 10
-    case .samurai: return 20
-    }
-  }
-
-  init(originHero: GKEntity) {
-    self.originHero = originHero
+  init(originSprite: SKSpriteNode, imageName: String, power: Int) {
+    self.originSprite = originSprite
+    self.imageName = imageName
+    self.power = power
+    
     super.init()
   }
   
@@ -35,8 +25,7 @@ class HeroAttackComponent: GKComponent {
   }
   
   override func didAddToEntity() {
-    let originNode = originHero.spriteNode
-    let nodeComponent = NodeComponent(imageNamed: imageName, position: originNode.position, depth: originNode.depth, layer: originNode.layer)
+    let nodeComponent = NodeComponent(imageNamed: imageName, position: originSprite.position, depth: originSprite.depth, layer: originSprite.layer)
     
     entity!.addComponent(nodeComponent)
   }
@@ -46,7 +35,7 @@ class HeroAttackComponent: GKComponent {
     var vector = CGVector(dx: 0, dy: 0)
     var xScaleMultiplier = 1.0
     
-    switch originHero.spriteNode.facing {
+    switch originSprite.facing {
     case .right:
       vector = CGVector(dx: 300, dy: 350)
     case .left:

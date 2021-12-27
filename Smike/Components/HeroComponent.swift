@@ -57,10 +57,10 @@ class HeroComponent: GKComponent {
     let attack = GKEntity()
     entity!.scene.entities.append(attack)
     
-    let attackComponent = HeroAttackComponent(originHero: entity!)
+    let attackComponent = MissileAttackComponent(originSprite: entity!.spriteNode, imageName: heroType!.attackDisplay, power: heroType!.attackPower)
     attack.addComponent(attackComponent)
     
-    entity!.node.parent!.addChild(attack.node)
+    entity!.printNode!.addChild(attack.node)
     attackComponent.launch()
     
     lastAttackTicks = entity!.scene.ticks
