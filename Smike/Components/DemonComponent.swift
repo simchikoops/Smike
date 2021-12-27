@@ -76,10 +76,11 @@ class DemonComponent: GKComponent {
     let speed = type.speed
     alongTrack = (alongTrack + (speed * seconds)).clamped(to: 0...track.distance)
     
-    let (position, depth, layer) = track.dotAlong(alongTrack)
+    let (position, depth, layer, facing) = track.dotAlong(alongTrack)
     node.position = position
     node.depth = depth
     node.zPosition = layer
+    node.facing = facing
   }
   
   func dispell() {

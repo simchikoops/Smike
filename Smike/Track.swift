@@ -1,7 +1,12 @@
 import SpriteKit
 import Algorithms
 
-typealias TrackDot = (position: CGPoint, depth: CGFloat, layer: CGFloat)
+enum FacingDirection {
+  case left
+  case right
+}
+
+typealias TrackDot = (position: CGPoint, depth: CGFloat, layer: CGFloat, facing: FacingDirection)
 
 struct Track {
   let dots: [ TrackDot ]
@@ -25,10 +30,18 @@ struct Track {
       $0.entity!.component(ofType: TrackDotComponent.self)!.seq < $1.entity!.component(ofType: TrackDotComponent.self)!.seq
     }
 
-    let trackDots = trackNodes.map {
-      (position: headNode.convert($0.position, to: printNode),
-       depth: $0.entity!.component(ofType: TrackDotComponent.self)!.depth,
-       layer: $0.zPosition)
+    var trackDots: [ TrackDot ] = []
+    for (index, node) in trackNodes.enumerated() {
+      var facing: FacingDirection = .right
+      if index < trackNodes.count - 1 {
+        let nextNode = trackNodes[index + 1]
+        facing = nextNode.position.x > node.position.x ? .right : .left
+      } else {
+        facing = trackDots.last!.facing
+      }
+      trackDots.append((position: headNode.convert(node.position, to: printNode),
+                        depth: node.entity!.component(ofType: TrackDotComponent.self)!.depth,
+                        layer: node.zPosition, facing: facing))
     }
     
     trackNodes.forEach { $0.removeFromParent() }
@@ -65,9 +78,8 @@ struct Track {
         let position = CGPoint(x: (1 - ratio) * from.position.x + (ratio * to.position.x),
                                 y: (1 - ratio) * from.position.y + (ratio * to.position.y))
         let depth = from.depth + (to.depth - from.depth) * ratio
-        let layer = from.layer
          
-        return (position, depth, layer)
+        return (position, depth, from.layer, from.facing)
       } else {
         distanceCovered += segmentLength
       }

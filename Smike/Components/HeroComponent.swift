@@ -109,7 +109,7 @@ class HeroComponent: GKComponent {
   }
   
   func moveToDot(_ dot: TrackDot) {
-    let (position, depth, layer) = dot
+    let (position, depth, layer, _) = dot
     
     entity!.spriteNode.position = position
     entity!.spriteNode.depth = depth

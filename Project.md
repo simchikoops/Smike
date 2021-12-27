@@ -71,6 +71,10 @@ Pinch, Rotation, swipe, pan
 
 Galaga-style temporary double-ups?
 
+# Demon attacks
+
+Bombs: if a demon reaches the end of a track, it can set off a bomb that kills mortals elsewhere. Maybe all, maybe just some.
+
 # Strategy
 
 * Quick toggles among heroes, constantly scanning
@@ -152,11 +156,6 @@ Hero tracks have interesting interactions. Near approaches allow supported attac
 * Mortal highlight color
 * Distractor animations
 * Music, background sounds
-
-# Tracks
-
-* Defined in editor
-* Continuous scaling
 
 # Coin fountains
 

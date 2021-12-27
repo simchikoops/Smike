@@ -1,10 +1,5 @@
 import SpriteKit
 
-enum FacingDirection {
-  case left
-  case right
-}
-
 extension SKSpriteNode {
   var depth: CGFloat {
     get {
@@ -17,7 +12,14 @@ extension SKSpriteNode {
   }
   
   var facing: FacingDirection {
-    return xScale >= 0 ? .right : .left // by convention
+    get {
+      return xScale >= 0 ? .right : .left // by convention
+    }
+    set(newValue) {
+      if (self.facing == .right && newValue == .left) || (self.facing == .left && newValue == .right) {
+        self.xScale *= -1
+      }
+    }
   }
   
   var layer: CGFloat {
