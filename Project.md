@@ -1,10 +1,12 @@
 # To-do
 
 * Demon attacks
+  Report, then use attack arc
+  
   vs. mortals
   vs. Heroes: hero looses alpha and is knocked out for a while. Harder hits, knocked out longer. While knocked out, can't move/attack or support others.
   
-  After HeroAttack? Superclass? Same?
+* Only show track when selected?
 
 # Steps
 
@@ -20,6 +22,8 @@
 
 * animations
   spawning
+  death: warp for mortals?
+    https://developer.apple.com/documentation/spritekit/skwarpgeometrygrid/animate_the_warping_of_a_sprite
 * sounds
 
 # Consider

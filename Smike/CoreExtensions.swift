@@ -20,3 +20,15 @@ extension CGPoint {
     return hypot(other.x - self.x, other.y - self.y)
   }
 }
+
+extension Int {
+  func toRadians() -> CGFloat {
+    return CGFloat(self) * .pi / 180
+  }
+}
+
+extension CGFloat {
+  func toDegrees() -> Int {
+    return Int(self * 180 / .pi)
+  }
+}

@@ -48,10 +48,9 @@ class DemonComponent: GKComponent {
   }
     
   override func update(deltaTime seconds: TimeInterval) {
-    if let nearest = nearestEntityAndDistance(list: entity!.scene.mortals),
-       nearest.distance <= type.attackRange,
-       entity!.scene.ticks - lastAttackTicks > type.minimumAttackInterval {
-      attack(nearest.entity)
+    let canAttack = entity!.scene.ticks - lastAttackTicks > type.minimumAttackInterval
+    if let mortal = target(list: entity!.scene.mortals) {
+      if (canAttack) { attack(mortal) }
     } else {
       progress(deltaTime: seconds)
     }
@@ -62,12 +61,29 @@ class DemonComponent: GKComponent {
     lastAttackTicks = entity!.scene.ticks
   }
   
-  func nearestEntityAndDistance(list: [GKEntity]) -> (entity: GKEntity, distance: CGFloat)? {
+  func target(list: [GKEntity]) -> GKEntity? {
+    if let nearest = nearestTargetableEntityAndDistance(list: list) {
+      return nearest.distance <= type.attackRange ? nearest.entity : nil
+    } else {
+      return nil
+    }
+  }
+  
+  func nearestTargetableEntityAndDistance(list: [GKEntity]) -> (entity: GKEntity, distance: CGFloat)? {
     let ownPosition = entity!.node.position
     
-    return list.map { (entity: $0, distance: ownPosition.distance(to: $0.node.position)) }
+    return list.filter { isWithinAttackAngle(position: ownPosition, otherPosition: $0.node.position) }
+      .map { (entity: $0, distance: ownPosition.distance(to: $0.node.position)) }
       .sorted { $0.distance < $1.distance }
       .first
+  }
+  
+  func isWithinAttackAngle(position: CGPoint, otherPosition: CGPoint) -> Bool {
+    var rad = atan2(otherPosition.y - position.y, otherPosition.x - position.x)
+    if (rad < 0) { rad += .pi * 2.0 }
+    
+    let deg = rad.toDegrees()
+    return type.attackAngle.contains(deg) || type.attackAngle.contains(deg + 360)
   }
   
   func progress(deltaTime seconds: TimeInterval) {
