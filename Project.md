@@ -2,6 +2,7 @@
 
 * Demon attacks vs heroes
   Heroes: hero looses alpha and is knocked out for a while. Harder hits, knocked out longer. While knocked out, can't move/attack or support others.
+* Missile attacks: non-physics
 * Hero thrust attacks
   
 # More to-do

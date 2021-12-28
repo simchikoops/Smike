@@ -32,3 +32,17 @@ extension CGFloat {
     return Int(self * 180 / .pi)
   }
 }
+
+extension CGVector {
+  var angleRadians: CGFloat {
+    atan2(dy, dx)
+  }
+
+  var angleDegrees: CGFloat {
+    angleRadians * 180.0 / .pi
+  }
+
+  var length: CGFloat {
+    sqrt(pow(dx, 2) + pow(dy, 2))
+  }
+}

@@ -51,6 +51,9 @@ class DemonComponent: GKComponent {
     let canAttack = entity!.scene.ticks - lastAttackTicks > type.minimumAttackInterval
     if let mortal = target(list: entity!.scene.mortals) {
       if (canAttack) { attack(mortal) }
+    } else if let hero = target(list: entity!.scene.heroes) {
+      if (canAttack) { attack(hero) }
+      progress(deltaTime: seconds)
     } else {
       progress(deltaTime: seconds)
     }
@@ -62,7 +65,7 @@ class DemonComponent: GKComponent {
       let attack = GKEntity()
       entity!.scene.entities.append(attack)
       
-      let attackComponent = MissileAttackComponent(originSprite: entity!.spriteNode, physics: PhysicsInfo.demonAttack, imageName: type.attackImage!, power: type.attackPower)
+      let attackComponent = MissileAttackComponent(originSprite: entity!.spriteNode, physics: PhysicsInfo.demonAttack, imageName: type.attackImage!, power: type.attackPower, speed: type.attackSpeed!)
       attack.addComponent(attackComponent)
       
       entity!.printNode!.addChild(attack.node)

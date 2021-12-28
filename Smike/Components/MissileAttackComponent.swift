@@ -5,17 +5,19 @@ class MissileAttackComponent: GKComponent {
   let originSprite: SKSpriteNode
   let physics: PhysicsInfo
   
-  let power: Int
   let imageName: String
+  let power: Int
+  let speed: CGFloat
   
   var spent: Bool = false
   
-  init(originSprite: SKSpriteNode, physics: PhysicsInfo, imageName: String, power: Int) {
+  init(originSprite: SKSpriteNode, physics: PhysicsInfo, imageName: String, power: Int, speed: CGFloat) {
     self.originSprite = originSprite
     self.physics = physics
     
     self.imageName = imageName
     self.power = power
+    self.speed = speed
     
     super.init()
   }
@@ -47,7 +49,9 @@ class MissileAttackComponent: GKComponent {
 
     node.physicsBody = physicsBody
     
-    let motion = SKAction.move(by: vector, duration: 4.25)
+    let duration = vector.length / speed
+    
+    let motion = SKAction.move(by: vector, duration: duration)
     node.run(motion, completion: { self.entity!.remove() })
   }
   

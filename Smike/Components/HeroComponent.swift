@@ -54,23 +54,28 @@ class HeroComponent: GKComponent {
   func attack() {
     guard entity!.scene.ticks - lastAttackTicks > heroType!.minimumAttackInterval else { return }
     
-    let attack = GKEntity()
-    entity!.scene.entities.append(attack)
+    switch heroType!.attack {
+    case .thrust:
+      print("THRUST ATTACK")
+    case .missile:
+      let attack = GKEntity()
+      entity!.scene.entities.append(attack)
     
-    let attackComponent = MissileAttackComponent(originSprite: entity!.spriteNode, physics: PhysicsInfo.heroAttack, imageName: heroType!.attackDisplay, power: heroType!.attackPower)
-    attack.addComponent(attackComponent)
+      let attackComponent = MissileAttackComponent(originSprite: entity!.spriteNode, physics: PhysicsInfo.heroAttack,   imageName: heroType!.attackDisplay, power: heroType!.attackPower, speed: heroType!.attackSpeed!)
+      attack.addComponent(attackComponent)
     
-    entity!.printNode!.addChild(attack.node)
+      entity!.printNode!.addChild(attack.node)
     
-    var vector: CGVector = CGVector(dx: 0, dy: 0)
-    switch entity!.spriteNode.facing {
-    case .right:
-      vector = CGVector(dx: 300, dy: 350)
-    case .left:
-      vector = CGVector(dx: -300, dy: 350)
-    }
+      var vector: CGVector = CGVector(dx: 0, dy: 0)
+      switch entity!.spriteNode.facing {
+      case .right:
+        vector = CGVector(dx: 300, dy: 350)
+      case .left:
+        vector = CGVector(dx: -300, dy: 350)
+      }
  
-    attackComponent.launch(vector: vector)
+      attackComponent.launch(vector: vector)
+    }
     
     lastAttackTicks = entity!.scene.ticks
   }
