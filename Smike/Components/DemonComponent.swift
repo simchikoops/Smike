@@ -57,7 +57,9 @@ class DemonComponent: GKComponent {
   }
   
   func attack(_ target: GKEntity) {
-    print("ATTACK", target)
+    if let component = target.component(ofType: HealthComponent.self) {
+      component.damage(points: type.attackPower)
+    }
     lastAttackTicks = entity!.scene.ticks
   }
   

@@ -1,8 +1,7 @@
 # To-do
 
 * Demon attacks
-  Report, then use attack arc
-  
+  Thrust attacks  
   vs. mortals
   vs. Heroes: hero looses alpha and is knocked out for a while. Harder hits, knocked out longer. While knocked out, can't move/attack or support others.
   

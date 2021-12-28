@@ -10,9 +10,12 @@ class HealthComponent: GKComponent {
   
   func damage(points: Int) {
     hp -= points
+    
     if hp <= 0 {
       if let component = entity?.component(ofType: DemonComponent.self) {
         component.dispell()
+      } else if let component = entity?.component(ofType: MortalComponent.self)  {
+        component.die()
       }
     } else {
       // TODO: flash

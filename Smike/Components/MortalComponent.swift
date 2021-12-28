@@ -13,6 +13,8 @@ class MortalComponent: GKComponent {
   }
 
   func die() {
-    
+    entity!.scene.mortals.remove(object: entity!)
+    // TODO: check scene completion
+    entity!.remove()
   }
 }
