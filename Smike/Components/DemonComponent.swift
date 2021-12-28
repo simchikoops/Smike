@@ -57,8 +57,20 @@ class DemonComponent: GKComponent {
   }
   
   func attack(_ target: GKEntity) {
-    if let component = target.component(ofType: HealthComponent.self) {
-      component.damage(points: type.attackPower)
+    switch type.attack {
+    case .missile:
+      let attack = GKEntity()
+      entity!.scene.entities.append(attack)
+      
+      let attackComponent = MissileAttackComponent(originSprite: entity!.spriteNode, physics: PhysicsInfo.demonAttack, imageName: type.attackImage!, power: type.attackPower)
+      attack.addComponent(attackComponent)
+      
+      entity!.printNode!.addChild(attack.node)
+      attackComponent.launch(vector: attackVector(target: target))
+    case .thrust:
+      if let component = target.component(ofType: HealthComponent.self) {
+        component.damage(points: type.attackPower)
+      }
     }
     lastAttackTicks = entity!.scene.ticks
   }
@@ -100,6 +112,11 @@ class DemonComponent: GKComponent {
     let bounds = [newLowerBound, newUpperBound].sorted()
 
     return bounds.first!...bounds.last!
+  }
+  
+  func attackVector(target: GKEntity) -> CGVector {
+    return CGVector(dx: target.node.position.x - entity!.node.position.x,
+                    dy: target.node.position.y - entity!.node.position.y)
   }
   
   func progress(deltaTime seconds: TimeInterval) {

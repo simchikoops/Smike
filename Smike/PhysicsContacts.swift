@@ -9,11 +9,20 @@ extension LevelScene: SKPhysicsContactDelegate {
       let demonNode = contact.bodyA.categoryBitMask == PhysicsInfo.demon.categoryBitMask ? contact.bodyA.node : contact.bodyB.node
 
       let heroAttackNode = contact.bodyA.categoryBitMask == PhysicsInfo.heroAttack.categoryBitMask ? contact.bodyA.node : contact.bodyB.node
-      let heroAttackComponent = heroAttackNode!.entity!.component(ofType: MissileAttackComponent.self)!
+      let missile = heroAttackNode!.entity!.component(ofType: MissileAttackComponent.self)!
       
-      heroAttackComponent.spent = true
-      demonNode?.entity?.healthComponent?.damage(points: heroAttackComponent.power)
+      missile.spent = true
+      demonNode?.entity?.healthComponent?.damage(points: missile.power)
+    case PhysicsInfo.demonAttack.categoryBitMask | PhysicsInfo.mortal.categoryBitMask:
+      let mortalNode = contact.bodyA.categoryBitMask == PhysicsInfo.mortal.categoryBitMask ? contact.bodyA.node : contact.bodyB.node
+
+      let demonAttackNode = contact.bodyA.categoryBitMask == PhysicsInfo.heroAttack.categoryBitMask ? contact.bodyA.node : contact.bodyB.node
+      let missile = demonAttackNode!.entity!.component(ofType: MissileAttackComponent.self)!
+      
+      missile.spent = true
+      mortalNode?.entity?.healthComponent?.damage(points: missile.power)
     default:
+      print("UNKNOWN CONTACT")
       break
     }
   }

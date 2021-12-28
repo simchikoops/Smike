@@ -57,11 +57,20 @@ class HeroComponent: GKComponent {
     let attack = GKEntity()
     entity!.scene.entities.append(attack)
     
-    let attackComponent = MissileAttackComponent(originSprite: entity!.spriteNode, imageName: heroType!.attackDisplay, power: heroType!.attackPower)
+    let attackComponent = MissileAttackComponent(originSprite: entity!.spriteNode, physics: PhysicsInfo.heroAttack, imageName: heroType!.attackDisplay, power: heroType!.attackPower)
     attack.addComponent(attackComponent)
     
     entity!.printNode!.addChild(attack.node)
-    attackComponent.launch()
+    
+    var vector: CGVector = CGVector(dx: 0, dy: 0)
+    switch entity!.spriteNode.facing {
+    case .right:
+      vector = CGVector(dx: 300, dy: 350)
+    case .left:
+      vector = CGVector(dx: -300, dy: 350)
+    }
+ 
+    attackComponent.launch(vector: vector)
     
     lastAttackTicks = entity!.scene.ticks
   }

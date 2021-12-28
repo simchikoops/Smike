@@ -1,10 +1,11 @@
 # To-do
 
-* Demon attacks
-  Thrust attacks  
-  vs. mortals
-  vs. Heroes: hero looses alpha and is knocked out for a while. Harder hits, knocked out longer. While knocked out, can't move/attack or support others.
+* Demon attacks vs heroes
+  Heroes: hero looses alpha and is knocked out for a while. Harder hits, knocked out longer. While knocked out, can't move/attack or support others.
+* Hero thrust attacks
   
+# More to-do
+
 * Only show track when selected?
 
 # Steps
