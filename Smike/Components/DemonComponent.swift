@@ -85,7 +85,21 @@ class DemonComponent: GKComponent {
     if (rad < 0) { rad += .pi * 2.0 }
     
     let deg = rad.toDegrees()
-    return type.attackAngle.contains(deg) || type.attackAngle.contains(deg + 360)
+    let angle = entity!.spriteNode.facing == .right ? type.attackAngle : reversedAngle(type.attackAngle)
+    
+    return angle.contains(deg) || angle.contains(deg + 360)
+  }
+  
+  func reversedAngle(_ angle: ClosedRange<Int>) -> ClosedRange<Int> {
+    var newLowerBound = 180 - angle.lowerBound
+    if newLowerBound < 0 { newLowerBound += 360}
+    
+    var newUpperBound = 180 - angle.upperBound
+    if newUpperBound < 0 { newUpperBound += 360}
+    
+    let bounds = [newLowerBound, newUpperBound].sorted()
+
+    return bounds.first!...bounds.last!
   }
   
   func progress(deltaTime seconds: TimeInterval) {
