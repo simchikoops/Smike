@@ -79,6 +79,10 @@ class HeroComponent: GKComponent {
     
     lastAttackTicks = entity!.scene.ticks
   }
+  
+  func takeDamage(_ points: Int) {
+    print("HERO DAMAGE")
+  }
 
   private func createControl() {
     let rect = entity!.node.calculateAccumulatedFrame().insetBy(dx: -40, dy: -40)
