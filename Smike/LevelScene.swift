@@ -55,7 +55,7 @@ class LevelScene: SKScene {
   
   private func heroControlIndex(_ node: SKNode) -> Int? {
     if let indexStr = node.name!.components(separatedBy: "_").last {
-      return Int(indexStr)
+      return Int(indexStr) ?? focusHeroIndex
     } else {
       return nil
     }
