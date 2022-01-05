@@ -1,17 +1,21 @@
 # To-do
 
-* Demon attacks vs heroes
-  Heroes: hero looses alpha and is knocked out for a while. Harder hits, knocked out longer. While knocked out, can't move/attack or support others.
-* Missile attacks: non-physics
+* Hero damage: freeze, lose alpha temporarily
+  impaired flag. no attacks or movement. animate back to wellness (with jump). Max time, based on proportion of HP lost. Min time. (Max/min across types.)
+* Missile attacks: non-physics (missiles get knocked off course by shooter)
+  Also: collisions need to check depth!
 * Hero thrust attacks
   
 # More to-do
 
 * Only show track when selected?
+* New colors?
+  Demon: neon red/pink. Hero: neon blue/green. Mortal: neon yellow.
 
 # Steps
 
 * Scene completion (win/loss conditions)
+* Saving state
 * Supported attacks
 * Mass attack
 * Advancement

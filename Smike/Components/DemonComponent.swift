@@ -49,9 +49,11 @@ class DemonComponent: GKComponent {
     
   override func update(deltaTime seconds: TimeInterval) {
     let canAttack = entity!.scene.ticks - lastAttackTicks > type.minimumAttackInterval
+    let unimpairedHeroes = entity!.scene.heroes.filter { !$0.heroComponent!.impaired }
+    
     if let mortal = target(list: entity!.scene.mortals) {
       if (canAttack) { attack(mortal) }
-    } else if let hero = target(list: entity!.scene.heroes) {
+    } else if let hero = target(list: unimpairedHeroes) {
       if (canAttack) { attack(hero) }
       progress(deltaTime: seconds)
     } else {

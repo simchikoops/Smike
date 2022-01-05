@@ -9,11 +9,11 @@ class HealthComponent: GKComponent {
   }
   
   func damage(points: Int) {
-    hp -= points
-    
     if let component = entity?.component(ofType: HeroComponent.self) {
-      component.takeDamage(points)
+      component.takeDamage(damage: points, hp: hp)
     } else {
+      hp -= points
+
       if hp <= 0 {
         if let component = entity?.component(ofType: DemonComponent.self) {
           component.dispell()
