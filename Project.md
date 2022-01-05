@@ -1,10 +1,9 @@
 # To-do
 
-* Hero damage: freeze, lose alpha temporarily
-  impaired flag. no attacks or movement. animate back to wellness (with jump). Max time, based on proportion of HP lost. Min time. (Max/min across types.)
+* Hero thrust attacks
 * Missile attacks: non-physics (missiles get knocked off course by shooter)
   Also: collisions need to check depth!
-* Hero thrust attacks
+* Direct demon attacks don't always hit: target, then check
   
 # More to-do
 

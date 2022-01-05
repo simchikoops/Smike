@@ -14,7 +14,7 @@ class HeroComponent: GKComponent {
   let unselectedColor: UIColor = .gray
   let selectedColor: UIColor = .yellow
   
-  let maximumImpairmentTime: Float = 8.0
+  let impairmentTime: Float = 4.0
   let maxImpairmentAlpha: Float = 0.45
   let minImpairmentAlpha: Float = 0.75
   
@@ -26,7 +26,8 @@ class HeroComponent: GKComponent {
   var alongTrack: CGFloat = 0.0
   var moving: HeroMotion = .stopped
   var lastAttackTicks: CGFloat = 0.0
-  var impaired: Bool = false
+  
+  var impaired: Bool { entity!.healthComponent!.hp <= 0 }
   
   var hasFocus: Bool = false {
     didSet {
@@ -86,21 +87,14 @@ class HeroComponent: GKComponent {
     lastAttackTicks = entity!.scene.ticks
   }
   
-  func takeDamage(damage: Int, hp: Int) {
-    print("HERO DAMAGE")
-
-    let impairment = (Float(damage) / Float(hp)).clamped(to: 0.0...1.0)
-    let impairmentTime = impairment * maximumImpairmentTime
-    let alpha = minImpairmentAlpha - (minImpairmentAlpha - maxImpairmentAlpha) * impairment
-    
+  func impair() {
     // TODO: flash into impairment
-    entity!.node.alpha = CGFloat(alpha)
-    self.impaired = true
+    entity!.node.alpha = CGFloat(maxImpairmentAlpha)
     
     let unfade = SKAction.fadeAlpha(to: CGFloat(minImpairmentAlpha), duration: CGFloat(impairmentTime))
     let clearImpairment = SKAction.run { [unowned self] in
       entity!.node.alpha = 1.0
-      self.impaired = false
+      entity!.healthComponent!.hp = entity!.healthComponent!.maxHp
     }
     let unfadeSequence = SKAction.sequence([unfade, clearImpairment])
     
