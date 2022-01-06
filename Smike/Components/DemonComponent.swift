@@ -67,11 +67,15 @@ class DemonComponent: GKComponent {
       let attack = GKEntity()
       entity!.scene.entities.append(attack)
       
-      let attackComponent = MissileAttackComponent(originSprite: entity!.spriteNode, physics: PhysicsInfo.demonAttack, imageName: type.attackImage!, power: type.attackPower, speed: type.attackSpeed!)
+      var startingPosition = entity!.spriteNode.position
+      startingPosition.y += type.attackOrigin.y
+      startingPosition.x += entity!.spriteNode.facing == .right ? type.attackOrigin.y : -type.attackOrigin.y
+      
+      let attackComponent = MissileAttackComponent(originSprite: entity!.spriteNode, physics: PhysicsInfo.demonAttack, imageName: type.attackImage!, startingPosition: startingPosition, power: type.attackPower, speed: type.attackSpeed!)
       attack.addComponent(attackComponent)
       
       entity!.printNode!.addChild(attack.node)
-      attackComponent.launch(vector: attackVector(target: target))
+      attackComponent.launch(vector: attackVector(origin: startingPosition, target: target))
     case .thrust:
       if let component = target.component(ofType: HealthComponent.self) {
         component.damage(points: type.attackPower)
@@ -119,9 +123,9 @@ class DemonComponent: GKComponent {
     return bounds.first!...bounds.last!
   }
   
-  func attackVector(target: GKEntity) -> CGVector {
-    return CGVector(dx: target.node.position.x - entity!.node.position.x,
-                    dy: target.node.position.y - entity!.node.position.y)
+  func attackVector(origin: CGPoint, target: GKEntity) -> CGVector {
+    return CGVector(dx: target.node.position.x - origin.x,
+                    dy: target.node.position.y - origin.y)
   }
   
   func progress(deltaTime seconds: TimeInterval) {

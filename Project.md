@@ -1,6 +1,6 @@
 # To-do
 
-* Hero thrust attacks
+* Hero thrust attacks: manual point check
 * Missile attacks: non-physics (missiles get knocked off course by shooter)
   Also: collisions need to check depth!
 * Direct demon attacks don't always hit: target, then check
@@ -101,6 +101,13 @@ Bombs: if a demon reaches the end of a track, it can set off a bomb that kills m
 * Red: Demons
 * Blue: Mortals
 * Yello: Selected hero
+
+# Demon transforms
+
+* Black point + 100%
+* Vibrance + 75%
+* Exposure - 80%
+* Brightness + 20%
 
 # Fundamentals
 

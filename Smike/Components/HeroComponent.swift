@@ -51,6 +51,19 @@ class HeroComponent: GKComponent {
     if let scene = entity?.scene {
       scene.heroes.append(entity!)
     }
+    
+    if let node = entity!.node as? SKSpriteNode {
+      let physicsBody = SKPhysicsBody(rectangleOf: node.size)
+
+      physicsBody.affectedByGravity = false
+      physicsBody.allowsRotation = false
+      physicsBody.isDynamic = false // alow overlaps
+
+      physicsBody.categoryBitMask = PhysicsInfo.hero.categoryBitMask
+      physicsBody.contactTestBitMask = PhysicsInfo.hero.contactTestBitMask
+
+      node.physicsBody = physicsBody
+    }
   }
   
   override class var supportsSecureCoding: Bool {
@@ -67,8 +80,12 @@ class HeroComponent: GKComponent {
     case .missile:
       let attack = GKEntity()
       entity!.scene.entities.append(attack)
+      
+      var startingPosition = entity!.spriteNode.position
+      startingPosition.y += heroType!.attackOrigin.y
+      startingPosition.x += entity!.spriteNode.facing == .right ? heroType!.attackOrigin.y : -heroType!.attackOrigin.y
     
-      let attackComponent = MissileAttackComponent(originSprite: entity!.spriteNode, physics: PhysicsInfo.heroAttack,   imageName: heroType!.attackDisplay, power: heroType!.attackPower, speed: heroType!.attackSpeed!)
+      let attackComponent = MissileAttackComponent(originSprite: entity!.spriteNode, physics: PhysicsInfo.heroAttack, imageName: heroType!.attackDisplay, startingPosition: startingPosition, power: heroType!.attackPower, speed: heroType!.attackSpeed!)
       attack.addComponent(attackComponent)
     
       entity!.printNode!.addChild(attack.node)

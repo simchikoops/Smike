@@ -6,16 +6,20 @@ class MissileAttackComponent: GKComponent {
   let physics: PhysicsInfo
   
   let imageName: String
+  let startingPosition: CGPoint
+  
   let power: Int
   let speed: CGFloat
   
   var spent: Bool = false
   
-  init(originSprite: SKSpriteNode, physics: PhysicsInfo, imageName: String, power: Int, speed: CGFloat) {
+  init(originSprite: SKSpriteNode, physics: PhysicsInfo, imageName: String, startingPosition: CGPoint, power: Int, speed: CGFloat) {
     self.originSprite = originSprite
     self.physics = physics
     
     self.imageName = imageName
+    self.startingPosition = startingPosition
+    
     self.power = power
     self.speed = speed
     
@@ -31,7 +35,7 @@ class MissileAttackComponent: GKComponent {
   }
   
   override func didAddToEntity() {
-    let nodeComponent = NodeComponent(imageNamed: imageName, position: originSprite.position, depth: originSprite.depth, layer: originSprite.layer, facing: originSprite.facing)
+    let nodeComponent = NodeComponent(imageNamed: imageName, position: startingPosition, depth: originSprite.depth, layer: originSprite.layer, facing: originSprite.facing)
     
     entity!.addComponent(nodeComponent)
   }
