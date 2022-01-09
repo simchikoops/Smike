@@ -1,12 +1,10 @@
 # To-do
 
-* PointAttacks: non-physics
-  No way to access bodies?
-  Point can be fixed or relative to a node
-* Hero thrust attacks: manual point check
-* Missile attacks: non-physics (missiles get knocked off course by shooter)
-  Also: collisions need to check depth!
-* Direct demon attacks don't always hit: target, then check
+* Better contact testing
+* Demons use stab attacks
+
+Next: damage flash
+  https://developer.apple.com/documentation/spritekit/skspritenode/tinting_a_sprite
   
 # More to-do
 
