@@ -1,9 +1,10 @@
 # To-do
 
-* Damage flash
-  https://developer.apple.com/documentation/spritekit/skspritenode/tinting_a_sprite
-  
-Next: 
+* Scene completion (messages)
+* Message reporting, fonts
+
+Next: saving state
+Then: Map & progression
   
 # More to-do
 
