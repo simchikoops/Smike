@@ -1,9 +1,9 @@
 # To-do
 
-* Demons use stab attacks
-
-Next: damage flash
+* Damage flash
   https://developer.apple.com/documentation/spritekit/skspritenode/tinting_a_sprite
+  
+Next: 
   
 # More to-do
 
@@ -31,6 +31,10 @@ Next: damage flash
 * sounds
 
 # Consider
+
+# Demon attack patterns
+
+Each has a secret cycle of when they attack and when they pause. Like two attacks, then wait a while, then two again.
 
 # Hero types
 

@@ -25,7 +25,13 @@ class HealthComponent: GKComponent {
         component.die()
       }
     } else {
-      // TODO: flash
+      if let node = entity?.node as? SKSpriteNode {
+        let pulsedRed = SKAction.sequence([
+            SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.15),
+            SKAction.wait(forDuration: 0.1),
+            SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.15)])
+        node.run(pulsedRed)
+      }
     }
   }
 }
