@@ -9,26 +9,27 @@ extension LevelScene: SKPhysicsContactDelegate {
       let demonNode = contact.bodyA.categoryBitMask == PhysicsInfo.demon.categoryBitMask ? contact.bodyA.node : contact.bodyB.node
 
       let heroAttackNode = contact.bodyA.categoryBitMask == PhysicsInfo.heroAttack.categoryBitMask ? contact.bodyA.node : contact.bodyB.node
-      let missile = heroAttackNode!.entity!.component(ofType: MissileAttackComponent.self)!
+      var attack = heroAttackNode!.entity!.component(conformingTo: Attack.self)!
       
-      missile.spent = true
-      demonNode?.entity?.healthComponent?.damage(points: missile.power)
+      attack.spent = true
+      demonNode?.entity?.healthComponent?.damage(points: attack.power)
     case PhysicsInfo.demonAttack.categoryBitMask | PhysicsInfo.mortal.categoryBitMask:
       let mortalNode = contact.bodyA.categoryBitMask == PhysicsInfo.mortal.categoryBitMask ? contact.bodyA.node : contact.bodyB.node
 
       let demonAttackNode = contact.bodyA.categoryBitMask == PhysicsInfo.heroAttack.categoryBitMask ? contact.bodyA.node : contact.bodyB.node
-      let missile = demonAttackNode!.entity!.component(ofType: MissileAttackComponent.self)!
+      var attack = demonAttackNode!.entity!.component(conformingTo: Attack.self)!
       
-      missile.spent = true
-      mortalNode?.entity?.healthComponent?.damage(points: missile.power)
+      attack.spent = true
+      mortalNode?.entity?.healthComponent?.damage(points: attack.power)
     case PhysicsInfo.demonAttack.categoryBitMask | PhysicsInfo.hero.categoryBitMask:
       let heroNode = contact.bodyA.categoryBitMask == PhysicsInfo.hero.categoryBitMask ? contact.bodyA.node : contact.bodyB.node
 
       let demonAttackNode = contact.bodyA.categoryBitMask == PhysicsInfo.demonAttack.categoryBitMask ? contact.bodyA.node : contact.bodyB.node
-      let missile = demonAttackNode!.entity!.component(ofType: MissileAttackComponent.self)!
       
-      missile.spent = true
-      heroNode?.entity?.healthComponent?.damage(points: missile.power)
+      var attack = demonAttackNode!.entity!.component(conformingTo: Attack.self)!
+      
+      attack.spent = true
+      heroNode?.entity?.healthComponent?.damage(points: attack.power)
     default:
       print("UNKNOWN CONTACT")
       break

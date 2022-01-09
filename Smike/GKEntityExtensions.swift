@@ -41,6 +41,16 @@ extension GKEntity {
     return component(ofType: HealthComponent.self)
   }
   
+  func component<P>(conformingTo protocol: P.Type) -> P? {
+      for component in components {
+          if let p = component as? P {
+              return p
+          }
+      }
+
+      return nil
+  }
+  
   func remove() {
     scene.entities.remove(object: self)
     node.removeFromParent()

@@ -3,7 +3,7 @@ import GameplayKit
 
 // A short-lived, single-target attack. A child of the origin sprite without independent existence.
 
-class StabAttackComponent: GKComponent {
+class StabAttackComponent: GKComponent, Attack {
   let duration: CGFloat = 1.1 // disappears if no hits in this time
   
   let originSprite: SKSpriteNode

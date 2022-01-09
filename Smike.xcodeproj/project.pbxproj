@@ -25,6 +25,7 @@
 		55337A5E27581EF800407618 /* LandscapeDash.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55337A5D27581EF800407618 /* LandscapeDash.sks */; };
 		5537A33D27694585001901C8 /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5537A33C27694585001901C8 /* Slot.swift */; };
 		5593962F27668CA600EFA9F3 /* CoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593962E27668CA600EFA9F3 /* CoreExtensions.swift */; };
+		55A57696278B877C0001632F /* AttackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A57695278B877C0001632F /* AttackProtocol.swift */; };
 		55AA1FF1276A69ED0076881E /* GeneratorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA1FF0276A69ED0076881E /* GeneratorComponent.swift */; };
 		55AA1FF3276A78D90076881E /* DemonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA1FF2276A78D90076881E /* DemonComponent.swift */; };
 		55AB01D927627B19002FCC4A /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB01D827627B19002FCC4A /* Track.swift */; };
@@ -85,6 +86,7 @@
 		55337A5D27581EF800407618 /* LandscapeDash.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LandscapeDash.sks; sourceTree = "<group>"; };
 		5537A33C27694585001901C8 /* Slot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
 		5593962E27668CA600EFA9F3 /* CoreExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreExtensions.swift; sourceTree = "<group>"; };
+		55A57695278B877C0001632F /* AttackProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackProtocol.swift; sourceTree = "<group>"; };
 		55AA1FF0276A69ED0076881E /* GeneratorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorComponent.swift; sourceTree = "<group>"; };
 		55AA1FF2276A78D90076881E /* DemonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemonComponent.swift; sourceTree = "<group>"; };
 		55AB01D827627B19002FCC4A /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				55BA7CC727754D340078D20F /* HeroData.swift */,
 				55BA7CC527754B4D0078D20F /* DemonData.swift */,
 				55DAB53B277159C600105FC4 /* PhysicsContacts.swift */,
+				55A57695278B877C0001632F /* AttackProtocol.swift */,
 				55AB01D827627B19002FCC4A /* Track.swift */,
 				5537A33C27694585001901C8 /* Slot.swift */,
 				5513638027642327006BC9B1 /* Layers.swift */,
@@ -386,6 +389,7 @@
 				55C816E42761111F00A810EE /* HeroComponent.swift in Sources */,
 				5593962F27668CA600EFA9F3 /* CoreExtensions.swift in Sources */,
 				55C816E82761161400A810EE /* NodeComponent.swift in Sources */,
+				55A57696278B877C0001632F /* AttackProtocol.swift in Sources */,
 				55DAB53A2771562500105FC4 /* PhysicsInfo.swift in Sources */,
 				5513637F2763D10F006BC9B1 /* SpriteNodeExtensions.swift in Sources */,
 				55DFB29C2773D61000F3747B /* HealthComponent.swift in Sources */,

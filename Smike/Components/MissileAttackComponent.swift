@@ -1,7 +1,7 @@
 import SpriteKit
 import GameplayKit
 
-class MissileAttackComponent: GKComponent {
+class MissileAttackComponent: GKComponent, Attack {
   let originSprite: SKSpriteNode
   let physics: PhysicsInfo
   
