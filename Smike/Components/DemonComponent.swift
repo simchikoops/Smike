@@ -62,11 +62,11 @@ class DemonComponent: GKComponent {
   }
   
   func attack(_ target: GKEntity) {
+    let attack = GKEntity()
+    entity!.scene.entities.append(attack)
+
     switch type.attack {
     case .missile:
-      let attack = GKEntity()
-      entity!.scene.entities.append(attack)
-      
       var startingPosition = entity!.spriteNode.position
       startingPosition.y += type.attackOrigin.y
       startingPosition.x += entity!.spriteNode.facing == .right ? type.attackOrigin.y : -type.attackOrigin.y
@@ -77,9 +77,9 @@ class DemonComponent: GKComponent {
       entity!.printNode!.addChild(attack.node)
       attackComponent.launch(vector: attackVector(origin: startingPosition, target: target))
     case .stab:
-      if let component = target.component(ofType: HealthComponent.self) {
-        component.damage(points: type.attackPower)
-      }
+      let attackComponent = StabAttackComponent(originSprite: entity!.spriteNode, position: type.attackOrigin, size: type.attackSize!, physics: PhysicsInfo.demonAttack, power: type.attackPower)
+      attack.addComponent(attackComponent)
+      attackComponent.launch(delay: 0.5)
     }
     lastAttackTicks = entity!.scene.ticks
   }

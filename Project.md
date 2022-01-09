@@ -1,6 +1,5 @@
 # To-do
 
-* Better contact testing
 * Demons use stab attacks
 
 Next: damage flash
