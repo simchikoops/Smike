@@ -1,5 +1,8 @@
 # To-do
 
+* PointAttacks: non-physics
+  No way to access bodies?
+  Point can be fixed or relative to a node
 * Hero thrust attacks: manual point check
 * Missile attacks: non-physics (missiles get knocked off course by shooter)
   Also: collisions need to check depth!

@@ -3,7 +3,7 @@ import GameplayKit
 
 extension GKEntity {
   var node: SKNode {
-    if let node = component(ofType: NodeComponent.self)?.spriteNode {
+    if let node = component(ofType: NodeComponent.self)?.node {
       return node
     } else if let node = component(ofType: GKSKNodeComponent.self)?.node {
       return node

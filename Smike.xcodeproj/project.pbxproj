@@ -30,6 +30,7 @@
 		55AB01D927627B19002FCC4A /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB01D827627B19002FCC4A /* Track.swift */; };
 		55AB01DB27627E1D002FCC4A /* TrackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB01DA27627E1D002FCC4A /* TrackTests.swift */; };
 		55AB01DE2762864C002FCC4A /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 55AB01DD2762864C002FCC4A /* Algorithms */; };
+		55AE32F02788EE01008FB444 /* StabAttackComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AE32EF2788EE01008FB444 /* StabAttackComponent.swift */; };
 		55BA7CC4277504300078D20F /* TrackDotComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA7CC3277504300078D20F /* TrackDotComponent.swift */; };
 		55BA7CC627754B4D0078D20F /* DemonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA7CC527754B4D0078D20F /* DemonData.swift */; };
 		55BA7CC827754D340078D20F /* HeroData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA7CC727754D340078D20F /* HeroData.swift */; };
@@ -88,6 +89,7 @@
 		55AA1FF2276A78D90076881E /* DemonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemonComponent.swift; sourceTree = "<group>"; };
 		55AB01D827627B19002FCC4A /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		55AB01DA27627E1D002FCC4A /* TrackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTests.swift; sourceTree = "<group>"; };
+		55AE32EF2788EE01008FB444 /* StabAttackComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StabAttackComponent.swift; sourceTree = "<group>"; };
 		55BA7CC3277504300078D20F /* TrackDotComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDotComponent.swift; sourceTree = "<group>"; };
 		55BA7CC527754B4D0078D20F /* DemonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemonData.swift; sourceTree = "<group>"; };
 		55BA7CC727754D340078D20F /* HeroData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroData.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				55C816E32761111F00A810EE /* HeroComponent.swift */,
 				55AA1FF2276A78D90076881E /* DemonComponent.swift */,
 				55DFB2992773A88800F3747B /* MissileAttackComponent.swift */,
+				55AE32EF2788EE01008FB444 /* StabAttackComponent.swift */,
 				55AA1FF0276A69ED0076881E /* GeneratorComponent.swift */,
 				55C816E72761161400A810EE /* NodeComponent.swift */,
 				55DFB29D2773E20F00F3747B /* MortalComponent.swift */,
@@ -386,6 +389,7 @@
 				55DAB53A2771562500105FC4 /* PhysicsInfo.swift in Sources */,
 				5513637F2763D10F006BC9B1 /* SpriteNodeExtensions.swift in Sources */,
 				55DFB29C2773D61000F3747B /* HealthComponent.swift in Sources */,
+				55AE32F02788EE01008FB444 /* StabAttackComponent.swift in Sources */,
 				55AB01D927627B19002FCC4A /* Track.swift in Sources */,
 				5513638127642327006BC9B1 /* Layers.swift in Sources */,
 				55010A9C27518DEC0049E9AE /* AppDelegate.swift in Sources */,

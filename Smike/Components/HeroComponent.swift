@@ -74,13 +74,15 @@ class HeroComponent: GKComponent {
     guard !impaired else { return }
     guard entity!.scene.ticks - lastAttackTicks > heroType!.minimumAttackInterval else { return }
     
+    let attack = GKEntity()
+    entity!.scene.entities.append(attack)
+
     switch heroType!.attack {
-    case .thrust:
-      print("THRUST ATTACK")
+    case .stab:
+      let attackComponent = StabAttackComponent(originSprite: entity!.spriteNode, position: heroType!.attackOrigin, size: heroType!.attackSize!, physics: PhysicsInfo.heroAttack, power: heroType!.attackPower)
+      attack.addComponent(attackComponent)
+      attackComponent.launch(delay: 1.0)
     case .missile:
-      let attack = GKEntity()
-      entity!.scene.entities.append(attack)
-      
       var startingPosition = entity!.spriteNode.position
       startingPosition.y += heroType!.attackOrigin.y
       startingPosition.x += entity!.spriteNode.facing == .right ? heroType!.attackOrigin.y : -heroType!.attackOrigin.y

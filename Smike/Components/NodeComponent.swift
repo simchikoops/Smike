@@ -2,29 +2,37 @@ import SpriteKit
 import GameplayKit
 
 class NodeComponent: GKComponent {
-  
-  var spriteNode: SKSpriteNode?
+  var node: SKNode
   
   init(node: SKSpriteNode) {
+    self.node = node
     super.init()
-    spriteNode = node
   }
   
   init(imageNamed: String, position: CGPoint, depth: CGFloat, layer: CGFloat, facing: FacingDirection = .right) {
-    super.init()
+    let spriteNode = SKSpriteNode(imageNamed: imageNamed)
     
-    spriteNode = SKSpriteNode(imageNamed: imageNamed)
-    spriteNode?.depth = depth
-    spriteNode?.position = position
-    spriteNode?.zPosition = layer
-    spriteNode?.facing = facing
+    spriteNode.depth = depth
+    spriteNode.position = position
+    spriteNode.zPosition = layer
+    spriteNode.facing = facing
+    
+    self.node = spriteNode
+    
+    super.init()
+  }
+  
+  init(size: CGSize) {
+    self.node = SKShapeNode(rectOf: size)
+    super.init()
   }
   
   override func didAddToEntity() {
-    spriteNode?.entity = entity
+    node.entity = entity
   }
   
   required init?(coder: NSCoder) {
+    self.node = SKNode()
     super.init(coder:coder)
   }
   

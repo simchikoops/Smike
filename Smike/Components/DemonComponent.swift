@@ -76,7 +76,7 @@ class DemonComponent: GKComponent {
       
       entity!.printNode!.addChild(attack.node)
       attackComponent.launch(vector: attackVector(origin: startingPosition, target: target))
-    case .thrust:
+    case .stab:
       if let component = target.component(ofType: HealthComponent.self) {
         component.damage(points: type.attackPower)
       }

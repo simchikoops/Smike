@@ -2,9 +2,9 @@ import SpriteKit
 
 extension LevelScene: SKPhysicsContactDelegate {
   func didBegin(_ contact: SKPhysicsContact) {
-    let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+    let touch = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
     
-    switch collision {
+    switch touch {
     case PhysicsInfo.heroAttack.categoryBitMask | PhysicsInfo.demon.categoryBitMask:
       let demonNode = contact.bodyA.categoryBitMask == PhysicsInfo.demon.categoryBitMask ? contact.bodyA.node : contact.bodyB.node
 
