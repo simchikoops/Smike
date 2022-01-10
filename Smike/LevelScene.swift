@@ -41,6 +41,20 @@ class LevelScene: SKScene {
     }
   }
   
+  func checkWhetherDemonsDefeated() {
+    if demons.isEmpty && generators.allSatisfy({
+      $0.component(ofType: GeneratorComponent.self)!.exhausted
+    }) {
+      print("Demons are defeated!")
+    }
+  }
+  
+  func checkWhetherHeroesDefeated() {
+    if mortals.isEmpty {
+      print("Heroes are defeated!")
+    }
+  }
+  
   func selectHero(_ hero: GKEntity) {
     focusHero?.heroComponent?.moving = .stopped
     focusHero?.heroComponent?.hasFocus = false

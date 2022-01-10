@@ -1,7 +1,9 @@
 # To-do
 
 * Scene completion (messages)
-* Message reporting, fonts
+  Fonts
+* Navigator object uses slot to determine next scene
+  Scene updates slot, then calls navigator
 
 Next: saving state
 Then: Map & progression
@@ -11,11 +13,13 @@ Then: Map & progression
 * Only show track when selected?
 * New colors?
   Demon: neon red/pink. Hero: neon blue/green. Mortal: neon yellow.
+* Intro/Story scene: use mine shaft to show demons, with text
 
 # Steps
 
 * Scene completion (win/loss conditions)
 * Saving state
+* Syncing with animation and basic sounds
 * Supported attacks
 * Mass attack
 * Advancement
