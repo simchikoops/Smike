@@ -35,7 +35,7 @@ class GameViewController: UIViewController {
   }
   
   func loadLevelScene(_ sceneFileName: String) {
-    guard let gkScene = GKScene(fileNamed: "M1L1") else {
+    guard let gkScene = GKScene(fileNamed: sceneFileName) else {
       print("Scene \(sceneFileName) not found"); return
     }
     guard let scene = gkScene.rootNode as? LevelScene else {

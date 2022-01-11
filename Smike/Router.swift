@@ -9,4 +9,8 @@ struct Router {
   func navigate() {
     viewController?.loadLevelScene("M1L1") // !!!
   }
+  
+  func navigateFrom(_ name: String, completed: Bool) {
+    viewController?.loadLevelScene("M1L2") // !!!
+  }
 }

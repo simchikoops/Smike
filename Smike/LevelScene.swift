@@ -32,7 +32,11 @@ class LevelScene: SKScene {
     heroes.sort {
       $0.heroComponent!.index < $1.heroComponent!.index
     }
-    selectHero(heroes.first!)
+    if let hero = heroes.first {
+      selectHero(hero)
+    } else {
+      print("Level \(String(describing: name)) has no heroes")
+    }
   }
   
   override func willMove(from view: SKView) {
@@ -45,13 +49,22 @@ class LevelScene: SKScene {
     if demons.isEmpty && generators.allSatisfy({
       $0.component(ofType: GeneratorComponent.self)!.exhausted
     }) {
-      print("Demons are defeated!")
+      if let name = self.name {
+        print("Demons are defeated!")
+        Slot.live.completedLevels.insert(name)
+        // TODO: report victory
+        Router.it.navigateFrom(name, completed: true)
+      }
     }
   }
   
   func checkWhetherHeroesDefeated() {
     if mortals.isEmpty {
       print("Heroes are defeated!")
+      // TODO: report defeat
+      if let name = self.name {
+        Router.it.navigateFrom(name, completed: false)
+      }
     }
   }
   
