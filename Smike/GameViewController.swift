@@ -13,7 +13,9 @@ class GameViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    loadLevelScene("M1L1") // !!!
+    
+    Router.it.viewController = self
+    Router.it.navigate()
   }
 
   override var shouldAutorotate: Bool {
