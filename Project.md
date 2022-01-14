@@ -1,7 +1,5 @@
 # To-do
 
-* Scene completion (messages)
-  Fonts
 * Navigator object uses slot to determine next scene
   Scene updates slot, then calls navigator
 

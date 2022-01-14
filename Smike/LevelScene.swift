@@ -10,6 +10,7 @@ class LevelScene: GameScene {
   var mortals: [GKEntity] = []
   var generators: [GKEntity] = []
   
+  var live: Bool = false
   var ticks: CGFloat = 0.0
   var focusHero: GKEntity?
   var heroControlXRef: CGFloat?
@@ -18,8 +19,10 @@ class LevelScene: GameScene {
   private var tapRecognizer: UITapGestureRecognizer? = nil
     
   override func sceneDidLoad() {
-    self.lastUpdateTime = 0
     physicsWorld.contactDelegate = self
+
+    self.lastUpdateTime = 0
+    self.live = false
   }
   
   // Load finished callback.
@@ -38,7 +41,7 @@ class LevelScene: GameScene {
       print("Level \(String(describing: name)) has no heroes")
     }
     
-    presentMessage("Now is the time for all good men to come to the aid of the party")
+    titleCard("protect the mortals!", duration: 3.0) { [unowned self] in self.live = true }
   }
   
   override func willMove(from view: SKView) {
@@ -167,6 +170,7 @@ class LevelScene: GameScene {
   }
   
   override func update(_ currentTime: TimeInterval) {
+    guard live else { return }
     // Called before each frame is rendered
       
     // Initialize _lastUpdateTime if it has not already been
