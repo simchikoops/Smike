@@ -1,7 +1,7 @@
 import SpriteKit
 import GameplayKit
 
-class LevelScene: SKScene {
+class LevelScene: GameScene {
     
   var entities = [GKEntity]()
   
@@ -37,6 +37,8 @@ class LevelScene: SKScene {
     } else {
       print("Level \(String(describing: name)) has no heroes")
     }
+    
+    presentMessage("Now is the time for all good men to come to the aid of the party")
   }
   
   override func willMove(from view: SKView) {

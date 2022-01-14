@@ -14,7 +14,6 @@ Then: Map & progression
 * New colors?
   Demon: neon red/pink. Hero: neon blue/green. Mortal: neon yellow.
 * Intro/Story scene: use mine shaft to show demons, with text
-* Generic names for scenes--they can't be renamed!
 
 # Steps
 
@@ -404,4 +403,8 @@ Pre-level:
 # Titles
 
 * Heroes and Demons (Heroes/Demons)
+
+# Acknowledgements
+
+
 
