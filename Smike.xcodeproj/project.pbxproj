@@ -19,6 +19,8 @@
 		550447D5278E30350089F8E1 /* Q1M1L2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 550447D4278E30350089F8E1 /* Q1M1L2.sks */; };
 		5513637F2763D10F006BC9B1 /* SpriteNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5513637E2763D10F006BC9B1 /* SpriteNodeExtensions.swift */; };
 		5513638127642327006BC9B1 /* Layers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5513638027642327006BC9B1 /* Layers.swift */; };
+		551A259C2794998600B31388 /* Q1M1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 551A259B2794998600B31388 /* Q1M1.sks */; };
+		551A259E27949B2B00B31388 /* MissionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A259D27949B2B00B31388 /* MissionScene.swift */; };
 		55337A552756A32400407618 /* AttributionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55337A542756A32400407618 /* AttributionComponent.swift */; };
 		55337A572756A57300407618 /* LevelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55337A562756A57300407618 /* LevelScene.swift */; };
 		55337A5A2756AE1D00407618 /* PortraitDash.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55337A592756AE1D00407618 /* PortraitDash.sks */; };
@@ -84,6 +86,8 @@
 		550447D4278E30350089F8E1 /* Q1M1L2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Q1M1L2.sks; sourceTree = "<group>"; };
 		5513637E2763D10F006BC9B1 /* SpriteNodeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteNodeExtensions.swift; sourceTree = "<group>"; };
 		5513638027642327006BC9B1 /* Layers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layers.swift; sourceTree = "<group>"; };
+		551A259B2794998600B31388 /* Q1M1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Q1M1.sks; sourceTree = "<group>"; };
+		551A259D27949B2B00B31388 /* MissionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionScene.swift; sourceTree = "<group>"; };
 		55337A542756A32400407618 /* AttributionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributionComponent.swift; sourceTree = "<group>"; };
 		55337A562756A57300407618 /* LevelScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelScene.swift; sourceTree = "<group>"; };
 		55337A592756AE1D00407618 /* PortraitDash.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PortraitDash.sks; sourceTree = "<group>"; };
@@ -175,11 +179,13 @@
 				5569EE4B278CBBA60030E798 /* Router.swift */,
 				55EE3DAD278F518600009573 /* GameScene.swift */,
 				55337A562756A57300407618 /* LevelScene.swift */,
+				551A259D27949B2B00B31388 /* MissionScene.swift */,
 				55EE3DAF2790F08200009573 /* SKSceneExtensions.swift */,
 				55C816E52761141200A810EE /* GKEntityExtensions.swift */,
 				5513637E2763D10F006BC9B1 /* SpriteNodeExtensions.swift */,
 				5593962E27668CA600EFA9F3 /* CoreExtensions.swift */,
 				55337A532756A1B500407618 /* Components */,
+				551A25982794990600B31388 /* Missions */,
 				55337A4E2755AF4B00407618 /* Levels */,
 				55337A582756AD4E00407618 /* Reference Nodes */,
 				55DAB5392771562500105FC4 /* PhysicsInfo.swift */,
@@ -210,6 +216,14 @@
 				55010AC127518DEE0049E9AE /* SmikeUITestsLaunchTests.swift */,
 			);
 			path = SmikeUITests;
+			sourceTree = "<group>";
+		};
+		551A25982794990600B31388 /* Missions */ = {
+			isa = PBXGroup;
+			children = (
+				551A259B2794998600B31388 /* Q1M1.sks */,
+			);
+			path = Missions;
 			sourceTree = "<group>";
 		};
 		55337A4E2755AF4B00407618 /* Levels */ = {
@@ -366,6 +380,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				551A259C2794998600B31388 /* Q1M1.sks in Resources */,
 				55EE3DAB278F4F3E00009573 /* aAsianNinja.ttf in Resources */,
 				55010AA727518DEC0049E9AE /* Main.storyboard in Resources */,
 				55010AA927518DEE0049E9AE /* Assets.xcassets in Resources */,
@@ -403,6 +418,7 @@
 				55BA7CC827754D340078D20F /* HeroData.swift in Sources */,
 				55EE3DAE278F518600009573 /* GameScene.swift in Sources */,
 				55BA7CC4277504300078D20F /* TrackDotComponent.swift in Sources */,
+				551A259E27949B2B00B31388 /* MissionScene.swift in Sources */,
 				55337A552756A32400407618 /* AttributionComponent.swift in Sources */,
 				55EE3DB02790F08200009573 /* SKSceneExtensions.swift in Sources */,
 				55DFB29A2773A88800F3747B /* MissileAttackComponent.swift in Sources */,

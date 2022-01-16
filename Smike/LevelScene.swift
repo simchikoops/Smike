@@ -2,8 +2,6 @@ import SpriteKit
 import GameplayKit
 
 class LevelScene: GameScene {
-    
-  var entities = [GKEntity]()
   
   var heroes: [GKEntity] = []
   var demons: [GKEntity] = []

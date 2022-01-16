@@ -35,6 +35,9 @@ Then: Map & progression
 
 # Consider
 
+# Mission progression
+Kyushu, then Shikoku, the southern honshu, then (surprise) Hokkaido (snow), then end up in Tokyo.
+
 # Demon attack patterns
 
 Each has a secret cycle of when they attack and when they pause. Like two attacks, then wait a while, then two again.
@@ -109,12 +112,15 @@ Bombs: if a demon reaches the end of a track, it can set off a bomb that kills m
 * Blue: Mortals
 * Yello: Selected hero
 
-# Demon transforms
+# Transforms
 
+## Demons
 * Black point + 100%
 * Vibrance + 75%
 * Exposure - 80%
 * Brightness + 20%
+
+## Map: Urban 1
 
 # Fundamentals
 

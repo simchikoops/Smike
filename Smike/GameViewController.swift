@@ -34,12 +34,13 @@ class GameViewController: UIViewController {
     return true
   }
   
-  func loadLevelScene(_ sceneFileName: String) {
+
+  func loadGameScene(_ sceneFileName: String) {
     guard let gkScene = GKScene(fileNamed: sceneFileName) else {
       print("Scene \(sceneFileName) not found"); return
     }
-    guard let scene = gkScene.rootNode as? LevelScene else {
-      print("Scene \(sceneFileName) is not a level scene"); return
+    guard let scene = gkScene.rootNode as? GameScene else {
+      print("Scene \(sceneFileName) is not a game scene"); return
     }
     
     scene.entities = gkScene.entities
