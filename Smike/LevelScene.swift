@@ -108,8 +108,6 @@ class LevelScene: GameScene {
       }
     } else if tapNodes.first(where: { $0.name == "attack" }) != nil {
       focusHero?.heroComponent?.attack()
-    } else if tapNodes.first(where: { $0.name == "next_hero" }) != nil {
-      selectNextHero()
     } else if tapNodes.first(where: { $0.name == "play_pause" }) != nil {
       self.isPaused = !self.isPaused
       self.lastUpdateTime = 0
@@ -124,19 +122,14 @@ class LevelScene: GameScene {
     return heroes.firstIndex(of: focusHero!)
   }
   
-  func selectNextHero() {
-    if let index = focusHeroIndex {
-      selectHero(heroes[index + 1 < heroes.count ? index + 1 : 0 ])
-    }
-  }
-  
   func touchDown(atPoint pos : CGPoint) {
     let touchedNodes = nodes(at: pos)
     
     if let controlNode = heroControlNode(touchedNodes) {
-      if heroControlIndex(controlNode) == focusHeroIndex {
-        heroControlXRef = pos.x
+      if let index = heroControlIndex(controlNode), index != focusHeroIndex {
+        selectHero(heroes[index])
       }
+      heroControlXRef = pos.x
     }
   }
   

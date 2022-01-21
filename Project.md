@@ -1,7 +1,14 @@
 # To-do
 
-* Navigator object uses slot to determine next scene
-  Scene updates slot, then calls navigator
+* New controls: all on-print
+  Don't have to tap to start
+* New dash: Mission name, then hero with abilities in its place
+* Blue heroes, electric-gray tracks
+* Level dots on mission, with state
+  Store?
+* Power attacks
+* Full, difficult level
+* Basic animations
 
 Next: saving state
 Then: Map & progression
@@ -15,7 +22,6 @@ Then: Map & progression
 
 # Steps
 
-* Scene completion (win/loss conditions)
 * Saving state
 * Syncing with animation and basic sounds
 * Supported attacks
@@ -38,9 +44,11 @@ Then: Map & progression
 # Mission progression
 Kyushu, then Shikoku, the southern honshu, then (surprise) Hokkaido (snow), then end up in Tokyo.
 
+Power strikes accrue from level to level. In order to re-play a level with a coin bonus, you risk having to use a strike.
+
 # Demon attack patterns
 
-Each has a secret cycle of when they attack and when they pause. Like two attacks, then wait a while, then two again.
+Each has a secret cycle of when they attack and when they pause. Like two attacks, then wait a while, then two again. So, trigger an attack, then wait for the opportunity.
 
 # Hero types
 
@@ -57,13 +65,12 @@ Each has a secret cycle of when they attack and when they pause. Like two attack
 
 # Hero aspects
 
-* Speed
-* Size (vulnerability)
-* Hit points
+* Speed [upgradable]
+* Hit points [upgradable]
 * Attack type (single)
-  Attack strength: some demons can't be hit by some attack types
+  Attack strength: [upgradable] some demons can't be hit by some attack types
 * (Track length)
-* Minimum attack interval
+* Minimum attack interval [upgradable?]
 
 * Skin (purchasable/customizable)
 
@@ -103,14 +110,17 @@ Bombs: if a demon reaches the end of a track, it can set off a bomb that kills m
 
 # Power strikes (toriya)
 
-* Stops all demons (except bosses?)
-* Upgrade: also revives heroes
+* Massive damage to all demons. killing most
+* Also revives heroes?
+* Start with three at the beginning of a mission, resets at the end
+* Earn power strikes with special coin capture
 
 # Colors
 
 * Red: Demons
-* Blue: Mortals
-* Yello: Selected hero
+* Yellow/orange: Mortals
+* Blue: Heroes
+  Green: selected hero
 
 # Transforms
 
@@ -132,7 +142,7 @@ Bombs: if a demon reaches the end of a track, it can set off a bomb that kills m
 
 ## Components vs Entities
 Generic entities (not subclassed.) Scene-editor created entities have precreated node components.
-Generated entities creat their own node components.
+Generated entities create their own node components.
 
 # Models
 
@@ -195,41 +205,25 @@ Some coins are special (ingots) and worth more than cash.
 
 https://www.raywenderlich.com/1158-spritekit-and-inverse-kinematics-with-swift
 
-# Player Interaction
-
-More:
-* Arranging palette of heroes for quick access
-* Tor-e-a strike with double tap. X per mission (save!)
-* Tap for bonus coins (quick appear/disappear)
-
 # Scoreboard
 
 Two orientations.
 
 * Level name
-* Zen count
 * Coin count
 * Level progress?
 * Controls: Pause, exit
 
 # Coin system
 
-* Earn by completing levels
-* Also earn by tapping fast on coins
-* Spend on special heroes & torea strikes
+* Spend on hero attributes
 * Buy coins with $
 * Kanei Tsuho appearance (square hole)
 
-# Zen system
-
-* Priests earn zen
-* Each hero has a zen cost
-* Also zen pop up on screen fleetingly
-* Symbol: Enso? Yin-yang? Lotus flower?
 
 # Updated Gameplay
 
-Mission sequences with related scenery & demons. No boss fights, but interspersed with challenging stages. Option to buy between scenes.
+Mission sequences with related scenery & demons. Option to buy between scenes.
 
 Challenging stage is all coin fountains, can't lose.
 
@@ -253,58 +247,21 @@ You earn new heroes with new & better powers. You can use any of them. Arrange y
 
 # Boss fights
 
-One giant demon that moves among zones. Special behaviour class, but otherwise a normal level scene.
+One giant mortal.
 
 # Missions
 
 Number of levels per mission?
+Name missions
+Mission 1: Kyushu Peril (etc.)
+
+Cut scenes to start? Picture comes alive.
 
 ## Road
 ## Mountains
 ## Water
 ## Snow
 ## Urban
-
-Purchasable:
-## Bridges
-## Castles
-## Temples
-
-# Heros
-
-Distinctive shapes needed for smaller sizes.
-
-## Warriors (projecting weapons)
-### Samurai
-https://ukiyo-e.org/image/waseda/006-1522 (More from this artist)
-### Ronin
-### Ninja
-### Lord
-
-Direct attacks, delaying attacks, area attacks.
-
-## Protectors/Frighteners
-### Fat guys
-### Martial artist
-### Actors?
-
-## Healers (skinny)
-### Bijin
-### Geisha
-
-## Clerics (roundish)
-### Shinto Priest
-### Buddhist Priest
-### Buddhist Nuns
-### Daoist?
-### Zen master
-
-# Demons
-
-### Masked samurai: swords
-### Gargoyles: claws
-### Bats: divebomb
-### Turtles: bites
 
 # Mortals
 
