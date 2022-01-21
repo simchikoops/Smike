@@ -100,14 +100,11 @@ class LevelScene: GameScene {
     
     if let controlNode = heroControlNode(tapNodes) {
       if let index = heroControlIndex(controlNode) {
-        if heroControlIndex(controlNode) == focusHeroIndex {
-          focusHero?.heroComponent?.attack()
-        } else {
+        if index != focusHeroIndex {
           selectHero(heroes[index])
         }
+        focusHero?.heroComponent?.attack()
       }
-    } else if tapNodes.first(where: { $0.name == "attack" }) != nil {
-      focusHero?.heroComponent?.attack()
     } else if tapNodes.first(where: { $0.name == "play_pause" }) != nil {
       self.isPaused = !self.isPaused
       self.lastUpdateTime = 0
