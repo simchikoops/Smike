@@ -42,6 +42,7 @@
 		55C816E62761141200A810EE /* GKEntityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E52761141200A810EE /* GKEntityExtensions.swift */; };
 		55C816E82761161400A810EE /* NodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E72761161400A810EE /* NodeComponent.swift */; };
 		55C816EA2761302200A810EE /* DepthComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E92761302200A810EE /* DepthComponent.swift */; };
+		55D6462F279B82E800509FD1 /* hero_focus.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 55D6462E279B82E800509FD1 /* hero_focus.mp3 */; };
 		55DAB53A2771562500105FC4 /* PhysicsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DAB5392771562500105FC4 /* PhysicsInfo.swift */; };
 		55DAB53C277159C600105FC4 /* PhysicsContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DAB53B277159C600105FC4 /* PhysicsContacts.swift */; };
 		55DFB29A2773A88800F3747B /* MissileAttackComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DFB2992773A88800F3747B /* MissileAttackComponent.swift */; };
@@ -108,6 +109,7 @@
 		55C816E52761141200A810EE /* GKEntityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKEntityExtensions.swift; sourceTree = "<group>"; };
 		55C816E72761161400A810EE /* NodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeComponent.swift; sourceTree = "<group>"; };
 		55C816E92761302200A810EE /* DepthComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthComponent.swift; sourceTree = "<group>"; };
+		55D6462E279B82E800509FD1 /* hero_focus.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hero_focus.mp3; sourceTree = "<group>"; };
 		55DAB5392771562500105FC4 /* PhysicsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsInfo.swift; sourceTree = "<group>"; };
 		55DAB53B277159C600105FC4 /* PhysicsContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsContacts.swift; sourceTree = "<group>"; };
 		55DFB2992773A88800F3747B /* MissileAttackComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissileAttackComponent.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 		55010A9A27518DEC0049E9AE /* Smike */ = {
 			isa = PBXGroup;
 			children = (
+				55D6462D279B82C300509FD1 /* Sounds */,
 				55EE3DAC278F4FBB00009573 /* Info.plist */,
 				55010AAA27518DEE0049E9AE /* LaunchScreen.storyboard */,
 				55010AA527518DEC0049E9AE /* Main.storyboard */,
@@ -260,6 +263,14 @@
 				55337A5D27581EF800407618 /* LandscapeDash.sks */,
 			);
 			path = "Reference Nodes";
+			sourceTree = "<group>";
+		};
+		55D6462D279B82C300509FD1 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				55D6462E279B82E800509FD1 /* hero_focus.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		55EE3DA5278F4ADC00009573 /* Fonts */ = {
@@ -384,6 +395,7 @@
 				55EE3DAB278F4F3E00009573 /* aAsianNinja.ttf in Resources */,
 				55010AA727518DEC0049E9AE /* Main.storyboard in Resources */,
 				55010AA927518DEE0049E9AE /* Assets.xcassets in Resources */,
+				55D6462F279B82E800509FD1 /* hero_focus.mp3 in Resources */,
 				55337A5E27581EF800407618 /* LandscapeDash.sks in Resources */,
 				55010AAC27518DEE0049E9AE /* LaunchScreen.storyboard in Resources */,
 				550447D3278E30240089F8E1 /* Q1M1L1.sks in Resources */,

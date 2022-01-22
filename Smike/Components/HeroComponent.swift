@@ -11,8 +11,8 @@ class HeroComponent: GKComponent {
   @GKInspectable var type: String = ""
   @GKInspectable var index: Int = 0
   
-  let unselectedColor: UIColor = .gray
-  let selectedColor: UIColor = .yellow
+  let unselectedColor: UIColor = .clear
+  let selectedColor: UIColor = UIColor(red: 0, green: 1.0, blue: 0, alpha: 0.4)
   
   let impairmentTime: Float = 4.0
   let maxImpairmentAlpha: Float = 0.45

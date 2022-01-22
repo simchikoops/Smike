@@ -1,12 +1,14 @@
 # To-do
 
-* New controls: all on-print
-  Don't have to tap to start
-* New dash: Mission name, then hero with abilities in its place
-* Blue heroes, electric-gray tracks
+* Basic sounds
+* Pause, then gear icon (also on map)
+* New dash: then hero with abilities in its place
+  "Drag heroes to move / Tap to attack"
+* Blue heroes, red demons, yellow mortals
 * Level dots on mission, with state
   Store?
 * Power attacks
+  Show count as x2, x0 below
 * Full, difficult level
 * Basic animations
 
@@ -62,6 +64,16 @@ Each has a secret cycle of when they attack and when they pause. Like two attack
 * Horses (roads/bridges): Trample (need running start)
 * Elephants: Horse-like, for big landscapes
 * Flying elephants?
+
+# Gameplay Skills
+
+* Switching heroes
+* Understanding hero, demon types
+* Memorizing generator, attack patterns
+* Speed tapping
+* Use of power strike
+* Supported attacks
+* Earning upgrades
 
 # Hero aspects
 

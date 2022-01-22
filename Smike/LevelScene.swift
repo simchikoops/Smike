@@ -33,11 +33,6 @@ class LevelScene: GameScene {
     heroes.sort {
       $0.heroComponent!.index < $1.heroComponent!.index
     }
-    if let hero = heroes.first {
-      selectHero(hero)
-    } else {
-      print("Level \(String(describing: name)) has no heroes")
-    }
     
     titleCard("protect the mortals!", duration: 3.0) { [unowned self] in self.live = true }
   }
@@ -77,6 +72,16 @@ class LevelScene: GameScene {
     
     self.focusHero = hero
     focusHero?.heroComponent?.hasFocus = true
+    
+    let sound = SKAction.playSoundFileNamed("hero_focus", waitForCompletion: false)
+    self.run(sound)
+  }
+  
+  func powerStrike() {
+    guard live else { return }
+    
+    // TODO -- check enough, use up, enact
+    print("POWER STRIKE")
   }
   
   private func heroControlNode(_ nodes: [SKNode]) -> SKNode? {
@@ -105,6 +110,8 @@ class LevelScene: GameScene {
         }
         focusHero?.heroComponent?.attack()
       }
+    } else if tapNodes.first(where: { $0.name == "power_strike" }) != nil {
+      powerStrike()
     } else if tapNodes.first(where: { $0.name == "play_pause" }) != nil {
       self.isPaused = !self.isPaused
       self.lastUpdateTime = 0
@@ -116,7 +123,11 @@ class LevelScene: GameScene {
   }
   
   var focusHeroIndex: Int? {
-    return heroes.firstIndex(of: focusHero!)
+    if let hero = focusHero {
+      return heroes.firstIndex(of: hero)
+    } else {
+      return nil
+    }
   }
   
   func touchDown(atPoint pos : CGPoint) {
