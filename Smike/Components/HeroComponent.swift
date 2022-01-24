@@ -7,7 +7,7 @@ enum HeroMotion {
   case stopped
 }
 
-class HeroComponent: GKComponent {
+class HeroComponent: GKComponent, Body {
   @GKInspectable var type: String = ""
   @GKInspectable var index: Int = 0
   
@@ -106,7 +106,13 @@ class HeroComponent: GKComponent {
     lastAttackTicks = entity!.scene.ticks
   }
   
-  func impair() {
+  func damage() {
+    let sound = SKAction.playSoundFileNamed("hero_hit", waitForCompletion: false)
+    entity?.node.run(sound)
+    entity?.healthComponent?.showDamage()
+  }
+  
+  func kill() {
     // TODO: flash into impairment
     entity!.node.alpha = CGFloat(maxImpairmentAlpha)
     

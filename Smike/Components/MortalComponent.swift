@@ -1,7 +1,7 @@
 import SpriteKit
 import GameplayKit
 
-class MortalComponent: GKComponent {
+class MortalComponent: GKComponent, Body {
   override class var supportsSecureCoding: Bool {
     true
   }
@@ -25,7 +25,11 @@ class MortalComponent: GKComponent {
     }
   }
 
-  func die() {
+  func damage() {
+    entity?.healthComponent?.showDamage()
+  }
+  
+  func kill() {
     entity?.scene.mortals.remove(object: entity!)
     entity?.scene.checkWhetherHeroesDefeated()
     entity?.remove()

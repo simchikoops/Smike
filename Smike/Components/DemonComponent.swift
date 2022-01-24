@@ -1,7 +1,7 @@
 import SpriteKit
 import GameplayKit
 
-class DemonComponent: GKComponent {
+class DemonComponent: GKComponent, Body {
   let type: DemonType
   let track: Track
 
@@ -141,7 +141,11 @@ class DemonComponent: GKComponent {
     node.facing = facing
   }
   
-  func dispell() {
+  func damage() {
+    entity?.healthComponent?.showDamage()
+  }
+  
+  func kill() {
     entity?.scene.demons.remove(object: entity!)
     entity?.scene.checkWhetherDemonsDefeated()
     entity?.remove()

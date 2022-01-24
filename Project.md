@@ -1,6 +1,9 @@
 # To-do
 
-* Basic sounds
+* Body protocol
+* Full, difficult level
+  sound, animation for hits, kills
+  More missile-based?
 * Pause, then gear icon (also on map)
 * New dash: then hero with abilities in its place
   "Drag heroes to move / Tap to attack"
@@ -9,7 +12,7 @@
   Store?
 * Power attacks
   Show count as x2, x0 below
-* Full, difficult level
+
 * Basic animations
 
 Next: saving state

@@ -27,6 +27,7 @@
 		55337A5E27581EF800407618 /* LandscapeDash.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55337A5D27581EF800407618 /* LandscapeDash.sks */; };
 		5537A33D27694585001901C8 /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5537A33C27694585001901C8 /* Slot.swift */; };
 		5569EE4C278CBBA60030E798 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5569EE4B278CBBA60030E798 /* Router.swift */; };
+		5580436D279DDB4B003ACFB1 /* BodyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5580436C279DDB4B003ACFB1 /* BodyProtocol.swift */; };
 		5593962F27668CA600EFA9F3 /* CoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593962E27668CA600EFA9F3 /* CoreExtensions.swift */; };
 		55A57696278B877C0001632F /* AttackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A57695278B877C0001632F /* AttackProtocol.swift */; };
 		55AA1FF1276A69ED0076881E /* GeneratorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA1FF0276A69ED0076881E /* GeneratorComponent.swift */; };
@@ -35,6 +36,7 @@
 		55AB01DB27627E1D002FCC4A /* TrackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB01DA27627E1D002FCC4A /* TrackTests.swift */; };
 		55AB01DE2762864C002FCC4A /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 55AB01DD2762864C002FCC4A /* Algorithms */; };
 		55AE32F02788EE01008FB444 /* StabAttackComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AE32EF2788EE01008FB444 /* StabAttackComponent.swift */; };
+		55B746B1279F56E700F1EC26 /* hero_hit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 55B746B0279F56E700F1EC26 /* hero_hit.mp3 */; };
 		55BA7CC4277504300078D20F /* TrackDotComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA7CC3277504300078D20F /* TrackDotComponent.swift */; };
 		55BA7CC627754B4D0078D20F /* DemonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA7CC527754B4D0078D20F /* DemonData.swift */; };
 		55BA7CC827754D340078D20F /* HeroData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA7CC727754D340078D20F /* HeroData.swift */; };
@@ -95,6 +97,7 @@
 		55337A5D27581EF800407618 /* LandscapeDash.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LandscapeDash.sks; sourceTree = "<group>"; };
 		5537A33C27694585001901C8 /* Slot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
 		5569EE4B278CBBA60030E798 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		5580436C279DDB4B003ACFB1 /* BodyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyProtocol.swift; sourceTree = "<group>"; };
 		5593962E27668CA600EFA9F3 /* CoreExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreExtensions.swift; sourceTree = "<group>"; };
 		55A57695278B877C0001632F /* AttackProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackProtocol.swift; sourceTree = "<group>"; };
 		55AA1FF0276A69ED0076881E /* GeneratorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorComponent.swift; sourceTree = "<group>"; };
@@ -102,6 +105,7 @@
 		55AB01D827627B19002FCC4A /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		55AB01DA27627E1D002FCC4A /* TrackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTests.swift; sourceTree = "<group>"; };
 		55AE32EF2788EE01008FB444 /* StabAttackComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StabAttackComponent.swift; sourceTree = "<group>"; };
+		55B746B0279F56E700F1EC26 /* hero_hit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hero_hit.mp3; sourceTree = "<group>"; };
 		55BA7CC3277504300078D20F /* TrackDotComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDotComponent.swift; sourceTree = "<group>"; };
 		55BA7CC527754B4D0078D20F /* DemonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemonData.swift; sourceTree = "<group>"; };
 		55BA7CC727754D340078D20F /* HeroData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroData.swift; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 				55BA7CC527754B4D0078D20F /* DemonData.swift */,
 				55DAB53B277159C600105FC4 /* PhysicsContacts.swift */,
 				55A57695278B877C0001632F /* AttackProtocol.swift */,
+				5580436C279DDB4B003ACFB1 /* BodyProtocol.swift */,
 				55AB01D827627B19002FCC4A /* Track.swift */,
 				5537A33C27694585001901C8 /* Slot.swift */,
 				5513638027642327006BC9B1 /* Layers.swift */,
@@ -268,6 +273,7 @@
 		55D6462D279B82C300509FD1 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				55B746B0279F56E700F1EC26 /* hero_hit.mp3 */,
 				55D6462E279B82E800509FD1 /* hero_focus.mp3 */,
 			);
 			path = Sounds;
@@ -400,6 +406,7 @@
 				55010AAC27518DEE0049E9AE /* LaunchScreen.storyboard in Resources */,
 				550447D3278E30240089F8E1 /* Q1M1L1.sks in Resources */,
 				550447D5278E30350089F8E1 /* Q1M1L2.sks in Resources */,
+				55B746B1279F56E700F1EC26 /* hero_hit.mp3 in Resources */,
 				55337A5A2756AE1D00407618 /* PortraitDash.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,6 +433,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55DFB29E2773E20F00F3747B /* MortalComponent.swift in Sources */,
+				5580436D279DDB4B003ACFB1 /* BodyProtocol.swift in Sources */,
 				55BA7CC627754B4D0078D20F /* DemonData.swift in Sources */,
 				55BA7CC827754D340078D20F /* HeroData.swift in Sources */,
 				55EE3DAE278F518600009573 /* GameScene.swift in Sources */,

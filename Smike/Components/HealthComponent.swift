@@ -13,25 +13,26 @@ class HealthComponent: GKComponent {
     self.hp = maxHp
   }
   
+  func showDamage() {
+    guard let node = entity?.node as? SKSpriteNode else { return }
+      
+    let pulsedRed = SKAction.sequence([
+      SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.15),
+      SKAction.wait(forDuration: 0.1),
+      SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.15)])
+    
+    node.run(pulsedRed)
+  }
+  
   func damage(points: Int) {
     hp -= points
-
-    if hp <= 0 {
-      if let component = entity?.component(ofType: HeroComponent.self) {
-        component.impair()
-      } else if let component = entity?.component(ofType: DemonComponent.self) {
-        component.dispell()
-      } else if let component = entity?.component(ofType: MortalComponent.self)  {
-        component.die()
-      }
-    } else {
-      if let node = entity?.node as? SKSpriteNode {
-        let pulsedRed = SKAction.sequence([
-            SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.15),
-            SKAction.wait(forDuration: 0.1),
-            SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.15)])
-        node.run(pulsedRed)
-      }
+    
+    if let body = entity?.component(conformingTo: Body.self) {
+      if hp <= 0 {
+        body.kill()
+      } else {
+        body.damage()
+      }      
     }
   }
 }
