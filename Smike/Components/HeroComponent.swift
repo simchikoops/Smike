@@ -107,13 +107,14 @@ class HeroComponent: GKComponent, Body {
   }
   
   func damage() {
-    let sound = SKAction.playSoundFileNamed("hero_hit", waitForCompletion: false)
-    entity?.node.run(sound)
+    entity?.node.run(SKAction.playSoundFileNamed("hero_hit", waitForCompletion: false))
     entity?.healthComponent?.showDamage()
   }
   
   func kill() {
-    // TODO: flash into impairment
+    entity?.node.run(SKAction.playSoundFileNamed("male_hero_hurt", waitForCompletion: false))
+    entity?.healthComponent?.showDamage(color: .black)
+    
     entity!.node.alpha = CGFloat(maxImpairmentAlpha)
     
     let unfade = SKAction.fadeAlpha(to: CGFloat(minImpairmentAlpha), duration: CGFloat(impairmentTime))

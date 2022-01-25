@@ -13,11 +13,11 @@ class HealthComponent: GKComponent {
     self.hp = maxHp
   }
   
-  func showDamage() {
+  func showDamage(color: UIColor = .red) {
     guard let node = entity?.node as? SKSpriteNode else { return }
       
     let pulsedRed = SKAction.sequence([
-      SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.15),
+      SKAction.colorize(with: color, colorBlendFactor: 1.0, duration: 0.15),
       SKAction.wait(forDuration: 0.1),
       SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.15)])
     

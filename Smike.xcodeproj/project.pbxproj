@@ -44,6 +44,7 @@
 		55C816E62761141200A810EE /* GKEntityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E52761141200A810EE /* GKEntityExtensions.swift */; };
 		55C816E82761161400A810EE /* NodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E72761161400A810EE /* NodeComponent.swift */; };
 		55C816EA2761302200A810EE /* DepthComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E92761302200A810EE /* DepthComponent.swift */; };
+		55D5580827A0A52800695069 /* male_hero_hurt.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 55D5580727A0A52800695069 /* male_hero_hurt.mp3 */; };
 		55D6462F279B82E800509FD1 /* hero_focus.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 55D6462E279B82E800509FD1 /* hero_focus.mp3 */; };
 		55DAB53A2771562500105FC4 /* PhysicsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DAB5392771562500105FC4 /* PhysicsInfo.swift */; };
 		55DAB53C277159C600105FC4 /* PhysicsContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DAB53B277159C600105FC4 /* PhysicsContacts.swift */; };
@@ -113,6 +114,7 @@
 		55C816E52761141200A810EE /* GKEntityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKEntityExtensions.swift; sourceTree = "<group>"; };
 		55C816E72761161400A810EE /* NodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeComponent.swift; sourceTree = "<group>"; };
 		55C816E92761302200A810EE /* DepthComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthComponent.swift; sourceTree = "<group>"; };
+		55D5580727A0A52800695069 /* male_hero_hurt.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = male_hero_hurt.mp3; sourceTree = "<group>"; };
 		55D6462E279B82E800509FD1 /* hero_focus.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hero_focus.mp3; sourceTree = "<group>"; };
 		55DAB5392771562500105FC4 /* PhysicsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsInfo.swift; sourceTree = "<group>"; };
 		55DAB53B277159C600105FC4 /* PhysicsContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsContacts.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 			children = (
 				55B746B0279F56E700F1EC26 /* hero_hit.mp3 */,
 				55D6462E279B82E800509FD1 /* hero_focus.mp3 */,
+				55D5580727A0A52800695069 /* male_hero_hurt.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				550447D3278E30240089F8E1 /* Q1M1L1.sks in Resources */,
 				550447D5278E30350089F8E1 /* Q1M1L2.sks in Resources */,
 				55B746B1279F56E700F1EC26 /* hero_hit.mp3 in Resources */,
+				55D5580827A0A52800695069 /* male_hero_hurt.mp3 in Resources */,
 				55337A5A2756AE1D00407618 /* PortraitDash.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

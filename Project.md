@@ -1,10 +1,10 @@
 # To-do
 
-* Body protocol
 * Full, difficult level
   sound, animation for hits, kills
   More missile-based?
-* Pause, then gear icon (also on map)
+* Flip which are actively controlled?
+* Back, to map
 * New dash: then hero with abilities in its place
   "Drag heroes to move / Tap to attack"
 * Blue heroes, red demons, yellow mortals
@@ -45,6 +45,13 @@ Then: Map & progression
 * sounds
 
 # Consider
+
+# Level intro script
+
+* Print unadorned; title & artist
+* Mortals w/ yellow outline in fast sequence; "Protect the mortals"
+* Heroes materialize; "Slide to move, tap to attack"
+* Generators begin
 
 # Mission progression
 Kyushu, then Shikoku, the southern honshu, then (surprise) Hokkaido (snow), then end up in Tokyo.
@@ -382,5 +389,5 @@ Pre-level:
 
 # Acknowledgements
 
-
+* "Sound effects obtained from https://www.zapsplat.com“
 
