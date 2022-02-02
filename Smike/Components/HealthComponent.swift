@@ -25,6 +25,7 @@ class HealthComponent: GKComponent {
   }
   
   func damage(points: Int) {
+    guard hp > 0 else { return } // beyond damage
     hp -= points
     
     if let body = entity?.component(conformingTo: Body.self) {

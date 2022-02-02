@@ -1,22 +1,54 @@
 # To-do
 
-* Full, difficult level
-  sound, animation for hits, kills
-  More missile-based?
-* Flip which are actively controlled?
-* Back, to map
-* New dash: then hero with abilities in its place
-  "Drag heroes to move / Tap to attack"
-* Blue heroes, red demons, yellow mortals
-* Level dots on mission, with state
-  Store?
-* Power attacks
-  Show count as x2, x0 below
+* De-pink mortals
+* Come to life (animations)
+  https://stackoverflow.com/questions/20889860/a-camera-shake-effect-for-spritekit/42895496
+* Remove heroes, attacks
+* Demon track
+* Mortal kill
+  Mortal groups?
+* Gesture attacks
+* Money chutes
 
+* Motion changes: tilt to path, slower crossing depths
+* Back, to map
 * Basic animations
 
 Next: saving state
 Then: Map & progression
+
+# Mark III Summary
+
+* No heroes; direct attack on demons
+* Demons start in background, move to foreground, then attack & kill mortals
+* Level success is surviving a wave without losing too many mortals
+* Multiple attack styles with gestures: tap, pinch, twist
+* Sky attacks, water attacks (partially hidden), land attacks (from underground).
+  Land shorter warning than sky, water special too. Land forms/buildings used to pop out close to mortals.
+* Coins fall from the sky from chutes. Over water they disappear; might bounce off surfaces w/ physics
+* Coin collection provides attack power
+  Coin color per attack type.
+* "Bad" coins: round holes. Lose all you have in that category.
+* As demons approach they are more efficient to kill; that number is reported. But past 100% the demon is invulernerable and kill(s) made.
+* Tracks have a single type of demon, but there are many of them on many tracks.
+* 1 demon drags down 1 mortal
+
+# Mark III Monsters
+
+* Ghost
+  Fast, weak
+* Bat (from below)
+  Small target, fast
+* Tortoises
+  Slow, big, strong
+* Devils
+  Big, strong, medium speed
+  
+# Coins
+
+* Mon - Brass/Silver/Gold - Tap power
+* Ingot - Twist power
+* Kobundo - Unzoom / general power
   
 # More to-do
 
@@ -36,6 +68,18 @@ Then: Map & progression
 * Coins
 * Purchases
 
+# Consider
+
+* Title
+
+# Fundamentals
+
+* Ukiyo-e comes to life
+  Happens with a rattle and a sound
+  Animation, ambient sounds
+* Respect for art & culture
+* Many sources of variety: prints, demons
+
 # Backfill
 
 * animations
@@ -44,14 +88,19 @@ Then: Map & progression
     https://developer.apple.com/documentation/spritekit/skwarpgeometrygrid/animate_the_warping_of_a_sprite
 * sounds
 
-# Consider
-
 # Level intro script
 
 * Print unadorned; title & artist
+* Print shakes & comes to life with special sound; things start moving
 * Mortals w/ yellow outline in fast sequence; "Protect the mortals"
 * Heroes materialize; "Slide to move, tap to attack"
 * Generators begin
+
+# Living prints
+
+* Depth
+* Surfaces
+* Surface types
 
 # Mission progression
 Kyushu, then Shikoku, the southern honshu, then (surprise) Hokkaido (snow), then end up in Tokyo.
@@ -153,12 +202,6 @@ Bombs: if a demon reaches the end of a track, it can set off a bomb that kills m
 * Brightness + 20%
 
 ## Map: Urban 1
-
-# Fundamentals
-
-* Ukiyo-e come to life
-* Respect for art & culture
-* Many sources of variety: prints, heroes, demons
 
 # Implementation Nodes
 
@@ -312,7 +355,7 @@ Pre-level:
 - 03 p 41, 58
 
 # Monster Image
-- 01 p 20, 22, 39, 46 (faces), 59 (fish), _64_ (bats), 92, 94 (birds), [103], 108 (birds), 153 (ghost)
+- 01 p 20, 22, 39, 46 (faces), 59 (fish), _64_ (bats), 92, 94 (birds), [103], 108 (birds), 153 (ghost), 104 (dragon)
 - 02 p 153
 - 03 p 145 (rat), 154
 
@@ -324,6 +367,8 @@ Pre-level:
 - 02 p 104 Progression
 
 - 01 6: turtle; 7, 43, 53: demon; lady ghost: 14; birds: 21; bugs: 27; sealife: 25; masks: 46
+
+- p 46: Masks that laugh at you if you lose
 
 # Good prints
 - https://ukiyo-e.org/image/chazen/1980_1067 Vert, water
