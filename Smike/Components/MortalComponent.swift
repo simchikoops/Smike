@@ -1,7 +1,7 @@
 import SpriteKit
 import GameplayKit
 
-class MortalComponent: GKComponent, Body {
+class MortalComponent: GKComponent {
   override class var supportsSecureCoding: Bool {
     true
   }
@@ -23,10 +23,6 @@ class MortalComponent: GKComponent, Body {
 
       node.physicsBody = physicsBody
     }
-  }
-
-  func damage() {
-    entity?.healthComponent?.showDamage()
   }
   
   func kill() {

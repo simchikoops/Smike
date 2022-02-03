@@ -3,15 +3,12 @@ import GameplayKit
 
 class LevelScene: GameScene {
   
-  var heroes: [GKEntity] = []
-  var demons: [GKEntity] = []
   var mortals: [GKEntity] = []
+  var demons: [GKEntity] = []
   var generators: [GKEntity] = []
   
   var live: Bool = false
   var ticks: CGFloat = 0.0
-  var focusHero: GKEntity?
-  var heroControlXRef: CGFloat?
   
   private var lastUpdateTime: TimeInterval = 0
   private var tapRecognizer: UITapGestureRecognizer? = nil
@@ -29,11 +26,7 @@ class LevelScene: GameScene {
     
     tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped(_:)))
     view.addGestureRecognizer(tapRecognizer!)
-    
-    heroes.sort {
-      $0.heroComponent!.index < $1.heroComponent!.index
-    }
-    
+     
     titleCard("protect the mortals!", duration: 3.0) { [unowned self] in self.live = true }
   }
   
@@ -65,35 +58,12 @@ class LevelScene: GameScene {
       }
     }
   }
-  
-  func selectHero(_ hero: GKEntity) {
-    focusHero?.heroComponent?.moving = .stopped
-    focusHero?.heroComponent?.hasFocus = false
     
-    self.focusHero = hero
-    focusHero?.heroComponent?.hasFocus = true
-    
-    let sound = SKAction.playSoundFileNamed("hero_focus", waitForCompletion: false)
-    self.run(sound)
-  }
-  
   func powerStrike() {
     guard live else { return }
     
     // TODO -- check enough, use up, enact
     print("POWER STRIKE")
-  }
-  
-  private func heroControlNode(_ nodes: [SKNode]) -> SKNode? {
-    return nodes.first(where: { $0.name?.hasPrefix("hero_control") ?? false })
-  }
-  
-  private func heroControlIndex(_ node: SKNode) -> Int? {
-    if let indexStr = node.name!.components(separatedBy: "_").last {
-      return Int(indexStr) ?? focusHeroIndex
-    } else {
-      return nil
-    }
   }
   
   @objc func tapped(_ tap: UITapGestureRecognizer) {
@@ -103,14 +73,7 @@ class LevelScene: GameScene {
     let scenePoint = convertPoint(fromView: viewPoint)
     let tapNodes = nodes(at: scenePoint)
     
-    if let controlNode = heroControlNode(tapNodes) {
-      if let index = heroControlIndex(controlNode) {
-        if index != focusHeroIndex {
-          selectHero(heroes[index])
-        }
-        focusHero?.heroComponent?.attack()
-      }
-    } else if tapNodes.first(where: { $0.name == "power_strike" }) != nil {
+    if tapNodes.first(where: { $0.name == "power_strike" }) != nil {
       powerStrike()
     } else if tapNodes.first(where: { $0.name == "play_pause" }) != nil {
       self.isPaused = !self.isPaused
@@ -121,35 +84,15 @@ class LevelScene: GameScene {
       }
     }
   }
-  
-  var focusHeroIndex: Int? {
-    if let hero = focusHero {
-      return heroes.firstIndex(of: hero)
-    } else {
-      return nil
-    }
-  }
-  
-  func touchDown(atPoint pos : CGPoint) {
-    let touchedNodes = nodes(at: pos)
     
-    if let controlNode = heroControlNode(touchedNodes) {
-      if let index = heroControlIndex(controlNode), index != focusHeroIndex {
-        selectHero(heroes[index])
-      }
-      heroControlXRef = pos.x
-    }
+  func touchDown(atPoint pos : CGPoint) {
+    // let touchedNodes = nodes(at: pos)
   }
   
   func touchMoved(toPoint pos : CGPoint) {
-    if let xRef = heroControlXRef {
-      focusHero?.heroComponent?.moving = pos.x < xRef ? .toLeft : .toRight
-    }
   }
   
   func touchUp(atPoint pos : CGPoint) {
-    heroControlXRef = nil
-    focusHero?.heroComponent?.moving = .stopped
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

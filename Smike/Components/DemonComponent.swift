@@ -1,7 +1,7 @@
 import SpriteKit
 import GameplayKit
 
-class DemonComponent: GKComponent, Body {
+class DemonComponent: GKComponent {
   let type: DemonType
   let track: Track
 
@@ -48,86 +48,9 @@ class DemonComponent: GKComponent, Body {
   }
     
   override func update(deltaTime seconds: TimeInterval) {
-    let canAttack = entity!.scene.ticks - lastAttackTicks > type.minimumAttackInterval
-    let unimpairedHeroes = entity!.scene.heroes.filter { !$0.heroComponent!.impaired }
+     progress(deltaTime: seconds)
+  }
     
-    if let mortal = target(list: entity!.scene.mortals) {
-      if (canAttack) { attack(mortal) }
-    } else if let hero = target(list: unimpairedHeroes) {
-      if (canAttack) { attack(hero) }
-      progress(deltaTime: seconds)
-    } else {
-      progress(deltaTime: seconds)
-    }
-  }
-  
-  func attack(_ target: GKEntity) {
-    let attack = GKEntity()
-    entity!.scene.entities.append(attack)
-
-    switch type.attack {
-    case .missile:
-      var startingPosition = entity!.spriteNode.position
-      startingPosition.y += type.attackOrigin.y
-      startingPosition.x += entity!.spriteNode.facing == .right ? type.attackOrigin.y : -type.attackOrigin.y
-      
-      let attackComponent = MissileAttackComponent(originSprite: entity!.spriteNode, physics: PhysicsInfo.demonAttack, imageName: type.attackImage!, startingPosition: startingPosition, power: type.attackPower, speed: type.attackSpeed!)
-      attack.addComponent(attackComponent)
-      
-      entity!.printNode!.addChild(attack.node)
-      attackComponent.launch(vector: attackVector(origin: startingPosition, target: target))
-    case .stab:
-      let attackComponent = StabAttackComponent(originSprite: entity!.spriteNode, position: type.attackOrigin, size: type.attackSize!, physics: PhysicsInfo.demonAttack, power: type.attackPower)
-      attack.addComponent(attackComponent)
-      attackComponent.launch(delay: 0.5)
-    }
-    lastAttackTicks = entity!.scene.ticks
-  }
-  
-  func target(list: [GKEntity]) -> GKEntity? {
-    if let nearest = nearestTargetableEntityAndDistance(list: list) {
-      return nearest.distance <= type.attackRange ? nearest.entity : nil
-    } else {
-      return nil
-    }
-  }
-  
-  func nearestTargetableEntityAndDistance(list: [GKEntity]) -> (entity: GKEntity, distance: CGFloat)? {
-    let ownPosition = entity!.node.position
-    
-    return list.filter { isWithinAttackAngle(position: ownPosition, otherPosition: $0.node.position) }
-      .map { (entity: $0, distance: ownPosition.distance(to: $0.node.position)) }
-      .sorted { $0.distance < $1.distance }
-      .first
-  }
-  
-  func isWithinAttackAngle(position: CGPoint, otherPosition: CGPoint) -> Bool {
-    var rad = atan2(otherPosition.y - position.y, otherPosition.x - position.x)
-    if (rad < 0) { rad += .pi * 2.0 }
-    
-    let deg = rad.toDegrees()
-    let angle = entity!.spriteNode.facing == .right ? type.attackAngle : reversedAngle(type.attackAngle)
-    
-    return angle.contains(deg) || angle.contains(deg + 360)
-  }
-  
-  func reversedAngle(_ angle: ClosedRange<Int>) -> ClosedRange<Int> {
-    var newLowerBound = 180 - angle.lowerBound
-    if newLowerBound < 0 { newLowerBound += 360}
-    
-    var newUpperBound = 180 - angle.upperBound
-    if newUpperBound < 0 { newUpperBound += 360}
-    
-    let bounds = [newLowerBound, newUpperBound].sorted()
-
-    return bounds.first!...bounds.last!
-  }
-  
-  func attackVector(origin: CGPoint, target: GKEntity) -> CGVector {
-    return CGVector(dx: target.node.position.x - origin.x,
-                    dy: target.node.position.y - origin.y)
-  }
-  
   func progress(deltaTime seconds: TimeInterval) {
     guard let node = entity?.node as? SKSpriteNode else { return }
     
@@ -139,10 +62,6 @@ class DemonComponent: GKComponent, Body {
     node.depth = depth
     node.zPosition = layer
     node.facing = facing
-  }
-  
-  func damage() {
-    entity?.healthComponent?.showDamage()
   }
   
   func kill() {

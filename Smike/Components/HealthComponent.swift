@@ -23,17 +23,4 @@ class HealthComponent: GKComponent {
     
     node.run(pulsedRed)
   }
-  
-  func damage(points: Int) {
-    guard hp > 0 else { return } // beyond damage
-    hp -= points
-    
-    if let body = entity?.component(conformingTo: Body.self) {
-      if hp <= 0 {
-        body.kill()
-      } else {
-        body.damage()
-      }      
-    }
-  }
 }

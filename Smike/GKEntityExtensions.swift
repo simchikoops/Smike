@@ -32,23 +32,15 @@ extension GKEntity {
   var layer: CGFloat {
     return component(ofType: DepthComponent.self)?.layer ?? Layer.normal.rawValue
   }
-  
-  var heroComponent: HeroComponent? {
-    return component(ofType: HeroComponent.self)
-  }
-  
-  var healthComponent: HealthComponent? {
-    return component(ofType: HealthComponent.self)
-  }
-  
+    
   func component<P>(conformingTo protocol: P.Type) -> P? {
-      for component in components {
-          if let p = component as? P {
-              return p
-          }
+    for component in components {
+      if let p = component as? P {
+        return p
       }
+    }
 
-      return nil
+    return nil
   }
   
   func remove() {

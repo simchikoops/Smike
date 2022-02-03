@@ -1,9 +1,10 @@
 # To-do
 
-* De-pink mortals
+* Remove heroes, attacks
+
 * Come to life (animations)
   https://stackoverflow.com/questions/20889860/a-camera-shake-effect-for-spritekit/42895496
-* Remove heroes, attacks
+  birds. Treadmills?
 * Demon track
 * Mortal kill
   Mortal groups?
