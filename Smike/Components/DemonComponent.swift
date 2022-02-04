@@ -41,10 +41,6 @@ class DemonComponent: GKComponent {
 
       node.physicsBody = physicsBody
     }
-    
-    let healthComponent = HealthComponent()
-    healthComponent.hp = type.hp
-    entity!.addComponent(healthComponent)
   }
     
   override func update(deltaTime seconds: TimeInterval) {

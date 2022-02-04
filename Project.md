@@ -1,6 +1,11 @@
 # To-do
 
-* Remove heroes, attacks
+* Animation Loops
+  Relative motion, relative depth
+  
+* Include delta depth in track times
+  Also in interpolation
+* Tilt to path
 
 * Come to life (animations)
   https://stackoverflow.com/questions/20889860/a-camera-shake-effect-for-spritekit/42895496
@@ -10,8 +15,8 @@
   Mortal groups?
 * Gesture attacks
 * Money chutes
+  Toss them up to start? And at an angle. Disappear when hit some surfaces.
 
-* Motion changes: tilt to path, slower crossing depths
 * Back, to map
 * Basic animations
 
@@ -45,6 +50,19 @@ Then: Map & progression
 * Devils
   Big, strong, medium speed
   
+  
+# Flash code
+  func showDamage(color: UIColor = .red) {
+    guard let node = entity?.node as? SKSpriteNode else { return }
+      
+    let pulsedRed = SKAction.sequence([
+      SKAction.colorize(with: color, colorBlendFactor: 1.0, duration: 0.15),
+      SKAction.wait(forDuration: 0.1),
+      SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.15)])
+    
+    node.run(pulsedRed)
+  }
+
 # Coins
 
 * Mon - Brass/Silver/Gold - Tap power
@@ -72,6 +90,7 @@ Then: Map & progression
 # Consider
 
 * Title
+* Some kind of bonus for leftover power
 
 # Fundamentals
 

@@ -3,7 +3,6 @@ import GameplayKit
 
 class LevelScene: GameScene {
   
-  var mortals: [GKEntity] = []
   var demons: [GKEntity] = []
   var generators: [GKEntity] = []
   
@@ -49,8 +48,8 @@ class LevelScene: GameScene {
     }
   }
   
-  func checkWhetherHeroesDefeated() {
-    if mortals.isEmpty {
+  func checkWhetherDefeated() {
+    if false {
       print("Heroes are defeated!")
       // TODO: report defeat
       if let name = self.name {

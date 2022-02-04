@@ -26,6 +26,8 @@
 		55337A5A2756AE1D00407618 /* PortraitDash.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55337A592756AE1D00407618 /* PortraitDash.sks */; };
 		55337A5E27581EF800407618 /* LandscapeDash.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55337A5D27581EF800407618 /* LandscapeDash.sks */; };
 		5537A33D27694585001901C8 /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5537A33C27694585001901C8 /* Slot.swift */; };
+		555CCC2C27ADD05F00ED5520 /* LoopComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CCC2B27ADD05F00ED5520 /* LoopComponent.swift */; };
+		555CCC2E27ADD45F00ED5520 /* AnimationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CCC2D27ADD45F00ED5520 /* AnimationComponent.swift */; };
 		5569EE4C278CBBA60030E798 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5569EE4B278CBBA60030E798 /* Router.swift */; };
 		5593962F27668CA600EFA9F3 /* CoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593962E27668CA600EFA9F3 /* CoreExtensions.swift */; };
 		55AA1FF1276A69ED0076881E /* GeneratorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA1FF0276A69ED0076881E /* GeneratorComponent.swift */; };
@@ -43,7 +45,6 @@
 		55D6462F279B82E800509FD1 /* hero_focus.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 55D6462E279B82E800509FD1 /* hero_focus.mp3 */; };
 		55DAB53A2771562500105FC4 /* PhysicsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DAB5392771562500105FC4 /* PhysicsInfo.swift */; };
 		55DAB53C277159C600105FC4 /* PhysicsContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DAB53B277159C600105FC4 /* PhysicsContacts.swift */; };
-		55DFB29C2773D61000F3747B /* HealthComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DFB29B2773D61000F3747B /* HealthComponent.swift */; };
 		55DFB29E2773E20F00F3747B /* MortalComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DFB29D2773E20F00F3747B /* MortalComponent.swift */; };
 		55EE3DAB278F4F3E00009573 /* aAsianNinja.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55EE3DAA278F4F3E00009573 /* aAsianNinja.ttf */; };
 		55EE3DAE278F518600009573 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3DAD278F518600009573 /* GameScene.swift */; };
@@ -91,6 +92,8 @@
 		55337A592756AE1D00407618 /* PortraitDash.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PortraitDash.sks; sourceTree = "<group>"; };
 		55337A5D27581EF800407618 /* LandscapeDash.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LandscapeDash.sks; sourceTree = "<group>"; };
 		5537A33C27694585001901C8 /* Slot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
+		555CCC2B27ADD05F00ED5520 /* LoopComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopComponent.swift; sourceTree = "<group>"; };
+		555CCC2D27ADD45F00ED5520 /* AnimationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationComponent.swift; sourceTree = SOURCE_ROOT; };
 		5569EE4B278CBBA60030E798 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		5593962E27668CA600EFA9F3 /* CoreExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreExtensions.swift; sourceTree = "<group>"; };
 		55AA1FF0276A69ED0076881E /* GeneratorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorComponent.swift; sourceTree = "<group>"; };
@@ -107,7 +110,6 @@
 		55D6462E279B82E800509FD1 /* hero_focus.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hero_focus.mp3; sourceTree = "<group>"; };
 		55DAB5392771562500105FC4 /* PhysicsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsInfo.swift; sourceTree = "<group>"; };
 		55DAB53B277159C600105FC4 /* PhysicsContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsContacts.swift; sourceTree = "<group>"; };
-		55DFB29B2773D61000F3747B /* HealthComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthComponent.swift; sourceTree = "<group>"; };
 		55DFB29D2773E20F00F3747B /* MortalComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortalComponent.swift; sourceTree = "<group>"; };
 		55EE3DAA278F4F3E00009573 /* aAsianNinja.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = aAsianNinja.ttf; sourceTree = "<group>"; };
 		55EE3DAC278F4FBB00009573 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -177,20 +179,17 @@
 				55EE3DAD278F518600009573 /* GameScene.swift */,
 				55337A562756A57300407618 /* LevelScene.swift */,
 				551A259D27949B2B00B31388 /* MissionScene.swift */,
-				55EE3DAF2790F08200009573 /* SKSceneExtensions.swift */,
-				55C816E52761141200A810EE /* GKEntityExtensions.swift */,
-				5513637E2763D10F006BC9B1 /* SpriteNodeExtensions.swift */,
-				5593962E27668CA600EFA9F3 /* CoreExtensions.swift */,
-				55337A532756A1B500407618 /* Components */,
-				551A25982794990600B31388 /* Missions */,
-				55337A4E2755AF4B00407618 /* Levels */,
-				55337A582756AD4E00407618 /* Reference Nodes */,
 				55DAB5392771562500105FC4 /* PhysicsInfo.swift */,
 				55BA7CC527754B4D0078D20F /* DemonData.swift */,
 				55DAB53B277159C600105FC4 /* PhysicsContacts.swift */,
 				55AB01D827627B19002FCC4A /* Track.swift */,
 				5537A33C27694585001901C8 /* Slot.swift */,
 				5513638027642327006BC9B1 /* Layers.swift */,
+				55337A532756A1B500407618 /* Components */,
+				555CCC2A27ADCFE000ED5520 /* Extensions */,
+				551A25982794990600B31388 /* Missions */,
+				55337A4E2755AF4B00407618 /* Levels */,
+				55337A582756AD4E00407618 /* Reference Nodes */,
 			);
 			path = Smike;
 			sourceTree = "<group>";
@@ -233,9 +232,10 @@
 		55337A532756A1B500407618 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				555CCC2D27ADD45F00ED5520 /* AnimationComponent.swift */,
 				55337A542756A32400407618 /* AttributionComponent.swift */,
 				55C816E92761302200A810EE /* DepthComponent.swift */,
-				55DFB29B2773D61000F3747B /* HealthComponent.swift */,
+				555CCC2B27ADD05F00ED5520 /* LoopComponent.swift */,
 				55AA1FF2276A78D90076881E /* DemonComponent.swift */,
 				55AA1FF0276A69ED0076881E /* GeneratorComponent.swift */,
 				55C816E72761161400A810EE /* NodeComponent.swift */,
@@ -252,6 +252,17 @@
 				55337A5D27581EF800407618 /* LandscapeDash.sks */,
 			);
 			path = "Reference Nodes";
+			sourceTree = "<group>";
+		};
+		555CCC2A27ADCFE000ED5520 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				55EE3DAF2790F08200009573 /* SKSceneExtensions.swift */,
+				55C816E52761141200A810EE /* GKEntityExtensions.swift */,
+				5513637E2763D10F006BC9B1 /* SpriteNodeExtensions.swift */,
+				5593962E27668CA600EFA9F3 /* CoreExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		55D6462D279B82C300509FD1 /* Sounds */ = {
@@ -424,6 +435,7 @@
 				55BA7CC4277504300078D20F /* TrackDotComponent.swift in Sources */,
 				551A259E27949B2B00B31388 /* MissionScene.swift in Sources */,
 				55337A552756A32400407618 /* AttributionComponent.swift in Sources */,
+				555CCC2E27ADD45F00ED5520 /* AnimationComponent.swift in Sources */,
 				55EE3DB02790F08200009573 /* SKSceneExtensions.swift in Sources */,
 				55010AA427518DEC0049E9AE /* GameViewController.swift in Sources */,
 				55DAB53C277159C600105FC4 /* PhysicsContacts.swift in Sources */,
@@ -435,9 +447,9 @@
 				55C816E82761161400A810EE /* NodeComponent.swift in Sources */,
 				55DAB53A2771562500105FC4 /* PhysicsInfo.swift in Sources */,
 				5513637F2763D10F006BC9B1 /* SpriteNodeExtensions.swift in Sources */,
-				55DFB29C2773D61000F3747B /* HealthComponent.swift in Sources */,
 				55AB01D927627B19002FCC4A /* Track.swift in Sources */,
 				5513638127642327006BC9B1 /* Layers.swift in Sources */,
+				555CCC2C27ADD05F00ED5520 /* LoopComponent.swift in Sources */,
 				55010A9C27518DEC0049E9AE /* AppDelegate.swift in Sources */,
 				55337A572756A57300407618 /* LevelScene.swift in Sources */,
 				55C816EA2761302200A810EE /* DepthComponent.swift in Sources */,

@@ -10,20 +10,23 @@ typealias TrackDot = (position: CGPoint, depth: CGFloat, layer: CGFloat, facing:
 
 struct Track {
   let dots: [ TrackDot ]
-  let distance: CGFloat
+  let isLoop: Bool
+  var distance: CGFloat = 0
   
-  init(orderedDots: [ TrackDot ] ) {
+  init(orderedDots: [ TrackDot ], loop: Bool) {
     assert(orderedDots.count >= 2, "Not enough dots in track")
     
     dots = orderedDots
-    distance = Track.calculateDistance(dots: dots)
+    isLoop = loop
+    
+    distance = calculateDistance()
   }
   
-  static func fromNodes(headNode: SKNode) -> Track? {
+  static func fromNodes(headNode: SKNode, loop: Bool = false) -> Track? {
     guard let printNode = headNode.entity!.printNode else { return nil }
     
     var trackNodes = headNode.children.filter { node in
-      node.entity!.component(ofType: TrackDotComponent.self) != nil
+      node.entity?.component(ofType: TrackDotComponent.self) != nil
     }
     
     trackNodes.sort {
@@ -45,11 +48,19 @@ struct Track {
     }
     
     trackNodes.forEach { $0.removeFromParent() }
-    return Track(orderedDots: trackDots)
+    return Track(orderedDots: trackDots, loop: loop)
   }
   
-  static func calculateDistance(dots: [TrackDot]) -> CGFloat {
-    dots.adjacentPairs().map { $0.0.position.distance(to: $0.1.position) }.reduce(0, +)
+  func calculateDistance() -> CGFloat {
+    dotPairs().map { $0.0.position.distance(to: $0.1.position) }.reduce(0, +)
+  }
+  
+  func dotPairs() -> Array<(TrackDot, TrackDot)> {
+    var pairsArray = Array(dots.adjacentPairs())
+    if isLoop {
+      pairsArray.append((dots.last!, dots.first!))
+    }
+    return pairsArray
   }
   
   func asCGPath() -> CGPath {
@@ -67,7 +78,7 @@ struct Track {
     var distanceCovered = 0.0
     
     // find segment and segmentAlong
-    for (from, to) in dots.adjacentPairs() {
+    for (from, to) in dotPairs() {
       let segmentLength = CGFloat(hypotf(Float(to.position.x - from.position.x),
                                          Float(to.position.y - from.position.y)))
         
