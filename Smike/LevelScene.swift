@@ -26,7 +26,7 @@ class LevelScene: GameScene {
     tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped(_:)))
     view.addGestureRecognizer(tapRecognizer!)
      
-    titleCard("protect the mortals!", duration: 3.0) { [unowned self] in self.live = true }
+    titleCard("protect the mortals!", duration: 1.0) { [unowned self] in self.live = true }
   }
   
   override func willMove(from view: SKView) {

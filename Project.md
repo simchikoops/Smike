@@ -5,6 +5,8 @@
   
 * Include delta depth in track times
   Also in interpolation
+  Tests
+  
 * Tilt to path
 
 * Come to life (animations)
@@ -14,8 +16,10 @@
 * Mortal kill
   Mortal groups?
 * Gesture attacks
+  Show color-graded percentage efficiency, 0-99 (round down)
 * Money chutes
   Toss them up to start? And at an angle. Disappear when hit some surfaces.
+  Great casino/coin noise on collection.
 
 * Back, to map
 * Basic animations

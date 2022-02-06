@@ -11,7 +11,9 @@ typealias TrackDot = (position: CGPoint, depth: CGFloat, layer: CGFloat, facing:
 struct Track {
   let dots: [ TrackDot ]
   let isLoop: Bool
+  
   var distance: CGFloat = 0
+  var referenceDot: TrackDot { dots.first! }
   
   init(orderedDots: [ TrackDot ], loop: Bool) {
     assert(orderedDots.count >= 2, "Not enough dots in track")
@@ -23,8 +25,6 @@ struct Track {
   }
   
   static func fromNodes(headNode: SKNode, loop: Bool = false) -> Track? {
-    guard let printNode = headNode.entity!.printNode else { return nil }
-    
     var trackNodes = headNode.children.filter { node in
       node.entity?.component(ofType: TrackDotComponent.self) != nil
     }
@@ -42,7 +42,7 @@ struct Track {
       } else {
         facing = trackDots.last!.facing
       }
-      trackDots.append((position: headNode.convert(node.position, to: printNode),
+      trackDots.append((position: node.position,
                         depth: node.entity!.component(ofType: TrackDotComponent.self)!.depth,
                         layer: node.zPosition, facing: facing))
     }
@@ -54,15 +54,7 @@ struct Track {
   func calculateDistance() -> CGFloat {
     dotPairs().map { $0.0.position.distance(to: $0.1.position) }.reduce(0, +)
   }
-  
-  func dotPairs() -> Array<(TrackDot, TrackDot)> {
-    var pairsArray = Array(dots.adjacentPairs())
-    if isLoop {
-      pairsArray.append((dots.last!, dots.first!))
-    }
-    return pairsArray
-  }
-  
+    
   func asCGPath() -> CGPath {
     let path = CGMutablePath()
     
@@ -101,5 +93,13 @@ struct Track {
   
   func dotFractionAlong(_ fractionAlong: CGFloat) -> TrackDot {
     return dotAlong(fractionAlong * distance)
+  }
+  
+  private func dotPairs() -> Array<(TrackDot, TrackDot)> {
+    var pairsArray = Array(dots.adjacentPairs())
+    if isLoop {
+      pairsArray.append((dots.last!, dots.first!))
+    }
+    return pairsArray
   }
 }
