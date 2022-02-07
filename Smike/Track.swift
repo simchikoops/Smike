@@ -4,6 +4,13 @@ import Algorithms
 enum FacingDirection {
   case left
   case right
+  
+  var opposite: FacingDirection {
+    switch self {
+    case .left: return .right
+    case .right: return .left
+    }
+  }
 }
 
 typealias TrackDot = (position: CGPoint, depth: CGFloat, layer: CGFloat, facing: FacingDirection, relativeSpeed: CGFloat)
@@ -38,12 +45,19 @@ struct Track {
 
     var trackDots: [ TrackDot ] = []
     for (index, node) in trackNodes.enumerated() {
-      var facing: FacingDirection = .right
+      var nextNode: SKNode?
+      
       if index < trackNodes.count - 1 {
-        let nextNode = trackNodes[index + 1]
-        facing = nextNode.position.x > node.position.x ? .right : .left
+        nextNode = trackNodes[index + 1]
+      } else if loop {
+        nextNode = trackNodes[0]
+      }
+      
+      var facing: FacingDirection = .right
+      if let nn = nextNode {
+        facing = nn.position.x > node.position.x ? .right : .left
       } else {
-        facing = trackDots.last!.facing
+        facing = trackDots.last!.facing // don't suddenly turn at track's end
       }
       
       let component = node.entity!.component(ofType: TrackDotComponent.self)!

@@ -3,6 +3,7 @@ import GameplayKit
 
 class AnimationComponent: GKComponent {
   @GKInspectable var speed: CGFloat = 1.0
+  @GKInspectable var facesLeft: Bool = false
   @GKInspectable var facingFrozen: Bool = false
   
   var positionOffset: CGVector = CGVector(dx: 0, dy: 0)
@@ -46,7 +47,7 @@ class AnimationComponent: GKComponent {
     node.zPosition = layer
     
     if !facingFrozen {
-      node.facing = facing
+      node.facing = facesLeft ? facing.opposite : facing
     }
   }
 }
