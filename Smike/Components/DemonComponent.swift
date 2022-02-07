@@ -24,8 +24,8 @@ class DemonComponent: GKComponent {
   }
   
   override func didAddToEntity() {
-    let dot = track.dotAlong(0)
-    let nodeComponent = NodeComponent(imageNamed: type.imageName, position: dot.position, depth: dot.depth, layer: dot.layer)
+    let fix = track.fixAlong(0)
+    let nodeComponent = NodeComponent(imageNamed: type.imageName, position: fix.position, depth: fix.depth, layer: fix.layer)
     
     entity!.addComponent(nodeComponent)
     
@@ -53,7 +53,7 @@ class DemonComponent: GKComponent {
     let speed = type.speed
     alongTrack = (alongTrack + (speed * seconds)).clamped(to: 0...track.distance)
     
-    let (position, depth, layer, facing) = track.dotAlong(alongTrack)
+    let (position, depth, layer, facing) = track.fixAlong(alongTrack)
     node.position = position
     node.depth = depth
     node.zPosition = layer

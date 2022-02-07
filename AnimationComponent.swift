@@ -32,11 +32,11 @@ class AnimationComponent: GKComponent {
     guard let loop = loop, let track = loop.track else { return }
     guard let node = entity?.node as? SKSpriteNode else { return }
     
-    let increment = (seconds / loop.duration) * track.distance * speed
+    let increment = (seconds / loop.duration) * speed
     alongTrack += increment
     
-    let loopDistance = alongTrack.truncatingRemainder(dividingBy: track.distance)
-    var (position, depth, layer, facing) = track.dotAlong(loopDistance)
+    let loopFraction = alongTrack.truncatingRemainder(dividingBy: 1.0)
+    var (position, depth, layer, facing) = track.fixFractionAlong(loopFraction)
     
     position.x += positionOffset.dx
     position.y += positionOffset.dy

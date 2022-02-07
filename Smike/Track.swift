@@ -6,7 +6,8 @@ enum FacingDirection {
   case right
 }
 
-typealias TrackDot = (position: CGPoint, depth: CGFloat, layer: CGFloat, facing: FacingDirection)
+typealias TrackDot = (position: CGPoint, depth: CGFloat, layer: CGFloat, facing: FacingDirection, relativeSpeed: CGFloat)
+typealias TrackFix = (position: CGPoint, depth: CGFloat, layer: CGFloat, facing: FacingDirection)
 
 struct Track {
   let dots: [ TrackDot ]
@@ -15,13 +16,13 @@ struct Track {
   var distance: CGFloat = 0
   var referenceDot: TrackDot { dots.first! }
   
-  init(orderedDots: [ TrackDot ], loop: Bool) {
+  init(orderedDots: [ TrackDot ], loop: Bool = false) {
     assert(orderedDots.count >= 2, "Not enough dots in track")
     
     dots = orderedDots
     isLoop = loop
     
-    distance = calculateDistance()
+    distance = totalDistance()
   }
   
   static func fromNodes(headNode: SKNode, loop: Bool = false) -> Track? {
@@ -42,17 +43,22 @@ struct Track {
       } else {
         facing = trackDots.last!.facing
       }
-      trackDots.append((position: node.position,
-                        depth: node.entity!.component(ofType: TrackDotComponent.self)!.depth,
-                        layer: node.zPosition, facing: facing))
+      
+      let component = node.entity!.component(ofType: TrackDotComponent.self)!
+      trackDots.append((position: node.position, depth: component.depth, layer: node.zPosition,
+                        facing: facing, relativeSpeed: component.relativeSpeed))
     }
     
     trackNodes.forEach { $0.removeFromParent() }
     return Track(orderedDots: trackDots, loop: loop)
   }
   
-  func calculateDistance() -> CGFloat {
-    dotPairs().map { $0.0.position.distance(to: $0.1.position) }.reduce(0, +)
+  func totalDistance() -> CGFloat {
+    dotPairs().map { dotDistance($0, $1) }.reduce(0, +)
+  }
+  
+  func dotDistance(_ a: TrackDot, _ b: TrackDot) -> CGFloat {
+    a.position.distance(to: b.position) / a.relativeSpeed
   }
     
   func asCGPath() -> CGPath {
@@ -64,19 +70,18 @@ struct Track {
     return path
   }
     
-  func dotAlong(_ distanceAlong: CGFloat) -> TrackDot {
+  func fixAlong(_ distanceAlong: CGFloat) -> TrackFix {
     assert(distanceAlong >= 0 && distanceAlong <= distance, "Along out of range.")
     
     var distanceCovered = 0.0
     
     // find segment and segmentAlong
     for (from, to) in dotPairs() {
-      let segmentLength = CGFloat(hypotf(Float(to.position.x - from.position.x),
-                                         Float(to.position.y - from.position.y)))
+      let segmentDistance = dotDistance(from, to)
         
-      if distanceCovered + segmentLength >= distanceAlong {
+      if distanceCovered + segmentDistance >= distanceAlong {
         let segmentRemaining = distanceAlong - distanceCovered
-        let ratio = segmentRemaining / segmentLength
+        let ratio = segmentRemaining / segmentDistance
          
         let position = CGPoint(x: (1 - ratio) * from.position.x + (ratio * to.position.x),
                                 y: (1 - ratio) * from.position.y + (ratio * to.position.y))
@@ -84,15 +89,19 @@ struct Track {
          
         return (position, depth, from.layer, from.facing)
       } else {
-        distanceCovered += segmentLength
+        distanceCovered += segmentDistance
       }
     }
 
-    return dots.last! // underflow
+    return dotToFix(dots.last!) // underflow
   }
   
-  func dotFractionAlong(_ fractionAlong: CGFloat) -> TrackDot {
-    return dotAlong(fractionAlong * distance)
+  func dotToFix(_ dot: TrackDot) -> TrackFix {
+    return (position: dot.position, depth: dot.depth, layer: dot.layer, facing: dot.facing)
+  }
+  
+  func fixFractionAlong(_ fractionAlong: CGFloat) -> TrackFix {
+    return fixAlong(fractionAlong * distance)
   }
   
   private func dotPairs() -> Array<(TrackDot, TrackDot)> {
