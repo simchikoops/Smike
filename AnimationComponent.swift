@@ -6,6 +6,10 @@ class AnimationComponent: GKComponent {
   @GKInspectable var facesLeft: Bool = false
   @GKInspectable var facingFrozen: Bool = false
   
+  @GKInspectable var textures: String = ""
+  @GKInspectable var frameCount: Int = 1
+  @GKInspectable var timePerFrame: Double = 1.0
+  
   var positionOffset: CGVector = CGVector(dx: 0, dy: 0)
   var baseDepth: CGFloat = 1.0
   var alongTrack: CGFloat = 0
@@ -27,6 +31,23 @@ class AnimationComponent: GKComponent {
     
     positionOffset = CGVector(dx: refPosition.x - refDot.position.x, dy: refPosition.y - refDot.position.y)
     baseDepth = refDot.depth
+    
+    if frameCount > 1 {
+      let textures = loadTextures()
+      let animation = SKAction.animate(with: textures, timePerFrame: timePerFrame)
+      node.run(SKAction.repeatForever(animation), withKey: "animation")
+    }
+  }
+  
+  func loadTextures() -> [SKTexture] {
+    var textureArray: [SKTexture] = []
+    
+    for i in 0..<frameCount {
+      let textureName = "\(textures)_\(i)"
+      textureArray.append(SKTexture(imageNamed: textureName))
+    }
+    
+    return textureArray
   }
   
   override func update(deltaTime seconds: TimeInterval) {
