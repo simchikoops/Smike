@@ -13,6 +13,8 @@ struct Track {
   let dots: [ TrackDot ]
   let isLoop: Bool
   
+  let printDepthFactor: CGFloat = 1500 // how long it takes to travel along z; could vary by print
+  
   var distance: CGFloat = 0
   var referenceDot: TrackDot { dots.first! }
   
@@ -58,7 +60,11 @@ struct Track {
   }
   
   func dotDistance(_ a: TrackDot, _ b: TrackDot) -> CGFloat {
-    a.position.distance(to: b.position) / a.relativeSpeed
+    (a.position.distance(to: b.position) + zDistance(a, b)) / a.relativeSpeed
+  }
+  
+  func zDistance(_ a: TrackDot, _ b: TrackDot) -> CGFloat {
+    abs(b.depth - a.depth) * printDepthFactor
   }
     
   func asCGPath() -> CGPath {
