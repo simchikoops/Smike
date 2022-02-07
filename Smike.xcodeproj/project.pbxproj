@@ -30,6 +30,7 @@
 		555CCC2E27ADD45F00ED5520 /* AnimationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CCC2D27ADD45F00ED5520 /* AnimationComponent.swift */; };
 		5569EE4C278CBBA60030E798 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5569EE4B278CBBA60030E798 /* Router.swift */; };
 		5593962F27668CA600EFA9F3 /* CoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593962E27668CA600EFA9F3 /* CoreExtensions.swift */; };
+		55A464B727B17FF8000E2BE6 /* MortalGroupComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A464B627B17FF8000E2BE6 /* MortalGroupComponent.swift */; };
 		55AA1FF1276A69ED0076881E /* GeneratorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA1FF0276A69ED0076881E /* GeneratorComponent.swift */; };
 		55AA1FF3276A78D90076881E /* DemonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA1FF2276A78D90076881E /* DemonComponent.swift */; };
 		55AB01D927627B19002FCC4A /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB01D827627B19002FCC4A /* Track.swift */; };
@@ -40,7 +41,6 @@
 		55BA7CC627754B4D0078D20F /* DemonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA7CC527754B4D0078D20F /* DemonData.swift */; };
 		55C816E62761141200A810EE /* GKEntityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E52761141200A810EE /* GKEntityExtensions.swift */; };
 		55C816E82761161400A810EE /* NodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E72761161400A810EE /* NodeComponent.swift */; };
-		55C816EA2761302200A810EE /* DepthComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E92761302200A810EE /* DepthComponent.swift */; };
 		55D5580827A0A52800695069 /* male_hero_hurt.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 55D5580727A0A52800695069 /* male_hero_hurt.mp3 */; };
 		55D6462F279B82E800509FD1 /* hero_focus.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 55D6462E279B82E800509FD1 /* hero_focus.mp3 */; };
 		55DAB53A2771562500105FC4 /* PhysicsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DAB5392771562500105FC4 /* PhysicsInfo.swift */; };
@@ -96,6 +96,7 @@
 		555CCC2D27ADD45F00ED5520 /* AnimationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationComponent.swift; sourceTree = SOURCE_ROOT; };
 		5569EE4B278CBBA60030E798 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		5593962E27668CA600EFA9F3 /* CoreExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreExtensions.swift; sourceTree = "<group>"; };
+		55A464B627B17FF8000E2BE6 /* MortalGroupComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortalGroupComponent.swift; sourceTree = "<group>"; };
 		55AA1FF0276A69ED0076881E /* GeneratorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorComponent.swift; sourceTree = "<group>"; };
 		55AA1FF2276A78D90076881E /* DemonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemonComponent.swift; sourceTree = "<group>"; };
 		55AB01D827627B19002FCC4A /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
@@ -105,7 +106,6 @@
 		55BA7CC527754B4D0078D20F /* DemonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemonData.swift; sourceTree = "<group>"; };
 		55C816E52761141200A810EE /* GKEntityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKEntityExtensions.swift; sourceTree = "<group>"; };
 		55C816E72761161400A810EE /* NodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeComponent.swift; sourceTree = "<group>"; };
-		55C816E92761302200A810EE /* DepthComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthComponent.swift; sourceTree = "<group>"; };
 		55D5580727A0A52800695069 /* male_hero_hurt.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = male_hero_hurt.mp3; sourceTree = "<group>"; };
 		55D6462E279B82E800509FD1 /* hero_focus.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hero_focus.mp3; sourceTree = "<group>"; };
 		55DAB5392771562500105FC4 /* PhysicsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsInfo.swift; sourceTree = "<group>"; };
@@ -234,9 +234,9 @@
 			children = (
 				555CCC2D27ADD45F00ED5520 /* AnimationComponent.swift */,
 				55337A542756A32400407618 /* AttributionComponent.swift */,
-				55C816E92761302200A810EE /* DepthComponent.swift */,
 				555CCC2B27ADD05F00ED5520 /* LoopComponent.swift */,
 				55AA1FF2276A78D90076881E /* DemonComponent.swift */,
+				55A464B627B17FF8000E2BE6 /* MortalGroupComponent.swift */,
 				55AA1FF0276A69ED0076881E /* GeneratorComponent.swift */,
 				55C816E72761161400A810EE /* NodeComponent.swift */,
 				55DFB29D2773E20F00F3747B /* MortalComponent.swift */,
@@ -441,6 +441,7 @@
 				55DAB53C277159C600105FC4 /* PhysicsContacts.swift in Sources */,
 				55C816E62761141200A810EE /* GKEntityExtensions.swift in Sources */,
 				55AA1FF1276A69ED0076881E /* GeneratorComponent.swift in Sources */,
+				55A464B727B17FF8000E2BE6 /* MortalGroupComponent.swift in Sources */,
 				55AA1FF3276A78D90076881E /* DemonComponent.swift in Sources */,
 				5569EE4C278CBBA60030E798 /* Router.swift in Sources */,
 				5593962F27668CA600EFA9F3 /* CoreExtensions.swift in Sources */,
@@ -452,7 +453,6 @@
 				555CCC2C27ADD05F00ED5520 /* LoopComponent.swift in Sources */,
 				55010A9C27518DEC0049E9AE /* AppDelegate.swift in Sources */,
 				55337A572756A57300407618 /* LevelScene.swift in Sources */,
-				55C816EA2761302200A810EE /* DepthComponent.swift in Sources */,
 				5537A33D27694585001901C8 /* Slot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

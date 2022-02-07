@@ -1,7 +1,7 @@
 # To-do
 
-* Animation Loops
-  Relative motion, relative depth
+* Mortal walks
+  
   
 * Include delta depth in track times
   Also in interpolation

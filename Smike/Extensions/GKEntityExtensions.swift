@@ -25,14 +25,6 @@ extension GKEntity {
     return scene["print"].first
   }
     
-  var depth: CGFloat {
-    return component(ofType: DepthComponent.self)?.depth ?? 0.0
-  }
-  
-  var layer: CGFloat {
-    return component(ofType: DepthComponent.self)?.layer ?? Layer.normal.rawValue
-  }
-    
   func component<P>(conformingTo protocol: P.Type) -> P? {
     for component in components {
       if let p = component as? P {
