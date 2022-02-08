@@ -1,13 +1,11 @@
 # To-do
 
+* Test depth -> distance
 * Mortal walks
+  Other four: frames, paths
+* Pause to start?
   
-  
-* Include delta depth in track times
-  Also in interpolation
-  Tests
-  
-* Tilt to path
+* Tilt to path (option?)
 
 * Come to life (animations)
   https://stackoverflow.com/questions/20889860/a-camera-shake-effect-for-spritekit/42895496
@@ -70,6 +68,7 @@ Then: Map & progression
 # Coins
 
 * Mon - Brass/Silver/Gold - Tap power
+  1x, 2x, 3x (Not 5x, 10x!)
 * Ingot - Twist power
 * Kobundo - Unzoom / general power
   
@@ -95,6 +94,7 @@ Then: Map & progression
 
 * Title
 * Some kind of bonus for leftover power
+* Bonus levels: catch all the coins? challenging stage
 
 # Fundamentals
 

@@ -35,6 +35,10 @@ class TrackTests: XCTestCase {
                                 (position: CGPoint(x: 10, y: 0), depth: 0, layer: 0, facing: .left, relativeSpeed: 1),
                                 (position: CGPoint(x: 10, y: 10), depth: 0, layer: 0, facing: .left, relativeSpeed: 1)])
       XCTAssertEqual(track4.distance, 20)
+      
+      let track5 = Track(orderedDots: [(position: CGPoint(x: 0, y: 0), depth: 0.5, layer: 0, facing: .left, relativeSpeed: 1),
+                                       (position: CGPoint(x: 10, y: 0), depth: 1.0, layer: 0, facing: .left, relativeSpeed: 1)])
+      XCTAssertEqual(track5.distance, 760)
     }
     
     func testPositionAndPointAlong() throws {
