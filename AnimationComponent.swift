@@ -23,19 +23,20 @@ class AnimationComponent: GKComponent {
   }
   
   override func didAddToEntity() {
-    guard let track = loop?.track else { return }
     guard let node = entity?.node else { return }
-    
-    let refDot = track.referenceDot
-    let refPosition = node.position
-    
-    positionOffset = CGVector(dx: refPosition.x - refDot.position.x, dy: refPosition.y - refDot.position.y)
-    baseDepth = refDot.depth
     
     if frameCount > 1 {
       let textures = loadTextures()
       let animation = SKAction.animate(with: textures, timePerFrame: timePerFrame)
       node.run(SKAction.repeatForever(animation), withKey: "animation")
+    }
+
+    if let track = loop?.track {
+      let refDot = track.referenceDot
+      let refPosition = node.position
+    
+      positionOffset = CGVector(dx: refPosition.x - refDot.position.x, dy: refPosition.y - refDot.position.y)
+      baseDepth = refDot.depth
     }
   }
   
