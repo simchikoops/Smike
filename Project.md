@@ -1,6 +1,5 @@
 # To-do
 
-* Test depth -> distance
 * Mortal walks
   Other four: frames, paths
 * Pause to start?
@@ -455,6 +454,7 @@ Pre-level:
 # Titles
 
 * Heroes and Demons (Heroes/Demons)
+* Hokusai's Demons
 
 # Acknowledgements
 
