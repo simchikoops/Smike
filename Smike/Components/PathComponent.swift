@@ -1,9 +1,11 @@
 import SpriteKit
 import GameplayKit
 
-class LoopComponent: GKComponent {
+class PathComponent: GKComponent {
   @GKInspectable var duration: CGFloat = 0.0
-  
+  @GKInspectable var isLoop: Bool = false
+  @GKInspectable var removeWhenFinished: Bool = false
+
   var track: Track?
   
   var baseDepth: CGFloat? {
@@ -15,6 +17,6 @@ class LoopComponent: GKComponent {
   }
   
   override func didAddToEntity() {
-    track = Track.fromNodes(headNode: entity!.node, loop: true)
+    track = Track.fromNodes(headNode: entity!.node, loop: isLoop)
   }
 }

@@ -26,10 +26,11 @@
 		55337A5A2756AE1D00407618 /* PortraitDash.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55337A592756AE1D00407618 /* PortraitDash.sks */; };
 		55337A5E27581EF800407618 /* LandscapeDash.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55337A5D27581EF800407618 /* LandscapeDash.sks */; };
 		5537A33D27694585001901C8 /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5537A33C27694585001901C8 /* Slot.swift */; };
-		555CCC2C27ADD05F00ED5520 /* LoopComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CCC2B27ADD05F00ED5520 /* LoopComponent.swift */; };
 		555CCC2E27ADD45F00ED5520 /* AnimationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CCC2D27ADD45F00ED5520 /* AnimationComponent.swift */; };
 		5569EE4C278CBBA60030E798 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5569EE4B278CBBA60030E798 /* Router.swift */; };
 		5593962F27668CA600EFA9F3 /* CoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593962E27668CA600EFA9F3 /* CoreExtensions.swift */; };
+		55A44E1C27B4505300348F0A /* PathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A44E1B27B4505300348F0A /* PathComponent.swift */; };
+		55A44E1E27B4511300348F0A /* TracerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A44E1D27B4511300348F0A /* TracerComponent.swift */; };
 		55A464B727B17FF8000E2BE6 /* MortalGroupComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A464B627B17FF8000E2BE6 /* MortalGroupComponent.swift */; };
 		55AA1FF1276A69ED0076881E /* GeneratorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA1FF0276A69ED0076881E /* GeneratorComponent.swift */; };
 		55AA1FF3276A78D90076881E /* DemonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA1FF2276A78D90076881E /* DemonComponent.swift */; };
@@ -92,10 +93,11 @@
 		55337A592756AE1D00407618 /* PortraitDash.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PortraitDash.sks; sourceTree = "<group>"; };
 		55337A5D27581EF800407618 /* LandscapeDash.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LandscapeDash.sks; sourceTree = "<group>"; };
 		5537A33C27694585001901C8 /* Slot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
-		555CCC2B27ADD05F00ED5520 /* LoopComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopComponent.swift; sourceTree = "<group>"; };
 		555CCC2D27ADD45F00ED5520 /* AnimationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationComponent.swift; sourceTree = SOURCE_ROOT; };
 		5569EE4B278CBBA60030E798 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		5593962E27668CA600EFA9F3 /* CoreExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreExtensions.swift; sourceTree = "<group>"; };
+		55A44E1B27B4505300348F0A /* PathComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathComponent.swift; sourceTree = "<group>"; };
+		55A44E1D27B4511300348F0A /* TracerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracerComponent.swift; sourceTree = "<group>"; };
 		55A464B627B17FF8000E2BE6 /* MortalGroupComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortalGroupComponent.swift; sourceTree = "<group>"; };
 		55AA1FF0276A69ED0076881E /* GeneratorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorComponent.swift; sourceTree = "<group>"; };
 		55AA1FF2276A78D90076881E /* DemonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemonComponent.swift; sourceTree = "<group>"; };
@@ -233,8 +235,9 @@
 			isa = PBXGroup;
 			children = (
 				555CCC2D27ADD45F00ED5520 /* AnimationComponent.swift */,
+				55A44E1D27B4511300348F0A /* TracerComponent.swift */,
 				55337A542756A32400407618 /* AttributionComponent.swift */,
-				555CCC2B27ADD05F00ED5520 /* LoopComponent.swift */,
+				55A44E1B27B4505300348F0A /* PathComponent.swift */,
 				55AA1FF2276A78D90076881E /* DemonComponent.swift */,
 				55A464B627B17FF8000E2BE6 /* MortalGroupComponent.swift */,
 				55AA1FF0276A69ED0076881E /* GeneratorComponent.swift */,
@@ -429,6 +432,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55A44E1C27B4505300348F0A /* PathComponent.swift in Sources */,
 				55DFB29E2773E20F00F3747B /* MortalComponent.swift in Sources */,
 				55BA7CC627754B4D0078D20F /* DemonData.swift in Sources */,
 				55EE3DAE278F518600009573 /* GameScene.swift in Sources */,
@@ -450,9 +454,9 @@
 				5513637F2763D10F006BC9B1 /* SpriteNodeExtensions.swift in Sources */,
 				55AB01D927627B19002FCC4A /* Track.swift in Sources */,
 				5513638127642327006BC9B1 /* Layers.swift in Sources */,
-				555CCC2C27ADD05F00ED5520 /* LoopComponent.swift in Sources */,
 				55010A9C27518DEC0049E9AE /* AppDelegate.swift in Sources */,
 				55337A572756A57300407618 /* LevelScene.swift in Sources */,
+				55A44E1E27B4511300348F0A /* TracerComponent.swift in Sources */,
 				5537A33D27694585001901C8 /* Slot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

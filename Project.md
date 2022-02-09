@@ -1,14 +1,14 @@
 # To-do
 
 * Mortal walks
-  Other four: frames, paths
-* Kick off animations explicitly after shake
-  
-* Tilt to path (option?)
-
+  last two just walk off Loop -> Path
+* Messages off the print  
 * Come to life (animations)
   https://stackoverflow.com/questions/20889860/a-camera-shake-effect-for-spritekit/42895496
   birds. Treadmills?
+
+* Tilt to path (option?)
+
 * Demon track
 * Mortal kill
   Mortal groups?

@@ -17,8 +17,8 @@ class AnimationComponent: GKComponent {
   var mainAction: SKAction?
   var unstarted: Bool = true
   
-  var loop: LoopComponent? {
-    entity?.node.parent?.entity?.component(ofType: LoopComponent.self)
+  var path: PathComponent? {
+    entity?.node.parent?.entity?.component(ofType: PathComponent.self)
   }
 
   override class var supportsSecureCoding: Bool {
@@ -34,7 +34,7 @@ class AnimationComponent: GKComponent {
       self.mainAction = SKAction.repeatForever(animation)
     }
 
-    if let track = loop?.track {
+    if let track = path?.track {
       let refDot = track.referenceDot
       let refPosition = node.position
     
@@ -55,7 +55,7 @@ class AnimationComponent: GKComponent {
   }
   
   override func update(deltaTime seconds: TimeInterval) {
-    guard let loop = loop, let track = loop.track else { return }
+    guard let path = path, let track = path.track else { return }
     guard let node = entity?.node as? SKSpriteNode else { return }
     
     // Can't start animating until the first update comes.
@@ -64,11 +64,21 @@ class AnimationComponent: GKComponent {
       unstarted = false
     }
     
-    let increment = (seconds / loop.duration) * speed
+    let increment = (seconds / path.duration) * speed
     alongTrack += increment
     
-    let loopFraction = alongTrack.truncatingRemainder(dividingBy: 1.0)
-    var (position, depth, layer, facing) = track.fixFractionAlong(loopFraction)
+    if alongTrack >= 1.0 {
+      if path.isLoop { // start over
+        alongTrack = alongTrack.truncatingRemainder(dividingBy: 1.0)
+      } else {
+        if path.removeWhenFinished {
+          entity!.remove()
+        }
+        return
+      }
+    }
+    
+    var (position, depth, layer, facing) = track.fixFractionAlong(alongTrack)
     
     position.x += positionOffset.dx
     position.y += positionOffset.dy
