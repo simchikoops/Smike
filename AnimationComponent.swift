@@ -14,6 +14,9 @@ class AnimationComponent: GKComponent {
   var baseDepth: CGFloat = 1.0
   var alongTrack: CGFloat = 0
   
+  var mainAction: SKAction?
+  var unstarted: Bool = true
+  
   var loop: LoopComponent? {
     entity?.node.parent?.entity?.component(ofType: LoopComponent.self)
   }
@@ -24,16 +27,14 @@ class AnimationComponent: GKComponent {
   
   override func didAddToEntity() {
     guard let node = entity?.node else { return }
-    print(textures, frameCount, timePerFrame)
     
     if frameCount > 1 {
       let textures = loadTextures()
       let animation = SKAction.animate(with: textures, timePerFrame: timePerFrame)
-      node.run(SKAction.repeatForever(animation), withKey: "animation")
+      self.mainAction = SKAction.repeatForever(animation)
     }
 
     if let track = loop?.track {
-      print(loop?.duration)
       let refDot = track.referenceDot
       let refPosition = node.position
     
@@ -56,6 +57,12 @@ class AnimationComponent: GKComponent {
   override func update(deltaTime seconds: TimeInterval) {
     guard let loop = loop, let track = loop.track else { return }
     guard let node = entity?.node as? SKSpriteNode else { return }
+    
+    // Can't start animating until the first update comes.
+    if unstarted && entity!.scene.live, let action = mainAction {
+      node.run(action)
+      unstarted = false
+    }
     
     let increment = (seconds / loop.duration) * speed
     alongTrack += increment
