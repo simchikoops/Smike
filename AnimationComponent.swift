@@ -24,7 +24,7 @@ class AnimationComponent: GKComponent {
   
   override func didAddToEntity() {
     guard let node = entity?.node else { return }
-    print(textures, frameCount)
+    print(textures, frameCount, timePerFrame)
     
     if frameCount > 1 {
       let textures = loadTextures()
@@ -33,6 +33,7 @@ class AnimationComponent: GKComponent {
     }
 
     if let track = loop?.track {
+      print(loop?.duration)
       let refDot = track.referenceDot
       let refPosition = node.position
     
