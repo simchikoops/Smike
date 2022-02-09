@@ -235,9 +235,9 @@
 			isa = PBXGroup;
 			children = (
 				555CCC2D27ADD45F00ED5520 /* AnimationComponent.swift */,
+				55A44E1B27B4505300348F0A /* PathComponent.swift */,
 				55A44E1D27B4511300348F0A /* TracerComponent.swift */,
 				55337A542756A32400407618 /* AttributionComponent.swift */,
-				55A44E1B27B4505300348F0A /* PathComponent.swift */,
 				55AA1FF2276A78D90076881E /* DemonComponent.swift */,
 				55A464B627B17FF8000E2BE6 /* MortalGroupComponent.swift */,
 				55AA1FF0276A69ED0076881E /* GeneratorComponent.swift */,
