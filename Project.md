@@ -2,7 +2,7 @@
 
 * Mortal walks
   Other four: frames, paths
-* Pause to start?
+* Kick off animations explicitly after shake
   
 * Tilt to path (option?)
 

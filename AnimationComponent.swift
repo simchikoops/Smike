@@ -24,6 +24,7 @@ class AnimationComponent: GKComponent {
   
   override func didAddToEntity() {
     guard let node = entity?.node else { return }
+    print(textures, frameCount)
     
     if frameCount > 1 {
       let textures = loadTextures()
