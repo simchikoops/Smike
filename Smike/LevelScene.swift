@@ -25,8 +25,14 @@ class LevelScene: GameScene {
     
     tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped(_:)))
     view.addGestureRecognizer(tapRecognizer!)
+    
+    if let print = self["print"].first as? SKSpriteNode {
+      let shake = SKAction.shake(initialPosition: print.position, duration: 0.5)
+      print.run(SKAction.sequence([SKAction.wait(forDuration: 2.5), shake]))
+    }
      
-    titleCard("protect the mortals!", duration: 2.0) { [unowned self] in self.live = true }
+    run(SKAction.sequence([SKAction.wait(forDuration: 3.0), // contemplate the picture
+                           SKAction.run { self.live = true }]))
   }
   
   override func willMove(from view: SKView) {

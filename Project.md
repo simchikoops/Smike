@@ -1,20 +1,13 @@
 # To-do
 
-* Mortal walks
-  last two just walk off Loop -> Path
-* Messages off the print  
-* Come to life (animations)
-  https://stackoverflow.com/questions/20889860/a-camera-shake-effect-for-spritekit/42895496
-  birds. Treadmills?
-
-* Tilt to path (option?)
+* Come to life animation/sound
 
 * Demon track
 * Mortal kill
-  Mortal groups?
+
 * Gesture attacks
   Show color-graded percentage efficiency, 0-99 (round down)
-* Money chutes
+* throwers
   Toss them up to start? And at an angle. Disappear when hit some surfaces.
   Great casino/coin noise on collection.
 
@@ -23,6 +16,10 @@
 
 Next: saving state
 Then: Map & progression
+
+# More to-do
+
+* Tilt to path (option?)
 
 # Mark III Summary
 

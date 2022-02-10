@@ -21,7 +21,7 @@ class GameScene: SKScene {
     label.numberOfLines = 0
     label.preferredMaxLayoutWidth = viewRight - margin * 2
     
-    label.zPosition = Layer.dash.rawValue
+    label.zPosition = Layer.dash.rawValue + 10000
     label.text = text
     
     return label
