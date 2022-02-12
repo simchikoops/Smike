@@ -3,26 +3,24 @@ import GameplayKit
 
 class GeneratorComponent: GKComponent {
   @GKInspectable var sequenceJSON: String = ""
-  
-  var sequence: [(ticks: CGFloat, type: DemonType)] = []
+  @GKInspectable var duration: CGFloat = 1
+  @GKInspectable var rawDemonType: Int = 0
+
+  var demonType: DemonType = .bat
+  var sequence: [CGFloat] = []
   var track: Track?
   
+  var demons: [GKEntity] = []
+  
   var exhausted: Bool {
-    get { sequence.isEmpty }
+    get { sequence.isEmpty && demons.isEmpty }
   }
   
   override func didAddToEntity() {
     let sequenceData = sequenceJSON.data(using: .utf8)!
-    let sequenceObj = try! JSONSerialization.jsonObject(with: sequenceData, options: []) as! [Any]
+    self.sequence = try! JSONSerialization.jsonObject(with: sequenceData, options: []) as! [CGFloat]
     
-    for unitObj in sequenceObj {
-      let unit = unitObj as! [Any]
-      
-      let ticks = unit[0] as! CGFloat
-      let type = unit[1] as! Int
-        
-      sequence.append((ticks: ticks, type: DemonType(rawValue: type)!))
-    }
+    self.demonType = DemonType(rawValue: rawDemonType)!
     
     track = Track.fromNodes(headNode: entity!.node)
     
@@ -36,22 +34,22 @@ class GeneratorComponent: GKComponent {
   }
 
   override func update(deltaTime seconds: TimeInterval) {
-    guard let unit = sequence.first else { return }
-    guard entity!.scene.ticks >= unit.ticks else { return }
+    guard let ticks = sequence.first else { return }
+    guard entity!.scene.ticks >= ticks else { return }
     
     sequence.removeFirst()
-    spawn(type: unit.type)
+    spawn()
   }
   
-  private func spawn(type: DemonType) {
+  private func spawn() {
     let demon = GKEntity()
     
-    let demonComponent = DemonComponent(type: type, track: track!)
+    let demonComponent = DemonComponent(generator: self)
     demon.addComponent(demonComponent)
     
-    entity!.node.parent!.addChild(demon.node)
+    entity!.node.addChild(demon.node)
     
     entity!.scene.entities.append(demon)
-    entity!.scene.demons.append(demon)
+    self.demons.append(demon)
   }
 }

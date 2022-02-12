@@ -3,10 +3,9 @@ import GameplayKit
 
 class LevelScene: GameScene {
   
-  var demons: [GKEntity] = []
   var generators: [GKEntity] = []
   
-  var live: Bool = false
+  var live: Bool = false // can't use isPaused for initial dealy
   var ticks: CGFloat = 0.0
   
   private var lastUpdateTime: TimeInterval = 0
@@ -27,7 +26,7 @@ class LevelScene: GameScene {
     view.addGestureRecognizer(tapRecognizer!)
     
     if let print = self["print"].first as? SKSpriteNode {
-      let shake = SKAction.shake(initialPosition: print.position, duration: 0.5)
+      let shake = SKAction.shake(initialPosition: print.position, duration: 0.4)
       print.run(SKAction.sequence([SKAction.wait(forDuration: 2.5), shake]))
     }
      
@@ -41,10 +40,8 @@ class LevelScene: GameScene {
     }
   }
   
-  func checkWhetherDemonsDefeated() {
-    if demons.isEmpty && generators.allSatisfy({
-      $0.component(ofType: GeneratorComponent.self)!.exhausted
-    }) {
+  func checkForWin() {
+    if generators.allSatisfy({ $0.component(ofType: GeneratorComponent.self)!.exhausted }) {
       if let name = self.name {
         print("Demons are defeated!")
         Slot.live.completedLevels.insert(name)

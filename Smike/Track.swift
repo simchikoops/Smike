@@ -106,8 +106,9 @@ struct Track {
         let position = CGPoint(x: (1 - ratio) * from.position.x + (ratio * to.position.x),
                                 y: (1 - ratio) * from.position.y + (ratio * to.position.y))
         let depth = from.depth + (to.depth - from.depth) * ratio
+        let layer = from.layer > 0 ? from.layer + (to.layer - from.layer) * ratio : from.layer
          
-        return (position, depth, from.layer, from.facing)
+        return (position, depth, layer, from.facing)
       } else {
         distanceCovered += segmentDistance
       }

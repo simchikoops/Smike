@@ -1,8 +1,7 @@
 # To-do
 
-* Come to life animation/sound
+* Demon animation w/ component
 
-* Demon track
 * Mortal kill
 
 * Gesture attacks

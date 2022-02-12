@@ -2,16 +2,16 @@ import SpriteKit
 import GameplayKit
 
 class DemonComponent: GKComponent {
-  let type: DemonType
-  let track: Track
+  let generator: GeneratorComponent
 
   var alongTrack: CGFloat = 0
   var lastAttackTicks: CGFloat = 0.0
   
-  init(type: DemonType, track: Track) {
-    self.type = type
-    self.track = track
-    
+  var type: DemonType { generator.demonType }
+  var track: Track { generator.track! }
+  
+  init(generator: GeneratorComponent) {
+    self.generator = generator
     super.init()
   }
   
@@ -25,44 +25,50 @@ class DemonComponent: GKComponent {
   
   override func didAddToEntity() {
     let fix = track.fixAlong(0)
-    let nodeComponent = NodeComponent(imageNamed: type.imageName, position: fix.position, depth: fix.depth, layer: fix.layer)
+    var imageName: String = ""
+    
+    if type.frameCount > 1 {
+      let animationComponent = AnimationComponent()
+      animationComponent.textures = type.imageName
+      animationComponent.frameCount = type.frameCount
+      animationComponent.timePerFrame = type.timePerFrame
+      entity!.addComponent(animationComponent)
+      
+      imageName = "\(type.imageName)_0"
+    } else {
+      imageName = type.imageName
+    }
+    
+    let nodeComponent = NodeComponent(imageNamed: imageName, position: fix.position, depth: fix.depth, layer: fix.layer)
     
     entity!.addComponent(nodeComponent)
-    
-    if let node = entity!.node as? SKSpriteNode {
-      let physicsBody = SKPhysicsBody(rectangleOf: node.size)
-
-      physicsBody.affectedByGravity = false
-      physicsBody.allowsRotation = false
-      physicsBody.isDynamic = false // alow overlaps
-
-      physicsBody.categoryBitMask = PhysicsInfo.demon.categoryBitMask
-      physicsBody.contactTestBitMask = PhysicsInfo.demon.contactTestBitMask
-
-      node.physicsBody = physicsBody
-    }
   }
     
   override func update(deltaTime seconds: TimeInterval) {
-     progress(deltaTime: seconds)
-  }
-    
-  func progress(deltaTime seconds: TimeInterval) {
     guard let node = entity?.node as? SKSpriteNode else { return }
     
-    let speed = type.speed
-    alongTrack = (alongTrack + (speed * seconds)).clamped(to: 0...track.distance)
-    
-    let (position, depth, layer, facing) = track.fixAlong(alongTrack)
-    node.position = position
-    node.depth = depth
-    node.zPosition = layer
-    node.facing = facing
+    let increment = (seconds / generator.duration)
+    alongTrack += increment
+     
+    if alongTrack >= 1.0 {
+      dive()
+    } else {
+      let (position, depth, layer, facing) = track.fixFractionAlong(alongTrack)
+      
+      node.position = position
+      node.depth = depth
+      node.zPosition = layer
+      node.facing = facing
+    }
+  }
+  
+  func dive() {
+    print("DIVE")
   }
   
   func kill() {
-    entity?.scene.demons.remove(object: entity!)
-    entity?.scene.checkWhetherDemonsDefeated()
-    entity?.remove()
+//    entity?.scene.demons.remove(object: entity!)
+//    entity?.scene.checkForWin()
+//    entity?.remove()
   }
 }
