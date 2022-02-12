@@ -32,7 +32,6 @@
 		55A44E1C27B4505300348F0A /* PathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A44E1B27B4505300348F0A /* PathComponent.swift */; };
 		55A44E1E27B4511300348F0A /* TracerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A44E1D27B4511300348F0A /* TracerComponent.swift */; };
 		55A44E2027B4673900348F0A /* SKActionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A44E1F27B4673900348F0A /* SKActionExtensions.swift */; };
-		55A464B727B17FF8000E2BE6 /* MortalGroupComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A464B627B17FF8000E2BE6 /* MortalGroupComponent.swift */; };
 		55AA1FF1276A69ED0076881E /* GeneratorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA1FF0276A69ED0076881E /* GeneratorComponent.swift */; };
 		55AA1FF3276A78D90076881E /* DemonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA1FF2276A78D90076881E /* DemonComponent.swift */; };
 		55AB01D927627B19002FCC4A /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB01D827627B19002FCC4A /* Track.swift */; };
@@ -100,7 +99,6 @@
 		55A44E1B27B4505300348F0A /* PathComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathComponent.swift; sourceTree = "<group>"; };
 		55A44E1D27B4511300348F0A /* TracerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracerComponent.swift; sourceTree = "<group>"; };
 		55A44E1F27B4673900348F0A /* SKActionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKActionExtensions.swift; sourceTree = SOURCE_ROOT; };
-		55A464B627B17FF8000E2BE6 /* MortalGroupComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortalGroupComponent.swift; sourceTree = "<group>"; };
 		55AA1FF0276A69ED0076881E /* GeneratorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorComponent.swift; sourceTree = "<group>"; };
 		55AA1FF2276A78D90076881E /* DemonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemonComponent.swift; sourceTree = "<group>"; };
 		55AB01D827627B19002FCC4A /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
@@ -241,7 +239,6 @@
 				55A44E1D27B4511300348F0A /* TracerComponent.swift */,
 				55337A542756A32400407618 /* AttributionComponent.swift */,
 				55AA1FF2276A78D90076881E /* DemonComponent.swift */,
-				55A464B627B17FF8000E2BE6 /* MortalGroupComponent.swift */,
 				55AA1FF0276A69ED0076881E /* GeneratorComponent.swift */,
 				55C816E72761161400A810EE /* NodeComponent.swift */,
 				55DFB29D2773E20F00F3747B /* MortalComponent.swift */,
@@ -448,7 +445,6 @@
 				55DAB53C277159C600105FC4 /* PhysicsContacts.swift in Sources */,
 				55C816E62761141200A810EE /* GKEntityExtensions.swift in Sources */,
 				55AA1FF1276A69ED0076881E /* GeneratorComponent.swift in Sources */,
-				55A464B727B17FF8000E2BE6 /* MortalGroupComponent.swift in Sources */,
 				55AA1FF3276A78D90076881E /* DemonComponent.swift in Sources */,
 				5569EE4C278CBBA60030E798 /* Router.swift in Sources */,
 				5593962F27668CA600EFA9F3 /* CoreExtensions.swift in Sources */,

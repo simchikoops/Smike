@@ -6,6 +6,7 @@ class DemonComponent: GKComponent {
 
   var alongTrack: CGFloat = 0
   var lastAttackTicks: CGFloat = 0.0
+  var isDiving: Bool = false
   
   var type: DemonType { generator.demonType }
   var track: Track { generator.track! }
@@ -46,6 +47,7 @@ class DemonComponent: GKComponent {
     
   override func update(deltaTime seconds: TimeInterval) {
     guard let node = entity?.node as? SKSpriteNode else { return }
+    guard !isDiving else { return }
     
     let increment = (seconds / generator.duration)
     alongTrack += increment
@@ -63,7 +65,14 @@ class DemonComponent: GKComponent {
   }
   
   func dive() {
-    print("DIVE")
+    self.isDiving = true
+    
+    let scenePosition = entity!.node.convert(entity!.node.position, to: entity!.scene)
+    let victim = entity!.scene.nearestMortal(scenePosition: scenePosition)
+    
+    print(victim)
+    
+    // TODO: remove self
   }
   
   func kill() {

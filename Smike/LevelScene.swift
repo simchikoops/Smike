@@ -4,6 +4,7 @@ import GameplayKit
 class LevelScene: GameScene {
   
   var generators: [GKEntity] = []
+  var mortals: [GKEntity] = []
   
   var live: Bool = false // can't use isPaused for initial dealy
   var ticks: CGFloat = 0.0
@@ -38,6 +39,14 @@ class LevelScene: GameScene {
     if let t = tapRecognizer {
       view.removeGestureRecognizer(t)
     }
+  }
+  
+  func nearestMortal(scenePosition: CGPoint) -> GKEntity? {
+    mortals.sorted {
+      let d0 = convert($0.node.position, from: $0.node.parent!).distance(to: scenePosition)
+      let d1 = convert($1.node.position, from: $1.node.parent!).distance(to: scenePosition)
+      return d0 < d1
+    }.first
   }
   
   func checkForWin() {

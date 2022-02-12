@@ -1,11 +1,12 @@
 # To-do
 
-* Demon animation w/ component
-
 * Mortal kill
+  Dive towards victim: get big & transparent, then quickly shrink
+  Kill & check finished
 
 * Gesture attacks
   Show color-graded percentage efficiency, 0-99 (round down)
+  
 * throwers
   Toss them up to start? And at an angle. Disappear when hit some surfaces.
   Great casino/coin noise on collection.

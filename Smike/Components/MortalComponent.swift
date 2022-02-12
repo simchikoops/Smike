@@ -9,6 +9,12 @@ class MortalComponent: GKComponent {
     true
   }
   
+  override func didAddToEntity() {
+    if let scene = entity?.scene {
+      scene.mortals.append(entity!)
+    }
+  }
+  
   func kill() {
     entity?.scene.checkWhetherDefeated()
     entity?.remove()
