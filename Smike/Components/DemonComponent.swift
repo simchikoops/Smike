@@ -68,16 +68,29 @@ class DemonComponent: GKComponent {
     self.isDiving = true
     
     let scenePosition = entity!.node.convert(entity!.node.position, to: entity!.scene)
-    let victim = entity!.scene.nearestMortal(scenePosition: scenePosition)
+    let victim = entity!.scene.nearestLivingMortal(scenePosition: scenePosition)
     
-    print(victim)
+    victim?.component(ofType: MortalComponent.self)?.kill()
     
-    // TODO: remove self
+    guard let node = entity?.node as? SKSpriteNode, let victimNode = victim?.node else { return }
+    guard let diveTarget = node.parent?.convert(victimNode.position, from: victimNode.parent!) else { return }
+    
+    node.zPosition = 7000 // out in front
+    node.run(SKAction.sequence([
+      SKAction.group([
+        SKAction.scale(by: 2.0, duration: 0.5),
+        SKAction.fadeAlpha(by: 0.6, duration: 0.5)
+      ]),
+      SKAction.group([
+        SKAction.scale(to: 0.4, duration: 0.5),
+        SKAction.move(to: diveTarget, duration: 0.5)
+      ]),
+      SKAction.run { self.clearSelf() }
+    ]))
   }
   
-  func kill() {
-//    entity?.scene.demons.remove(object: entity!)
-//    entity?.scene.checkForWin()
-//    entity?.remove()
+  func clearSelf() {
+    generator.demons.remove(object: entity!)
+    entity?.remove()
   }
 }

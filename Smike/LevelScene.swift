@@ -41,12 +41,15 @@ class LevelScene: GameScene {
     }
   }
   
-  func nearestMortal(scenePosition: CGPoint) -> GKEntity? {
-    mortals.sorted {
-      let d0 = convert($0.node.position, from: $0.node.parent!).distance(to: scenePosition)
-      let d1 = convert($1.node.position, from: $1.node.parent!).distance(to: scenePosition)
-      return d0 < d1
-    }.first
+  func nearestLivingMortal(scenePosition: CGPoint) -> GKEntity? {
+    mortals
+      .filter({ !$0.component(ofType: MortalComponent.self)!.dying })
+      .sorted {
+        let d0 = convert($0.node.position, from: $0.node.parent!).distance(to: scenePosition)
+        let d1 = convert($1.node.position, from: $1.node.parent!).distance(to: scenePosition)
+        return d0 < d1
+      }
+      .first
   }
   
   func checkForWin() {
@@ -60,7 +63,7 @@ class LevelScene: GameScene {
     }
   }
   
-  func checkWhetherDefeated() {
+  func checkForLoss() {
     if false {
       print("Heroes are defeated!")
       // TODO: report defeat
