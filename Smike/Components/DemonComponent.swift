@@ -3,14 +3,13 @@ import GameplayKit
 
 class DemonComponent: GKComponent {
   let generator: GeneratorComponent
-
-  var alongTrack: CGFloat = 0
-  var lastAttackTicks: CGFloat = 0.0
-  var isDiving: Bool = false
-  
   var type: DemonType { generator.demonType }
   var track: Track { generator.track! }
-  
+
+  var alongTrack: CGFloat = 0
+  var isDiving: Bool = false
+  var isDying: Bool = false
+    
   init(generator: GeneratorComponent) {
     self.generator = generator
     super.init()
@@ -47,7 +46,7 @@ class DemonComponent: GKComponent {
     
   override func update(deltaTime seconds: TimeInterval) {
     guard let node = entity?.node as? SKSpriteNode else { return }
-    guard !isDiving else { return }
+    guard !(isDiving || isDying) else { return }
     
     let increment = (seconds / generator.duration)
     alongTrack += increment
@@ -85,12 +84,27 @@ class DemonComponent: GKComponent {
         SKAction.scale(to: 0.4, duration: 0.5),
         SKAction.move(to: diveTarget, duration: 0.5)
       ]),
-      SKAction.run { self.clearSelf() }
+      SKAction.run { self.clearSelf(checkWin: false) }
     ]))
   }
   
-  func clearSelf() {
+  func hitAt(scenePoint: CGPoint) -> Bool {
+    return true
+  }
+  
+  func attack() {
+    // TODO: check power requirement
+    // TODO: use power, animate
+    
+    self.isDying = true
+    clearSelf(checkWin: true);
+  }
+  
+  func clearSelf(checkWin: Bool) {
     generator.demons.remove(object: entity!)
+    if checkWin, let scene = entity?.scene {
+      scene.checkForWin()
+    }
     entity?.remove()
   }
 }

@@ -58,7 +58,7 @@ class LevelScene: GameScene {
   func checkForWin() {
     guard generators.allSatisfy({ $0.component(ofType: GeneratorComponent.self)!.exhausted }) else { return }
       
-    print("Demons are defeated!")
+    print("WON LEVEL")
     Slot.live.completedLevels.insert(name!)
       
     // TODO: report victory
@@ -97,7 +97,20 @@ class LevelScene: GameScene {
       if let button = self["//play_pause"].first as? SKSpriteNode {
         button.texture = SKTexture(imageNamed: (self.isPaused ? "play" : "pause"))
       }
+    } else if let demon = tappedDemon(nodes: tapNodes, scenePoint: scenePoint), let demonComponent = demon.component(ofType: DemonComponent.self), !demonComponent.isDying {
+      demonComponent.attack()
     }
+  }
+  
+  func tappedDemon(nodes: [SKNode], scenePoint: CGPoint) -> GKEntity? {
+    nodes.filter {
+      if let dc = $0.entity?.component(ofType: DemonComponent.self) {
+        return dc.hitAt(scenePoint: scenePoint)
+      } else {
+        return false
+      }
+    }.sorted { $0.zPosition < $1.zPosition }
+    .last?.entity
   }
     
   func touchDown(atPoint pos : CGPoint) {
