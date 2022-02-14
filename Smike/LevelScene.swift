@@ -8,6 +8,7 @@ class LevelScene: GameScene {
   
   var live: Bool = false // can't use isPaused for initial dealy
   var ticks: CGFloat = 0.0
+  var mortalAllowanceRemaining: Int = 0
   
   private var lastUpdateTime: TimeInterval = 0
   private var tapRecognizer: UITapGestureRecognizer? = nil
@@ -22,6 +23,8 @@ class LevelScene: GameScene {
   // Load finished callback.
   override func didMove(to view: SKView) {
     super.didMove(to: view)
+
+    self.mortalAllowanceRemaining = self.entity?.component(ofType: LevelComponent.self)?.mortalAllowance ?? 0
     
     tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped(_:)))
     view.addGestureRecognizer(tapRecognizer!)
@@ -64,12 +67,12 @@ class LevelScene: GameScene {
   }
   
   func checkForLoss() {
-    if false {
-      print("Heroes are defeated!")
-      // TODO: report defeat
-      if let name = self.name {
-        Router.it.navigateFrom(name, completed: false)
-      }
+    guard mortalAllowanceRemaining <= 0 else { return }
+
+    print("LOST LEVEL")
+
+    if let name = self.name {
+      Router.it.navigateFrom(name, completed: false)
     }
   }
     

@@ -1,9 +1,5 @@
 # To-do
 
-* Mortal kill
-  Dive towards victim: get big & transparent, then quickly shrink
-  Kill & check finished
-
 * Gesture attacks
   Show color-graded percentage efficiency, 0-99 (round down)
   
@@ -49,18 +45,6 @@ Then: Map & progression
   Big, strong, medium speed
   
   
-# Flash code
-  func showDamage(color: UIColor = .red) {
-    guard let node = entity?.node as? SKSpriteNode else { return }
-      
-    let pulsedRed = SKAction.sequence([
-      SKAction.colorize(with: color, colorBlendFactor: 1.0, duration: 0.15),
-      SKAction.wait(forDuration: 0.1),
-      SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.15)])
-    
-    node.run(pulsedRed)
-  }
-
 # Coins
 
 * Mon - Brass/Silver/Gold - Tap power
