@@ -56,14 +56,14 @@ class LevelScene: GameScene {
   }
   
   func checkForWin() {
-    if generators.allSatisfy({ $0.component(ofType: GeneratorComponent.self)!.exhausted }) {
-      if let name = self.name {
-        print("Demons are defeated!")
-        Slot.live.completedLevels.insert(name)
-        // TODO: report victory
-        Router.it.navigateFrom(name, completed: true)
-      }
-    }
+    guard generators.allSatisfy({ $0.component(ofType: GeneratorComponent.self)!.exhausted }) else { return }
+      
+    print("Demons are defeated!")
+    Slot.live.completedLevels.insert(name!)
+      
+    // TODO: report victory
+      
+    Router.it.navigateFrom(name!, completed: true)
   }
   
   func checkForLoss() {
@@ -90,9 +90,7 @@ class LevelScene: GameScene {
     let scenePoint = convertPoint(fromView: viewPoint)
     let tapNodes = nodes(at: scenePoint)
     
-    if tapNodes.first(where: { $0.name == "power_strike" }) != nil {
-      powerStrike()
-    } else if tapNodes.first(where: { $0.name == "play_pause" }) != nil {
+    if tapNodes.first(where: { $0.name == "play_pause" }) != nil {
       self.isPaused = !self.isPaused
       self.lastUpdateTime = 0
       
