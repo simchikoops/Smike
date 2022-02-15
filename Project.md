@@ -1,14 +1,19 @@
 # To-do
 
-* Gesture attacks
-  Show color-graded percentage efficiency, 0-99 (round down)
+* Power usage
+  Level starting power (in component)
+  show as display component (1 of 3, stackable)
+  calculate cost, show, subtract
+    Color-graded percentage efficiency, 0-99 (round down)
   
 * throwers
   Toss them up to start? And at an angle. Disappear when hit some surfaces.
   Great casino/coin noise on collection.
+  randomized, a little. Chance of 200, 300, pinch attack, swipe attack, rest of chances are 100's.
 
 * Back, to map
-* Basic animations
+* Ground attacks
+* Water attacks
 
 Next: saving state
 Then: Map & progression
@@ -44,13 +49,17 @@ Then: Map & progression
 * Devils
   Big, strong, medium speed
   
-  
-# Coins
+# Coins/Attacks
 
 * Mon - Brass/Silver/Gold - Tap power
-  1x, 2x, 3x (Not 5x, 10x!)
-* Ingot - Twist power
-* Kobundo - Unzoom / general power
+  100, 200, 300
+  
+  Attacks take 25 - 200 point (25 perfect, 200 worst)
+  Re-initialized each level
+* Kobudo - Pinch - all in the generator
+  Always starts at 0, non-transferrable
+* Ingot - swipe - clears all
+  Transferrable to higher levels
   
 # More to-do
 

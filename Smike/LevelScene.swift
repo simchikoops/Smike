@@ -8,10 +8,18 @@ class LevelScene: GameScene {
   
   var live: Bool = false // can't use isPaused for initial dealy
   var ticks: CGFloat = 0.0
+  
   var mortalAllowanceRemaining: Int = 0
+  var attackPower: Int = 0 {
+    didSet {
+      attackPowerCount?.text = String(attackPower)
+    }
+  }
   
   private var lastUpdateTime: TimeInterval = 0
   private var tapRecognizer: UITapGestureRecognizer? = nil
+  
+  private var attackPowerCount: SKLabelNode?
     
   override func sceneDidLoad() {
     physicsWorld.contactDelegate = self
@@ -24,7 +32,12 @@ class LevelScene: GameScene {
   override func didMove(to view: SKView) {
     super.didMove(to: view)
 
-    self.mortalAllowanceRemaining = self.entity?.component(ofType: LevelComponent.self)?.mortalAllowance ?? 0
+    self.attackPowerCount = self.childNode(withName: "//attack_power_count") as? SKLabelNode
+
+    if let level = self.entity?.component(ofType: LevelComponent.self) {
+      self.mortalAllowanceRemaining = level.mortalAllowance
+      self.attackPower = level.startingAttackPower
+    }
     
     tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped(_:)))
     view.addGestureRecognizer(tapRecognizer!)
