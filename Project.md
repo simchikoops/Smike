@@ -1,10 +1,8 @@
 # To-do
 
 * Power usage
-  Level starting power (in component)
-  show as display component (1 of 3, stackable)
-  calculate cost, show, subtract
-    Color-graded percentage efficiency, 0-99 (round down)
+  calculate cost, show cost somehow
+  Color-graded percentage efficiency, 0-99 (round down)
   
 * throwers
   Toss them up to start? And at an angle. Disappear when hit some surfaces.

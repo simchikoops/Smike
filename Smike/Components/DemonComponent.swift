@@ -2,6 +2,9 @@ import SpriteKit
 import GameplayKit
 
 class DemonComponent: GKComponent {
+  let minimumAttackCost = 25
+  let maximumAttackCost = 200
+  
   let generator: GeneratorComponent
   var type: DemonType { generator.demonType }
   var track: Track { generator.track! }
@@ -78,7 +81,7 @@ class DemonComponent: GKComponent {
     node.run(SKAction.sequence([
       SKAction.group([
         SKAction.scale(by: 2.0, duration: 0.5),
-        SKAction.fadeAlpha(by: 0.6, duration: 0.5)
+        SKAction.fadeAlpha(by: -0.6, duration: 0.5)
       ]),
       SKAction.group([
         SKAction.scale(to: 0.4, duration: 0.5),
@@ -88,16 +91,33 @@ class DemonComponent: GKComponent {
     ]))
   }
   
+  // TODO: better than point-in-rect.
   func hitAt(scenePoint: CGPoint) -> Bool {
     return true
   }
   
   func attack() {
-    // TODO: check power requirement
+    guard !isDiving, let scene = entity?.scene else { return }
+    
+    let powerCost = powerPrice()
+    print("price", alongTrack, powerCost)
+    
+    if scene.attackPower >= powerCost {
+      scene.attackPower -= powerCost
+    } else {
+      // TODO: bad noise
+      print("too much")
+      return
+    }
+    
     // TODO: use power, animate
     
     self.isDying = true
     clearSelf(checkWin: true);
+  }
+  
+  func powerPrice() -> Int {
+    minimumAttackCost + Int(floor(CGFloat(maximumAttackCost - minimumAttackCost) * pow(1 - alongTrack, 0.5)))
   }
   
   func clearSelf(checkWin: Bool) {
