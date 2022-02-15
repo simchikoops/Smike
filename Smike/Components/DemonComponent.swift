@@ -102,22 +102,53 @@ class DemonComponent: GKComponent {
     let powerCost = powerPrice()
     print("price", alongTrack, powerCost)
     
-    if scene.attackPower >= powerCost {
-      scene.attackPower -= powerCost
-    } else {
+    if scene.attackPower < powerCost {
       // TODO: bad noise
       print("too much")
       return
     }
     
-    // TODO: use power, animate
-    
+    scene.attackPower -= powerCost
+    addCostLabel(powerCost)
+
     self.isDying = true
     clearSelf(checkWin: true);
   }
   
   func powerPrice() -> Int {
     minimumAttackCost + Int(floor(CGFloat(maximumAttackCost - minimumAttackCost) * pow(1 - alongTrack, 0.5)))
+  }
+  
+  func addCostLabel(_ cost: Int) {
+    let textNode = SKLabelNode(text: "-\(cost)")
+    
+    textNode.fontSize = 72
+    textNode.fontName = "AvenirNext-Bold"
+    textNode.fontColor = costColor(cost)
+    textNode.position = entity!.node.position
+    textNode.position.y += 40
+    textNode.zPosition = 9000
+    
+    entity!.node.parent?.addChild(textNode)
+    
+    textNode.run(SKAction.sequence([
+      SKAction.group([
+        SKAction.moveBy(x: 0, y: 150, duration: 2.0),
+        SKAction.fadeOut(withDuration: 2.0)]),
+      SKAction.removeFromParent()
+    ]))
+  }
+  
+  func costColor(_ cost: Int) -> UIColor {
+    if cost > 150 {
+      return .red
+    } else if cost > 100 {
+      return .orange
+    } else if cost > 50 {
+      return .yellow
+    } else {
+      return .green
+    }
   }
   
   func clearSelf(checkWin: Bool) {

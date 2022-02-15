@@ -1,9 +1,5 @@
 # To-do
 
-* Power usage
-  calculate cost, show cost somehow
-  Color-graded percentage efficiency, 0-99 (round down)
-  
 * throwers
   Toss them up to start? And at an angle. Disappear when hit some surfaces.
   Great casino/coin noise on collection.
@@ -13,12 +9,15 @@
 * Ground attacks
 * Water attacks
 
+* Full level
+
 Next: saving state
 Then: Map & progression
 
 # More to-do
 
 * Tilt to path (option?)
+* Re-use actions?
 
 # Mark III Summary
 
