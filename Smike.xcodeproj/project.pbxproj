@@ -27,6 +27,8 @@
 		55337A5E27581EF800407618 /* LandscapeDash.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55337A5D27581EF800407618 /* LandscapeDash.sks */; };
 		5537A33D27694585001901C8 /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5537A33C27694585001901C8 /* Slot.swift */; };
 		553A512B27BAE5900053C784 /* LevelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553A512A27BAE5900053C784 /* LevelComponent.swift */; };
+		553A512D27BD51C00053C784 /* DispenserComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553A512C27BD51C00053C784 /* DispenserComponent.swift */; };
+		553A512F27BD86680053C784 /* CoinType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553A512E27BD86680053C784 /* CoinType.swift */; };
 		555CCC2E27ADD45F00ED5520 /* AnimationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CCC2D27ADD45F00ED5520 /* AnimationComponent.swift */; };
 		5569EE4C278CBBA60030E798 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5569EE4B278CBBA60030E798 /* Router.swift */; };
 		5593962F27668CA600EFA9F3 /* CoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593962E27668CA600EFA9F3 /* CoreExtensions.swift */; };
@@ -40,7 +42,7 @@
 		55AB01DE2762864C002FCC4A /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 55AB01DD2762864C002FCC4A /* Algorithms */; };
 		55B746B1279F56E700F1EC26 /* hero_hit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 55B746B0279F56E700F1EC26 /* hero_hit.mp3 */; };
 		55BA7CC4277504300078D20F /* TrackDotComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA7CC3277504300078D20F /* TrackDotComponent.swift */; };
-		55BA7CC627754B4D0078D20F /* DemonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA7CC527754B4D0078D20F /* DemonData.swift */; };
+		55BA7CC627754B4D0078D20F /* DemonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA7CC527754B4D0078D20F /* DemonType.swift */; };
 		55C816E62761141200A810EE /* GKEntityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E52761141200A810EE /* GKEntityExtensions.swift */; };
 		55C816E82761161400A810EE /* NodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E72761161400A810EE /* NodeComponent.swift */; };
 		55D5580827A0A52800695069 /* male_hero_hurt.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 55D5580727A0A52800695069 /* male_hero_hurt.mp3 */; };
@@ -95,6 +97,8 @@
 		55337A5D27581EF800407618 /* LandscapeDash.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LandscapeDash.sks; sourceTree = "<group>"; };
 		5537A33C27694585001901C8 /* Slot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
 		553A512A27BAE5900053C784 /* LevelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelComponent.swift; sourceTree = "<group>"; };
+		553A512C27BD51C00053C784 /* DispenserComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispenserComponent.swift; sourceTree = SOURCE_ROOT; };
+		553A512E27BD86680053C784 /* CoinType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinType.swift; sourceTree = "<group>"; };
 		555CCC2D27ADD45F00ED5520 /* AnimationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationComponent.swift; sourceTree = SOURCE_ROOT; };
 		5569EE4B278CBBA60030E798 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		5593962E27668CA600EFA9F3 /* CoreExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreExtensions.swift; sourceTree = "<group>"; };
@@ -107,7 +111,7 @@
 		55AB01DA27627E1D002FCC4A /* TrackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTests.swift; sourceTree = "<group>"; };
 		55B746B0279F56E700F1EC26 /* hero_hit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hero_hit.mp3; sourceTree = "<group>"; };
 		55BA7CC3277504300078D20F /* TrackDotComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDotComponent.swift; sourceTree = "<group>"; };
-		55BA7CC527754B4D0078D20F /* DemonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemonData.swift; sourceTree = "<group>"; };
+		55BA7CC527754B4D0078D20F /* DemonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemonType.swift; sourceTree = "<group>"; };
 		55C816E52761141200A810EE /* GKEntityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKEntityExtensions.swift; sourceTree = "<group>"; };
 		55C816E72761161400A810EE /* NodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeComponent.swift; sourceTree = "<group>"; };
 		55D5580727A0A52800695069 /* male_hero_hurt.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = male_hero_hurt.mp3; sourceTree = "<group>"; };
@@ -184,7 +188,8 @@
 				55337A562756A57300407618 /* LevelScene.swift */,
 				551A259D27949B2B00B31388 /* MissionScene.swift */,
 				55DAB5392771562500105FC4 /* PhysicsInfo.swift */,
-				55BA7CC527754B4D0078D20F /* DemonData.swift */,
+				55BA7CC527754B4D0078D20F /* DemonType.swift */,
+				553A512E27BD86680053C784 /* CoinType.swift */,
 				55DAB53B277159C600105FC4 /* PhysicsContacts.swift */,
 				55AB01D827627B19002FCC4A /* Track.swift */,
 				5537A33C27694585001901C8 /* Slot.swift */,
@@ -246,6 +251,7 @@
 				55DFB29D2773E20F00F3747B /* MortalComponent.swift */,
 				55BA7CC3277504300078D20F /* TrackDotComponent.swift */,
 				553A512A27BAE5900053C784 /* LevelComponent.swift */,
+				553A512C27BD51C00053C784 /* DispenserComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -438,12 +444,13 @@
 				553A512B27BAE5900053C784 /* LevelComponent.swift in Sources */,
 				55A44E1C27B4505300348F0A /* PathComponent.swift in Sources */,
 				55DFB29E2773E20F00F3747B /* MortalComponent.swift in Sources */,
-				55BA7CC627754B4D0078D20F /* DemonData.swift in Sources */,
+				55BA7CC627754B4D0078D20F /* DemonType.swift in Sources */,
 				55EE3DAE278F518600009573 /* GameScene.swift in Sources */,
 				55BA7CC4277504300078D20F /* TrackDotComponent.swift in Sources */,
 				551A259E27949B2B00B31388 /* MissionScene.swift in Sources */,
 				55337A552756A32400407618 /* AttributionComponent.swift in Sources */,
 				555CCC2E27ADD45F00ED5520 /* AnimationComponent.swift in Sources */,
+				553A512F27BD86680053C784 /* CoinType.swift in Sources */,
 				55EE3DB02790F08200009573 /* SKSceneExtensions.swift in Sources */,
 				55010AA427518DEC0049E9AE /* GameViewController.swift in Sources */,
 				55DAB53C277159C600105FC4 /* PhysicsContacts.swift in Sources */,
@@ -454,6 +461,7 @@
 				5593962F27668CA600EFA9F3 /* CoreExtensions.swift in Sources */,
 				55C816E82761161400A810EE /* NodeComponent.swift in Sources */,
 				55DAB53A2771562500105FC4 /* PhysicsInfo.swift in Sources */,
+				553A512D27BD51C00053C784 /* DispenserComponent.swift in Sources */,
 				55A44E2027B4673900348F0A /* SKActionExtensions.swift in Sources */,
 				5513637F2763D10F006BC9B1 /* SpriteNodeExtensions.swift in Sources */,
 				55AB01D927627B19002FCC4A /* Track.swift in Sources */,

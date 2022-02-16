@@ -1,19 +1,13 @@
 # To-do
 
-* throwers
-  Toss them up to start? And at an angle. Disappear when hit some surfaces.
-  Great casino/coin noise on collection.
-  randomized, a little. Chance of 200, 300, pinch attack, swipe attack, rest of chances are 100's.
-
-  dispensercomponent -> generates coins
-    
+* dispensers
+  Great casino/coin noise on collection. Coins disappear offscreen or elsewhere
 
   coincomponent -> physics
-    coin types (5)
+    Show "+100" etc. on catch
 
   railcomponent -> for something to bounce off
     just trackdots -> physics path
-  
 
 * Back, to map
 * Ground attacks
@@ -67,7 +61,7 @@ Then: Map & progression
 * Kobudo - Pinch - all in the generator
   Always starts at 0, non-transferrable
 * Ingot - swipe - clears all
-  Transferrable to higher levels
+  Transferrable to higher levels (capped at n ~ 5)
   
 # More to-do
 
@@ -91,6 +85,13 @@ Then: Map & progression
 * Some kind of bonus for leftover power, mortals
   Frame reveal time? Show frame for best hit time
 * Bonus levels: catch all the coins? challenging stage
+* Tutorial
+  Picture w/o mortals. TutorialScene from LevelScene?
+  "Catch coins before they disappear"
+  "Good! Coins give you power to stop demons"
+  "Stop demons when they are near but before they dive onto mortals."
+  "Good! You stopped the demon using little power."
+  "Be patient! Stopping demons at a distance uses a lot of power."
 
 # Fundamentals
 
