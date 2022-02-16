@@ -5,6 +5,16 @@
   Great casino/coin noise on collection.
   randomized, a little. Chance of 200, 300, pinch attack, swipe attack, rest of chances are 100's.
 
+  dispensercomponent -> generates coins
+    
+
+  coincomponent -> physics
+    coin types (5)
+
+  railcomponent -> for something to bounce off
+    just trackdots -> physics path
+  
+
 * Back, to map
 * Ground attacks
 * Water attacks
@@ -45,10 +55,11 @@ Then: Map & progression
   Slow, big, strong
 * Devils
   Big, strong, medium speed
+* Tree dweller: peeks out n times, hit on n - 1
   
 # Coins/Attacks
 
-* Mon - Brass/Silver/Gold - Tap power
+* Mon - Brass/Silver/Gold (silver/gold highlights only?) - Tap power
   100, 200, 300
   
   Attacks take 25 - 200 point (25 perfect, 200 worst)
@@ -69,7 +80,6 @@ Then: Map & progression
 
 * Saving state
 * Syncing with animation and basic sounds
-* Supported attacks
 * Mass attack
 * Advancement
   Map of Japan? Each island. Staman.terrainbackground
@@ -78,8 +88,8 @@ Then: Map & progression
 
 # Consider
 
-* Title
-* Some kind of bonus for leftover power
+* Some kind of bonus for leftover power, mortals
+  Frame reveal time? Show frame for best hit time
 * Bonus levels: catch all the coins? challenging stage
 
 # Fundamentals

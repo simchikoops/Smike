@@ -110,8 +110,10 @@ class LevelScene: GameScene {
       if let button = self["//play_pause"].first as? SKSpriteNode {
         button.texture = SKTexture(imageNamed: (self.isPaused ? "play" : "pause"))
       }
-    } else if let demon = tappedDemon(nodes: tapNodes, scenePoint: scenePoint), let demonComponent = demon.component(ofType: DemonComponent.self), !demonComponent.isDying {
-      demonComponent.attack()
+    } else if !self.isPaused {
+      if let demon = tappedDemon(nodes: tapNodes, scenePoint: scenePoint), let demonComponent = demon.component(ofType: DemonComponent.self), !demonComponent.isDying {
+        demonComponent.attack()
+      }
     }
   }
   
