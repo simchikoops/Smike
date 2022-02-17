@@ -2,7 +2,7 @@ import SpriteKit
 
 typealias CoinValues = (imageName: String, power: Int, pinches: Int, swipes: Int)
 
-let bronzeMonValues: CoinValues = (imageName: "bat", power: 100, pinches: 0, swipes: 0)
+let bronzeMonValues: CoinValues = (imageName: "copper_mon", power: 100, pinches: 0, swipes: 0)
 
 enum CoinType: Int {
   case bronzeMon = 1

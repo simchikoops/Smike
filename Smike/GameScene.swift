@@ -2,8 +2,9 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
+  static var random = GKRandomSource()
   var entities = [GKEntity]()
-  
+    
   func messageLabel(_ text: String) -> SKLabelNode {
     let margin: CGFloat = 20.0
     let label = SKLabelNode()

@@ -29,6 +29,7 @@
 		553A512B27BAE5900053C784 /* LevelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553A512A27BAE5900053C784 /* LevelComponent.swift */; };
 		553A512D27BD51C00053C784 /* DispenserComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553A512C27BD51C00053C784 /* DispenserComponent.swift */; };
 		553A512F27BD86680053C784 /* CoinType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553A512E27BD86680053C784 /* CoinType.swift */; };
+		553A513127BDD5680053C784 /* CoinComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553A513027BDD5680053C784 /* CoinComponent.swift */; };
 		555CCC2E27ADD45F00ED5520 /* AnimationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CCC2D27ADD45F00ED5520 /* AnimationComponent.swift */; };
 		5569EE4C278CBBA60030E798 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5569EE4B278CBBA60030E798 /* Router.swift */; };
 		5593962F27668CA600EFA9F3 /* CoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593962E27668CA600EFA9F3 /* CoreExtensions.swift */; };
@@ -99,6 +100,7 @@
 		553A512A27BAE5900053C784 /* LevelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelComponent.swift; sourceTree = "<group>"; };
 		553A512C27BD51C00053C784 /* DispenserComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispenserComponent.swift; sourceTree = SOURCE_ROOT; };
 		553A512E27BD86680053C784 /* CoinType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinType.swift; sourceTree = "<group>"; };
+		553A513027BDD5680053C784 /* CoinComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinComponent.swift; sourceTree = "<group>"; };
 		555CCC2D27ADD45F00ED5520 /* AnimationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationComponent.swift; sourceTree = SOURCE_ROOT; };
 		5569EE4B278CBBA60030E798 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		5593962E27668CA600EFA9F3 /* CoreExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreExtensions.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				55A44E1D27B4511300348F0A /* TracerComponent.swift */,
 				55337A542756A32400407618 /* AttributionComponent.swift */,
 				55AA1FF2276A78D90076881E /* DemonComponent.swift */,
+				553A513027BDD5680053C784 /* CoinComponent.swift */,
 				55AA1FF0276A69ED0076881E /* GeneratorComponent.swift */,
 				55C816E72761161400A810EE /* NodeComponent.swift */,
 				55DFB29D2773E20F00F3747B /* MortalComponent.swift */,
@@ -445,6 +448,7 @@
 				55A44E1C27B4505300348F0A /* PathComponent.swift in Sources */,
 				55DFB29E2773E20F00F3747B /* MortalComponent.swift in Sources */,
 				55BA7CC627754B4D0078D20F /* DemonType.swift in Sources */,
+				553A513127BDD5680053C784 /* CoinComponent.swift in Sources */,
 				55EE3DAE278F518600009573 /* GameScene.swift in Sources */,
 				55BA7CC4277504300078D20F /* TrackDotComponent.swift in Sources */,
 				551A259E27949B2B00B31388 /* MissionScene.swift in Sources */,

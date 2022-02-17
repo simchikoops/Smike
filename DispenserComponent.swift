@@ -34,6 +34,16 @@ class DispenserComponent: GKComponent {
   }
 
   private func conditionallyDispense() {
-    print("DISPENSE")
+    guard GameScene.random.nextUniform() <= Float(probability) else { return }
+    guard let node = entity?.node else { return }
+
+    let coin = GKEntity()
+    let coinComponent = CoinComponent(type: coinType, startingPosition: node.position, layer: node.zPosition)
+    coin.addComponent(coinComponent)
+
+    entity!.scene.entities.append(coin)
+    entity!.node.parent!.addChild(coin.node)
+    
+    // TODO: apply launch vector
   }
 }
