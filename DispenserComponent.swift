@@ -7,7 +7,8 @@ class DispenserComponent: GKComponent {
   @GKInspectable var probability: CGFloat = 1.0
 
   @GKInspectable var startingVector: CGPoint = CGPoint()
-  @GKInspectable var awayLayer: Int = 0
+  @GKInspectable var awayLayer: CGFloat = 0
+  @GKInspectable var minY: CGFloat = 0
   
   var coinType: CoinType = .bronzeMon
   var sequence: [CGFloat] = []
@@ -35,10 +36,9 @@ class DispenserComponent: GKComponent {
 
   private func conditionallyDispense() {
     guard GameScene.random.nextUniform() <= Float(probability) else { return }
-    guard let node = entity?.node else { return }
 
     let coin = GKEntity()
-    let coinComponent = CoinComponent(type: coinType, startingPosition: node.position, layer: node.zPosition)
+    let coinComponent = CoinComponent(dispenser: self)
     coin.addComponent(coinComponent)
 
     entity!.scene.entities.append(coin)
