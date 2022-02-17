@@ -1,7 +1,7 @@
 import SpriteKit
 import GameplayKit
 
-class CoinComponent: GKComponent {
+class CoinComponent: GKComponent, Tappable {
   var dispenser: DispenserComponent
   
   var type: CoinType { dispenser.coinType }
@@ -35,14 +35,29 @@ class CoinComponent: GKComponent {
     physicsBody.affectedByGravity = true
     physicsBody.allowsRotation = true
     physicsBody.mass = 0.005 // kg
+    physicsBody.linearDamping = 1.0 // air resistance? small effect
     
     node.physicsBody = physicsBody
   }
   
   override func update(deltaTime seconds: TimeInterval) {
     if let node = entity?.node, node.position.y < minY {
-      print("REMOVE COIN")
       entity!.remove()
     }
+  }
+  
+  // TODO: better than point-in-rect.
+  func isTappedAt(scenePoint: CGPoint) -> Bool {
+    return true
+  }
+  
+  func tapped() {
+    if let scene = entity?.scene {
+      if type.power > 0 {
+        scene.attackPower += type.power
+        // TODO: float-away label
+      }
+    }
+    entity!.remove()
   }
 }

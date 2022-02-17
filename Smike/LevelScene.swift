@@ -10,11 +10,12 @@ class LevelScene: GameScene {
   var ticks: CGFloat = 0.0
   
   var mortalAllowanceRemaining: Int = 0
+  
   var attackPower: Int = 0 {
-    didSet {
-      attackPowerCount?.text = String(attackPower)
-    }
+    didSet { attackPowerCount?.text = String(attackPower) }
   }
+  var pinches: Int = 0
+  var swipes: Int = 0
   
   private var lastUpdateTime: TimeInterval = 0
   private var tapRecognizer: UITapGestureRecognizer? = nil
@@ -111,23 +112,23 @@ class LevelScene: GameScene {
         button.texture = SKTexture(imageNamed: (self.isPaused ? "play" : "pause"))
       }
     } else if !self.isPaused {
-      if let demon = tappedDemon(nodes: tapNodes, scenePoint: scenePoint), let demonComponent = demon.component(ofType: DemonComponent.self), !demonComponent.isDying {
-        demonComponent.attack()
+      if let tappable = tappedEntity(nodes: tapNodes, scenePoint: scenePoint) {
+        tappable.component(conformingTo: Tappable.self)!.tapped()
       }
     }
   }
   
-  func tappedDemon(nodes: [SKNode], scenePoint: CGPoint) -> GKEntity? {
+  func tappedEntity(nodes: [SKNode], scenePoint: CGPoint) -> GKEntity? {
     nodes.filter {
-      if let dc = $0.entity?.component(ofType: DemonComponent.self) {
-        return dc.hitAt(scenePoint: scenePoint)
+      if let tappable = $0.entity?.component(conformingTo: Tappable.self) {
+        return tappable.isTappedAt(scenePoint: scenePoint)
       } else {
         return false
       }
     }.sorted { $0.zPosition < $1.zPosition }
     .last?.entity
   }
-    
+      
   func touchDown(atPoint pos : CGPoint) {
     // let touchedNodes = nodes(at: pos)
   }

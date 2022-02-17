@@ -1,7 +1,7 @@
 import SpriteKit
 import GameplayKit
 
-class DemonComponent: GKComponent {
+class DemonComponent: GKComponent, Tappable {
   let minimumAttackCost = 25
   let maximumAttackCost = 200
   
@@ -92,12 +92,12 @@ class DemonComponent: GKComponent {
   }
   
   // TODO: better than point-in-rect.
-  func hitAt(scenePoint: CGPoint) -> Bool {
+  func isTappedAt(scenePoint: CGPoint) -> Bool {
     return true
   }
   
-  func attack() {
-    guard !isDiving, let scene = entity?.scene else { return }
+  func tapped() {
+    guard !isDiving, !isDying, let scene = entity?.scene else { return }
     
     let powerCost = powerPrice()
     print("price", alongTrack, powerCost)
@@ -133,8 +133,8 @@ class DemonComponent: GKComponent {
     
     textNode.run(SKAction.sequence([
       SKAction.group([
-        SKAction.moveBy(x: 0, y: 150, duration: 2.0),
-        SKAction.fadeOut(withDuration: 2.0)]),
+        SKAction.moveBy(x: 0, y: 150, duration: 1.5),
+        SKAction.fadeOut(withDuration: 1.5)]),
       SKAction.removeFromParent()
     ]))
   }

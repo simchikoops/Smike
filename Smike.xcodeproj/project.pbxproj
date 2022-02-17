@@ -31,6 +31,7 @@
 		553A512F27BD86680053C784 /* CoinType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553A512E27BD86680053C784 /* CoinType.swift */; };
 		553A513127BDD5680053C784 /* CoinComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553A513027BDD5680053C784 /* CoinComponent.swift */; };
 		553A513327BEAD4C0053C784 /* RailComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553A513227BEAD4C0053C784 /* RailComponent.swift */; };
+		553A513627BECE810053C784 /* Tappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553A513527BECE810053C784 /* Tappable.swift */; };
 		555CCC2E27ADD45F00ED5520 /* AnimationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CCC2D27ADD45F00ED5520 /* AnimationComponent.swift */; };
 		5569EE4C278CBBA60030E798 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5569EE4B278CBBA60030E798 /* Router.swift */; };
 		5593962F27668CA600EFA9F3 /* CoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593962E27668CA600EFA9F3 /* CoreExtensions.swift */; };
@@ -103,6 +104,7 @@
 		553A512E27BD86680053C784 /* CoinType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinType.swift; sourceTree = "<group>"; };
 		553A513027BDD5680053C784 /* CoinComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinComponent.swift; sourceTree = "<group>"; };
 		553A513227BEAD4C0053C784 /* RailComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailComponent.swift; sourceTree = "<group>"; };
+		553A513527BECE810053C784 /* Tappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tappable.swift; sourceTree = "<group>"; };
 		555CCC2D27ADD45F00ED5520 /* AnimationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationComponent.swift; sourceTree = SOURCE_ROOT; };
 		5569EE4B278CBBA60030E798 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		5593962E27668CA600EFA9F3 /* CoreExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreExtensions.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				5513638027642327006BC9B1 /* Layers.swift */,
 				55337A532756A1B500407618 /* Components */,
 				555CCC2A27ADCFE000ED5520 /* Extensions */,
+				553A513427BECE4D0053C784 /* Protocols */,
 				551A25982794990600B31388 /* Missions */,
 				55337A4E2755AF4B00407618 /* Levels */,
 				55337A582756AD4E00407618 /* Reference Nodes */,
@@ -269,6 +272,14 @@
 				55337A5D27581EF800407618 /* LandscapeDash.sks */,
 			);
 			path = "Reference Nodes";
+			sourceTree = "<group>";
+		};
+		553A513427BECE4D0053C784 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				553A513527BECE810053C784 /* Tappable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		555CCC2A27ADCFE000ED5520 /* Extensions */ = {
@@ -465,6 +476,7 @@
 				55C816E62761141200A810EE /* GKEntityExtensions.swift in Sources */,
 				55AA1FF1276A69ED0076881E /* GeneratorComponent.swift in Sources */,
 				55AA1FF3276A78D90076881E /* DemonComponent.swift in Sources */,
+				553A513627BECE810053C784 /* Tappable.swift in Sources */,
 				5569EE4C278CBBA60030E798 /* Router.swift in Sources */,
 				5593962F27668CA600EFA9F3 /* CoreExtensions.swift in Sources */,
 				55C816E82761161400A810EE /* NodeComponent.swift in Sources */,
