@@ -55,7 +55,7 @@ class GameViewController: UIViewController {
       // TODO: development only
       view.showsFPS = true
       view.showsNodeCount = true
-      view.showsPhysics = false
+      view.showsPhysics = true
     }
   }
 }

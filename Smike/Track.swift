@@ -65,7 +65,7 @@ struct Track {
                         facing: facing, relativeSpeed: component.relativeSpeed))
     }
     
-    trackNodes.forEach { $0.removeFromParent() }
+    trackNodes.forEach { $0.entity?.remove() }
     return Track(orderedDots: trackDots, loop: loop)
   }
   
