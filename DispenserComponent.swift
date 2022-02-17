@@ -44,6 +44,6 @@ class DispenserComponent: GKComponent {
     entity!.scene.entities.append(coin)
     entity!.node.parent!.addChild(coin.node)
     
-    // TODO: apply launch vector
+    coin.node.physicsBody!.applyForce(CGVector(dx: startingVector.x, dy: startingVector.y))
   }
 }

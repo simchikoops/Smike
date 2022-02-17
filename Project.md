@@ -1,13 +1,14 @@
 # To-do
 
 * dispensers
-  Great casino/coin noise on collection. Coins disappear offscreen or elsewhere
-
-  coincomponent -> physics
-    Show "+100" etc. on catch
+  
+  coincomponent physics
 
   railcomponent -> for something to bounce off
     just trackdots -> physics path
+ 
+  Coin catch   
+    Show "+100" etc. on catch
 
 * Back, to map
 * Ground attacks
@@ -22,6 +23,7 @@ Then: Map & progression
 
 * Tilt to path (option?)
 * Re-use actions?
+* Great casino/coin noise on collection. Coins disappear offscreen or elsewhere
 
 # Mark III Summary
 

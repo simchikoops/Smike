@@ -26,7 +26,15 @@ class CoinComponent: GKComponent {
     let nodeComponent = NodeComponent(imageNamed: type.imageName, position: startingPosition, depth: 0.0, layer: layer)
     
     entity!.addComponent(nodeComponent)
+    let node = entity!.node
     
-    // TODO: add physics body
+    let physicsBody = SKPhysicsBody(circleOfRadius: node.frame.width / 2)
+    
+    physicsBody.isDynamic = true
+    physicsBody.affectedByGravity = true
+    physicsBody.allowsRotation = true
+    physicsBody.mass = 0.005 // kg
+    
+    node.physicsBody = physicsBody
   }
 }
