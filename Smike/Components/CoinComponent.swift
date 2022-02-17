@@ -41,6 +41,7 @@ class CoinComponent: GKComponent {
   
   override func update(deltaTime seconds: TimeInterval) {
     if let node = entity?.node, node.position.y < minY {
+      print("REMOVE COIN")
       entity!.remove()
     }
   }
