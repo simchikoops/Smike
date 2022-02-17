@@ -55,7 +55,9 @@ class CoinComponent: GKComponent, Tappable {
     if let scene = entity?.scene {
       if type.power > 0 {
         scene.attackPower += type.power
-        // TODO: float-away label
+        
+        let position = entity!.printNode!.convert(entity!.node.position, from: entity!.node.parent!)
+        scene.addContextLabel(printPosition: position, text: "+\(type.power)", color: .blue)
       }
     }
     entity!.remove()

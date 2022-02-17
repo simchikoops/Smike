@@ -109,7 +109,9 @@ class DemonComponent: GKComponent, Tappable {
     }
     
     scene.attackPower -= powerCost
-    addCostLabel(powerCost)
+    
+    let position = entity!.printNode!.convert(entity!.node.position, from: entity!.node.parent!)
+    scene.addContextLabel(printPosition: position, text: "-\(powerCost)", color: costColor(powerCost))
 
     self.isDying = true
     clearSelf(checkWin: true);
@@ -118,27 +120,7 @@ class DemonComponent: GKComponent, Tappable {
   func powerPrice() -> Int {
     minimumAttackCost + Int(floor(CGFloat(maximumAttackCost - minimumAttackCost) * pow(1 - alongTrack, 0.5)))
   }
-  
-  func addCostLabel(_ cost: Int) {
-    let textNode = SKLabelNode(text: "-\(cost)")
     
-    textNode.fontSize = 72
-    textNode.fontName = "AvenirNext-Bold"
-    textNode.fontColor = costColor(cost)
-    textNode.position = entity!.node.position
-    textNode.position.y += 40
-    textNode.zPosition = 9000
-    
-    entity!.node.parent?.addChild(textNode)
-    
-    textNode.run(SKAction.sequence([
-      SKAction.group([
-        SKAction.moveBy(x: 0, y: 150, duration: 1.5),
-        SKAction.fadeOut(withDuration: 1.5)]),
-      SKAction.removeFromParent()
-    ]))
-  }
-  
   func costColor(_ cost: Int) -> UIColor {
     if cost > 150 {
       return .red

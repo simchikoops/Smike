@@ -69,6 +69,27 @@ class LevelScene: GameScene {
       .first
   }
   
+  func addContextLabel(printPosition: CGPoint, text: String, color: UIColor) {
+    let textNode = SKLabelNode(text: text)
+    
+    textNode.fontSize = 72
+    textNode.fontName = "AvenirNext-Bold"
+    textNode.fontColor = color
+    textNode.position = printPosition
+    textNode.position.y += 40
+    textNode.zPosition = 9000
+    
+    self["print"].first!.addChild(textNode)
+    
+    textNode.run(SKAction.sequence([
+      SKAction.group([
+        SKAction.moveBy(x: 0, y: 150, duration: 1.5),
+        SKAction.fadeOut(withDuration: 1.5)]),
+      SKAction.removeFromParent()
+    ]))
+  }
+
+  
   func checkForWin() {
     guard generators.allSatisfy({ $0.component(ofType: GeneratorComponent.self)!.exhausted }) else { return }
       
