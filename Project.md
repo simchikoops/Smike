@@ -1,29 +1,32 @@
 # To-do
 
-* dispensers
-  
-  coincomponent physics
+* Show mortal allowance
+* Try out coin bounciness, edge springyness/settings
+* Ground demons with digging
+* Outlines? Start with them
+* Other coin types
+* Coin depth?
 
-  railcomponent -> for something to bounce off
-    just trackdots -> physics path
- 
-  Coin catch   
-    Show "+100" etc. on catch
+* Full level
+
+Then: Map & progression
+
+# Steps
 
 * Back, to map
 * Ground attacks
 * Water attacks
-
-* Full level
-
-Next: saving state
-Then: Map & progression
+* saving state
+* challenging stages
+* boss fights
 
 # More to-do
 
 * Tilt to path (option?)
 * Re-use actions?
 * Great casino/coin noise on collection. Coins disappear offscreen or elsewhere
+* Pinch, swipe attacks
+* Localize
 
 # Mark III Summary
 
@@ -36,7 +39,7 @@ Then: Map & progression
 * Coins fall from the sky from chutes. Over water they disappear; might bounce off surfaces w/ physics
 * Coin collection provides attack power
   Coin color per attack type.
-* "Bad" coins: round holes. Lose all you have in that category.
+* "Bad" coins: round holes. Lose all you have in that category?
 * As demons approach they are more efficient to kill; that number is reported. But past 100% the demon is invulernerable and kill(s) made.
 * Tracks have a single type of demon, but there are many of them on many tracks.
 * 1 demon drags down 1 mortal
@@ -44,13 +47,10 @@ Then: Map & progression
 # Mark III Monsters
 
 * Ghost
-  Fast, weak
 * Bat (from below)
   Small target, fast
 * Tortoises
-  Slow, big, strong
 * Devils
-  Big, strong, medium speed
 * Tree dweller: peeks out n times, hit on n - 1
   
 # Coins/Attacks
@@ -65,13 +65,6 @@ Then: Map & progression
 * Ingot - swipe - clears all
   Transferrable to higher levels (capped at n ~ 5)
   
-# More to-do
-
-* Only show track when selected?
-* New colors?
-  Demon: neon red/pink. Hero: neon blue/green. Mortal: neon yellow.
-* Intro/Story scene: use mine shaft to show demons, with text
-
 # Steps
 
 * Saving state
@@ -98,8 +91,6 @@ Then: Map & progression
 # Fundamentals
 
 * Ukiyo-e comes to life
-  Happens with a rattle and a sound
-  Animation, ambient sounds
 * Respect for art & culture
 * Many sources of variety: prints, demons
 
@@ -110,14 +101,6 @@ Then: Map & progression
   death: warp for mortals?
     https://developer.apple.com/documentation/spritekit/skwarpgeometrygrid/animate_the_warping_of_a_sprite
 * sounds
-
-# Level intro script
-
-* Print unadorned; title & artist
-* Print shakes & comes to life with special sound; things start moving
-* Mortals w/ yellow outline in fast sequence; "Protect the mortals"
-* Heroes materialize; "Slide to move, tap to attack"
-* Generators begin
 
 # Living prints
 
@@ -130,92 +113,6 @@ Kyushu, then Shikoku, the southern honshu, then (surprise) Hokkaido (snow), then
 
 Power strikes accrue from level to level. In order to re-play a level with a coin bonus, you risk having to use a strike.
 
-# Demon attack patterns
-
-Each has a secret cycle of when they attack and when they pause. Like two attacks, then wait a while, then two again. So, trigger an attack, then wait for the opportunity.
-
-# Hero types
-
-* Bijin (land): fast comb hits
-* Samurai (land): timed strikes (nearness counts)
-* Ninja (rooftops, in buildings): also timed strikes
-* Birds (air): thrown seeds (up)
-* Boatmen (water): Casting?
-* Tigers (forest): Pounces (hit multiple)
-* Farmers (land): Strike demons burrowing up with implements
-* Horses (roads/bridges): Trample (need running start)
-* Elephants: Horse-like, for big landscapes
-* Flying elephants?
-
-# Gameplay Skills
-
-* Switching heroes
-* Understanding hero, demon types
-* Memorizing generator, attack patterns
-* Speed tapping
-* Use of power strike
-* Supported attacks
-* Earning upgrades
-
-# Hero aspects
-
-* Speed [upgradable]
-* Hit points [upgradable]
-* Attack type (single)
-  Attack strength: [upgradable] some demons can't be hit by some attack types
-* (Track length)
-* Minimum attack interval [upgradable?]
-
-* Skin (purchasable/customizable)
-
-# Attack types
-
-* Aerial: shoot
-* Samurai: fast tap for sword strike
-* Bijin: Comb strike?
-* Fisherman/Spearmen/archers: Hold to aim
-  Facing in one direction
-* vs ground: whack-a-mole (before they get strong or invulnerable)
-* Secondary attacks with spin gesture? Special, limited attack
-  Place a grenade and run, short lifetime. Can hurt other heroes.
-  Special attack to slow down, but not damage, demons.
-
-All: catch coins, avoid waves by hiding in gaps
-
-Supported strikes: stronger when at edge with another at adjacent edge. Some demons can only
-be hit by combos. Like heroes only (samurai-samurai).
-
-Multi-gesture on area or on attack button? 
-Pinch, Rotation, swipe, pan
-
-Galaga-style temporary double-ups?
-
-# Demon attacks
-
-Bombs: if a demon reaches the end of a track, it can set off a bomb that kills mortals elsewhere. Maybe all, maybe just some.
-
-# Strategy
-
-* Quick toggles among heroes, constantly scanning
-* Good timing of toriya
-* Remembering attack patterns, which have little/no rng
-* Supported strikes
-* Defense mode? Pinch to defend, zoom to resume. Can't move/attack when defending
-
-# Power strikes (toriya)
-
-* Massive damage to all demons. killing most
-* Also revives heroes?
-* Start with three at the beginning of a mission, resets at the end
-* Earn power strikes with special coin capture
-
-# Colors
-
-* Red: Demons
-* Yellow/orange: Mortals
-* Blue: Heroes
-  Green: selected hero
-
 # Transforms
 
 ## Demons
@@ -226,34 +123,15 @@ Bombs: if a demon reaches the end of a track, it can set off a bomb that kills m
 
 ## Map: Urban 1
 
-# Implementation Nodes
+# Implementation Notes
 
 ## Components vs Entities
 Generic entities (not subclassed.) Scene-editor created entities have precreated node components.
 Generated entities create their own node components.
 
-# Models
-
-## Space Invaders
-
-Fun:
-* Starts easy, gets hard
-* Places to hide
-* Offense/defense
-* Multiple strategies
-* Inherent drama
-
-## Shinobi
-
-Fun:
-* Mix of stage types
-* Slow gains in experience
-* High challenge
-
 # Revenue
 
-* Bonus missions
-* Coins for special heroes
+* Bonus quests
 
 # Level design
 
@@ -283,16 +161,6 @@ Hero tracks have interesting interactions. Near approaches allow supported attac
 * Distractor animations
 * Music, background sounds
 
-# Coin fountains
-
-Coins fall from the sky, using gravity, can bounce. Heroes must catch them.
-
-Some coins are special (ingots) and worth more than cash.
-
-# Inverse Kinematics
-
-https://www.raywenderlich.com/1158-spritekit-and-inverse-kinematics-with-swift
-
 # Scoreboard
 
 Two orientations.
@@ -302,36 +170,6 @@ Two orientations.
 * Level progress?
 * Controls: Pause, exit
 
-# Coin system
-
-* Spend on hero attributes
-* Buy coins with $
-* Kanei Tsuho appearance (square hole)
-
-
-# Updated Gameplay
-
-Mission sequences with related scenery & demons. Option to buy between scenes.
-
-Challenging stage is all coin fountains, can't lose.
-
-# Gameplay
-
-1 print per level, many levels per mission, ending with boss fight. Pay for bonus missions & special heroes.
-
-Planes of various depths defined on top of print. Plane has a surface type and proximity objects like trees, mountains, buildings, bridges. All mortals to be protected are within a plane. Heroes and demons are scaled to the plane.
-
-Demons arrive and attack the mortals, sucking them into hell if they can. If any of the mortals die you lose. You place heroes in planes to protect them from demons and to fight back against them. Demons attack both mortals and heroes.
-
-Zen points are required to place heroes. Placed clergy increase zen points.
-
-Defeat all the demons the spawn in a level to win the level.
-
-Within a plane, heroes may move back and forth. Some may swim or fly. Mortals mostly stay put. Flying demons move among planes. X placement matters.
-
-Demons have various attacks. 
-
-You earn new heroes with new & better powers. You can use any of them. Arrange your palette of heroes and swipe during the game. Palette is below or beside.
 
 # Boss fights
 
@@ -351,24 +189,12 @@ Cut scenes to start? Picture comes alive.
 ## Snow
 ## Urban
 
-# Mortals
-
-Brightly colored, color changes. Larger things have more HP. Flash when hit, different color flash when near death. Sucked into the ground when killed with a horrible scream.
-
-### Peasants
-### Boats
-### Buildings
-
 # Optimization
 https://www.hackingwithswift.com/articles/184/tips-to-optimize-your-spritekit-game
 
 # Story
 
-"IN OLD JAPAN the gates of hell have opened. Unseen demons drag mortals to their doom. Only your heroes can save them."
-
-Pre-level:
-
-"PROTECT THE MORTALS" (or mortal)
+"IN OLD JAPAN the gates of hell have opened. Unseen demons drag mortals to their doom. Only you can save them!"
 
 # Boss images
 - https://ukiyo-e.org/image/kruml/warriors47#&gid=1&pid=1
@@ -432,17 +258,6 @@ Pre-level:
   https://ukiyo-e.org/image/mfa/sc207822
   https://ukiyo-e.org/image/japancoll/p4500-hiroshige-night-view-of-saruwaka-machi-7413 
   https://ukiyo-e.org/image/mfa/sc208894
-
-# Heroes images
-
-## Samurai "Faithful Samurai"
-  https://ukiyo-e.org/image/bm/AN00588016_001_l
-  https://ukiyo-e.org/image/mfa/sc234237
-  https://ukiyo-e.org/image/japancoll/p185-yoshitora-okuda-tadaemon-fujiwara-no-yukitaka-8628
-  https://ukiyo-e.org/image/met/DP132861
-  https://ukiyo-e.org/image/mfa/sc234267
-  https://ukiyo-e.org/image/bm/AN00460808_001_l
-  https://ukiyo-e.org/image/japancoll/p325-yoshiiku-kusunoki-shichorozaemon-masatomo-11085
 
 # Scaling
 - Long side: 1536 px

@@ -9,7 +9,12 @@ class LevelScene: GameScene {
   var live: Bool = false // can't use isPaused for initial dealy
   var ticks: CGFloat = 0.0
   
-  var mortalAllowanceRemaining: Int = 0
+  var mortalsRemaining: Int = 0 {
+    didSet {
+      mortalsRemainingCount?.text = String(mortalsRemaining)
+      mortalsRemainingCount?.fontColor = mortalsRemaining <= 1 ? .red : .black
+    }
+  }
   
   var attackPower: Int = 0 {
     didSet { attackPowerCount?.text = String(attackPower) }
@@ -21,7 +26,8 @@ class LevelScene: GameScene {
   private var tapRecognizer: UITapGestureRecognizer? = nil
   
   private var attackPowerCount: SKLabelNode?
-    
+  private var mortalsRemainingCount: SKLabelNode?
+
   override func sceneDidLoad() {
     physicsWorld.contactDelegate = self
 
@@ -34,9 +40,10 @@ class LevelScene: GameScene {
     super.didMove(to: view)
 
     self.attackPowerCount = self.childNode(withName: "//attack_power_count") as? SKLabelNode
+    self.mortalsRemainingCount = self.childNode(withName: "//mortals_remaining_count") as? SKLabelNode
 
     if let level = self.entity?.component(ofType: LevelComponent.self) {
-      self.mortalAllowanceRemaining = level.mortalAllowance
+      self.mortalsRemaining = level.mortalAllowance
       self.attackPower = level.startingAttackPower
     }
     
@@ -102,7 +109,7 @@ class LevelScene: GameScene {
   }
   
   func checkForLoss() {
-    guard mortalAllowanceRemaining <= 0 else { return }
+    guard mortalsRemaining <= 0 else { return }
 
     print("LOST LEVEL")
 

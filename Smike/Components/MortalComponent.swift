@@ -33,7 +33,7 @@ class MortalComponent: GKComponent {
       deathSequence,
       SKAction.run {
         scene.mortals.remove(object: self.entity!)
-        scene.mortalAllowanceRemaining -= 1
+        scene.mortalsRemaining -= 1
         
         self.entity!.remove()
         scene.checkForLoss()
