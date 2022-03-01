@@ -47,9 +47,6 @@ class GeneratorComponent: GKComponent {
     let demonComponent = DemonComponent(generator: self)
     demon.addComponent(demonComponent)
     
-    entity!.node.addChild(demon.node)
-    
-    entity!.scene.entities.append(demon)
     self.demons.append(demon)
   }
 }

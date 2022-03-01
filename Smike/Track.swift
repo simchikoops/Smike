@@ -125,6 +125,15 @@ struct Track {
     return fixAlong(fractionAlong * distance)
   }
   
+  func affixNodeFractionAlong(fractionAlong: CGFloat, node: SKSpriteNode) {
+    let (position, depth, layer, facing) = fixFractionAlong(fractionAlong)
+    
+    node.position = position
+    node.depth = depth
+    node.zPosition = layer
+    node.facing = facing
+  }
+  
   private func dotPairs() -> Array<(TrackDot, TrackDot)> {
     var pairsArray = Array(dots.adjacentPairs())
     if isLoop {

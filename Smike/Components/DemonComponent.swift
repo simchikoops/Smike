@@ -8,6 +8,8 @@ class DemonComponent: GKComponent, Tappable {
   let generator: GeneratorComponent
   var type: DemonType { generator.demonType }
   var track: Track { generator.track! }
+  
+  var eyesNode: SKSpriteNode?
 
   var alongTrack: CGFloat = 0
   var isDiving: Bool = false
@@ -45,6 +47,16 @@ class DemonComponent: GKComponent, Tappable {
     let nodeComponent = NodeComponent(imageNamed: imageName, position: fix.position, depth: fix.depth, layer: fix.layer)
     
     entity!.addComponent(nodeComponent)
+    
+    generator.entity!.node.addChild(entity!.node)
+    entity!.scene.entities.append(entity!)
+    
+    self.eyesNode = SKSpriteNode(imageNamed: "\(type.imageName)_eyes")
+    track.affixNodeFractionAlong(fractionAlong: 1.0, node: eyesNode!)
+    eyesNode?.alpha = 0.0
+    eyesNode?.run(SKAction.fadeIn(withDuration: generator.duration * 0.8))
+    
+    entity!.node.parent!.addChild(eyesNode!)
   }
     
   override func update(deltaTime seconds: TimeInterval) {
@@ -57,18 +69,13 @@ class DemonComponent: GKComponent, Tappable {
     if alongTrack >= 1.0 {
       dive()
     } else {
-      let (position, depth, layer, facing) = track.fixFractionAlong(alongTrack)
-      
-      node.position = position
-      node.depth = depth
-      node.zPosition = layer
-      node.facing = facing
+      track.affixNodeFractionAlong(fractionAlong: alongTrack, node: node)
     }
   }
   
   func dive() {
     self.isDiving = true
-    
+        
     let scenePosition = entity!.node.convert(entity!.node.position, to: entity!.scene)
     let victim = entity!.scene.nearestLivingMortal(scenePosition: scenePosition)
     
@@ -76,6 +83,8 @@ class DemonComponent: GKComponent, Tappable {
     
     guard let node = entity?.node as? SKSpriteNode, let victimNode = victim?.node else { return }
     guard let diveTarget = node.parent?.convert(victimNode.position, from: victimNode.parent!) else { return }
+    
+    eyesNode?.move(toParent: node) // caught up with them
     
     node.zPosition = 7000 // out in front
     node.run(SKAction.sequence([
@@ -134,7 +143,9 @@ class DemonComponent: GKComponent, Tappable {
   }
   
   func clearSelf(checkWin: Bool) {
+    eyesNode?.removeFromParent()
     generator.demons.remove(object: entity!)
+    
     if checkWin, let scene = entity?.scene {
       scene.checkForWin()
     }

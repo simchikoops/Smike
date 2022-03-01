@@ -1,6 +1,6 @@
 # To-do
 
-* Show mortal allowance
+* Try demon eyes
 * Try out coin bounciness, edge springyness/settings
 * Ground demons with digging
 * Outlines? Start with them
@@ -18,7 +18,9 @@ Then: Map & progression
 * Water attacks
 * saving state
 * challenging stages
-* boss fights
+  coin capture only
+* "boss fights"
+  single big mortal
 
 # More to-do
 
@@ -27,6 +29,12 @@ Then: Map & progression
 * Great casino/coin noise on collection. Coins disappear offscreen or elsewhere
 * Pinch, swipe attacks
 * Localize
+
+# Bonus points
+
+* Earn for leftover point, living mortals
+* Spend pre-level for power, pinches (both non-transferable), and swipes.
+  Store on map.
 
 # Mark III Summary
 
@@ -60,9 +68,9 @@ Then: Map & progression
   
   Attacks take 25 - 200 point (25 perfect, 200 worst)
   Re-initialized each level
-* Kobudo - Pinch - all in the generator
+* Silver coin? / Kobudo - Pinch - all in the generator
   Always starts at 0, non-transferrable
-* Ingot - swipe - clears all
+* Gold coin? / Ingot - swipe - clears all
   Transferrable to higher levels (capped at n ~ 5)
   
 # Steps
