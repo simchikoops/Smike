@@ -36,6 +36,7 @@ class CoinComponent: GKComponent, Tappable {
     physicsBody.allowsRotation = true
     physicsBody.mass = 0.005 // kg
     physicsBody.linearDamping = 1.0 // air resistance? small effect
+    physicsBody.restitution = 0.5 // bounciness
     
     node.physicsBody = physicsBody
   }

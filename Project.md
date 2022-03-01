@@ -1,7 +1,5 @@
 # To-do
 
-* Try demon eyes
-* Try out coin bounciness, edge springyness/settings
 * Ground demons with digging
 * Outlines? Start with them
 * Other coin types
