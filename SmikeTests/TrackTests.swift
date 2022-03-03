@@ -49,9 +49,9 @@ class TrackTests: XCTestCase {
       XCTAssertTrue(track1.fixFractionAlong(0.5) == (position: CGPoint(x: 5, y: 0), depth: 0.5, layer: 0, facing: .left))
       XCTAssertTrue(track1.fixFractionAlong(1.0) == (position: CGPoint(x: 10, y: 0), depth: 1.0, layer: 0, facing: .left))
 
-      let track2 = Track(orderedDots: [(position: CGPoint(x: 1, y: 1), depth: 0.25, layer: 0, facing: .left, relativeSpeed: 1),
-                                (position: CGPoint(x: 1, y: 3), depth: 0.6, layer: 0, facing: .left, relativeSpeed: 1),
-                                (position: CGPoint(x: 3, y: 5), depth: 0.8, layer: 0, facing: .left, relativeSpeed: 1)])
+      let track2 = Track(orderedDots: [(position: CGPoint(x: 1, y: 1), depth: 0.7, layer: 0, facing: .left, relativeSpeed: 1),
+                                (position: CGPoint(x: 1, y: 3), depth: 0.7, layer: 0, facing: .left, relativeSpeed: 1),
+                                (position: CGPoint(x: 3, y: 5), depth: 0.7, layer: 0, facing: .left, relativeSpeed: 1)])
 
       let posAndDepth = track2.fixFractionAlong(0.707)
       XCTAssertEqual(posAndDepth.position.x, 2, accuracy: 0.001)

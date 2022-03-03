@@ -1,9 +1,8 @@
 # To-do
 
 * Ground demons with digging
-* Outlines? Start with them
 * Other coin types
-* Coin depth?
+* Coin depth? warp coins
 
 * Full level
 
