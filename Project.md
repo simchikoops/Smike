@@ -70,16 +70,6 @@ Then: Map & progression
 * Gold coin? / Ingot - swipe - clears all
   Transferrable to higher levels (capped at n ~ 5)
   
-# Steps
-
-* Saving state
-* Syncing with animation and basic sounds
-* Mass attack
-* Advancement
-  Map of Japan? Each island. Staman.terrainbackground
-* Coins
-* Purchases
-
 # Consider
 
 * Some kind of bonus for leftover power, mortals
@@ -92,6 +82,7 @@ Then: Map & progression
   "Stop demons when they are near but before they dive onto mortals."
   "Good! You stopped the demon using little power."
   "Be patient! Stopping demons at a distance uses a lot of power."
+* 3d coin chutes? show edge-on, or warp
 
 # Fundamentals
 

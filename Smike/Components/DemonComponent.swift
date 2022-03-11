@@ -53,8 +53,10 @@ class DemonComponent: GKComponent, Tappable {
     
     self.eyesNode = SKSpriteNode(imageNamed: "\(type.imageName)_eyes")
     track.affixNodeFractionAlong(fractionAlong: 1.0, node: eyesNode!)
+    
+    eyesNode?.zPosition += 0.5 // stay ahead of main sprite
     eyesNode?.alpha = 0.0
-    eyesNode?.run(SKAction.fadeIn(withDuration: generator.duration * 0.8))
+    eyesNode?.run(SKAction.fadeIn(withDuration: generator.duration * 0.5))
     
     entity!.node.parent!.addChild(eyesNode!)
   }
@@ -84,10 +86,12 @@ class DemonComponent: GKComponent, Tappable {
     guard let node = entity?.node as? SKSpriteNode, let victimNode = victim?.node else { return }
     guard let diveTarget = node.parent?.convert(victimNode.position, from: victimNode.parent!) else { return }
     
-    eyesNode?.move(toParent: node) // caught up with them
+    //eyesNode?.move(toParent: node) // caught up with them
     
-    node.zPosition = 7000 // out in front
-    node.run(SKAction.sequence([
+    node.zPosition = 9000 // out in front
+    eyesNode?.zPosition = 9001
+        
+    let diveActions = SKAction.sequence([
       SKAction.group([
         SKAction.scale(by: 2.0, duration: 0.5),
         SKAction.fadeAlpha(by: -0.6, duration: 0.5)
@@ -95,9 +99,11 @@ class DemonComponent: GKComponent, Tappable {
       SKAction.group([
         SKAction.scale(to: 0.4, duration: 0.5),
         SKAction.move(to: diveTarget, duration: 0.5)
-      ]),
-      SKAction.run { self.clearSelf(checkWin: false) }
-    ]))
+      ])
+    ])
+    
+    node.run(SKAction.sequence([diveActions, SKAction.run { self.clearSelf(checkWin: false) }]))
+    eyesNode?.run(SKAction.sequence([diveActions, SKAction.run { self.eyesNode?.removeFromParent() }]))
   }
   
   // TODO: better than point-in-rect.

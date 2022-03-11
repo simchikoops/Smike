@@ -1,10 +1,10 @@
 import SpriteKit
 
-typealias DemonValues = (imageName: String, frameCount: Int, timePerFrame: Double)
+typealias DemonValues = (imageName: String, frameCount: Int, timePerFrame: Double, entranceImageName: String?, entranceFrameCount: Int, entranceTimePerFrame: Double)
 
-let batValues: DemonValues = (imageName: "bat", frameCount: 1, timePerFrame: 0)
-let devilValues: DemonValues = (imageName: "devil", frameCount: 1, timePerFrame: 0)
-let ghostValues: DemonValues = (imageName: "ghost", frameCount: 4, timePerFrame: 0.25)
+let batValues: DemonValues = (imageName: "bat", frameCount: 1, timePerFrame: 0, entranceImageName: nil, entranceFrameCount: 0, entranceTimePerFrame: 0.0)
+let devilValues: DemonValues = (imageName: "devil", frameCount: 1, timePerFrame: 0, entranceImageName: "devil_dirt", entranceFrameCount: 5, entranceTimePerFrame: 0.18)
+let ghostValues: DemonValues = (imageName: "ghost", frameCount: 4, timePerFrame: 0.25, entranceImageName: nil, entranceFrameCount: 0, entranceTimePerFrame: 0.0)
 
 enum DemonType: Int {
   case bat = 1
@@ -22,4 +22,8 @@ enum DemonType: Int {
   var imageName: String { values.imageName }
   var frameCount: Int { values.frameCount }
   var timePerFrame: Double { values.timePerFrame }
+  
+  var entranceImageName: String? { values.entranceImageName }
+  var entranceFrameCount: Int { values.entranceFrameCount }
+  var entranceTimePerFrame: Double { values.entranceTimePerFrame }
 }
