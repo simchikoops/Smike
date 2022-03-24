@@ -1,3 +1,3 @@
-class TutorialScene: GameScene {
+class TutorialScene: LevelScene {
   
 }

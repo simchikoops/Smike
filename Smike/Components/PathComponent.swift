@@ -25,7 +25,6 @@ class PathComponent: GKComponent {
   
   override func didAddToEntity() {
     type = PathType(rawValue: rawType)!
-    print(type)
     track = Track.fromNodes(headNode: entity!.node, loop: type == .loop)
   }
 }
