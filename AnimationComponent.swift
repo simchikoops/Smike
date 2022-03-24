@@ -4,7 +4,7 @@ import GameplayKit
 class AnimationComponent: GKComponent {
   @GKInspectable var textures: String = ""
   @GKInspectable var frameCount: Int = 1
-  @GKInspectable var timePerFrame: Double = 1.0
+  @GKInspectable var timePerFrame: CGFloat = 1.0
   
   var mainAction: SKAction?
   var unstarted: Bool = true

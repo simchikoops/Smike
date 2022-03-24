@@ -36,12 +36,15 @@ class TracerComponent: GKComponent {
     alongTrack += increment
     
     if alongTrack >= 1.0 {
-      if path.isLoop { // start over
+      switch path.type {
+      case .loop:
         alongTrack = alongTrack.truncatingRemainder(dividingBy: 1.0)
-      } else {
-        if path.removeWhenFinished {
-          entity!.remove()
-        }
+      case .jump:
+        alongTrack = 0.0
+      case .terminal:
+        entity!.remove()
+        return
+      case .simple:
         return
       }
     }
