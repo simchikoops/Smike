@@ -2,7 +2,7 @@ import SpriteKit
 import GameplayKit
 
 class DemonComponent: GKComponent, Tappable {
-  let minimumAttackCost = 25
+  let minimumAttackCost = 1
   let maximumAttackCost = 200
   
   let generator: GeneratorComponent
@@ -56,7 +56,9 @@ class DemonComponent: GKComponent, Tappable {
     
     eyesNode?.zPosition += 0.5 // stay ahead of main sprite
     eyesNode?.alpha = 0.0
-    eyesNode?.run(SKAction.fadeIn(withDuration: generator.duration * 0.5))
+    eyesNode?.run(SKAction.sequence([
+      SKAction.wait(forDuration: generator.duration * 0.33),
+      SKAction.fadeIn(withDuration: generator.duration * 0.66)]))
     
     entity!.node.parent!.addChild(eyesNode!)
   }
@@ -85,9 +87,7 @@ class DemonComponent: GKComponent, Tappable {
     
     guard let node = entity?.node as? SKSpriteNode, let victimNode = victim?.node else { return }
     guard let diveTarget = node.parent?.convert(victimNode.position, from: victimNode.parent!) else { return }
-    
-    //eyesNode?.move(toParent: node) // caught up with them
-    
+        
     node.zPosition = 9000 // out in front
     eyesNode?.zPosition = 9001
         
@@ -102,6 +102,7 @@ class DemonComponent: GKComponent, Tappable {
       ])
     ])
     
+    // Can't combine into one sprite--bug?
     node.run(SKAction.sequence([diveActions, SKAction.run { self.clearSelf(checkWin: false) }]))
     eyesNode?.run(SKAction.sequence([diveActions, SKAction.run { self.eyesNode?.removeFromParent() }]))
   }
@@ -132,8 +133,9 @@ class DemonComponent: GKComponent, Tappable {
     clearSelf(checkWin: true);
   }
   
+  // Higher powers are closer to linear prices.
   func powerPrice() -> Int {
-    minimumAttackCost + Int(floor(CGFloat(maximumAttackCost - minimumAttackCost) * pow(1 - alongTrack, 0.5)))
+    minimumAttackCost + Int(floor(CGFloat(maximumAttackCost - minimumAttackCost) * pow(1 - alongTrack, 0.75)))
   }
     
   func costColor(_ cost: Int) -> UIColor {

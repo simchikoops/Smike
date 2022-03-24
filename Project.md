@@ -1,6 +1,7 @@
 # To-do
 
 * Ground demons with digging
+* Tutorial
 * Other coin types
 * Coin depth? warp coins
 
@@ -254,6 +255,10 @@ https://www.hackingwithswift.com/articles/184/tips-to-optimize-your-spritekit-ga
   https://ukiyo-e.org/image/mfa/sc207822
   https://ukiyo-e.org/image/japancoll/p4500-hiroshige-night-view-of-saruwaka-machi-7413 
   https://ukiyo-e.org/image/mfa/sc208894
+  
+  https://japaneseprints.org/hokusai/laughing-demon/
+  https://ukiyo-e.org/image/bm/AN00536251_001_l
+  https://ukiyo-e.org/image/mfa/sc226738
 
 # Scaling
 - Long side: 1536 px
@@ -264,8 +269,9 @@ https://www.hackingwithswift.com/articles/184/tips-to-optimize-your-spritekit-ga
 
 # Titles
 
-* Heroes and Demons (Heroes/Demons)
 * Hokusai's Demons
+* Heroes and Demons (Heroes/Demons)
+
 
 # Acknowledgements
 

@@ -46,6 +46,9 @@
 		55B746B1279F56E700F1EC26 /* hero_hit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 55B746B0279F56E700F1EC26 /* hero_hit.mp3 */; };
 		55BA7CC4277504300078D20F /* TrackDotComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA7CC3277504300078D20F /* TrackDotComponent.swift */; };
 		55BA7CC627754B4D0078D20F /* DemonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA7CC527754B4D0078D20F /* DemonType.swift */; };
+		55BB1F8F27ECDC99001C9B97 /* Tutorial.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55BB1F8E27ECDC99001C9B97 /* Tutorial.sks */; };
+		55BB1F9127ECDFA4001C9B97 /* TutorialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BB1F9027ECDFA4001C9B97 /* TutorialScene.swift */; };
+		55BB1F9327ECE1D5001C9B97 /* TutorialDash.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55BB1F9227ECE1D5001C9B97 /* TutorialDash.sks */; };
 		55C0677827CEA52A00B985D2 /* RailType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C0677727CEA52A00B985D2 /* RailType.swift */; };
 		55C816E62761141200A810EE /* GKEntityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E52761141200A810EE /* GKEntityExtensions.swift */; };
 		55C816E82761161400A810EE /* NodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C816E72761161400A810EE /* NodeComponent.swift */; };
@@ -119,6 +122,9 @@
 		55B746B0279F56E700F1EC26 /* hero_hit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hero_hit.mp3; sourceTree = "<group>"; };
 		55BA7CC3277504300078D20F /* TrackDotComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDotComponent.swift; sourceTree = "<group>"; };
 		55BA7CC527754B4D0078D20F /* DemonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemonType.swift; sourceTree = "<group>"; };
+		55BB1F8E27ECDC99001C9B97 /* Tutorial.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tutorial.sks; sourceTree = "<group>"; };
+		55BB1F9027ECDFA4001C9B97 /* TutorialScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialScene.swift; sourceTree = "<group>"; };
+		55BB1F9227ECE1D5001C9B97 /* TutorialDash.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TutorialDash.sks; sourceTree = "<group>"; };
 		55C0677727CEA52A00B985D2 /* RailType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailType.swift; sourceTree = "<group>"; };
 		55C816E52761141200A810EE /* GKEntityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKEntityExtensions.swift; sourceTree = "<group>"; };
 		55C816E72761161400A810EE /* NodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeComponent.swift; sourceTree = "<group>"; };
@@ -193,6 +199,7 @@
 				55010AA327518DEC0049E9AE /* GameViewController.swift */,
 				5569EE4B278CBBA60030E798 /* Router.swift */,
 				55EE3DAD278F518600009573 /* GameScene.swift */,
+				55BB1F9027ECDFA4001C9B97 /* TutorialScene.swift */,
 				55337A562756A57300407618 /* LevelScene.swift */,
 				551A259D27949B2B00B31388 /* MissionScene.swift */,
 				55DAB5392771562500105FC4 /* PhysicsInfo.swift */,
@@ -242,6 +249,7 @@
 		55337A4E2755AF4B00407618 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
+				55BB1F8E27ECDC99001C9B97 /* Tutorial.sks */,
 				550447D2278E30240089F8E1 /* Q1M1L1.sks */,
 				550447D4278E30350089F8E1 /* Q1M1L2.sks */,
 			);
@@ -273,6 +281,7 @@
 			children = (
 				55337A592756AE1D00407618 /* PortraitDash.sks */,
 				55337A5D27581EF800407618 /* LandscapeDash.sks */,
+				55BB1F9227ECE1D5001C9B97 /* TutorialDash.sks */,
 			);
 			path = "Reference Nodes";
 			sourceTree = "<group>";
@@ -432,8 +441,10 @@
 				55D6462F279B82E800509FD1 /* hero_focus.mp3 in Resources */,
 				55337A5E27581EF800407618 /* LandscapeDash.sks in Resources */,
 				55010AAC27518DEE0049E9AE /* LaunchScreen.storyboard in Resources */,
+				55BB1F9327ECE1D5001C9B97 /* TutorialDash.sks in Resources */,
 				550447D3278E30240089F8E1 /* Q1M1L1.sks in Resources */,
 				550447D5278E30350089F8E1 /* Q1M1L2.sks in Resources */,
+				55BB1F8F27ECDC99001C9B97 /* Tutorial.sks in Resources */,
 				55B746B1279F56E700F1EC26 /* hero_hit.mp3 in Resources */,
 				55D5580827A0A52800695069 /* male_hero_hurt.mp3 in Resources */,
 				55337A5A2756AE1D00407618 /* PortraitDash.sks in Resources */,
@@ -465,6 +476,7 @@
 				55A44E1C27B4505300348F0A /* PathComponent.swift in Sources */,
 				55DFB29E2773E20F00F3747B /* MortalComponent.swift in Sources */,
 				55BA7CC627754B4D0078D20F /* DemonType.swift in Sources */,
+				55BB1F9127ECDFA4001C9B97 /* TutorialScene.swift in Sources */,
 				55C0677827CEA52A00B985D2 /* RailType.swift in Sources */,
 				553A513127BDD5680053C784 /* CoinComponent.swift in Sources */,
 				55EE3DAE278F518600009573 /* GameScene.swift in Sources */,

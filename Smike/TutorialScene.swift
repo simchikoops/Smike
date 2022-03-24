@@ -1,0 +1,3 @@
+class TutorialScene: GameScene {
+  
+}
