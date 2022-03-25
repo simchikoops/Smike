@@ -3,7 +3,9 @@ import GameplayKit
 
 class DemonComponent: GKComponent, Tappable {
   let minimumAttackCost = 1
-  let maximumAttackCost = 200
+  let maximumAttackCost = 100
+  
+  let attackWindowSeconds: CGFloat = 5.0
   
   let generator: GeneratorComponent
   var type: DemonType { generator.demonType }
@@ -15,6 +17,10 @@ class DemonComponent: GKComponent, Tappable {
   var alongTrack: CGFloat = 0
   var isDiving: Bool = false
   var isDying: Bool = false
+  
+  var alongAttackWindow: CGFloat {
+    max(0, (alongTrack * generator.duration) - (generator.duration - attackWindowSeconds)) / attackWindowSeconds
+  }
     
   init(generator: GeneratorComponent) {
     self.generator = generator
@@ -61,8 +67,8 @@ class DemonComponent: GKComponent, Tappable {
     frameNode?.zPosition += 0.5 // stay ahead of main sprite
     frameNode?.alpha = 0.0
     frameNode?.run(SKAction.sequence([
-      SKAction.wait(forDuration: generator.duration * 0.33),
-      SKAction.fadeIn(withDuration: generator.duration * 0.66)]))
+      SKAction.wait(forDuration: generator.duration - attackWindowSeconds),
+      SKAction.fadeAlpha(to: 1.0, duration: attackWindowSeconds)]))
     
     entity!.node.parent!.addChild(frameNode!)
   }
@@ -70,7 +76,7 @@ class DemonComponent: GKComponent, Tappable {
   override func update(deltaTime seconds: TimeInterval) {
     guard let node = entity?.node as? SKSpriteNode else { return }
     guard !(isDiving || isDying) else { return }
-    
+        
     let increment = (seconds / generator.duration)
     alongTrack += increment
      
@@ -119,9 +125,11 @@ class DemonComponent: GKComponent, Tappable {
     guard !isDiving, !isDying, let scene = entity?.scene else { return }
     
     let powerCost = powerPrice()
-    print("price", alongTrack, powerCost)
     
-    if scene.attackPower < powerCost {
+    if alongAttackWindow == 0.0 {
+      print("not attackable")
+      return
+    } else if scene.attackPower < powerCost {
       // TODO: bad noise
       print("too much")
       return
@@ -138,7 +146,7 @@ class DemonComponent: GKComponent, Tappable {
   
   // Higher powers are closer to linear prices.
   func powerPrice() -> Int {
-    minimumAttackCost + Int(floor(CGFloat(maximumAttackCost - minimumAttackCost) * pow(1 - alongTrack, 0.75)))
+    Int(round(CGFloat(maximumAttackCost - minimumAttackCost) * pow(1 - alongAttackWindow, 0.75))) + minimumAttackCost
   }
     
   func costColor(_ cost: Int) -> UIColor {
