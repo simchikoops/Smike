@@ -9,7 +9,8 @@ class DemonComponent: GKComponent, Tappable {
   var type: DemonType { generator.demonType }
   var track: Track { generator.track! }
   
-  var eyesNode: SKSpriteNode?
+  var frameNode: SKSpriteNode?
+  var blindNode: SKSpriteNode?
 
   var alongTrack: CGFloat = 0
   var isDiving: Bool = false
@@ -45,22 +46,25 @@ class DemonComponent: GKComponent, Tappable {
     }
     
     let nodeComponent = NodeComponent(imageNamed: imageName, position: fix.position, depth: fix.depth, layer: fix.layer)
-    
     entity!.addComponent(nodeComponent)
+    
+    self.blindNode = SKSpriteNode(imageNamed: "\(type.imageName)_blind")
+    self.blindNode?.zPosition = fix.depth + 1
+    entity!.node.addChild(blindNode!)
     
     generator.entity!.node.addChild(entity!.node)
     entity!.scene.entities.append(entity!)
     
-    self.eyesNode = SKSpriteNode(imageNamed: "\(type.imageName)_eyes")
-    track.affixNodeFractionAlong(fractionAlong: 1.0, node: eyesNode!)
+    self.frameNode = SKSpriteNode(imageNamed: "\(type.imageName)_frame")
+    track.affixNodeFractionAlong(fractionAlong: 1.0, node: frameNode!)
     
-    eyesNode?.zPosition += 0.5 // stay ahead of main sprite
-    eyesNode?.alpha = 0.0
-    eyesNode?.run(SKAction.sequence([
+    frameNode?.zPosition += 0.5 // stay ahead of main sprite
+    frameNode?.alpha = 0.0
+    frameNode?.run(SKAction.sequence([
       SKAction.wait(forDuration: generator.duration * 0.33),
       SKAction.fadeIn(withDuration: generator.duration * 0.66)]))
     
-    entity!.node.parent!.addChild(eyesNode!)
+    entity!.node.parent!.addChild(frameNode!)
   }
     
   override func update(deltaTime seconds: TimeInterval) {
@@ -89,7 +93,6 @@ class DemonComponent: GKComponent, Tappable {
     guard let diveTarget = node.parent?.convert(victimNode.position, from: victimNode.parent!) else { return }
         
     node.zPosition = 9000 // out in front
-    eyesNode?.zPosition = 9001
         
     let diveActions = SKAction.sequence([
       SKAction.group([
@@ -102,9 +105,9 @@ class DemonComponent: GKComponent, Tappable {
       ])
     ])
     
-    // Can't combine into one sprite--bug?
     node.run(SKAction.sequence([diveActions, SKAction.run { self.clearSelf(checkWin: false) }]))
-    eyesNode?.run(SKAction.sequence([diveActions, SKAction.run { self.eyesNode?.removeFromParent() }]))
+    self.blindNode?.removeFromParent()
+    self.frameNode?.removeFromParent()
   }
   
   // TODO: better than point-in-rect.
@@ -151,7 +154,7 @@ class DemonComponent: GKComponent, Tappable {
   }
   
   func clearSelf(checkWin: Bool) {
-    eyesNode?.removeFromParent()
+    frameNode?.removeFromParent()
     generator.demons.remove(object: entity!)
     
     if checkWin, let scene = entity?.scene {
