@@ -1,7 +1,23 @@
 # To-do
 
 * Ground demons with digging
+  Depth issue?
+  
 * Tutorial
+  Formal Steps; no shaking
+  Shoot coins out of Fuji!
+  Not intro/splash; that's different
+  "First Skill: Save strength by striking demons when they are close. Don't wait too long!"
+  LEARN SKILL
+  Give feedback & repeat if not good. "Good! You saved strength and dispelled the demon."
+  "Too late! Strike sooner." "Too early! Strike later to save strength for other demons."
+  "Second Skill: Gather coins before they roll away."
+  LEARN SKILL
+  More feedback & repeat, then final message.
+  "Oops! You missed all the coins. Grab the coins quickly." TRY AGAIN
+  "Good! You gathered x of 3 coins."
+  "You are now ready to combat Hokusai's demons!" CONTINUE
+  
 * Other coin types
 * Coin depth? warp coins
 
@@ -19,6 +35,8 @@ Then: Map & progression
   coin capture only
 * "boss fights"
   single big mortal
+* Intro--print?
+  Set up conflict: demons catch & kill mortals
 
 # More to-do
 
@@ -109,6 +127,11 @@ Then: Map & progression
 Kyushu, then Shikoku, the southern honshu, then (surprise) Hokkaido (snow), then end up in Tokyo.
 
 Power strikes accrue from level to level. In order to re-play a level with a coin bonus, you risk having to use a strike.
+
+# Special Scale Factors
+When print is smaller than the canvas.
+
+* Tutorial: 0.867
 
 # Transforms
 

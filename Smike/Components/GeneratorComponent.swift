@@ -43,27 +43,43 @@ class GeneratorComponent: GKComponent {
   }
   
   private func spawn() {
-    let demon = GKEntity()
-    
-    if let entranceImageName = demonType.entranceImageName, entrance == nil  {
-      self.entrance = GKEntity()
-      
-      let fix = track!.fixAlong(0)
-      let nodeComponent = NodeComponent(imageNamed: "\(entranceImageName)_0", position: fix.position, depth: fix.depth, layer: fix.layer)
-      entrance?.addComponent(nodeComponent)
-
-      let animationComponent = AnimationComponent()
-      animationComponent.textures = entranceImageName
-      animationComponent.frameCount = demonType.entranceFrameCount
-      animationComponent.timePerFrame = demonType.entranceTimePerFrame
-      entrance?.addComponent(animationComponent)
-      
-      entity!.node.parent!.addChild(entrance!.node)
+    if demonType.entranceImageName != nil, entrance == nil  {
+      entity!.node.run(SKAction.sequence([prespawnAction(), spawnAction()]))
+    } else {
+      entity!.node.run(spawnAction())
     }
-    
-    let demonComponent = DemonComponent(generator: self)
-    demon.addComponent(demonComponent)
-    
-    self.demons.append(demon)
+  }
+  
+  private func prespawnAction() -> SKAction {
+    return SKAction.sequence([
+      SKAction.run {
+        self.entrance = GKEntity()
+        self.entity!.scene.entities.append(self.entrance!)
+        
+        let fix = self.track!.fixAlong(0)
+        let nodeComponent = NodeComponent(imageNamed: "\(self.demonType.entranceImageName!)_0", position: fix.position, depth: fix.depth, layer: fix.layer - 10)
+        self.entrance?.addComponent(nodeComponent)
+
+        let animationComponent = AnimationComponent()
+        animationComponent.textures = self.demonType.entranceImageName!
+        animationComponent.frameCount = self.demonType.entranceFrameCount
+        animationComponent.timePerFrame = self.demonType.entranceTimePerFrame
+        animationComponent.repeats = false
+        self.entrance?.addComponent(animationComponent)
+        
+        self.entity!.node.addChild(self.entrance!.node)
+      },
+      SKAction.wait(forDuration: Double(demonType.entranceFrameCount) * demonType.entranceTimePerFrame * 2)
+    ])
+  }
+  
+  private func spawnAction() -> SKAction {
+    return SKAction.run {
+      let demon = GKEntity()
+      let demonComponent = DemonComponent(generator: self)
+      
+      demon.addComponent(demonComponent)
+      self.demons.append(demon)
+    }
   }
 }

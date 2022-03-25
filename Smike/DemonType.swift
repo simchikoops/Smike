@@ -3,7 +3,7 @@ import SpriteKit
 typealias DemonValues = (imageName: String, frameCount: Int, timePerFrame: Double, entranceImageName: String?, entranceFrameCount: Int, entranceTimePerFrame: Double)
 
 let batValues: DemonValues = (imageName: "bat", frameCount: 1, timePerFrame: 0, entranceImageName: nil, entranceFrameCount: 0, entranceTimePerFrame: 0.0)
-let devilValues: DemonValues = (imageName: "devil", frameCount: 1, timePerFrame: 0, entranceImageName: "devil_dirt", entranceFrameCount: 5, entranceTimePerFrame: 0.18)
+let devilValues: DemonValues = (imageName: "devil", frameCount: 1, timePerFrame: 0.0, entranceImageName: "devil_dirt", entranceFrameCount: 5, entranceTimePerFrame: 0.2)
 let ghostValues: DemonValues = (imageName: "ghost", frameCount: 4, timePerFrame: 0.1, entranceImageName: nil, entranceFrameCount: 0, entranceTimePerFrame: 0.0)
 
 enum DemonType: Int {

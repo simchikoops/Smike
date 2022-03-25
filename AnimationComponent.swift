@@ -5,7 +5,8 @@ class AnimationComponent: GKComponent {
   @GKInspectable var textures: String = ""
   @GKInspectable var frameCount: Int = 1
   @GKInspectable var timePerFrame: CGFloat = 1.0
-  
+  @GKInspectable var repeats: Bool = true
+
   var mainAction: SKAction?
   var unstarted: Bool = true
   
@@ -17,7 +18,7 @@ class AnimationComponent: GKComponent {
     let textures = loadTextures()
     let animation = SKAction.animate(with: textures, timePerFrame: timePerFrame)
 
-    self.mainAction = SKAction.repeatForever(animation)
+    self.mainAction = repeats ? SKAction.repeatForever(animation) : animation
   }
   
   func loadTextures() -> [SKTexture] {
