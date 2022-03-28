@@ -129,13 +129,16 @@ class DemonComponent: GKComponent, Tappable {
     if alongAttackWindow == 0.0 {
       print("not attackable")
       return
-    } else if scene.attackPower < powerCost {
-      // TODO: bad noise
-      print("too much")
-      return
     }
     
-    scene.attackPower -= powerCost
+    if let level = self.entity?.scene.entity?.component(ofType: LevelComponent.self) {
+      if level.attackPower < powerCost {
+        // TODO: bad noise
+        print("too much")
+        return
+      }
+      level.attackPower -= powerCost
+    }
     
     let position = entity!.printNode!.convert(entity!.node.position, from: entity!.node.parent!)
     scene.addContextLabel(printPosition: position, text: "-\(powerCost)", color: costColor(powerCost))
@@ -165,8 +168,8 @@ class DemonComponent: GKComponent, Tappable {
     frameNode?.removeFromParent()
     generator.demons.remove(object: entity!)
     
-    if checkWin, let scene = entity?.scene {
-      scene.checkForWin()
+    if checkWin, let level = entity?.scene.entity?.component(ofType: LevelComponent.self) {
+      level.checkForWin()
     }
     entity?.remove()
   }

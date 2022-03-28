@@ -1,8 +1,5 @@
 # To-do
 
-* Ground demons with digging
-  Depth issue?
-  
 * Tutorial
   Formal Steps; no shaking
   Shoot coins out of Fuji!

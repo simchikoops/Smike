@@ -17,8 +17,8 @@ extension GKEntity {
     return node as! SKSpriteNode
   }
   
-  var scene: LevelScene {
-    return node.scene as! LevelScene
+  var scene: ActionScene {
+    return node.scene as! ActionScene
   }
   
   var printNode: SKNode? {

@@ -1,7 +1,7 @@
 import SpriteKit
 import GameplayKit
 
-class LevelScene: GameScene {
+class ActionScene: GameScene {
   
   var generators: [GKEntity] = []
   var mortals: [GKEntity] = []
@@ -9,25 +9,12 @@ class LevelScene: GameScene {
   var live: Bool = false // can't use isPaused for initial dealy
   var ticks: CGFloat = 0.0
   
-  var mortalsRemaining: Int = 0 {
-    didSet {
-      mortalsRemainingCount?.text = String(mortalsRemaining)
-      mortalsRemainingCount?.fontColor = mortalsRemaining <= 1 ? .red : .black
-    }
-  }
-  
-  var attackPower: Int = 0 {
-    didSet { attackPowerCount?.text = String(attackPower) }
-  }
   var pinches: Int = 0
   var swipes: Int = 0
   
   private var lastUpdateTime: TimeInterval = 0
   private var tapRecognizer: UITapGestureRecognizer? = nil
   
-  private var attackPowerCount: SKLabelNode?
-  private var mortalsRemainingCount: SKLabelNode?
-
   override func sceneDidLoad() {
     physicsWorld.contactDelegate = self
 
@@ -38,25 +25,9 @@ class LevelScene: GameScene {
   // Load finished callback.
   override func didMove(to view: SKView) {
     super.didMove(to: view)
-
-    self.attackPowerCount = self.childNode(withName: "//attack_power_count") as? SKLabelNode
-    self.mortalsRemainingCount = self.childNode(withName: "//mortals_remaining_count") as? SKLabelNode
-
-    if let level = self.entity?.component(ofType: LevelComponent.self) {
-      self.mortalsRemaining = level.mortalAllowance
-      self.attackPower = level.startingAttackPower
-    }
     
     tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped(_:)))
-    view.addGestureRecognizer(tapRecognizer!)
-    
-    if let print = self["print"].first as? SKSpriteNode {
-      let shake = SKAction.shake(initialPosition: print.position, duration: 0.4)
-      print.run(SKAction.sequence([SKAction.wait(forDuration: 2.5), shake]))
-    }
-     
-    run(SKAction.sequence([SKAction.wait(forDuration: 3.0), // contemplate the picture
-                           SKAction.run { self.live = true }]))
+    view.addGestureRecognizer(tapRecognizer!)    
   }
   
   override func willMove(from view: SKView) {
@@ -95,29 +66,7 @@ class LevelScene: GameScene {
       SKAction.removeFromParent()
     ]))
   }
-
   
-  func checkForWin() {
-    guard generators.allSatisfy({ $0.component(ofType: GeneratorComponent.self)!.exhausted }) else { return }
-      
-    print("WON LEVEL")
-    Slot.live.completedLevels.insert(name!)
-      
-    // TODO: report victory
-      
-    Router.it.navigateFrom(name!, completed: true)
-  }
-  
-  func checkForLoss() {
-    guard mortalsRemaining <= 0 else { return }
-
-    print("LOST LEVEL")
-
-    if let name = self.name {
-      Router.it.navigateFrom(name, completed: false)
-    }
-  }
-    
   func powerStrike() {
     guard live else { return }
     

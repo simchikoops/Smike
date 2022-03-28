@@ -1,6 +1,6 @@
 import SpriteKit
 
-extension LevelScene: SKPhysicsContactDelegate {
+extension ActionScene: SKPhysicsContactDelegate {
   func didBegin(_ contact: SKPhysicsContact) {
   }
 }
