@@ -59,6 +59,9 @@
 		55EE3DAB278F4F3E00009573 /* aAsianNinja.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55EE3DAA278F4F3E00009573 /* aAsianNinja.ttf */; };
 		55EE3DAE278F518600009573 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3DAD278F518600009573 /* GameScene.swift */; };
 		55EE3DB02790F08200009573 /* SKSceneExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3DAF2790F08200009573 /* SKSceneExtensions.swift */; };
+		55FA8B0327F23398001CD0C2 /* TutorialComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA8B0227F23398001CD0C2 /* TutorialComponent.swift */; };
+		55FA8B0627F26108001CD0C2 /* Continuable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA8B0527F26108001CD0C2 /* Continuable.swift */; };
+		55FA8B0827F261A7001CD0C2 /* ContinueButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA8B0727F261A7001CD0C2 /* ContinueButtonComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +138,9 @@
 		55EE3DAC278F4FBB00009573 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		55EE3DAD278F518600009573 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		55EE3DAF2790F08200009573 /* SKSceneExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKSceneExtensions.swift; sourceTree = "<group>"; };
+		55FA8B0227F23398001CD0C2 /* TutorialComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialComponent.swift; sourceTree = "<group>"; };
+		55FA8B0527F26108001CD0C2 /* Continuable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Continuable.swift; sourceTree = "<group>"; };
+		55FA8B0727F261A7001CD0C2 /* ContinueButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButtonComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,7 +213,8 @@
 				55AB01D827627B19002FCC4A /* Track.swift */,
 				5537A33C27694585001901C8 /* Slot.swift */,
 				5513638027642327006BC9B1 /* Layers.swift */,
-				55337A532756A1B500407618 /* Components */,
+				55FA8B0427F25FDA001CD0C2 /* Scene Components */,
+				55337A532756A1B500407618 /* Node Components */,
 				555CCC2A27ADCFE000ED5520 /* Extensions */,
 				553A513427BECE4D0053C784 /* Protocols */,
 				551A25982794990600B31388 /* Missions */,
@@ -253,11 +260,10 @@
 			path = Levels;
 			sourceTree = "<group>";
 		};
-		55337A532756A1B500407618 /* Components */ = {
+		55337A532756A1B500407618 /* Node Components */ = {
 			isa = PBXGroup;
 			children = (
 				55C816E72761161400A810EE /* NodeComponent.swift */,
-				553A512A27BAE5900053C784 /* LevelComponent.swift */,
 				555CCC2D27ADD45F00ED5520 /* AnimationComponent.swift */,
 				55BA7CC3277504300078D20F /* TrackDotComponent.swift */,
 				55A44E1B27B4505300348F0A /* PathComponent.swift */,
@@ -269,8 +275,9 @@
 				553A512C27BD51C00053C784 /* DispenserComponent.swift */,
 				553A513027BDD5680053C784 /* CoinComponent.swift */,
 				553A513227BEAD4C0053C784 /* RailComponent.swift */,
+				55FA8B0727F261A7001CD0C2 /* ContinueButtonComponent.swift */,
 			);
-			path = Components;
+			path = "Node Components";
 			sourceTree = "<group>";
 		};
 		55337A582756AD4E00407618 /* Reference Nodes */ = {
@@ -287,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				553A513527BECE810053C784 /* Tappable.swift */,
+				55FA8B0527F26108001CD0C2 /* Continuable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -319,6 +327,15 @@
 				55EE3DAA278F4F3E00009573 /* aAsianNinja.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		55FA8B0427F25FDA001CD0C2 /* Scene Components */ = {
+			isa = PBXGroup;
+			children = (
+				553A512A27BAE5900053C784 /* LevelComponent.swift */,
+				55FA8B0227F23398001CD0C2 /* TutorialComponent.swift */,
+			);
+			path = "Scene Components";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -497,11 +514,14 @@
 				55A44E2027B4673900348F0A /* SKActionExtensions.swift in Sources */,
 				5513637F2763D10F006BC9B1 /* SpriteNodeExtensions.swift in Sources */,
 				55AB01D927627B19002FCC4A /* Track.swift in Sources */,
+				55FA8B0827F261A7001CD0C2 /* ContinueButtonComponent.swift in Sources */,
+				55FA8B0627F26108001CD0C2 /* Continuable.swift in Sources */,
 				5513638127642327006BC9B1 /* Layers.swift in Sources */,
 				55010A9C27518DEC0049E9AE /* AppDelegate.swift in Sources */,
 				55337A572756A57300407618 /* ActionScene.swift in Sources */,
 				55A44E1E27B4511300348F0A /* TracerComponent.swift in Sources */,
 				5537A33D27694585001901C8 /* Slot.swift in Sources */,
+				55FA8B0327F23398001CD0C2 /* TutorialComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

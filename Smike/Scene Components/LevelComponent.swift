@@ -27,6 +27,8 @@ class LevelComponent: GKComponent {
     guard let entity = entity else { return }
     let scene = entity.scene
     
+    scene.live = false
+    
     self.attackPowerCount = scene.childNode(withName: "//attack_power_count") as? SKLabelNode
     self.mortalsRemainingCount = scene.childNode(withName: "//mortals_remaining_count") as? SKLabelNode
 

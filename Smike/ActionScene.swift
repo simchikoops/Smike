@@ -6,7 +6,7 @@ class ActionScene: GameScene {
   var generators: [GKEntity] = []
   var mortals: [GKEntity] = []
   
-  var live: Bool = false // can't use isPaused for initial dealy
+  var live: Bool = true // can't use isPaused for initial dealy
   var ticks: CGFloat = 0.0
   
   var pinches: Int = 0
@@ -17,9 +17,6 @@ class ActionScene: GameScene {
   
   override func sceneDidLoad() {
     physicsWorld.contactDelegate = self
-
-    self.lastUpdateTime = 0
-    self.live = false
   }
   
   // Load finished callback.

@@ -1,7 +1,6 @@
 # To-do
 
 * Tutorial
-  Formal Steps; no shaking
   Shoot coins out of Fuji!
   Not intro/splash; that's different
   "First Skill: Save strength by striking demons when they are close. Don't wait too long!"
