@@ -34,12 +34,12 @@ class MortalComponent: GKComponent {
       SKAction.run {
         scene.mortals.remove(object: self.entity!)
         
-        self.entity!.remove()
-        
         if let level = self.entity?.scene.entity?.component(ofType: LevelComponent.self) {
           level.mortalsRemaining -= 1
           level.checkForLoss()
         }
+        
+        self.entity!.remove()
       }
     ]))
   }

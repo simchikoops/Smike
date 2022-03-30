@@ -7,7 +7,8 @@ struct Router {
   
   // Figure out what scene is appropriate and go there.
   func navigate() {
-    viewController?.loadGameScene("Tutorial") // !!!
+    //viewController?.loadGameScene("Tutorial") // !!!
+    viewController?.loadGameScene("Q1M1L1")
   }
   
   func navigateFrom(_ name: String, completed: Bool) {
