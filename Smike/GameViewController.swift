@@ -33,7 +33,6 @@ class GameViewController: UIViewController {
   override var prefersStatusBarHidden: Bool {
     return true
   }
-  
 
   func loadGameScene(_ sceneFileName: String) {
     guard let gkScene = GKScene(fileNamed: sceneFileName) else {

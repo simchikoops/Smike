@@ -62,6 +62,7 @@
 		55FA8B0327F23398001CD0C2 /* TutorialComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA8B0227F23398001CD0C2 /* TutorialComponent.swift */; };
 		55FA8B0627F26108001CD0C2 /* Continuable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA8B0527F26108001CD0C2 /* Continuable.swift */; };
 		55FA8B0827F261A7001CD0C2 /* ContinueButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA8B0727F261A7001CD0C2 /* ContinueButtonComponent.swift */; };
+		55FA8B0C27F2AA98001CD0C2 /* PauseButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA8B0B27F2AA98001CD0C2 /* PauseButtonComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +142,7 @@
 		55FA8B0227F23398001CD0C2 /* TutorialComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialComponent.swift; sourceTree = "<group>"; };
 		55FA8B0527F26108001CD0C2 /* Continuable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Continuable.swift; sourceTree = "<group>"; };
 		55FA8B0727F261A7001CD0C2 /* ContinueButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButtonComponent.swift; sourceTree = "<group>"; };
+		55FA8B0B27F2AA98001CD0C2 /* PauseButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseButtonComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +277,7 @@
 				553A512C27BD51C00053C784 /* DispenserComponent.swift */,
 				553A513027BDD5680053C784 /* CoinComponent.swift */,
 				553A513227BEAD4C0053C784 /* RailComponent.swift */,
+				55FA8B0B27F2AA98001CD0C2 /* PauseButtonComponent.swift */,
 				55FA8B0727F261A7001CD0C2 /* ContinueButtonComponent.swift */,
 			);
 			path = "Node Components";
@@ -508,6 +511,7 @@
 				553A513627BECE810053C784 /* Tappable.swift in Sources */,
 				5569EE4C278CBBA60030E798 /* Router.swift in Sources */,
 				5593962F27668CA600EFA9F3 /* CoreExtensions.swift in Sources */,
+				55FA8B0C27F2AA98001CD0C2 /* PauseButtonComponent.swift in Sources */,
 				55C816E82761161400A810EE /* NodeComponent.swift in Sources */,
 				55DAB53A2771562500105FC4 /* PhysicsInfo.swift in Sources */,
 				553A512D27BD51C00053C784 /* DispenserComponent.swift in Sources */,

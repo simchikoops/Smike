@@ -8,11 +8,11 @@ class ActionScene: GameScene {
   
   var live: Bool = true // can't use isPaused for initial dealy
   var ticks: CGFloat = 0.0
+  var lastUpdateTime: TimeInterval = 0
   
   var pinches: Int = 0
   var swipes: Int = 0
   
-  private var lastUpdateTime: TimeInterval = 0
   private var tapRecognizer: UITapGestureRecognizer? = nil
   
   override func sceneDidLoad() {
@@ -24,7 +24,15 @@ class ActionScene: GameScene {
     super.didMove(to: view)
     
     tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped(_:)))
-    view.addGestureRecognizer(tapRecognizer!)    
+    view.addGestureRecognizer(tapRecognizer!)
+    
+    // Components in reference nodes don't load (!). Try to remedy that here.
+    if let node = self["//play_pause"].first as? SKSpriteNode {
+      let entity = GKEntity()
+      node.entity = entity
+      entity.addComponent(NodeComponent(node: node))
+      entity.addComponent(PauseButtonComponent())
+    }
   }
   
   override func willMove(from view: SKView) {
@@ -78,22 +86,15 @@ class ActionScene: GameScene {
     let scenePoint = convertPoint(fromView: viewPoint)
     let tapNodes = nodes(at: scenePoint)
     
-    if tapNodes.first(where: { $0.name == "play_pause" }) != nil {
-      self.isPaused = !self.isPaused
-      self.lastUpdateTime = 0
-      
-      if let button = self["//play_pause"].first as? SKSpriteNode {
-        button.texture = SKTexture(imageNamed: (self.isPaused ? "play" : "pause"))
-      }
-    } else if !self.isPaused {
-      if let tappable = tappedEntity(nodes: tapNodes, scenePoint: scenePoint) {
-        tappable.component(conformingTo: Tappable.self)!.tapped()
-      }
+    if let tappable = tappedEntity(nodes: tapNodes, scenePoint: scenePoint) {
+      tappable.component(conformingTo: Tappable.self)!.tapped()
     }
   }
   
   func tappedEntity(nodes: [SKNode], scenePoint: CGPoint) -> GKEntity? {
-    nodes.filter {
+    return nodes.filter {
+      print($0.name)
+      print($0.entity?.components)
       if let tappable = $0.entity?.component(conformingTo: Tappable.self) {
         return tappable.isTappedAt(scenePoint: scenePoint)
       } else {

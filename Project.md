@@ -296,3 +296,11 @@ https://www.hackingwithswift.com/articles/184/tips-to-optimize-your-spritekit-ga
 
 * "Sound effects obtained from https://www.zapsplat.com“
 
+# Notes on Spritekit
+
+Conclusion: Spritekit is a byegone technology that is not well-used or well-maintained.
+
+* Changes to GKInspectable does not save without adding/removing some other component.
+* SKReferenceNodes do not copy attached GKComponents (!).
+* Scrolling sticks to mouse in SKScene.
+* Animation composition in scene editor is buggy.
